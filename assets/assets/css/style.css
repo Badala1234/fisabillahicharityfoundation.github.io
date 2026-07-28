@@ -1,86 +1,350 @@
+/* =========================================
+   FISABILLAHI CHARITY FOUNDATION
+   MAIN WEBSITE STYLES
+========================================= */
 
-/* ===== GLOBAL ===== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f8f9fa;
-    color:#222;
-    line-height:1.6;
+:root {
+    --green: #087a3d;
+    --dark-green: #04552b;
+    --light-green: #eaf7ef;
+    --gold: #d4af37;
+    --dark: #17221b;
+    --text: #333;
+    --white: #ffffff;
+    --light: #f7faf8;
+    --border: #e2e8e4;
 }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
+html {
+    scroll-behavior: smooth;
 }
 
-/* ===== HEADER ===== */
-
-header{
-    background:#0B7A3D;
-    color:#fff;
-    padding:20px 0;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.7;
 }
 
-header .container{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
+a {
+    text-decoration: none;
 }
 
-.logo{
-    font-size:28px;
-    font-weight:bold;
+img {
+    max-width: 100%;
+    display: block;
 }
 
-nav a{
-    color:#fff;
-    text-decoration:none;
-    margin-left:20px;
-    font-weight:bold;
+.container {
+    width: 90%;
+    max-width: 1180px;
+    margin: auto;
 }
 
-nav a:hover{
-    color:#D4AF37;
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
 }
 
-/* ===== HERO ===== */
-
-.hero{
-    background:#0B7A3D;
-    color:#fff;
-    text-align:center;
-    padding:100px 20px;
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
 }
 
-.hero h1{
-    font-size:48px;
-    margin-bottom:20px;
+.logo {
+    color: var(--green);
+    font-size: 25px;
+    font-weight: 800;
 }
 
-.hero p{
-    font-size:20px;
-    max-width:700px;
-    margin:0 auto 30px;
+nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
 }
 
-.btn{
-    display:inline-block;
-    background:#D4AF37;
-    color:#222;
-    text-decoration:none;
-    padding:15px 30px;
-    border-radius:8px;
-    font-weight:bold;
+nav a {
+    color: var(--dark);
+    font-weight: 600;
+    transition: 0.3s;
 }
 
-.btn:hover{
-    background:#c39b2d;
+nav a:hover {
+    color: var(--green);
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    background:
+        linear-gradient(
+            rgba(4, 85, 43, 0.92),
+            rgba(8, 122, 61, 0.88)
+        );
+    color: var(--white);
+    text-align: center;
+    padding: 110px 20px;
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.hero h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 19px;
+    max-width: 750px;
+    margin: 0 auto 35px;
+    opacity: 0.95;
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #161616;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-weight: 800;
+    border: 2px solid var(--gold);
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about-preview {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.about-content {
+    max-width: 900px;
+    margin: auto;
+}
+
+.about-content h2 {
+    color: var(--green);
+    font-size: 34px;
+    margin: 25px 0 12px;
+}
+
+.about-content h2:first-child {
+    margin-top: 0;
+}
+
+.about-content p {
+    margin-bottom: 18px;
+    font-size: 17px;
+}
+
+/* =========================================
+   IMPACT CARDS
+========================================= */
+
+.impact {
+    padding: 75px 0;
+    background: var(--light-green);
+}
+
+.impact .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.impact-card {
+    background: var(--white);
+    padding: 35px 20px;
+    text-align: center;
+    border-radius: 15px;
+    border-bottom: 4px solid var(--gold);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    transition: 0.3s;
+}
+
+.impact-card:hover {
+    transform: translateY(-7px);
+}
+
+.impact-card h2 {
+    color: var(--green);
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.impact-card p {
+    font-weight: 700;
+    color: var(--dark);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background: var(--dark-green);
+    color: var(--white);
+    padding: 65px 0 20px;
+    margin-top: 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+}
+
+footer h3 {
+    color: var(--gold);
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+footer h4 {
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+footer p {
+    color: #e4eee8;
+    margin-bottom: 8px;
+}
+
+footer a {
+    color: #e4eee8;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    margin-top: 45px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 18px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .impact .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .hero {
+        padding: 65px 18px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .about-preview {
+        padding: 55px 0;
+    }
+
+    .about-content h2 {
+        font-size: 28px;
+    }
+
+    .impact {
+        padding: 55px 0;
+    }
+
+    .impact .container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    footer {
+        padding-top: 50px;
+    }
 }

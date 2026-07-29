@@ -252,4 +252,88 @@ footer a:hover {
 }
 
 .copyright {
-    border-top: 1px solid rgba(255,255,
+    border-top: 1px solid rgba(255,255,/* ACTIVE PAGE */
+nav a.active {
+    color: var(--green);
+    position: relative;
+}
+
+nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -7px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+/* SCROLL INDICATOR */
+.scroll-down {
+    display: inline-block;
+    margin-top: 28px;
+    color: var(--gold);
+    font-size: 16px;
+    font-weight: 700;
+    animation: scrollBounce 1.8s infinite;
+}
+
+.scroll-down span {
+    display: block;
+    font-size: 28px;
+    line-height: 1;
+}
+
+@keyframes scrollBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+/* BACK TO TOP */
+.back-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--green);
+    color: white;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 5px 18px rgba(0,0,0,.2);
+    z-index: 999;
+    transition: .3s;
+}
+
+.back-to-top:hover {
+    background: var(--gold);
+    color: #111;
+    transform: translateY(-4px);
+}
+
+/* MOBILE */
+@media (max-width: 550px) {
+
+    nav a.active::after {
+        bottom: -4px;
+    }
+
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        right: 15px;
+        bottom: 15px;
+        font-size: 19px;
+    }
+}

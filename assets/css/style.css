@@ -397,3 +397,11 @@ footer a:hover {
         font-size: 30px;
     }
 }
+/* GOLD SCROLL LINK */
+.scroll-down {
+    color: var(--gold) !important;
+}
+
+.scroll-down:hover {
+    color: var(--white) !important;
+}

@@ -56,7 +56,7 @@
 </section>
 
 
-<!-- DONATION INTRO -->
+<!-- INTRO -->
 <section class="about-preview" id="main-content">
 
     <div class="container">
@@ -66,14 +66,14 @@
             <h2>Give for the Sake of Allah</h2>
 
             <p>
-                Every contribution, no matter how small, can become a
-                means of bringing hope and relief to someone in need.
+                Every contribution, no matter how small, can become
+                a means of bringing hope and relief to someone in need.
             </p>
 
             <p>
-                Your support helps Fisabillahi Charity Foundation carry
-                out humanitarian activities and reach vulnerable people
-                in our communities.
+                Your support helps Fisabillahi Charity Foundation
+                carry out humanitarian activities and reach vulnerable
+                people in our communities.
             </p>
 
         </div>
@@ -83,7 +83,7 @@
 </section>
 
 
-<!-- DONATION OPTIONS -->
+<!-- WHAT YOUR DONATION SUPPORTS -->
 <section class="impact">
 
     <div class="container">
@@ -155,41 +155,153 @@
 
         <div class="about-content">
 
-            <h2>How to Donate</h2>
-
-            <p>
-                You can support our humanitarian activities through
-                the official foundation account.
-            </p>
+            <h2>Donate Directly</h2>
 
             <div class="donation-card">
 
-                <h3>Fisabillahi Charity Foundation</h3>
+                <h3>Fisabillillahi Charity Foundation</h3>
 
                 <p>
-                    <strong>Bank:</strong> Coming Soon
+                    <strong>Bank:</strong>
+                    Moniepoint MFB
                 </p>
 
                 <p>
                     <strong>Account Name:</strong>
-                    Fisabillahi Charity Foundation
+                    Fisabillillahi Charity Foundation
                 </p>
 
                 <p>
                     <strong>Account Number:</strong>
-                    Coming Soon
+                    <span id="accountNumber">6959530406</span>
                 </p>
+
+                <button class="btn" onclick="copyAccountNumber()">
+                    Copy Account Number
+                </button>
+
+                <p id="copyMessage"></p>
 
             </div>
 
             <p>
-                Please contact us if you would like to confirm donation
-                details before making a contribution.
+                Please confirm the account name before making your donation.
+                May Allah reward you abundantly for your generosity.
             </p>
 
-            <a href="contact.html" class="btn">
-                Contact Us
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT / SOCIAL -->
+<section class="impact">
+
+    <div class="container">
+
+        <div class="contact-card">
+
+            <h2>Contact Us</h2>
+
+            <h3>Phone / WhatsApp</h3>
+
+            <p>
+                <a href="tel:+2349036114093">
+                    +234 903 611 4093
+                </a>
+            </p>
+
+            <p>
+                <a href="tel:+2347061035705">
+                    +234 706 103 5705
+                </a>
+            </p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <h2>Facebook</h2>
+
+            <h3>Fisabillahi Charity Foundation</h3>
+
+            <p>
+                Follow our official Facebook account for updates
+                about our activities and humanitarian projects.
+            </p>
+
+            <p>
+                <strong>Facebook:</strong>
+                Fisabillahi Charity Foundation
+            </p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <h2>WhatsApp Group</h2>
+
+            <h3>Join Our Community</h3>
+
+            <p>
+                Join our WhatsApp group to receive updates about
+                our activities, projects and opportunities to help.
+            </p>
+
+            <a
+                href="https://chat.whatsapp.com/BlqeM6ABiBJ9QGjSAMKtlB"
+                class="btn"
+                target="_blank"
+                rel="noopener">
+                Join WhatsApp Group
             </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <h2>Email</h2>
+
+            <h3>Send Us a Message</h3>
+
+            <p>
+                <a href="mailto:fisabilillahicharityfoundation@gmail.com">
+                    fisabilillahicharityfoundation@gmail.com
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LOCATION -->
+<section class="about-preview">
+
+    <div class="container">
+
+        <div class="about-content">
+
+            <h2>Our Location</h2>
+
+            <div class="contact-card">
+
+                <h3>Fisabillahi Charity Foundation</h3>
+
+                <p>
+                    Along Maigatari Road,
+                    Gumel L.G.A.,
+                    Jigawa State, Nigeria.
+                </p>
+
+            </div>
 
         </div>
 
@@ -206,12 +318,12 @@
         <h2>Together We Can Make a Difference</h2>
 
         <p>
-            May Allah reward everyone who supports our efforts to serve
-            humanity and help those in need.
+            Your support, prayers and generosity can help us reach
+            more people and make a meaningful difference.
         </p>
 
         <a href="contact.html" class="btn">
-            Get in Touch
+            Contact Us
         </a>
 
     </div>
@@ -295,6 +407,27 @@
 <a href="#top" class="back-to-top" aria-label="Back to top">
     ↑
 </a>
+
+
+<script>
+function copyAccountNumber() {
+
+    const accountNumber =
+        document.getElementById("accountNumber").innerText;
+
+    navigator.clipboard.writeText(accountNumber).then(function () {
+
+        document.getElementById("copyMessage").innerText =
+            "Account number copied successfully ✓";
+
+    }).catch(function () {
+
+        document.getElementById("copyMessage").innerText =
+            "Please copy the account number manually.";
+
+    });
+}
+</script>
 
 
 </body>

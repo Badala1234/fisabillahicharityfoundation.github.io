@@ -2,310 +2,1024 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>Become a Member | Fisabilillahi Charity Foundation</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Join Fisabilillahi Charity Foundation and become part of our humanitarian mission.">
 
-<title>Become a Member | Fisabilillahi Charity Foundation</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 
-<meta name="description"
-content="Join Fisabilillahi Charity Foundation and become part of our humanitarian mission.">
+    <style>
+        .register-section {
+            padding: 80px 20px;
+        }
 
-<link rel="stylesheet" href="assets/css/style.css">
+        .register-wrapper {
+            max-width: 900px;
+            margin: auto;
+        }
 
+        .register-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .register-intro h2 {
+            margin-bottom: 15px;
+        }
+
+        .register-form {
+            background: #fff;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .password-note {
+            font-size: 13px;
+            margin-top: 6px;
+            opacity: 0.7;
+        }
+
+        .terms {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            margin: 20px 0;
+        }
+
+        .terms input {
+            margin-top: 5px;
+        }
+
+        .terms label {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .form-message {
+            display: none;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .form-message.success {
+            display: block;
+            background: #e8f7ee;
+            color: #176b3a;
+        }
+
+        .form-message.error {
+            display: block;
+            background: #fdeaea;
+            color: #a32020;
+        }
+
+        .submit-button {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .login-note {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .benefits {
+            padding: 80px 20px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .benefit-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .benefit-card .icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 800px) {
+            .benefits-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .register-form {
+                padding: 22px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body id="top">
 
-
 <header>
+    <div class="container">
 
-<div class="container">
+        <h2 class="logo">
+            Fisabilillahi Charity Foundation
+        </h2>
 
-<h2 class="logo">
-Fisabilillahi Charity Foundation
-</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="donate.html">Donate</a>
+            <a href="register.html" class="active">Become a Member</a>
+            <a href="contact.html">Contact</a>
+        </nav>
 
-<nav>
-
-<a href="index.html">Home</a>
-
-<a href="about.html">About</a>
-
-<a href="projects.html">Projects</a>
-
-<a href="gallery.html">Gallery</a>
-
-<a href="donate.html">Donate</a>
-
-<a href="register.html" class="active">
-Become a Member
-</a>
-
-<a href="contact.html">Contact</a>
-
-</nav>
-
-</div>
-
+    </div>
 </header>
-
 
 
 <!-- HERO -->
 
 <section class="hero">
 
-<div class="hero-content">
+    <div class="hero-content">
 
-<h1>Become a Member</h1>
+        <h1>Become a Member</h1>
 
-<p>
+        <p>
+            Join Fisabilillahi Charity Foundation and become part
+            of a growing community committed to serving humanity
+            for the sake of Allah.
+        </p>
 
-Join Fisabilillahi Charity Foundation
-and become part of a growing community
-serving humanity for the sake of Allah.
+        <a href="#registration" class="scroll-down">
+            Register Now
+            <span>↓</span>
+        </a>
 
-</p>
+    </div>
 
-<a href="#registration"
-class="scroll-down">
+</section>
 
-Scroll Down
 
-<span>↓</span>
+<!-- MEMBERSHIP BENEFITS -->
+
+<section class="benefits">
+
+    <div class="container">
+
+        <div class="about-content" style="text-align:center; margin-bottom:40px;">
+
+            <h2>Why Become a Member?</h2>
+
+            <p>
+                By becoming a member, you become part of our
+                humanitarian community and help us reach more people
+                in need.
+            </p>
+
+        </div>
+
+
+        <div class="benefits-grid">
+
+            <div class="benefit-card">
+
+                <div class="icon">❤️</div>
+
+                <h3>Serve Humanity</h3>
+
+                <p>
+                    Support charitable activities that help vulnerable
+                    people and communities.
+                </p>
+
+            </div>
+
+
+            <div class="benefit-card">
+
+                <div class="icon">📚</div>
+
+                <h3>Support Education</h3>
+
+                <p>
+                    Help children and students access education and
+                    better opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="benefit-card">
+
+                <div class="icon">🤝</div>
+
+                <h3>Join Our Community</h3>
+
+                <p>
+                    Become part of a growing network of people
+                    supporting our mission.
+                </p>
+
+            </div>
+
+
+            <div class="benefit-card">
+
+                <div class="icon">🤲</div>
+
+                <h3>Earn Reward</h3>
+
+                <p>
+                    Your support can become a source of continuous
+                    reward, In Shaa Allah.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- REGISTRATION -->
+
+<section class="register-section" id="registration">
+
+    <div class="register-wrapper">
+
+        <div class="register-intro">
+
+            <h2>Membership Registration</h2>
+
+            <p>
+                Please complete the form below with accurate
+                information to create your membership account.
+            </p>
+
+        </div>
+
+
+        <form id="memberForm" class="register-form">
+
+            <div id="formMessage" class="form-message"></div>
+
+
+            <!-- PERSONAL INFORMATION -->
+
+            <h3>Personal Information</h3>
+
+            <br>
+
+
+            <div class="form-group">
+
+                <label for="full_name">
+                    Full Name *
+                </label>
+
+                <input
+                    type="text"
+                    id="full_name"
+                    required
+                    autocomplete="name"
+                    placeholder="Enter your full name">
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address *
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        required
+                        autocomplete="email"
+                        placeholder="example@email.com">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        required
+                        autocomplete="tel"
+                        placeholder="+234...">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="nationality">
+                        Nationality *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nationality"
+                        required
+                        placeholder="e.g. Nigerian">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="state">
+                        State *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="state"
+                        required
+                        placeholder="Enter your state">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="lga">
+                        Local Government Area *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="lga"
+                        required
+                        placeholder="Enter your LGA">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="address">
+                        Residential Address *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="address"
+                        required
+                        autocomplete="street-address"
+                        placeholder="Enter your address">
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+
+            <!-- DONATION INFORMATION -->
+
+            <h3>Membership & Donation</h3>
+
+            <br>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="donation_frequency">
+                        Donation Frequency *
+                    </label>
+
+                    <select id="donation_frequency" required>
+
+                        <option value="">
+                            Select frequency
+                        </option>
+
+                        <option value="Monthly">
+                            Monthly
+                        </option>
+
+                        <option value="Every 3 Months">
+                            Every 3 Months
+                        </option>
+
+                        <option value="Every 6 Months">
+                            Every 6 Months
+                        </option>
+
+                        <option value="Occasionally">
+                            Occasionally
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="donation_amount">
+                        Donation Amount (₦) *
+                    </label>
+
+                    <input
+                        type="number"
+                        id="donation_amount"
+                        min="0"
+                        step="1"
+                        required
+                        placeholder="e.g. 500">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="membership_reason">
+                    Why do you want to become a member? *
+                </label>
+
+                <textarea
+                    id="membership_reason"
+                    rows="5"
+                    required
+                    placeholder="Tell us briefly why you want to become a member..."></textarea>
+
+            </div>
+
+
+            <br>
+
+
+            <!-- ACCOUNT SECURITY -->
+
+            <h3>Account Security</h3>
+
+            <br>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password *
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        required
+                        minlength="6"
+                        autocomplete="new-password"
+                        placeholder="Create a password">
+
+                    <div class="password-note">
+                        Password must contain at least 6 characters.
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="confirm_password">
+                        Confirm Password *
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirm_password"
+                        required
+                        minlength="6"
+                        autocomplete="new-password"
+                        placeholder="Confirm your password">
+
+                </div>
+
+            </div>
+
+
+            <!-- DECLARATION -->
+
+            <div class="terms">
+
+                <input
+                    type="checkbox"
+                    id="agreement"
+                    required>
+
+                <label for="agreement">
+
+                    I agree to support the objectives of
+                    Fisabilillahi Charity Foundation and confirm
+                    that the information I have provided is correct.
+
+                </label>
+
+            </div>
+
+
+            <button
+                type="submit"
+                id="submitButton"
+                class="btn submit-button">
+
+                Create Membership Account
+
+            </button>
+
+
+            <div class="login-note">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login here
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- CALL TO ACTION -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h2>Together We Can Make a Difference</h2>
+
+        <p>
+            Your membership and support can help us reach more
+            vulnerable people and create meaningful change.
+        </p>
+
+        <a href="donate.html" class="btn">
+            Support Our Mission
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <h3>Fisabilillahi Charity Foundation</h3>
+
+                <p>
+                    Serving humanity for the sake of Allah.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Quick Links</h4>
+
+                <p>
+                    <a href="index.html">Home</a>
+                </p>
+
+                <p>
+                    <a href="about.html">About</a>
+                </p>
+
+                <p>
+                    <a href="projects.html">Projects</a>
+                </p>
+
+                <p>
+                    <a href="gallery.html">Gallery</a>
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Get Involved</h4>
+
+                <p>
+                    <a href="donate.html">Donate</a>
+                </p>
+
+                <p>
+                    <a href="register.html">Become a Member</a>
+                </p>
+
+                <p>
+                    <a href="contact.html">Contact Us</a>
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <p>
+                © 2026 Fisabilillahi Charity Foundation.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<a href="#top"
+   class="back-to-top"
+   aria-label="Back to top">
+
+    ↑
 
 </a>
 
-</div>
 
-</section>
+<!-- SUPABASE -->
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
-<!-- WHY JOIN -->
+<script>
 
-<section class="impact">
+const SUPABASE_URL =
+    "https://cukmnyotqsqonwnjqyfj.supabase.co";
 
-<div class="container">
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_ltaNA7nnVozoSCOcZIjg";
 
-<div class="about-content">
 
-<h2>
-Why Become a Member?
-</h2>
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
 
-<p>
 
-As a member, you become part of a
-humanitarian family committed to helping
-those in need and creating lasting impact.
+const memberForm =
+    document.getElementById("memberForm");
 
-</p>
+const formMessage =
+    document.getElementById("formMessage");
 
-</div>
+const submitButton =
+    document.getElementById("submitButton");
 
 
+function showMessage(message, type) {
 
-<div class="donation-card">
+    formMessage.textContent = message;
 
-<h2>❤️</h2>
+    formMessage.className =
+        "form-message " + type;
 
-<h3>Serve Humanity</h3>
+}
 
-<p>
 
-Support charitable activities
-that change lives.
+memberForm.addEventListener(
+    "submit",
+    async function(event) {
 
-</p>
+        event.preventDefault();
 
-</div>
 
+        const fullName =
+            document.getElementById("full_name")
+                .value.trim();
 
+        const email =
+            document.getElementById("email")
+                .value.trim();
 
-<div class="donation-card">
+        const phone =
+            document.getElementById("phone")
+                .value.trim();
 
-<h2>📚</h2>
+        const nationality =
+            document.getElementById("nationality")
+                .value.trim();
 
-<h3>Support Education</h3>
+        const state =
+            document.getElementById("state")
+                .value.trim();
 
-<p>
+        const lga =
+            document.getElementById("lga")
+                .value.trim();
 
-Help children and students
-access quality education.
+        const address =
+            document.getElementById("address")
+                .value.trim();
 
-</p>
+        const donationFrequency =
+            document.getElementById("donation_frequency")
+                .value;
 
-</div>
+        const donationAmount =
+            Number(
+                document.getElementById("donation_amount")
+                    .value
+            );
 
+        const membershipReason =
+            document.getElementById("membership_reason")
+                .value.trim();
 
+        const password =
+            document.getElementById("password")
+                .value;
 
-<div class="donation-card">
+        const confirmPassword =
+            document.getElementById("confirm_password")
+                .value;
 
-<h2>🤝</h2>
 
-<h3>Join Our Community</h3>
+        showMessage("", "");
 
-<p>
 
-Become part of a trusted
-humanitarian network.
+        if (password !== confirmPassword) {
 
-</p>
+            showMessage(
+                "Passwords do not match.",
+                "error"
+            );
 
-</div>
+            return;
+        }
 
 
+        if (password.length < 6) {
 
-<div class="donation-card">
+            showMessage(
+                "Password must contain at least 6 characters.",
+                "error"
+            );
 
-<h2>🤲</h2>
+            return;
+        }
 
-<h3>Earn Continuous Reward</h3>
 
-<p>
+        if (donationAmount < 0) {
 
-Every contribution can become
-Sadaqah Jariyah,
-In Shaa Allah.
+            showMessage(
+                "Please enter a valid donation amount.",
+                "error"
+            );
 
-</p>
+            return;
+        }
 
-</div>
 
-</div>
+        submitButton.disabled = true;
 
-</section>
-  <!-- REGISTRATION FORM -->
+        submitButton.textContent =
+            "Creating Account...";
 
-<section class="about-preview" id="registration">
 
-<div class="container">
+        try {
 
-<div class="about-content">
+            /*
+             * STEP 1
+             * Create Supabase Auth account.
+             */
 
-<h2>Membership Registration</h2>
+            const {
+                data: authData,
+                error: authError
+            } =
+                await supabaseClient.auth.signUp({
 
-<p>
+                    email: email,
 
-Complete the form below to become an
-official member of Fisabilillahi Charity Foundation.
+                    password: password,
 
-</p>
+                    options: {
 
-</div>
+                        data: {
 
-<form id="memberForm" class="contact-form">
+                            full_name: fullName
 
-<input type="text"
-id="full_name"
-placeholder="Full Name"
-required>
+                        }
 
-<input type="email"
-id="email"
-placeholder="Email Address"
-required>
+                    }
 
-<input type="password"
-id="password"
-placeholder="Password"
-required>
+                });
 
-<input type="password"
-id="confirm_password"
-placeholder="Confirm Password"
-required>
 
-<input type="text"
-id="phone"
-placeholder="Phone Number"
-required>
+            if (authError) {
 
-<input type="text"
-id="nationality"
-placeholder="Nationality"
-required>
+                throw authError;
 
-<input type="text"
-id="state"
-placeholder="State"
-required>
+            }
 
-<input type="text"
-id="lga"
-placeholder="Local Government Area"
-required>
 
-<textarea
-id="address"
-placeholder="Residential Address"
-rows="3"
-required></textarea>
+            if (!authData.user) {
 
-<select id="donation_frequency" required>
+                throw new Error(
+                    "Account could not be created."
+                );
 
-<option value="">
-Donation Frequency
-</option>
+            }
 
-<option value="Monthly">
-Monthly
-</option>
 
-<option value="Every 3 Months">
-Every 3 Months
-</option>
+            /*
+             * STEP 2
+             * Save member profile.
+             */
 
-<option value="Every 6 Months">
-Every 6 Months
-</option>
+            const { error: memberError } =
+                await supabaseClient
+                    .from("Members")
+                    .insert({
 
-<option value="Occasionally">
-Occasionally
-</option>
+                        id: authData.user.id,
 
-</select>
+                        full_name: fullName,
 
-<input
-type="number"
-id="donation_amount"
-placeholder="Donation Amount (₦)"
-required>
+                        email: email,
 
-<textarea
-id="membership_reason"
-placeholder="Why do you want to become a member?"
-rows="5"
-required></textarea>
+                        phone: phone,
 
-<label>
+                        nationality: nationality,
 
-<input
-type="checkbox"
-required>
+                        state: state,
 
-I agree to support the objectives of
-Fisabilillahi Charity Foundation
-and confirm that the information
-provided is correct.
+                        lga: lga,
 
-</label>
+                        address: address,
 
-<br><br>
+                        donation_frequency:
+                            donationFrequency,
 
-<button
-type="submit"
-class="btn">
+                        donation_amount:
+                            donationAmount,
 
-Create Membership Account
+                        membership_reason:
+                            membershipReason,
 
-</button>
+                        membership_status:
+                            "Pending"
 
-</form>
+                    });
 
-</div>
 
-</section>
+            if (memberError) {
+
+                throw memberError;
+
+            }
+
+
+            /*
+             * STEP 3
+             * Success message.
+             */
+
+            showMessage(
+
+                "Registration successful! Please check your email and verify your account before logging in.",
+
+                "success"
+
+            );
+
+
+            memberForm.reset();
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            showMessage(
+
+                error.message ||
+                "Registration failed. Please try again.",
+
+                "error"
+
+            );
+
+        } finally {
+
+            submitButton.disabled = false;
+
+            submitButton.textContent =
+                "Create Membership Account";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>

@@ -1,1 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Member Login | Fisabilillahi Charity Foundation</title>
+
+  <meta
+    name="description"
+    content="Member login for Fisabilillahi Charity Foundation."
+  >
+
+  <style>
+    :root {
+      --green: #087443;
+      --dark-green: #045c34;
+      --gold: #d4af37;
+      --white: #ffffff;
+      --light: #f5f8f6;
+      --text: #222222;
+      --muted: #666666;
+      --border: #dddddd;
+      --danger: #b3261e;
+      --success: #167044;
+      --shadow: 0 10px 35px rgba(0, 0, 0, 0.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+      background: var(--white);
+      border-bottom: 3px solid var(--gold);
+      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+    }
+
+    .nav-container {
+      width: min(1150px, 94%);
+      min-height: 75px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--green);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    nav a {
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 7px;
+      font-weight: 600;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--green);
+      background: #edf7f2;
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: var(--green);
+      color: white;
+      width: 44px;
+      height: 42px;
+      border-radius: 7px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       LOGIN AREA
+    ========================== */
+
+    .login-section {
+      min-height: calc(100vh - 75px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .login-wrapper {
+      width: 100%;
+      max-width: 470px;
+    }
+
+    .login-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .login-logo {
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      border: 4px solid var(--gold);
+    }
+
+    .login-card h1 {
+      text-align: center;
+      color: var(--green);
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    /* =========================
+       MESSAGE
+    ========================== */
+
+    .message {
+      display: none;
+      padding: 14px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .message.error {
+      display: block;
+      background: #fdecec;
+      color: var(--danger);
+      border: 1px solid #f2bcbc;
+    }
+
+    .message.success {
+      display: block;
+      background: #e9f7ef;
+      color: var(--success);
+      border: 1px solid #b9e4c9;
+    }
+
+    /* =========================
+       FORM
+    ========================== */
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #cccccc;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    .form-group input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(8,116,67,0.08);
+    }
+
+    .password-row {
+      position: relative;
+    }
+
+    .password-row input {
+      padding-right: 85px;
+    }
+
+    .show-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: transparent;
+      color: var(--green);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* =========================
+       LOGIN BUTTON
+    ========================== */
+
+    .login-btn {
+      width: 100%;
+      border: none;
+      background: var(--green);
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 5px;
+    }
+
+    .login-btn:hover {
+      background: var(--dark-green);
+    }
+
+    .login-btn:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    /* =========================
+       LINKS
+    ========================== */
+
+    .forgot {
+      text-align: right;
+      margin-top: 12px;
+    }
+
+    .forgot a {
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .register-link {
+      text-align: center;
+      margin-top: 25px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .register-link a {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .home-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .home-link a {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .home-link a:hover {
+      color: var(--green);
+    }
+
+    /* =========================
+       NOTICE
+    ========================== */
+
+    .notice {
+      margin-top: 25px;
+      padding: 14px;
+      background: #fffdf5;
+      border: 1px solid #eadb9c;
+      border-radius: 8px;
+      color: #695a1c;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: #063b24;
+      color: white;
+      padding: 25px 0;
+      text-align: center;
+    }
+
+    footer p {
+      color: #d5e5dd;
+      font-size: 14px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 850px) {
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 12px 5%;
+        flex-direction: column;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        border-bottom: 3px solid var(--gold);
+        z-index: 100;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      .login-section {
+        padding: 35px 15px;
+      }
+
+      .login-card {
+        padding: 28px 20px;
+      }
+
+      .login-card h1 {
+        font-size: 28px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="nav-container">
+
+      <a href="index.html" class="logo">
+        Fisabilillahi <span>Charity Foundation</span>
+      </a>
+
+      <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Open menu">
+        ☰
+      </button>
+
+      <nav id="mainNav">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About
+        </a>
+
+        <a href="projects.html">
+          Projects
+        </a>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="donate.html">
+          Donate
+        </a>
+
+        <a href="register.html">
+          Register
+        </a>
+
+        <a href="login.html" class="active">
+          Login
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- LOGIN -->
+
+  <main>
+
+    <section class="login-section">
+
+      <div class="login-wrapper">
+
+        <div class="login-card">
+
+
+          <div class="login-logo">
+            🤝
+          </div>
+
+
+          <h1>
+            Member Login
+          </h1>
+
+
+          <p class="subtitle">
+            Login to access your Fisabilillahi Charity
+            Foundation member account.
+          </p>
+
+
+          <div
+            id="message"
+            class="message">
+          </div>
+
+
+          <form
+            id="loginForm"
+            novalidate>
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+              <label for="email">
+                Email Address
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email address"
+                autocomplete="email"
+                required>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+
+              <label for="password">
+                Password
+              </label>
+
+              <div class="password-row">
+
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  autocomplete="current-password"
+                  required>
+
+                <button
+                  type="button"
+                  class="show-password"
+                  onclick="togglePassword()">
+
+                  Show
+
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- LOGIN -->
+
+            <button
+              type="submit"
+              class="login-btn"
+              id="loginButton">
+
+              Login
+
+            </button>
+
+
+            <!-- FORGOT PASSWORD -->
+
+            <div class="forgot">
+
+              <a href="forgot-password.html">
+                Forgot your password?
+              </a>
+
+            </div>
+
+
+          </form>
+
+
+          <!-- REGISTER -->
+
+          <div class="register-link">
+
+            Don't have a member account?
+
+            <a href="register.html">
+              Register here
+            </a>
+
+          </div>
+
+
+          <!-- HOME -->
+
+          <div class="home-link">
+
+            <a href="index.html">
+              ← Back to Home
+            </a>
+
+          </div>
+
+
+          <!-- NOTICE -->
+
+          <div class="notice">
+
+            Member login is currently being prepared.
+            Online authentication will be activated
+            when the membership database is connected.
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © <span id="year"></span>
+      Fisabilillahi Charity Foundation.
+      All Rights Reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    /* Mobile menu */
+
+    function toggleMenu() {
+
+      const nav =
+        document.getElementById("mainNav");
+
+      nav.classList.toggle("show");
+
+    }
+
+
+    /* Close mobile menu */
+
+    document
+      .querySelectorAll("#mainNav a")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+          document
+            .getElementById("mainNav")
+            .classList.remove("show");
+
+        });
+
+      });
+
+
+    /* Show / hide password */
+
+    function togglePassword() {
+
+      const password =
+        document.getElementById("password");
+
+      const button =
+        document.querySelector(".show-password");
+
+
+      if (password.type === "password") {
+
+        password.type = "text";
+
+        button.textContent = "Hide";
+
+      } else {
+
+        password.type = "password";
+
+        button.textContent = "Show";
+
+      }
+
+    }
+
+
+    /* Message */
+
+    function showMessage(text, type) {
+
+      const message =
+        document.getElementById("message");
+
+      message.textContent = text;
+
+      message.className =
+        "message " + type;
+
+    }
+
+
+    /* Login form */
+
+    document
+      .getElementById("loginForm")
+      .addEventListener(
+        "submit",
+        function(event) {
+
+          event.preventDefault();
+
+
+          const email =
+            document
+              .getElementById("email")
+              .value
+              .trim();
+
+          const password =
+            document
+              .getElementById("password")
+              .value;
+
+
+          if (!email || !password) {
+
+            showMessage(
+              "Please enter your email address and password.",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          if (!email.includes("@")) {
+
+            showMessage(
+              "Please enter a valid email address.",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          if (password.length < 6) {
+
+            showMessage(
+              "Password must contain at least 6 characters.",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          /*
+            SUPABASE AUTHENTICATION WILL BE CONNECTED
+            AFTER THE SUPABASE PROJECT IS ACTIVE AGAIN.
+          */
+
+
+          showMessage(
+            "

@@ -10,6 +10,7 @@
 content="Fisabilillahi Charity Foundation - Serving humanity for the sake of Allah.">
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -23,9 +24,8 @@ body{
   line-height:1.6;
 }
 
-a{
-  text-decoration:none;
-}
+
+/* HEADER */
 
 header{
   background:#fff;
@@ -46,7 +46,8 @@ header{
 
 .logo{
   color:#087443;
-  font-size:20px;
+  text-decoration:none;
+  font-size:21px;
   font-weight:bold;
 }
 
@@ -56,9 +57,9 @@ header{
 
 .menu{
   display:none;
-  border:0;
   background:#087443;
   color:#fff;
+  border:0;
   padding:9px 13px;
   border-radius:7px;
   font-size:21px;
@@ -73,17 +74,23 @@ nav{
 
 nav a{
   color:#222;
-  padding:8px 9px;
-  font-size:14px;
+  text-decoration:none;
+  font-size:13px;
   font-weight:bold;
+  padding:8px;
   border-radius:6px;
 }
 
 nav a:hover,
 nav a.active{
-  color:#087443;
   background:#edf7f2;
+  color:#087443;
 }
+
+nav a.admin{
+  color:#8a6500;
+}
+
 
 /* HERO */
 
@@ -96,7 +103,7 @@ nav a.active{
 
 .hero h1{
   font-size:46px;
-  margin-bottom:12px;
+  margin-bottom:15px;
 }
 
 .hero h1 span{
@@ -105,12 +112,13 @@ nav a.active{
 
 .hero p{
   max-width:760px;
-  margin:0 auto 25px;
-  font-size:18px;
+  margin:auto;
+  font-size:19px;
   color:#edf7f2;
 }
 
 .buttons{
+  margin-top:28px;
   display:flex;
   justify-content:center;
   gap:12px;
@@ -119,8 +127,9 @@ nav a.active{
 
 .button{
   display:inline-block;
-  padding:13px 24px;
+  padding:13px 25px;
   border-radius:7px;
+  text-decoration:none;
   font-weight:bold;
 }
 
@@ -134,7 +143,8 @@ nav a.active{
   color:#087443;
 }
 
-/* GENERAL */
+
+/* SECTION */
 
 .container{
   width:94%;
@@ -154,18 +164,19 @@ nav a.active{
 }
 
 .intro{
+  max-width:760px;
+  margin:0 auto 35px;
   text-align:center;
   color:#666;
-  max-width:750px;
-  margin:0 auto 35px;
 }
 
-/* MISSION */
 
-.mission{
+/* CARDS */
+
+.cards{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  gap:20px;
 }
 
 .card{
@@ -176,8 +187,8 @@ nav a.active{
   text-align:center;
 }
 
-.card .icon{
-  font-size:35px;
+.icon{
+  font-size:38px;
   margin-bottom:10px;
 }
 
@@ -192,30 +203,24 @@ nav a.active{
   font-size:14px;
 }
 
-/* PROJECTS */
 
-.projects{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
-}
+/* MISSION */
 
-.project{
+.mission{
   background:#fff;
-  border:1px solid #ddd;
-  border-radius:12px;
-  padding:22px;
 }
 
-.project h3{
-  color:#087443;
-  margin-bottom:7px;
+.mission-box{
+  max-width:850px;
+  margin:auto;
+  text-align:center;
 }
 
-.project p{
-  color:#666;
-  font-size:14px;
+.mission-box p{
+  color:#555;
+  margin-bottom:15px;
 }
+
 
 /* CTA */
 
@@ -223,18 +228,19 @@ nav a.active{
   background:#087443;
   color:#fff;
   text-align:center;
-  padding:55px 20px;
+  padding:60px 20px;
 }
 
 .cta h2{
-  font-size:30px;
+  font-size:31px;
   margin-bottom:10px;
 }
 
 .cta p{
   color:#edf7f2;
-  margin-bottom:22px;
+  margin-bottom:25px;
 }
+
 
 /* FOOTER */
 
@@ -249,6 +255,7 @@ footer p{
   color:#d7e7de;
   font-size:14px;
 }
+
 
 /* MOBILE */
 
@@ -268,6 +275,7 @@ footer p{
     flex-direction:column;
     padding:12px 5%;
     border-bottom:3px solid #d4af37;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
   }
 
   nav.show{
@@ -280,9 +288,10 @@ footer p{
     padding:11px;
   }
 
-  .mission{
+  .cards{
     grid-template-columns:1fr 1fr;
   }
+
 }
 
 @media(max-width:600px){
@@ -303,54 +312,101 @@ footer p{
     font-size:16px;
   }
 
-  .mission,
-  .projects{
+  .cards{
     grid-template-columns:1fr;
   }
 
-  .section{
-    padding:45px 0;
+  .title{
+    font-size:27px;
   }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <header>
 
 <div class="header">
 
+
 <a href="index.html" class="logo">
-Fisabilillahi <span>Charity Foundation</span>
+
+Fisabilillahi
+<span>Charity Foundation</span>
+
 </a>
+
 
 <button
 class="menu"
-onclick="toggleMenu()"
-aria-label="Open Menu">
+onclick="toggleMenu()">
+
 ☰
+
 </button>
+
 
 <nav id="nav">
 
-<a href="index.html" class="active">Home</a>
 
-<a href="about.html">About</a>
+<a href="index.html" class="active">
+Home
+</a>
 
-<a href="projects.html">Projects</a>
 
-<a href="gallery.html">Gallery</a>
+<a href="about.html">
+About
+</a>
 
-<a href="donate.html">Donate</a>
 
-<a href="register.html">Register</a>
+<a href="projects.html">
+Projects
+</a>
 
-<a href="login.html">Login</a>
 
-<a href="dashboard.html">Dashboard</a>
+<a href="gallery.html">
+Gallery
+</a>
 
-<a href="contact.html">Contact</a>
+
+<a href="donate.html">
+Donate
+</a>
+
+
+<a href="register.html">
+Register
+</a>
+
+
+<a href="login.html">
+Login
+</a>
+
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
+
+<a href="contact.html">
+Contact
+</a>
+
+
+<a
+href="admin-login.html"
+class="admin">
+
+🔐 Admin Login
+
+</a>
+
 
 </nav>
 
@@ -359,149 +415,205 @@ aria-label="Open Menu">
 </header>
 
 
+
 <!-- HERO -->
 
 <section class="hero">
 
+
 <h1>
-Fisabilillahi <span>Charity Foundation</span>
+
+Serving Humanity
+<span>for the Sake of Allah</span>
+
 </h1>
 
-<p>
-Serving Humanity for the Sake of Allah
-</p>
 
 <p>
+
 Supporting orphans, education, healthcare,
 business empowerment, tree planting and
 humanitarian services.
+
 </p>
+
 
 <div class="buttons">
 
-<a href="donate.html" class="button primary">
-🤲 Support Our Mission
+
+<a
+href="donate.html"
+class="button primary">
+
+🤲 Support Our Work
+
 </a>
 
-<a href="about.html" class="button secondary">
-Learn More
+
+<a
+href="register.html"
+class="button secondary">
+
+Become a Member
+
 </a>
+
 
 </div>
+
 
 </section>
 
 
-<!-- MISSION -->
+
+<!-- OUR WORK -->
 
 <section class="section">
 
+
 <div class="container">
 
+
 <h2 class="title">
+
 What We Do
+
 </h2>
 
+
 <p class="intro">
-Our foundation is committed to helping vulnerable
-people and contributing positively to our communities.
+
+Fisabilillahi Charity Foundation is committed
+to supporting vulnerable people and creating
+positive change in our communities.
+
 </p>
 
 
-<div class="mission">
+
+<div class="cards">
 
 
 <div class="card">
 
-<div class="icon">❤️</div>
+<div class="icon">
+❤️
+</div>
 
 <h2>
-Humanitarian Support
+Helping Orphans
 </h2>
 
 <p>
-Providing assistance to people and families
-facing difficult circumstances.
+
+Supporting orphans with education,
+basic needs and humanitarian assistance.
+
 </p>
 
 </div>
 
 
+
 <div class="card">
 
-<div class="icon">📚</div>
+<div class="icon">
+📚
+</div>
 
 <h2>
 Education
 </h2>
 
 <p>
-Supporting children and vulnerable students
-with educational opportunities.
+
+Helping children and vulnerable students
+access quality education.
+
 </p>
 
 </div>
 
 
+
 <div class="card">
 
-<div class="icon">🏥</div>
+<div class="icon">
+🏥
+</div>
 
 <h2>
 Healthcare
 </h2>
 
 <p>
-Supporting healthcare needs and helping people
-access necessary assistance.
+
+Supporting healthcare and assisting people
+facing medical challenges.
+
 </p>
 
 </div>
 
 
+
 <div class="card">
 
-<div class="icon">💼</div>
+<div class="icon">
+💼
+</div>
 
 <h2>
 Business Empowerment
 </h2>
 
 <p>
-Helping people develop sustainable sources
-of livelihood.
+
+Helping people develop sustainable
+livelihood opportunities.
+
 </p>
 
 </div>
 
 
+
 <div class="card">
 
-<div class="icon">🌳</div>
+<div class="icon">
+🌳
+</div>
 
 <h2>
 Tree Planting
 </h2>
 
 <p>
+
 Promoting tree planting and environmental
-protection for healthier communities.
+responsibility in our communities.
+
 </p>
 
 </div>
 
 
+
 <div class="card">
 
-<div class="icon">🤲</div>
+<div class="icon">
+🤝
+</div>
 
 <h2>
-Charity
+Humanitarian Services
 </h2>
 
 <p>
-Encouraging generosity and supporting people
-for the sake of Allah.
+
+Providing assistance and support to people
+in need whenever possible.
+
 </p>
 
 </div>
@@ -514,107 +626,41 @@ for the sake of Allah.
 </section>
 
 
-<!-- PROJECTS -->
 
-<section class="section">
+<!-- MISSION -->
+
+<section class="section mission">
+
 
 <div class="container">
 
+
+<div class="mission-box">
+
+
 <h2 class="title">
-Our Projects
+
+Our Mission
+
 </h2>
 
-<p class="intro">
-We focus on practical projects that can improve
-the lives of people in our communities.
-</p>
-
-
-<div class="projects">
-
-
-<div class="project">
-
-<h3>
-Orphan Support
-</h3>
 
 <p>
-Supporting orphans with educational materials,
-school needs and other essential assistance.
+
+Our mission is to serve humanity for the sake
+of Allah by supporting vulnerable people,
+strengthening communities and creating
+opportunities for a better future.
+
 </p>
 
-</div>
-
-
-<div class="project">
-
-<h3>
-Education Support
-</h3>
 
 <p>
-Helping children who need support to continue
-their education and Islamic studies.
+
+We believe that every act of kindness can
+make a difference.
+
 </p>
-
-</div>
-
-
-<div class="project">
-
-<h3>
-Healthcare Support
-</h3>
-
-<p>
-Providing humanitarian assistance to people
-with healthcare needs where possible.
-</p>
-
-</div>
-
-
-<div class="project">
-
-<h3>
-Business Empowerment
-</h3>
-
-<p>
-Supporting individuals with opportunities
-that can improve their livelihoods.
-</p>
-
-</div>
-
-
-<div class="project">
-
-<h3>
-Tree Planting
-</h3>
-
-<p>
-Planting trees and encouraging environmental
-responsibility in our communities.
-</p>
-
-</div>
-
-
-<div class="project">
-
-<h3>
-Humanitarian Services
-</h3>
-
-<p>
-Responding to community needs through charity,
-kindness and practical support.
-</p>
-
-</div>
 
 
 </div>
@@ -622,53 +668,78 @@ kindness and practical support.
 </div>
 
 </section>
+
 
 
 <!-- CTA -->
 
 <section class="cta">
 
+
 <h2>
-Be Part of the Mission
+
+Together We Can Make a Difference
+
 </h2>
 
+
 <p>
+
 Your support can help us reach more people
 and expand our humanitarian projects.
+
 </p>
 
-<a href="donate.html" class="button primary">
+
+<a
+href="donate.html"
+class="button primary">
+
 Donate Now
+
 </a>
+
 
 </section>
 
 
+
 <footer>
 
+
 <p>
+
 © <span id="year"></span>
 Fisabilillahi Charity Foundation.
 All Rights Reserved.
+
 </p>
+
 
 </footer>
 
 
+
 <script>
+
 
 function toggleMenu(){
 
-  document
-  .getElementById("nav")
-  .classList.toggle("show");
+document
+.getElementById("nav")
+.classList.toggle("show");
 
 }
 
-document.getElementById("year").textContent =
+
+document
+.getElementById("year")
+.textContent =
 new Date().getFullYear();
 
+
 </script>
+
 
 </body>
 </html>

@@ -9,7 +9,7 @@
 
   <meta
     name="description"
-    content="Support Fisabilillahi Charity Foundation through donations and charitable contributions."
+    content="Support Fisabilillahi Charity Foundation through your donation."
   >
 
   <style>
@@ -22,7 +22,6 @@
       --text: #222222;
       --muted: #666666;
       --border: #dddddd;
-      --shadow: 0 8px 28px rgba(0,0,0,0.08);
     }
 
     * {
@@ -31,15 +30,11 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--light);
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
     a {
@@ -49,9 +44,8 @@
     /* HEADER */
 
     header {
-      background: var(--white);
+      background: white;
       border-bottom: 3px solid var(--gold);
-      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -65,12 +59,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
     }
 
     .logo {
       color: var(--green);
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 800;
     }
 
@@ -80,13 +73,12 @@
 
     nav {
       display: flex;
-      align-items: center;
       gap: 5px;
     }
 
     nav a {
       color: var(--text);
-      padding: 10px 12px;
+      padding: 10px 11px;
       border-radius: 7px;
       font-weight: 600;
     }
@@ -99,43 +91,36 @@
 
     .menu-btn {
       display: none;
-      width: 44px;
-      height: 42px;
       border: none;
-      border-radius: 7px;
       background: var(--green);
       color: white;
       font-size: 22px;
+      padding: 8px 12px;
+      border-radius: 7px;
       cursor: pointer;
     }
 
     /* HERO */
 
     .hero {
-      background:
-        linear-gradient(
-          rgba(4,92,52,0.95),
-          rgba(8,116,67,0.95)
-        );
-
+      background: var(--green);
       color: white;
       text-align: center;
-      padding: 80px 20px;
+      padding: 65px 20px;
     }
 
     .hero h1 {
-      font-size: 45px;
-      margin-bottom: 15px;
+      font-size: 42px;
+      margin-bottom: 12px;
     }
 
     .hero p {
-      max-width: 760px;
+      max-width: 720px;
       margin: auto;
-      font-size: 18px;
       color: #edf7f2;
     }
 
-    /* GENERAL */
+    /* MAIN */
 
     .container {
       width: min(1000px, 94%);
@@ -143,18 +128,18 @@
     }
 
     .section {
-      padding: 65px 0;
+      padding: 55px 0;
     }
 
     .section-title {
       text-align: center;
       color: var(--green);
-      font-size: 31px;
-      margin-bottom: 12px;
+      font-size: 30px;
+      margin-bottom: 10px;
     }
 
-    .section-intro {
-      max-width: 780px;
+    .intro {
+      max-width: 750px;
       margin: 0 auto 35px;
       text-align: center;
       color: var(--muted);
@@ -163,79 +148,87 @@
     /* DONATION CARD */
 
     .donation-card {
+      max-width: 650px;
+      margin: auto;
+
       background: white;
       border: 1px solid var(--border);
       border-radius: 15px;
-      padding: 38px;
-      box-shadow: var(--shadow);
-      max-width: 760px;
-      margin: auto;
+
+      padding: 35px 25px;
+
+      text-align: center;
+
+      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+    }
+
+    .donation-icon {
+      width: 70px;
+      height: 70px;
+
+      margin: 0 auto 18px;
+
+      background: #edf7f2;
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 32px;
     }
 
     .donation-card h2 {
-      text-align: center;
       color: var(--green);
-      margin-bottom: 10px;
-      font-size: 27px;
-    }
-
-    .donation-card > p {
-      text-align: center;
-      color: var(--muted);
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     /* ACCOUNT */
 
     .account-box {
-      background: #edf7f2;
-      border: 2px solid #c8e5d7;
+      background: #f8faf9;
+      border: 2px solid #d9e9e1;
       border-radius: 12px;
       padding: 25px;
       margin-bottom: 25px;
     }
 
-    .account-row {
-      padding: 14px 0;
-      border-bottom: 1px solid #c8ddd3;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .account-row:last-child {
-      border-bottom: none;
-    }
-
     .account-label {
       color: var(--muted);
-      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 4px;
     }
 
-    .account-value {
-      color: var(--green);
+    .account-name {
+      font-size: 20px;
       font-weight: 800;
-      text-align: right;
+      color: var(--green);
+      margin-bottom: 17px;
     }
 
     .account-number {
-      font-size: 24px;
-      letter-spacing: 1px;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
     }
 
-    /* COPY BUTTON */
+    .bank-name {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
 
     .copy-btn {
-      width: 100%;
       border: none;
       background: var(--green);
       color: white;
-      padding: 14px;
+
+      padding: 12px 22px;
+
       border-radius: 8px;
-      font-size: 16px;
+
       font-weight: 800;
       cursor: pointer;
-      margin-top: 5px;
     }
 
     .copy-btn:hover {
@@ -244,77 +237,97 @@
 
     .copy-message {
       display: none;
-      text-align: center;
       color: var(--green);
+      font-size: 13px;
       font-weight: 700;
       margin-top: 10px;
     }
 
-    /* MONTHLY */
+    /* NOTE */
 
-    .monthly {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 30px;
-      margin-top: 30px;
-      box-shadow: var(--shadow);
-      text-align: center;
+    .note {
+      background: #fffdf5;
+      border: 1px solid #eadb9c;
+      border-radius: 10px;
+
+      padding: 17px;
+
+      text-align: left;
+
+      color: #65591f;
+      font-size: 14px;
+
+      margin-bottom: 25px;
     }
 
-    .monthly h2 {
+    /* CONTACT */
+
+    .contact-title {
       color: var(--green);
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      font-size: 20px;
     }
 
-    .monthly-amount {
-      font-size: 38px;
-      color: var(--gold);
-      font-weight: 900;
-      margin: 12px 0;
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
     }
 
-    /* IMPACT */
+    .contact-btn {
+      display: inline-block;
+      padding: 12px 20px;
 
-    .impact-grid {
+      border-radius: 8px;
+
+      background: var(--green);
+      color: white;
+
+      font-weight: 800;
+    }
+
+    .contact-btn:hover {
+      background: var(--dark-green);
+    }
+
+    .facebook {
+      background: #1877f2;
+    }
+
+    .facebook:hover {
+      background: #0d65d9;
+    }
+
+    /* WHY DONATE */
+
+    .why-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 18px;
+      margin-top: 30px;
     }
 
-    .impact-card {
+    .why-card {
       background: white;
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 25px 18px;
+      padding: 22px;
       text-align: center;
-      box-shadow: var(--shadow);
     }
 
-    .impact-icon {
-      font-size: 38px;
-      margin-bottom: 8px;
+    .why-card .icon {
+      font-size: 27px;
+      margin-bottom: 10px;
     }
 
-    .impact-card h3 {
+    .why-card h3 {
       color: var(--green);
       margin-bottom: 7px;
     }
 
-    .impact-card p {
+    .why-card p {
       color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* NOTICE */
-
-    .notice {
-      background: #fffdf5;
-      border: 1px solid #eadb9c;
-      border-radius: 10px;
-      padding: 20px;
-      margin-top: 25px;
-      color: #695a1c;
       font-size: 14px;
     }
 
@@ -324,42 +337,18 @@
       background: var(--green);
       color: white;
       text-align: center;
-      padding: 65px 20px;
+      padding: 55px 20px;
     }
 
     .cta h2 {
-      font-size: 32px;
+      font-size: 29px;
       margin-bottom: 10px;
     }
 
     .cta p {
       max-width: 700px;
-      margin: 0 auto 25px;
+      margin: auto;
       color: #edf7f2;
-    }
-
-    .cta-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 8px;
-      font-weight: 700;
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: white;
-    }
-
-    .btn-white {
-      background: white;
-      color: var(--green);
     }
 
     /* FOOTER */
@@ -368,7 +357,7 @@
       background: #063b24;
       color: white;
       text-align: center;
-      padding: 28px 15px;
+      padding: 25px 15px;
     }
 
     footer p {
@@ -386,18 +375,19 @@
 
       nav {
         display: none;
+
         position: absolute;
         top: 75px;
         left: 0;
         right: 0;
 
         background: white;
+
         padding: 12px 5%;
 
         flex-direction: column;
 
         border-bottom: 3px solid var(--gold);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
       }
 
       nav.show {
@@ -409,28 +399,23 @@
         text-align: center;
       }
 
-      .impact-grid {
-        grid-template-columns: 1fr 1fr;
+      .why-grid {
+        grid-template-columns: 1fr;
       }
-
     }
 
     @media (max-width: 600px) {
 
       .logo {
-        font-size: 18px;
+        font-size: 17px;
       }
 
       .hero {
-        padding: 60px 18px;
+        padding: 55px 18px;
       }
 
       .hero h1 {
         font-size: 32px;
-      }
-
-      .hero p {
-        font-size: 16px;
       }
 
       .section {
@@ -438,26 +423,21 @@
       }
 
       .donation-card {
-        padding: 25px 18px;
-      }
-
-      .account-row {
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .account-value {
-        text-align: left;
+        padding: 28px 18px;
       }
 
       .account-number {
-        font-size: 21px;
+        font-size: 25px;
       }
 
-      .impact-grid {
-        grid-template-columns: 1fr;
+      .contact-buttons {
+        flex-direction: column;
       }
 
+      .contact-btn {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -485,37 +465,21 @@
 
       <nav id="mainNav">
 
-        <a href="index.html">
-          Home
-        </a>
+        <a href="index.html">Home</a>
 
-        <a href="about.html">
-          About
-        </a>
+        <a href="about.html">About</a>
 
-        <a href="projects.html">
-          Projects
-        </a>
+        <a href="projects.html">Projects</a>
 
-        <a href="gallery.html">
-          Gallery
-        </a>
+        <a href="gallery.html">Gallery</a>
 
-        <a href="donate.html" class="active">
-          Donate
-        </a>
+        <a href="donate.html" class="active">Donate</a>
 
-        <a href="register.html">
-          Register
-        </a>
+        <a href="register.html">Register</a>
 
-        <a href="login.html">
-          Login
-        </a>
+        <a href="login.html">Login</a>
 
-        <a href="contact.html">
-          Contact
-        </a>
+        <a href="contact.html">Contact</a>
 
       </nav>
 
@@ -529,19 +493,19 @@
   <section class="hero">
 
     <h1>
-      Support Our Work
+      Support Our Mission
     </h1>
 
     <p>
-      Your contribution can help us support vulnerable
-      people, orphans, education, healthcare and other
-      humanitarian needs.
+      Your donation can help us support orphans,
+      education, healthcare, business empowerment
+      and other humanitarian activities.
     </p>
 
   </section>
 
 
-  <!-- DONATION -->
+  <!-- DONATE -->
 
   <section class="section">
 
@@ -551,13 +515,299 @@
         Make a Donation
       </h2>
 
-      <p class="section-intro">
-        Every contribution, regardless of its size, can
-        become a means of helping someone in need.
+      <p class="intro">
+        Every contribution, no matter the amount,
+        can make a meaningful difference in the life
+        of someone in need.
       </p>
 
 
       <div class="donation-card">
 
+        <div class="donation-icon">
+          🤲
+        </div>
+
         <h2>
-          🕌 Fisabilill
+          Official Donation Account
+        </h2>
+
+
+        <div class="account-box">
+
+          <p class="account-label">
+            Account Name
+          </p>
+
+          <p class="account-name">
+            Fisabilillahi Charity Foundation
+          </p>
+
+
+          <p class="account-label">
+            Account Number
+          </p>
+
+          <p
+            class="account-number"
+            id="accountNumber">
+
+            6959530406
+
+          </p>
+
+
+          <p class="bank-name">
+            Moniepoint
+          </p>
+
+
+          <button
+            class="copy-btn"
+            onclick="copyAccount()">
+
+            📋 Copy Account Number
+
+          </button>
+
+
+          <p
+            class="copy-message"
+            id="copyMessage">
+
+            Account number copied successfully.
+
+          </p>
+
+        </div>
+
+
+        <div class="note">
+
+          <strong>
+            Important:
+          </strong>
+
+          Please make sure the account name is
+          <strong>
+            Fisabilillahi Charity Foundation
+          </strong>
+          before completing your donation.
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <h3 class="contact-title">
+          Need Help With Your Donation?
+        </h3>
+
+        <div class="contact-buttons">
+
+          <a
+            href="https://wa.me/2349036114093?text=Assalamu%20alaikum%2C%20I%20want%20to%20make%20a%20donation%20to%20Fisabilillahi%20Charity%20Foundation."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-btn">
+
+            💬 WhatsApp President
+
+          </a>
+
+
+          <a
+            href="https://www.facebook.com/profile.php?id=61592460838817"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-btn facebook">
+
+            f Facebook
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHY DONATE -->
+
+  <section class="section">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Your Support Can Help
+      </h2>
+
+      <div class="why-grid">
+
+
+        <div class="why-card">
+
+          <div class="icon">
+            🎓
+          </div>
+
+          <h3>
+            Education
+          </h3>
+
+          <p>
+            Supporting children and people who need
+            help accessing education.
+          </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+          <div class="icon">
+            ❤️
+          </div>
+
+          <h3>
+            Humanitarian Support
+          </h3>
+
+          <p>
+            Helping people facing hardship and
+            supporting vulnerable members of society.
+          </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+          <div class="icon">
+            🤝
+          </div>
+
+          <h3>
+            Empowerment
+          </h3>
+
+          <p>
+            Supporting sustainable opportunities that
+            can help people improve their lives.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <h2>
+      May Allah Reward You
+    </h2>
+
+    <p>
+      We appreciate every person who contributes,
+      shares our mission or supports our humanitarian
+      activities. May Allah reward you abundantly.
+    </p>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © <span id="year"></span>
+      Fisabilillahi Charity Foundation.
+      All Rights Reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    function toggleMenu() {
+
+      document
+        .getElementById("mainNav")
+        .classList.toggle("show");
+
+    }
+
+
+    document
+      .querySelectorAll("#mainNav a")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+          document
+            .getElementById("mainNav")
+            .classList.remove("show");
+
+        });
+
+      });
+
+
+    function copyAccount() {
+
+      const account =
+        document
+          .getElementById("accountNumber")
+          .textContent
+          .trim();
+
+      const message =
+        document.getElementById("copyMessage");
+
+
+      navigator.clipboard
+        .writeText(account)
+        .then(function() {
+
+          message.style.display = "block";
+
+          setTimeout(function() {
+
+            message.style.display = "none";
+
+          }, 2500);
+
+        })
+        .catch(function() {
+
+          alert(
+            "Account Number: " + account
+          );
+
+        });
+
+    }
+
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
+
+
+</body>
+</html>

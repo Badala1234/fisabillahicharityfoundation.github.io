@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Member Login | Fisabilillahi Charity Foundation</title>
+  <title>Login | Fisabilillahi Charity Foundation</title>
 
   <meta
     name="description"
-    content="Member login for Fisabilillahi Charity Foundation."
+    content="Login to Fisabilillahi Charity Foundation member portal."
   >
 
   <style>
@@ -22,9 +22,8 @@
       --text: #222222;
       --muted: #666666;
       --border: #dddddd;
-      --danger: #b3261e;
-      --success: #167044;
-      --shadow: 0 10px 35px rgba(0, 0, 0, 0.09);
+      --error: #b3261e;
+      --shadow: 0 8px 28px rgba(0,0,0,0.08);
     }
 
     * {
@@ -39,10 +38,10 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
       background: var(--light);
-      min-height: 100vh;
+      color: var(--text);
       line-height: 1.6;
+      min-height: 100vh;
     }
 
     a {
@@ -57,12 +56,16 @@
       background: var(--white);
       border-bottom: 3px solid var(--gold);
       box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .nav-container {
       width: min(1150px, 94%);
       min-height: 75px;
       margin: auto;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -100,93 +103,65 @@
 
     .menu-btn {
       display: none;
-      border: none;
-      background: var(--green);
-      color: white;
       width: 44px;
       height: 42px;
+      border: none;
       border-radius: 7px;
+      background: var(--green);
+      color: white;
       font-size: 22px;
       cursor: pointer;
     }
 
     /* =========================
-       LOGIN AREA
+       PAGE
     ========================== */
 
-    .login-section {
+    .page {
       min-height: calc(100vh - 75px);
+      padding: 60px 20px;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 60px 20px;
-    }
-
-    .login-wrapper {
-      width: 100%;
-      max-width: 470px;
     }
 
     .login-card {
+      width: min(450px, 100%);
       background: white;
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: var(--shadow);
       border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 35px;
+      box-shadow: var(--shadow);
     }
 
-    .login-logo {
-      width: 75px;
-      height: 75px;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      background: var(--green);
-      color: white;
+    .login-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 18px;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 34px;
-      border: 4px solid var(--gold);
+
+      background: #edf7f2;
+      border-radius: 50%;
+
+      font-size: 32px;
     }
 
     .login-card h1 {
       text-align: center;
       color: var(--green);
-      font-size: 32px;
+      font-size: 30px;
       margin-bottom: 8px;
     }
 
-    .subtitle {
+    .intro {
       text-align: center;
       color: var(--muted);
-      margin-bottom: 30px;
-    }
-
-    /* =========================
-       MESSAGE
-    ========================== */
-
-    .message {
-      display: none;
-      padding: 14px;
-      border-radius: 8px;
-      margin-bottom: 20px;
       font-size: 14px;
-      font-weight: 600;
-    }
-
-    .message.error {
-      display: block;
-      background: #fdecec;
-      color: var(--danger);
-      border: 1px solid #f2bcbc;
-    }
-
-    .message.success {
-      display: block;
-      background: #e9f7ef;
-      color: var(--success);
-      border: 1px solid #b9e4c9;
+      margin-bottom: 28px;
     }
 
     /* =========================
@@ -194,7 +169,7 @@
     ========================== */
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .form-group label {
@@ -203,123 +178,170 @@
       margin-bottom: 7px;
     }
 
-    .form-group input {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #cccccc;
-      border-radius: 8px;
-      font-size: 16px;
-      outline: none;
-      transition: 0.2s;
-    }
-
-    .form-group input:focus {
-      border-color: var(--green);
-      box-shadow: 0 0 0 3px rgba(8,116,67,0.08);
-    }
-
-    .password-row {
+    .input-wrapper {
       position: relative;
     }
 
-    .password-row input {
-      padding-right: 85px;
+    .input-wrapper input {
+      width: 100%;
+      padding: 13px 45px 13px 14px;
+
+      border: 1px solid var(--border);
+      border-radius: 8px;
+
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+      background: white;
     }
 
-    .show-password {
+    .input-wrapper input:focus {
+      border-color: var(--green);
+    }
+
+    .input-icon {
       position: absolute;
-      right: 10px;
+      right: 14px;
       top: 50%;
       transform: translateY(-50%);
+
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+
       border: none;
       background: transparent;
-      color: var(--green);
-      font-weight: 700;
       cursor: pointer;
+      font-size: 17px;
+      color: var(--muted);
     }
 
     /* =========================
-       LOGIN BUTTON
+       OPTIONS
+    ========================== */
+
+    .options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 20px;
+
+      font-size: 13px;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--muted);
+    }
+
+    .remember input {
+      accent-color: var(--green);
+    }
+
+    .forgot {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    /* =========================
+       BUTTON
     ========================== */
 
     .login-btn {
       width: 100%;
       border: none;
+      border-radius: 8px;
+
+      padding: 14px;
+
       background: var(--green);
       color: white;
-      padding: 15px;
-      border-radius: 8px;
-      font-size: 17px;
-      font-weight: 700;
+
+      font-size: 16px;
+      font-weight: 800;
+
       cursor: pointer;
-      transition: 0.2s;
-      margin-top: 5px;
     }
 
     .login-btn:hover {
       background: var(--dark-green);
     }
 
-    .login-btn:disabled {
-      opacity: 0.65;
-      cursor: not-allowed;
+    /* =========================
+       MESSAGE
+    ========================== */
+
+    .message {
+      display: none;
+
+      margin-top: 18px;
+      padding: 13px;
+
+      border-radius: 8px;
+
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .message.error {
+      display: block;
+      background: #fff0ef;
+      color: var(--error);
+      border: 1px solid #f0c4c1;
+    }
+
+    .message.success {
+      display: block;
+      background: #edf7f2;
+      color: var(--green);
+      border: 1px solid #c8e5d7;
     }
 
     /* =========================
-       LINKS
+       REGISTER
     ========================== */
-
-    .forgot {
-      text-align: right;
-      margin-top: 12px;
-    }
-
-    .forgot a {
-      color: var(--green);
-      font-size: 14px;
-      font-weight: 600;
-    }
 
     .register-link {
       text-align: center;
       margin-top: 25px;
       padding-top: 22px;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid #eeeeee;
+
       color: var(--muted);
+      font-size: 14px;
     }
 
     .register-link a {
       color: var(--green);
-      font-weight: 700;
-    }
-
-    .home-link {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .home-link a {
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    .home-link a:hover {
-      color: var(--green);
+      font-weight: 800;
     }
 
     /* =========================
-       NOTICE
+       BACK
     ========================== */
 
-    .notice {
-      margin-top: 25px;
-      padding: 14px;
-      background: #fffdf5;
-      border: 1px solid #eadb9c;
-      border-radius: 8px;
-      color: #695a1c;
-      font-size: 13px;
+    .back-home {
       text-align: center;
+      margin-top: 18px;
+    }
+
+    .back-home a {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .back-home a:hover {
+      color: var(--green);
     }
 
     /* =========================
@@ -329,8 +351,8 @@
     footer {
       background: #063b24;
       color: white;
-      padding: 25px 0;
       text-align: center;
+      padding: 25px 15px;
     }
 
     footer p {
@@ -350,16 +372,19 @@
 
       nav {
         display: none;
+
         position: absolute;
         top: 75px;
         left: 0;
         right: 0;
+
         background: white;
         padding: 12px 5%;
+
         flex-direction: column;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
         border-bottom: 3px solid var(--gold);
-        z-index: 100;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
       }
 
       nav.show {
@@ -370,25 +395,32 @@
         width: 100%;
         text-align: center;
       }
+
     }
 
-    @media (max-width: 550px) {
-
-      .login-section {
-        padding: 35px 15px;
-      }
-
-      .login-card {
-        padding: 28px 20px;
-      }
-
-      .login-card h1 {
-        font-size: 28px;
-      }
+    @media (max-width: 500px) {
 
       .logo {
         font-size: 18px;
       }
+
+      .page {
+        padding: 35px 15px;
+      }
+
+      .login-card {
+        padding: 27px 20px;
+      }
+
+      .login-card h1 {
+        font-size: 27px;
+      }
+
+      .options {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
     }
   </style>
 </head>
@@ -411,8 +443,11 @@
         class="menu-btn"
         onclick="toggleMenu()"
         aria-label="Open menu">
+
         ☰
+
       </button>
+
 
       <nav id="mainNav">
 
@@ -455,161 +490,168 @@
   </header>
 
 
-  <!-- LOGIN -->
+  <!-- LOGIN PAGE -->
 
-  <main>
+  <main class="page">
 
-    <section class="login-section">
-
-      <div class="login-wrapper">
-
-        <div class="login-card">
+    <div class="login-card">
 
 
-          <div class="login-logo">
-            🤝
-          </div>
+      <div class="login-icon">
+        🔐
+      </div>
 
 
-          <h1>
-            Member Login
-          </h1>
+      <h1>
+        Member Login
+      </h1>
 
 
-          <p class="subtitle">
-            Login to access your Fisabilillahi Charity
-            Foundation member account.
-          </p>
+      <p class="intro">
+        Login to access your Fisabilillahi Charity
+        Foundation member account.
+      </p>
 
 
-          <div
-            id="message"
-            class="message">
-          </div>
+      <form
+        id="loginForm"
+        onsubmit="handleLogin(event)">
 
 
-          <form
-            id="loginForm"
-            novalidate>
+        <!-- EMAIL -->
 
+        <div class="form-group">
 
-            <!-- EMAIL -->
+          <label for="email">
+            Email Address
+          </label>
 
-            <div class="form-group">
+          <div class="input-wrapper">
 
-              <label for="email">
-                Email Address
-              </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email address"
+              autocomplete="email"
+              required>
 
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Enter your email address"
-                autocomplete="email"
-                required>
-
-            </div>
-
-
-            <!-- PASSWORD -->
-
-            <div class="form-group">
-
-              <label for="password">
-                Password
-              </label>
-
-              <div class="password-row">
-
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Enter your password"
-                  autocomplete="current-password"
-                  required>
-
-                <button
-                  type="button"
-                  class="show-password"
-                  onclick="togglePassword()">
-
-                  Show
-
-                </button>
-
-              </div>
-
-            </div>
-
-
-            <!-- LOGIN -->
-
-            <button
-              type="submit"
-              class="login-btn"
-              id="loginButton">
-
-              Login
-
-            </button>
-
-
-            <!-- FORGOT PASSWORD -->
-
-            <div class="forgot">
-
-              <a href="forgot-password.html">
-                Forgot your password?
-              </a>
-
-            </div>
-
-
-          </form>
-
-
-          <!-- REGISTER -->
-
-          <div class="register-link">
-
-            Don't have a member account?
-
-            <a href="register.html">
-              Register here
-            </a>
+            <span class="input-icon">
+              ✉️
+            </span>
 
           </div>
-
-
-          <!-- HOME -->
-
-          <div class="home-link">
-
-            <a href="index.html">
-              ← Back to Home
-            </a>
-
-          </div>
-
-
-          <!-- NOTICE -->
-
-          <div class="notice">
-
-            Member login is currently being prepared.
-            Online authentication will be activated
-            when the membership database is connected.
-
-          </div>
-
 
         </div>
 
+
+        <!-- PASSWORD -->
+
+        <div class="form-group">
+
+          <label for="password">
+            Password
+          </label>
+
+          <div class="input-wrapper">
+
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required>
+
+            <button
+              type="button"
+              class="password-toggle"
+              onclick="togglePassword()"
+              aria-label="Show password">
+
+              👁️
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- OPTIONS -->
+
+        <div class="options">
+
+          <label class="remember">
+
+            <input
+              type="checkbox"
+              id="remember">
+
+            Remember me
+
+          </label>
+
+
+          <a
+            href="#"
+            class="forgot"
+            onclick="forgotPassword(event)">
+
+            Forgot Password?
+
+          </a>
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <button
+          type="submit"
+          class="login-btn">
+
+          Login
+
+        </button>
+
+
+        <!-- MESSAGE -->
+
+        <div
+          id="message"
+          class="message">
+        </div>
+
+
+      </form>
+
+
+      <!-- REGISTER -->
+
+      <div class="register-link">
+
+        Don't have an account?
+
+        <a href="register.html">
+          Register Now
+        </a>
+
       </div>
 
-    </section>
+
+      <!-- HOME -->
+
+      <div class="back-home">
+
+        <a href="index.html">
+          ← Back to Home
+        </a>
+
+      </div>
+
+
+    </div>
 
   </main>
 
@@ -631,19 +673,14 @@
 
   <script>
 
-    /* Mobile menu */
-
     function toggleMenu() {
 
-      const nav =
-        document.getElementById("mainNav");
-
-      nav.classList.toggle("show");
+      document
+        .getElementById("mainNav")
+        .classList.toggle("show");
 
     }
 
-
-    /* Close mobile menu */
 
     document
       .querySelectorAll("#mainNav a")
@@ -660,113 +697,99 @@
       });
 
 
-    /* Show / hide password */
-
     function togglePassword() {
 
       const password =
         document.getElementById("password");
 
       const button =
-        document.querySelector(".show-password");
+        document.querySelector(".password-toggle");
 
 
       if (password.type === "password") {
 
         password.type = "text";
-
-        button.textContent = "Hide";
+        button.textContent = "🙈";
 
       } else {
 
         password.type = "password";
-
-        button.textContent = "Show";
+        button.textContent = "👁️";
 
       }
 
     }
 
 
-    /* Message */
+    function handleLogin(event) {
 
-    function showMessage(text, type) {
+      event.preventDefault();
+
+
+      const email =
+        document.getElementById("email")
+        .value
+        .trim();
+
+      const password =
+        document.getElementById("password")
+        .value;
+
 
       const message =
         document.getElementById("message");
 
-      message.textContent = text;
 
-      message.className =
-        "message " + type;
+      message.className = "message";
+
+
+      if (!email || !password) {
+
+        message.textContent =
+          "Please enter your email and password.";
+
+        message.classList.add("error");
+
+        return;
+
+      }
+
+
+      /*
+        DATABASE LOGIN WILL BE CONNECTED HERE.
+
+        For now this page only validates that
+        the required fields have been entered.
+
+        We will connect this form to Supabase
+        authentication when the database is ready.
+      */
+
+
+      message.textContent =
+        "Login system is ready. Database authentication will be connected in the next stage.";
+
+      message.classList.add("success");
 
     }
 
 
-    /* Login form */
+    function forgotPassword(event) {
 
-    document
-      .getElementById("loginForm")
-      .addEventListener(
-        "submit",
-        function(event) {
+      event.preventDefault();
 
-          event.preventDefault();
+      alert(
+        "Password recovery will be connected when the authentication system is completed."
+      );
 
-
-          const email =
-            document
-              .getElementById("email")
-              .value
-              .trim();
-
-          const password =
-            document
-              .getElementById("password")
-              .value;
+    }
 
 
-          if (!email || !password) {
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
 
-            showMessage(
-              "Please enter your email address and password.",
-              "error"
-            );
-
-            return;
-
-          }
+  </script>
 
 
-          if (!email.includes("@")) {
-
-            showMessage(
-              "Please enter a valid email address.",
-              "error"
-            );
-
-            return;
-
-          }
-
-
-          if (password.length < 6) {
-
-            showMessage(
-              "Password must contain at least 6 characters.",
-              "error"
-            );
-
-            return;
-
-          }
-
-
-          /*
-            SUPABASE AUTHENTICATION WILL BE CONNECTED
-            AFTER THE SUPABASE PROJECT IS ACTIVE AGAIN.
-          */
-
-
-          showMessage(
-            "
+</body>
+</html>

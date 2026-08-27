@@ -1,1 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Admin Panel | Fisabilillahi Charity Foundation</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f4f7f5;
+  color:#222;
+}
+
+header{
+  background:#063b24;
+  color:white;
+  padding:16px 5%;
+  border-bottom:4px solid #d4af37;
+}
+
+.header{
+  max-width:1150px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  color:white;
+  text-decoration:none;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#d4af37;
+}
+
+.menu{
+  display:none;
+  background:#087443;
+  color:white;
+  border:0;
+  padding:9px 13px;
+  border-radius:7px;
+  font-size:21px;
+  cursor:pointer;
+}
+
+nav{
+  display:flex;
+  gap:5px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:bold;
+  padding:8px;
+}
+
+nav a:hover{
+  color:#d4af37;
+}
+
+.hero{
+  background:#087443;
+  color:white;
+  text-align:center;
+  padding:45px 20px;
+}
+
+.hero h1{
+  font-size:36px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#e6f1eb;
+}
+
+.container{
+  width:94%;
+  max-width:1150px;
+  margin:auto;
+}
+
+.section{
+  padding:40px 0;
+}
+
+/* SUMMARY CARDS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-bottom:30px;
+}
+
+.stat{
+  background:white;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:22px;
+  text-align:center;
+}
+
+.stat-icon{
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.stat h2{
+  color:#087443;
+  font-size:28px;
+  margin-bottom:4px;
+}
+
+.stat p{
+  color:#666;
+  font-size:14px;
+}
+
+/* PANELS */
+
+.panel{
+  background:white;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:25px;
+  margin-bottom:25px;
+}
+
+.panel h2{
+  color:#087443;
+  margin-bottom:18px;
+}
+
+.panel p{
+  color:#666;
+}
+
+/* QUICK ACTIONS */
+
+.actions{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.action{
+  display:block;
+  background:#f5f8f6;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:20px;
+  text-decoration:none;
+  color:#222;
+}
+
+.action:hover{
+  border-color:#087443;
+}
+
+.action strong{
+  display:block;
+  color:#087443;
+  margin-bottom:6px;
+}
+
+.action span{
+  color:#666;
+  font-size:14px;
+}
+
+/* TABLE */
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,
+td{
+  padding:13px;
+  text-align:left;
+  border-bottom:1px solid #ddd;
+}
+
+th{
+  background:#087443;
+  color:white;
+}
+
+td{
+  color:#555;
+  font-size:14px;
+}
+
+.status{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:15px;
+  background:#fff4cc;
+  color:#795f00;
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* NOTICE */
+
+.notice{
+  background:#fffdf3;
+  border:1px solid #e4d18a;
+  border-radius:10px;
+  padding:18px;
+}
+
+.notice h3{
+  color:#087443;
+  margin-bottom:7px;
+}
+
+.notice p{
+  font-size:14px;
+}
+
+/* BUTTON */
+
+.button{
+  display:inline-block;
+  background:#087443;
+  color:white;
+  text-decoration:none;
+  border:0;
+  padding:12px 20px;
+  border-radius:7px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.button.gold{
+  background:#d4af37;
+  color:#222;
+}
+
+.button.red{
+  background:#9b2525;
+}
+
+/* FOOTER */
+
+footer{
+  background:#063b24;
+  color:white;
+  text-align:center;
+  padding:25px 15px;
+}
+
+footer p{
+  color:#d7e7de;
+  font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .menu{
+    display:block;
+  }
+
+  nav{
+    display:none;
+    position:absolute;
+    top:68px;
+    left:0;
+    right:0;
+    background:#063b24;
+    flex-direction:column;
+    padding:15px 5%;
+    z-index:1000;
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  nav a{
+    text-align:center;
+    padding:11px;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .actions{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:550px){
+
+  .logo{
+    font-size:17px;
+  }
+
+  .hero h1{
+    font-size:29px;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .actions{
+    grid-template-columns:1fr;
+  }
+
+  .panel{
+    padding:20px 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="header">
+
+<a href="index.html" class="logo">
+Fisabilillahi <span>Admin Panel</span>
+</a>
+
+<button
+class="menu"
+onclick="toggleMenu()">
+☰
+</button>
+
+<nav id="nav">
+
+<a href="index.html">Website</a>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="register.html">Register</a>
+
+<a href="donate.html">Donate</a>
+
+<a href="contact.html">Contact</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<h1>Admin Panel</h1>
+
+<p>
+Fisabilillahi Charity Foundation Management Center
+</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="container">
+
+
+<!-- STATISTICS -->
+
+<div class="stats">
+
+
+<div class="stat">
+
+<div class="stat-icon">
+👥
+</div>
+
+<h2 id="members">
+0
+</h2>
+
+<p>
+Registered Members
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+💰
+</div>
+
+<h2 id="donations">
+₦0
+</h2>
+
+<p>
+Total Donations
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+❤️
+</div>
+
+<h2>
+6
+</h2>
+
+<p>
+Main Activities
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+📩
+</div>
+
+<h2 id="messages">
+0
+</h2>
+
+<p>
+Messages
+</p>
+
+</div>
+
+
+</div>
+
+
+<!-- QUICK ACTIONS -->
+
+<div class="panel">
+
+<h2>
+Quick Actions
+</h2>
+
+
+<div class="actions">
+
+
+<a href="dashboard.html" class="action">
+
+<strong>
+👤 Member Dashboard
+</strong>
+
+<span>
+View the member dashboard.
+</span>
+
+</a>
+
+
+<a href="register.html" class="action">
+
+<strong>
+📝 Registration
+</strong>
+
+<span>
+Open the membership registration page.
+</span>
+
+</a>
+
+
+<a href="donate.html" class="action">
+
+<strong>
+💰 Donations
+</strong>
+
+<span>
+View the foundation donation page.
+</span>
+
+</a>
+
+
+<a href="projects.html" class="action">
+
+<strong>
+❤️ Projects
+</strong>
+
+<span>
+View foundation projects.
+</span>
+
+</a>
+
+
+<a href="gallery.html" class="action">
+
+<strong>
+🖼️ Gallery
+</strong>
+
+<span>
+View foundation activities.
+</span>
+
+</a>
+
+
+<a href="contact.html" class="action">
+
+<strong>
+📩 Contact Messages
+</strong>
+
+<span>
+Open the Contact Us page.
+</span>
+
+</a>
+
+
+</div>
+
+</div>
+
+
+<!-- SYSTEM STATUS -->
+
+<div class="panel">
+
+<h2>
+System Status
+</h2>
+
+
+<div class="notice">
+
+<h3>
+Database Connection
+</h3>
+
+<p>
+The secure database connection has not been
+activated yet. Member records, donations and
+messages will automatically be connected here
+when the database system is available.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- MEMBERS -->
+
+<div class="panel">
+
+<h2>
+Recent Members
+</h2>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Name
+</th>
+
+<th>
+Email
+</th>
+
+<th>
+Status
+</th>
+
+<th>
+Date
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+<tr>
+
+<td>
+No members yet
+</td>
+
+<td>
+—
+</td>
+
+<td>
+<span class="status">
+Waiting
+</span>
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- DONATIONS -->
+
+<div class="panel">
+
+<h2>
+Donation Summary
+</h2>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Donation Type
+</th>
+
+<th>
+Amount
+</th>
+
+<th>
+Status
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+<tr>
+
+<td>
+Foundation Donations
+</td>
+
+<td>
+₦0
+</td>
+
+<td>
+
+<span class="status">
+Database Pending
+</span>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- PROJECTS -->
+
+<div class="panel">
+
+<h2>
+Foundation Projects
+</h2>
+
+<div class="actions">
+
+
+<a href="projects.html" class="action">
+
+<strong>
+🤲 Orphans Support
+</strong>
+
+<span>
+Supporting vulnerable children.
+</span>
+
+</a>
+
+
+<a href="projects.html" class="action">
+
+<strong>
+📚 Education
+</strong>
+
+<span>
+Educational support and opportunities.
+</span>
+
+</a>
+
+
+<a href="projects.html" class="action">
+
+<strong>
+🏥 Healthcare
+</strong>
+
+<span>
+Healthcare and humanitarian assistance.
+</span>
+
+</a>
+
+
+<a href="projects.html" class="action">
+
+<strong>
+💼 Business Empowerment
+</strong>
+
+<span>
+Supporting sustainable livelihoods.
+</span>
+
+</a>
+
+
+<a href="projects.html" class="action">
+
+<strong>
+🌳 Tree Planting
+</strong>
+
+<span>
+Environmental protection and tree planting.
+</span>
+
+</a>
+
+
+<a href="projects.html" class="action">
+
+<strong>
+🤝 Humanitarian Services
+</strong>
+
+<span>
+Helping people in need.
+</span>
+
+</a>
+
+
+</div>
+
+</div>
+
+
+<!-- RETURN -->
+
+<div class="panel">
+
+<h2>
+Website Management
+</h2>
+
+<p style="margin-bottom:18px;">
+Use the links below to move around the foundation
+website.
+</p>
+
+<a
+href="index.html"
+class="button">
+Open Website
+</a>
+
+<a
+href="dashboard.html"
+class="button gold">
+Member Dashboard
+</a>
+
+<button
+onclick="logout()"
+class="button red">
+Logout
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>
+© <span id="year"></span>
+Fisabilillahi Charity Foundation.
+All Rights Reserved.
+</p>
+
+</footer>
+
+
+<script>
+
+function toggleMenu(){
+
+document
+.getElementById("nav")
+.classList.toggle("show");
+
+}
+
+
+function logout(){
+
+alert(
+"Admin security will be activated when the database system is connected."
+);
+
+window.location.href="index.html";
+
+}
+
+
+document
+.getElementById("year")
+.textContent =
+new Date().getFullYear();
+
+</script>
+
+</body>
+</html>

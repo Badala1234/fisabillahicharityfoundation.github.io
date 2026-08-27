@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Page Not Found | Fisabilillahi Charity Foundation</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7f6;
+  color:#222;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+header{
+  background:#fff;
+  border-bottom:4px solid #d4af37;
+  padding:18px 5%;
+}
+
+.header{
+  max-width:1100px;
+  margin:auto;
+}
+
+.logo{
+  color:#087443;
+  font-size:21px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.logo span{
+  color:#d4af37;
+}
+
+main{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:50px 20px;
+}
+
+.box{
+  width:100%;
+  max-width:600px;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:14px;
+  padding:45px 25px;
+}
+
+.number{
+  color:#d4af37;
+  font-size:80px;
+  font-weight:bold;
+  line-height:1;
+  margin-bottom:15px;
+}
+
+h1{
+  color:#087443;
+  font-size:30px;
+  margin-bottom:12px;
+}
+
+p{
+  color:#666;
+  line-height:1.7;
+  margin-bottom:25px;
+}
+
+.button{
+  display:inline-block;
+  background:#087443;
+  color:#fff;
+  text-decoration:none;
+  padding:13px 25px;
+  border-radius:7px;
+  font-weight:bold;
+}
+
+.button:hover{
+  background:#065d36;
+}
+
+footer{
+  background:#063b24;
+  color:#fff;
+  text-align:center;
+  padding:23px 15px;
+}
+
+footer p{
+  color:#d7e7de;
+  font-size:14px;
+  margin:0;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="header">
+
+<a href="index.html" class="logo">
+Fisabilillahi <span>Charity Foundation</span>
+</a>
+
+</div>
+
+</header>
+
+
+<main>
+
+<div class="box">
+
+<div class="number">
+404
+</div>
+
+<h1>
+Page Not Found
+</h1>
+
+<p>
+Sorry, the page you are looking for does not exist
+or may have been moved. Please return to our
+homepage and continue exploring Fisabilillahi
+Charity Foundation.
+</p>
+
+<a href="index.html" class="button">
+Back to Home
+</a>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<p>
+© <span id="year"></span>
+Fisabilillahi Charity Foundation.
+All Rights Reserved.
+</p>
+
+</footer>
+
+
+<script>
+document.getElementById("year").textContent =
+new Date().getFullYear();
+</script>
+
+</body>
+</html>

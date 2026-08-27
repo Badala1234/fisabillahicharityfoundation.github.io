@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Members | Fisabilillahi Charity Foundation</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f4f7f5;
+  color:#222;
+  line-height:1.6;
+}
+
+
+/* HEADER */
+
+header{
+  background:#063b24;
+  color:#fff;
+  padding:16px 5%;
+  border-bottom:4px solid #d4af37;
+}
+
+.header{
+  max-width:1150px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  color:#fff;
+  text-decoration:none;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#d4af37;
+}
+
+.back{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.back:hover{
+  color:#d4af37;
+}
+
+
+/* HERO */
+
+.hero{
+  background:#087443;
+  color:#fff;
+  text-align:center;
+  padding:42px 20px;
+}
+
+.hero h1{
+  font-size:36px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#e6f1eb;
+}
+
+
+/* CONTAINER */
+
+.container{
+  width:94%;
+  max-width:1150px;
+  margin:auto;
+}
+
+.section{
+  padding:40px 0;
+}
+
+
+/* STATISTICS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-bottom:25px;
+}
+
+.stat{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:22px;
+  text-align:center;
+}
+
+.stat-icon{
+  font-size:32px;
+  margin-bottom:7px;
+}
+
+.stat h2{
+  color:#087443;
+  font-size:28px;
+}
+
+.stat p{
+  color:#666;
+  font-size:14px;
+}
+
+
+/* SEARCH */
+
+.search-box{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:20px;
+  margin-bottom:20px;
+}
+
+.search-box label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.search-box input{
+  width:100%;
+  padding:13px;
+  border:1px solid #ccc;
+  border-radius:7px;
+  font-size:16px;
+  outline:none;
+}
+
+.search-box input:focus{
+  border-color:#087443;
+}
+
+
+/* TABLE */
+
+.panel{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:25px;
+}
+
+.panel h2{
+  color:#087443;
+  margin-bottom:18px;
+}
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:700px;
+}
+
+th,
+td{
+  padding:13px;
+  text-align:left;
+  border-bottom:1px solid #ddd;
+}
+
+th{
+  background:#087443;
+  color:#fff;
+}
+
+td{
+  color:#555;
+  font-size:14px;
+}
+
+.status{
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:15px;
+  background:#fff4cc;
+  color:#795f00;
+  font-size:12px;
+  font-weight:bold;
+}
+
+
+/* NOTICE */
+
+.notice{
+  margin-top:20px;
+  background:#fffdf3;
+  border:1px solid #e4d18a;
+  border-radius:9px;
+  padding:16px;
+  color:#665300;
+  font-size:14px;
+  line-height:1.6;
+}
+
+
+/* BUTTON */
+
+.button{
+  display:inline-block;
+  background:#087443;
+  color:#fff;
+  text-decoration:none;
+  border:0;
+  padding:11px 19px;
+  border-radius:7px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:18px;
+}
+
+.button:hover{
+  background:#065d36;
+}
+
+
+/* FOOTER */
+
+footer{
+  background:#063b24;
+  color:#fff;
+  text-align:center;
+  padding:25px 15px;
+  margin-top:20px;
+}
+
+footer p{
+  color:#d7e7de;
+  font-size:14px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  .hero h1{
+    font-size:29px;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .panel{
+    padding:18px 12px;
+  }
+
+  .logo{
+    font-size:17px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="header">
+
+<a href="admin.html" class="logo">
+
+Fisabilillahi
+<span>Members</span>
+
+</a>
+
+<a href="admin.html" class="back">
+
+← Admin Panel
+
+</a>
+
+</div>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>
+Members Management
+</h1>
+
+<p>
+Fisabilillahi Charity Foundation
+</p>
+
+</section>
+
+
+
+<!-- MAIN -->
+
+<section class="section">
+
+<div class="container">
+
+
+<!-- STATISTICS -->
+
+<div class="stats">
+
+
+<div class="stat">
+
+<div class="stat-icon">
+👥
+</div>
+
+<h2 id="totalMembers">
+0
+</h2>
+
+<p>
+Total Members
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+🟢
+</div>
+
+<h2 id="activeMembers">
+0
+</h2>
+
+<p>
+Active Members
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+🕐
+</div>
+
+<h2 id="pendingMembers">
+0
+</h2>
+
+<p>
+Pending Members
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
+<label for="memberSearch">
+🔎 Search Members
+</label>
+
+<input
+type="search"
+id="memberSearch"
+placeholder="Search by name, email or Member ID..."
+autocomplete="off"
+>
+
+</div>
+
+
+
+<!-- MEMBERS TABLE -->
+
+<div class="panel">
+
+<h2>
+📋 Members List
+</h2>
+
+
+<div class="table-wrap">
+
+<table id="membersTable">
+
+<thead>
+
+<tr>
+
+<th>
+Member ID
+</th>
+
+<th>
+Full Name
+</th>
+
+<th>
+Email
+</th>
+
+<th>
+Status
+</th>
+
+<th>
+Registration Date
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+<tr>
+
+<td>
+—
+</td>
+
+<td>
+No members yet
+</td>
+
+<td>
+—
+</td>
+
+<td>
+
+<span class="status">
+Database Pending
+</span>
+
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+
+</div>
+
+
+
+<div class="notice">
+
+<strong>ℹ️ Database Connection Pending</strong>
+
+<br>
+
+Members who register through the website will
+appear here automatically after the secure
+database system is connected.
+
+No member information is being stored on this
+temporary page.
+
+</div>
+
+
+<a
+href="admin.html"
+class="button">
+
+← Back to Admin Panel
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+
+© <span id="year"></span>
+Fisabilillahi Charity Foundation.
+All Rights Reserved.
+
+</p>
+
+</footer>
+
+
+
+<script>
+
+
+/* YEAR */
+
+document
+.getElementById("year")
+.textContent =
+new Date().getFullYear();
+
+
+
+/* SEARCH */
+
+const search =
+document.getElementById("memberSearch");
+
+search.addEventListener("input", function(){
+
+const value =
+this.value.toLowerCase();
+
+const rows =
+document.querySelectorAll(
+"#membersTable tbody tr"
+);
+
+rows.forEach(function(row){
+
+const text =
+row.textContent.toLowerCase();
+
+row.style.display =
+text.includes(value)
+? ""
+: "none";
+
+});
+
+});
+
+</script>
+
+
+</body>
+
+</html>

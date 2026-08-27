@@ -23,7 +23,6 @@ body{
   line-height:1.6;
 }
 
-
 /* HEADER */
 
 header{
@@ -80,7 +79,6 @@ nav a:hover{
   color:#d4af37;
 }
 
-
 /* HERO */
 
 .hero{
@@ -99,7 +97,6 @@ nav a:hover{
   color:#e6f1eb;
 }
 
-
 /* CONTAINER */
 
 .container{
@@ -111,7 +108,6 @@ nav a:hover{
 .section{
   padding:40px 0;
 }
-
 
 /* STATISTICS */
 
@@ -146,7 +142,6 @@ nav a:hover{
   font-size:14px;
 }
 
-
 /* PANELS */
 
 .panel{
@@ -165,7 +160,6 @@ nav a:hover{
 .panel p{
   color:#666;
 }
-
 
 /* QUICK ACTIONS */
 
@@ -202,7 +196,6 @@ nav a:hover{
   font-size:14px;
 }
 
-
 /* NOTICE */
 
 .notice{
@@ -220,7 +213,6 @@ nav a:hover{
 .notice p{
   font-size:14px;
 }
-
 
 /* BUTTONS */
 
@@ -251,7 +243,6 @@ nav a:hover{
   background:#9b2525;
 }
 
-
 /* FOOTER */
 
 footer{
@@ -265,7 +256,6 @@ footer p{
   color:#d7e7de;
   font-size:14px;
 }
-
 
 /* MOBILE */
 
@@ -305,7 +295,6 @@ footer p{
   }
 
 }
-
 
 @media(max-width:550px){
 
@@ -376,12 +365,16 @@ onclick="toggleMenu()">
 👥 Members
 </a>
 
+<a href="donations.html">
+💰 Donations
+</a>
+
 <a href="register.html">
 📝 Register
 </a>
 
 <a href="donate.html">
-💰 Donate
+🤲 Donate
 </a>
 
 <a href="contact.html">
@@ -508,6 +501,8 @@ Quick Actions
 <div class="actions">
 
 
+<!-- MEMBERS -->
+
 <a href="members.html" class="action">
 
 <strong>
@@ -520,6 +515,23 @@ View and manage registered members.
 
 </a>
 
+
+<!-- DONATIONS -->
+
+<a href="donations.html" class="action">
+
+<strong>
+💰 Donations
+</strong>
+
+<span>
+View donation records and donation summary.
+</span>
+
+</a>
+
+
+<!-- DASHBOARD -->
 
 <a href="dashboard.html" class="action">
 
@@ -534,6 +546,8 @@ Open the member dashboard.
 </a>
 
 
+<!-- REGISTER -->
+
 <a href="register.html" class="action">
 
 <strong>
@@ -547,18 +561,7 @@ Open the membership registration page.
 </a>
 
 
-<a href="donate.html" class="action">
-
-<strong>
-💰 Donations
-</strong>
-
-<span>
-View the foundation donation page.
-</span>
-
-</a>
-
+<!-- PROJECTS -->
 
 <a href="projects.html" class="action">
 
@@ -573,6 +576,8 @@ View foundation projects.
 </a>
 
 
+<!-- GALLERY -->
+
 <a href="gallery.html" class="action">
 
 <strong>
@@ -586,6 +591,8 @@ View foundation activities.
 </a>
 
 
+<!-- CONTACT -->
+
 <a href="contact.html" class="action">
 
 <strong>
@@ -594,6 +601,36 @@ View foundation activities.
 
 <span>
 Open the Contact Us page.
+</span>
+
+</a>
+
+
+<!-- WEBSITE -->
+
+<a href="index.html" class="action">
+
+<strong>
+🌐 Website
+</strong>
+
+<span>
+Open the main foundation website.
+</span>
+
+</a>
+
+
+<!-- DONATE -->
+
+<a href="donate.html" class="action">
+
+<strong>
+🤲 Donation Page
+</strong>
+
+<span>
+Open the public donation page.
 </span>
 
 </a>
@@ -636,25 +673,26 @@ is activated.
 
 
 
-<!-- MEMBERS PREVIEW -->
+<!-- MEMBERS -->
 
 <div class="panel">
 
 <h2>
-👥 Recent Members
+👥 Members
 </h2>
 
 
 <div class="notice">
 
 <h3>
-No members yet
+Member Management
 </h3>
 
 <p>
 
-Registered members will appear here after
-the secure database is connected.
+Registered members will appear in the
+Members Management page after the secure
+database is connected.
 
 </p>
 
@@ -678,20 +716,22 @@ View Members
 <div class="panel">
 
 <h2>
-💰 Donation Summary
+💰 Donations
 </h2>
 
 
 <div class="notice">
 
 <h3>
-Donation Records
+Donation Management
 </h3>
 
 <p>
 
-Donation records will appear here after
-the secure database is connected.
+Verified donation records and donation
+statistics will appear in the Donation
+Management page after the secure database
+is connected.
 
 </p>
 
@@ -699,10 +739,10 @@ the secure database is connected.
 
 
 <a
-href="donate.html"
+href="donations.html"
 class="button gold">
 
-Open Donation Page
+View Donations
 
 </a>
 
@@ -817,8 +857,8 @@ Helping people in need.
 
 <p style="margin-bottom:12px;">
 
-Use these links to move around the foundation
-website.
+Use these links to move around the
+foundation website.
 
 </p>
 
@@ -837,6 +877,15 @@ href="members.html"
 class="button">
 
 👥 Members
+
+</a>
+
+
+<a
+href="donations.html"
+class="button">
+
+💰 Donations
 
 </a>
 
@@ -900,10 +949,6 @@ document
 /* LOGOUT */
 
 function logout(){
-
-alert(
-"Admin security will be activated when the secure database system is connected."
-);
 
 window.location.href =
 "admin-login.html";

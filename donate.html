@@ -6,11 +6,9 @@
 
 <title>Donate | Fisabilillahi Charity Foundation</title>
 
-<meta name="description"
-content="Support Fisabilillahi Charity Foundation and help us serve humanity through education, healthcare, orphan support, empowerment and humanitarian services.">
+<meta name="description" content="Support Fisabilillahi Charity Foundation and help us serve humanity through education, healthcare, orphan support, empowerment and humanitarian services.">
 
 <style>
-
 :root{
   --green:#075c3b;
   --green-dark:#043c27;
@@ -18,7 +16,7 @@ content="Support Fisabilillahi Charity Foundation and help us serve humanity thr
   --gold:#d6ae3d;
   --gold-light:#f1d77a;
   --cream:#f8f6ee;
-  --white:#ffffff;
+  --white:#fff;
   --text:#25352e;
   --muted:#68766f;
   --border:#e4ebe7;
@@ -48,7 +46,7 @@ a{
   color:inherit;
 }
 
-button{
+button,input{
   font-family:inherit;
 }
 
@@ -58,7 +56,7 @@ button{
   margin:auto;
 }
 
-/* ================= TOP BAR ================= */
+/* TOP BAR */
 
 .topbar{
   background:var(--green-dark);
@@ -78,7 +76,7 @@ button{
   color:var(--gold);
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 header{
   position:sticky;
@@ -165,29 +163,27 @@ nav a:hover{
   cursor:pointer;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .donate-hero{
-  min-height:470px;
+  min-height:390px;
   display:flex;
   align-items:center;
-
   background:
     linear-gradient(
       90deg,
       rgba(3,55,35,.97),
-      rgba(3,55,35,.75),
+      rgba(3,55,35,.70),
       rgba(3,55,35,.25)
     ),
     url("images/donate-hero.jpg") center/cover no-repeat;
-
   background-color:var(--green-dark);
 }
 
 .hero-content{
-  max-width:750px;
+  max-width:760px;
   color:#fff;
-  padding:90px 0;
+  padding:75px 0;
 }
 
 .kicker{
@@ -196,99 +192,112 @@ nav a:hover{
   font-size:11px;
   letter-spacing:2px;
   font-weight:900;
-  margin-bottom:11px;
+  margin-bottom:10px;
 }
 
 .hero-content h1{
-  font-size:58px;
+  font-size:56px;
   line-height:1.08;
-  margin-bottom:18px;
+  margin-bottom:15px;
 }
 
 .hero-content p{
   color:#e0ebe5;
-  font-size:17px;
+  font-size:16px;
   max-width:650px;
 }
 
-/* ================= DONATION AREA ================= */
+/* MAIN DONATION */
 
 .section{
-  padding:90px 0;
+  padding:80px 0;
 }
 
 .donation-section{
   background:var(--cream);
+  padding-top:55px;
 }
 
-.donation-layout{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:35px;
-  align-items:start;
-}
+/* ACCOUNT TOP */
 
-/* ================= DONATION CARD ================= */
-
-.donation-card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:35px;
-  box-shadow:var(--shadow);
-}
-
-.donation-card h2{
-  color:var(--green-dark);
-  font-size:31px;
-  line-height:1.2;
-  margin-bottom:10px;
-}
-
-.donation-card-intro{
-  color:var(--muted);
-  font-size:14px;
-  margin-bottom:27px;
-}
-
-/* ACCOUNT */
-
-.account-box{
-  border:1px solid var(--border);
-  border-radius:14px;
-  overflow:hidden;
-  background:#fbfdfb;
-}
-
-.account-head{
-  background:var(--green);
+.account-top{
+  position:relative;
+  background:
+    linear-gradient(
+      135deg,
+      var(--green),
+      var(--green-dark)
+    );
   color:#fff;
-  padding:17px 20px;
-  font-weight:800;
-  font-size:14px;
+  border-radius:20px;
+  padding:38px;
+  margin-bottom:35px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
 }
 
-.account-row{
-  padding:17px 20px;
-  border-bottom:1px solid var(--border);
+.account-top:before{
+  content:"";
+  position:absolute;
+  width:280px;
+  height:280px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:50%;
+  right:-100px;
+  top:-130px;
 }
 
-.account-row:last-child{
-  border-bottom:0;
+.account-top:after{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border:1px solid rgba(214,174,61,.18);
+  border-radius:50%;
+  right:70px;
+  bottom:-125px;
+}
+
+.account-top-content{
+  position:relative;
+  z-index:2;
+}
+
+.account-top .kicker{
+  margin-bottom:7px;
+}
+
+.account-top h2{
+  font-size:32px;
+  line-height:1.2;
+  margin-bottom:22px;
+}
+
+.account-details{
+  display:grid;
+  grid-template-columns:1fr 1.4fr 1fr;
+  gap:15px;
+}
+
+.account-detail{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  padding:18px;
 }
 
 .account-label{
   display:block;
-  color:var(--muted);
+  color:#bcd2c7;
   font-size:10px;
-  text-transform:uppercase;
   letter-spacing:1.2px;
+  text-transform:uppercase;
   font-weight:800;
-  margin-bottom:3px;
+  margin-bottom:5px;
 }
 
 .account-value{
-  color:var(--green-dark);
+  color:#fff;
   font-size:16px;
   font-weight:800;
 }
@@ -305,17 +314,15 @@ nav a:hover{
   letter-spacing:1px;
 }
 
-/* COPY BUTTON */
-
 .copy-btn{
   flex-shrink:0;
   border:0;
   background:var(--gold);
   color:#172019;
-  padding:11px 15px;
+  padding:10px 14px;
   border-radius:7px;
   cursor:pointer;
-  font-size:12px;
+  font-size:11px;
   font-weight:900;
   transition:.2s;
 }
@@ -326,30 +333,58 @@ nav a:hover{
 }
 
 .copy-btn.copied{
-  background:var(--green);
-  color:#fff;
+  background:#fff;
+  color:var(--green);
 }
 
-/* BANK NOTE */
+/* NOTE */
 
-.bank-note{
-  margin-top:18px;
-  background:var(--soft);
-  border-left:4px solid var(--green);
-  padding:15px 17px;
-  border-radius:8px;
-  color:#52635b;
+.account-note{
+  margin-top:17px;
+  background:rgba(255,255,255,.07);
+  border-left:3px solid var(--gold);
+  padding:12px 15px;
+  color:#d8e6df;
   font-size:12px;
 }
 
-/* ================= AMOUNT ================= */
+/* LOWER LAYOUT */
+
+.donation-layout{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:30px;
+  align-items:start;
+}
+
+.donation-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:32px;
+  box-shadow:0 10px 35px rgba(0,0,0,.06);
+}
+
+.donation-card h2{
+  color:var(--green-dark);
+  font-size:30px;
+  line-height:1.2;
+  margin-bottom:10px;
+}
+
+.donation-card-intro{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+/* AMOUNT */
 
 .amount-title{
-  margin-top:30px;
-  margin-bottom:12px;
   color:var(--green-dark);
   font-size:17px;
   font-weight:900;
+  margin-bottom:12px;
 }
 
 .amount-grid{
@@ -377,8 +412,6 @@ nav a:hover{
   border-color:var(--green);
 }
 
-/* CUSTOM */
-
 .custom-amount{
   margin-top:12px;
 }
@@ -396,12 +429,49 @@ nav a:hover{
   border-color:var(--green);
 }
 
-/* ================= SUPPORT CARD ================= */
+/* HOW TO DONATE */
+
+.steps{
+  margin-top:27px;
+}
+
+.step{
+  display:flex;
+  gap:13px;
+  margin:17px 0;
+}
+
+.step-number{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:var(--soft);
+  color:var(--green);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  font-weight:900;
+  flex-shrink:0;
+}
+
+.step h4{
+  color:var(--green-dark);
+  font-size:14px;
+  margin-bottom:2px;
+}
+
+.step p{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* SUPPORT CARD */
 
 .support-card{
   color:#fff;
   border-radius:18px;
-  padding:35px;
+  padding:32px;
   background:
     linear-gradient(
       145deg,
@@ -409,31 +479,18 @@ nav a:hover{
       var(--green-dark)
     );
   box-shadow:var(--shadow);
-  position:relative;
-  overflow:hidden;
-}
-
-.support-card:after{
-  content:"";
-  position:absolute;
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.12);
-  right:-90px;
-  top:-90px;
 }
 
 .support-card h2{
-  font-size:31px;
+  font-size:30px;
   line-height:1.2;
-  margin-bottom:14px;
+  margin-bottom:13px;
 }
 
 .support-card p{
   color:#d9e7e0;
   font-size:14px;
-  margin-bottom:25px;
+  margin-bottom:22px;
 }
 
 .support-list{
@@ -442,9 +499,9 @@ nav a:hover{
 
 .support-list li{
   display:flex;
-  gap:12px;
+  gap:11px;
   align-items:flex-start;
-  margin:17px 0;
+  margin:16px 0;
   color:#e5eee9;
   font-size:13px;
 }
@@ -460,7 +517,7 @@ nav a:hover{
   flex-shrink:0;
 }
 
-/* ================= IMPACT ================= */
+/* IMPACT */
 
 .impact-section{
   background:#fff;
@@ -468,7 +525,7 @@ nav a:hover{
 
 .section-head{
   max-width:720px;
-  margin:0 auto 45px;
+  margin:0 auto 42px;
   text-align:center;
 }
 
@@ -493,7 +550,7 @@ nav a:hover{
 .impact-card{
   border:1px solid var(--border);
   border-radius:13px;
-  padding:30px 20px;
+  padding:28px 18px;
   text-align:center;
   transition:.25s;
 }
@@ -504,14 +561,14 @@ nav a:hover{
 }
 
 .impact-icon{
-  font-size:29px;
-  margin-bottom:10px;
+  font-size:28px;
+  margin-bottom:9px;
 }
 
 .impact-card h3{
   color:var(--green-dark);
   font-size:17px;
-  margin-bottom:6px;
+  margin-bottom:5px;
 }
 
 .impact-card p{
@@ -519,7 +576,7 @@ nav a:hover{
   font-size:12px;
 }
 
-/* ================= TRANSPARENCY ================= */
+/* TRANSPARENCY */
 
 .transparency{
   background:var(--cream);
@@ -538,7 +595,7 @@ nav a:hover{
 .transparency-box h2{
   color:var(--green-dark);
   font-size:31px;
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
 .transparency-box p{
@@ -546,7 +603,7 @@ nav a:hover{
   font-size:14px;
 }
 
-/* ================= CTA ================= */
+/* CTA */
 
 .cta{
   background:var(--green-dark);
@@ -564,7 +621,7 @@ nav a:hover{
 .cta h2{
   font-size:38px;
   line-height:1.2;
-  margin-bottom:10px;
+  margin-bottom:9px;
 }
 
 .cta p{
@@ -588,7 +645,7 @@ nav a:hover{
   color:#182019;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
   background:#032e20;
@@ -640,7 +697,7 @@ footer{
   font-size:12px;
 }
 
-/* ================= MOBILE MENU ================= */
+/* TABLET */
 
 @media(max-width:950px){
 
@@ -670,6 +727,10 @@ footer{
     display:block;
   }
 
+  .account-details{
+    grid-template-columns:1fr;
+  }
+
   .donation-layout{
     grid-template-columns:1fr;
   }
@@ -688,7 +749,7 @@ footer{
   }
 }
 
-/* ================= SMALL MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:600px){
 
@@ -705,11 +766,11 @@ footer{
   }
 
   .donate-hero{
-    min-height:390px;
+    min-height:360px;
   }
 
   .hero-content{
-    padding:70px 0;
+    padding:65px 0;
   }
 
   .hero-content h1{
@@ -721,17 +782,24 @@ footer{
   }
 
   .section{
-    padding:65px 0;
+    padding:60px 0;
   }
 
-  .donation-card,
-  .support-card{
-    padding:25px;
+  .donation-section{
+    padding-top:35px;
   }
 
-  .donation-card h2,
-  .support-card h2{
+  .account-top{
+    padding:25px 20px;
+    border-radius:15px;
+  }
+
+  .account-top h2{
     font-size:27px;
+  }
+
+  .account-detail{
+    padding:15px;
   }
 
   .account-number-row{
@@ -745,6 +813,16 @@ footer{
 
   .copy-btn{
     width:100%;
+  }
+
+  .donation-card,
+  .support-card{
+    padding:25px;
+  }
+
+  .donation-card h2,
+  .support-card h2{
+    font-size:27px;
   }
 
   .amount-grid{
@@ -774,7 +852,6 @@ footer{
   .footer-bottom{
     flex-direction:column;
   }
-
 }
 
 </style>
@@ -783,7 +860,7 @@ footer{
 <body>
 
 
-<!-- ================= TOP BAR ================= -->
+<!-- TOP BAR -->
 
 <div class="topbar">
 
@@ -804,7 +881,7 @@ footer{
 </div>
 
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
 <header>
 
@@ -871,7 +948,7 @@ footer{
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="donate-hero">
 
@@ -884,13 +961,14 @@ footer{
       </div>
 
       <h1>
-        Your Giving Can Change a Life.
+        Give With Purpose. Change a Life.
       </h1>
 
       <p>
 
-        Every contribution helps us support vulnerable
-        people, children, education, healthcare,
+        Your generosity helps Fisabilillahi Charity
+        Foundation support vulnerable people,
+        children, education, healthcare,
         empowerment and humanitarian initiatives.
 
       </p>
@@ -902,48 +980,34 @@ footer{
 </section>
 
 
-<!-- ================= DONATION ================= -->
+<!-- DONATION SECTION -->
 
 <section class="section donation-section">
 
   <div class="container">
 
-    <div class="donation-layout">
 
+    <!-- ACCOUNT INFORMATION AT THE TOP -->
 
-      <!-- DONATION DETAILS -->
+    <div class="account-top">
 
-      <div class="donation-card">
+      <div class="account-top-content">
 
         <div class="kicker">
-          Make A Donation
+          Official Donation Account
         </div>
 
         <h2>
           Support Fisabilillahi Charity Foundation
         </h2>
 
-        <p class="donation-card-intro">
 
-          You can support our work by transferring
-          your donation directly to our official
-          account below.
-
-        </p>
+        <div class="account-details">
 
 
-        <!-- ACCOUNT -->
+          <!-- ACCOUNT NAME -->
 
-        <div class="account-box">
-
-          <div class="account-head">
-
-            Official Donation Account
-
-          </div>
-
-
-          <div class="account-row">
+          <div class="account-detail">
 
             <span class="account-label">
               Account Name
@@ -956,12 +1020,13 @@ footer{
           </div>
 
 
-          <div class="account-row">
+          <!-- ACCOUNT NUMBER -->
+
+          <div class="account-detail">
 
             <span class="account-label">
               Account Number
             </span>
-
 
             <div class="account-number-row">
 
@@ -969,13 +1034,12 @@ footer{
                 6959530406
               </div>
 
-
               <button
                 class="copy-btn"
                 id="copyButton"
                 onclick="copyAccountNumber()">
 
-                📋 Copy Account Number
+                📋 Copy
 
               </button>
 
@@ -984,7 +1048,9 @@ footer{
           </div>
 
 
-          <div class="account-row">
+          <!-- BANK -->
+
+          <div class="account-detail">
 
             <span class="account-label">
               Bank
@@ -996,22 +1062,51 @@ footer{
 
           </div>
 
+
         </div>
 
 
-        <div class="bank-note">
+        <div class="account-note">
 
           Please confirm the account name and number
           before completing your transfer. May Allah
-          reward you abundantly for your support.
+          reward you abundantly for your generosity.
 
         </div>
 
+      </div>
 
-        <!-- AMOUNTS -->
+    </div>
+
+
+    <!-- LOWER DONATION CONTENT -->
+
+    <div class="donation-layout">
+
+
+      <!-- DONATION GUIDE -->
+
+      <div class="donation-card">
+
+        <div class="kicker">
+          Make A Difference
+        </div>
+
+        <h2>
+          Every Contribution Matters
+        </h2>
+
+        <p class="donation-card-intro">
+
+          Choose an amount below as a guide, then
+          transfer your donation using the official
+          account above.
+
+        </p>
+
 
         <div class="amount-title">
-          Choose a Donation Amount
+          Suggested Donation
         </div>
 
 
@@ -1078,10 +1173,79 @@ footer{
 
         </div>
 
+
+        <!-- HOW TO DONATE -->
+
+        <div class="steps">
+
+          <div class="step">
+
+            <div class="step-number">
+              1
+            </div>
+
+            <div>
+
+              <h4>
+                Choose Your Amount
+              </h4>
+
+              <p>
+                Select one of the suggested amounts or enter your own.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-number">
+              2
+            </div>
+
+            <div>
+
+              <h4>
+                Transfer Your Donation
+              </h4>
+
+              <p>
+                Send your contribution to the official Moniepoint account shown above.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-number">
+              3
+            </div>
+
+            <div>
+
+              <h4>
+                Keep Your Transaction Details
+              </h4>
+
+              <p>
+                Keep your transfer confirmation for your records.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
 
 
-      <!-- WHY GIVE -->
+      <!-- WHY YOUR SUPPORT MATTERS -->
 
       <div class="support-card">
 
@@ -1095,21 +1259,24 @@ footer{
 
         <p>
 
-          A small contribution can become part of
-          something much bigger when people come
-          together for a good cause.
+          Your generosity becomes part of a collective
+          effort to bring hope, opportunity and support
+          to people who need it.
 
         </p>
 
 
         <ul class="support-list">
 
+
           <li>
 
-            <span>🤲</span>
+            <span>
+              🤲
+            </span>
 
             <div>
-              Support vulnerable children and orphans.
+              Support orphans and vulnerable children.
             </div>
 
           </li>
@@ -1117,7 +1284,9 @@ footer{
 
           <li>
 
-            <span>📚</span>
+            <span>
+              📚
+            </span>
 
             <div>
               Help children access education and school materials.
@@ -1128,7 +1297,9 @@ footer{
 
           <li>
 
-            <span>🏥</span>
+            <span>
+              🏥
+            </span>
 
             <div>
               Support humanitarian healthcare initiatives.
@@ -1139,10 +1310,12 @@ footer{
 
           <li>
 
-            <span>💼</span>
+            <span>
+              💼
+            </span>
 
             <div>
-              Help create livelihood and empowerment opportunities.
+              Create livelihood and empowerment opportunities.
             </div>
 
           </li>
@@ -1150,7 +1323,9 @@ footer{
 
           <li>
 
-            <span>🌳</span>
+            <span>
+              🌳
+            </span>
 
             <div>
               Support environmental and tree-planting initiatives.
@@ -1161,13 +1336,16 @@ footer{
 
           <li>
 
-            <span>❤️</span>
+            <span>
+              ❤️
+            </span>
 
             <div>
-              Reach people and families facing hardship.
+              Reach families and communities facing hardship.
             </div>
 
           </li>
+
 
         </ul>
 
@@ -1180,7 +1358,7 @@ footer{
 </section>
 
 
-<!-- ================= IMPACT ================= -->
+<!-- IMPACT -->
 
 <section class="section impact-section">
 
@@ -1189,7 +1367,7 @@ footer{
     <div class="section-head">
 
       <div class="kicker">
-        Where Your Support Goes
+        Where Your Support Helps
       </div>
 
       <h2>
@@ -1198,8 +1376,9 @@ footer{
 
       <p>
 
-        We aim to use available resources responsibly
-        and focus them on meaningful humanitarian needs.
+        We aim to direct available resources toward
+        genuine humanitarian needs and meaningful
+        community impact.
 
       </p>
 
@@ -1220,7 +1399,7 @@ footer{
         </h3>
 
         <p>
-          Support for vulnerable children.
+          Supporting vulnerable children.
         </p>
 
       </div>
@@ -1237,7 +1416,7 @@ footer{
         </h3>
 
         <p>
-          School materials and educational opportunities.
+          Helping children access learning opportunities.
         </p>
 
       </div>
@@ -1254,7 +1433,7 @@ footer{
         </h3>
 
         <p>
-          Humanitarian health-related assistance.
+          Supporting humanitarian healthcare needs.
         </p>
 
       </div>
@@ -1271,7 +1450,7 @@ footer{
         </h3>
 
         <p>
-          Livelihood and business opportunities.
+          Creating livelihood opportunities.
         </p>
 
       </div>
@@ -1284,7 +1463,7 @@ footer{
 </section>
 
 
-<!-- ================= TRANSPARENCY ================= -->
+<!-- TRANSPARENCY -->
 
 <section class="section transparency">
 
@@ -1297,16 +1476,15 @@ footer{
       </div>
 
       <h2>
-        Every Contribution Matters.
+        Your Trust Matters.
       </h2>
 
       <p>
 
         We value the trust placed in Fisabilillahi
-        Charity Foundation. Our goal is to direct
-        donations toward genuine humanitarian needs
-        and create practical positive impact in the
-        communities we serve.
+        Charity Foundation. We aim to use donations
+        responsibly and focus them on genuine
+        humanitarian needs and positive impact.
 
       </p>
 
@@ -1317,7 +1495,7 @@ footer{
 </section>
 
 
-<!-- ================= CTA ================= -->
+<!-- CTA -->
 
 <section class="cta">
 
@@ -1328,14 +1506,13 @@ footer{
       <div>
 
         <h2>
-          Ready to Make a Difference?
+          Thank You For Supporting Our Mission.
         </h2>
 
         <p>
 
-          If you have completed your donation and
-          would like to contact us, we are available
-          through our official communication channels.
+          Every act of generosity can become a source
+          of hope for someone in need.
 
         </p>
 
@@ -1357,7 +1534,7 @@ footer{
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1469,7 +1646,7 @@ footer{
 </footer>
 
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- JAVASCRIPT -->
 
 <script>
 
@@ -1566,7 +1743,7 @@ function fallbackCopy(text){
 }
 
 
-/* COPIED MESSAGE */
+/* COPIED */
 
 function showCopied(){
 
@@ -1582,7 +1759,7 @@ function showCopied(){
   setTimeout(function(){
 
     button.textContent =
-      "📋 Copy Account Number";
+      "📋 Copy";
 
     button.classList.remove("copied");
 
@@ -1591,7 +1768,7 @@ function showCopied(){
 }
 
 
-/* DONATION AMOUNT */
+/* AMOUNT SELECTOR */
 
 function selectAmount(button,amount){
 

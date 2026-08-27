@@ -13,6 +13,7 @@
   >
 
   <style>
+
     :root {
       --green: #087443;
       --dark-green: #045c34;
@@ -41,7 +42,10 @@
       text-decoration: none;
     }
 
-    /* HEADER */
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
       background: white;
@@ -91,21 +95,31 @@
 
     .menu-btn {
       display: none;
+
       border: none;
       background: var(--green);
       color: white;
+
       font-size: 22px;
+
       padding: 8px 12px;
+
       border-radius: 7px;
+
       cursor: pointer;
     }
 
-    /* HERO */
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       background: var(--green);
       color: white;
+
       text-align: center;
+
       padding: 65px 20px;
     }
 
@@ -117,10 +131,14 @@
     .hero p {
       max-width: 720px;
       margin: auto;
+
       color: #edf7f2;
     }
 
-    /* MAIN */
+
+    /* =========================
+       MAIN
+    ========================= */
 
     .container {
       width: min(1000px, 94%);
@@ -133,26 +151,38 @@
 
     .section-title {
       text-align: center;
+
       color: var(--green);
+
       font-size: 30px;
+
       margin-bottom: 10px;
     }
 
     .intro {
       max-width: 750px;
+
       margin: 0 auto 35px;
+
       text-align: center;
+
       color: var(--muted);
     }
 
-    /* DONATION CARD */
+
+    /* =========================
+       DONATION CARD
+    ========================= */
 
     .donation-card {
       max-width: 650px;
+
       margin: auto;
 
       background: white;
+
       border: 1px solid var(--border);
+
       border-radius: 15px;
 
       padding: 35px 25px;
@@ -169,9 +199,11 @@
       margin: 0 auto 18px;
 
       background: #edf7f2;
+
       border-radius: 50%;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -180,47 +212,78 @@
 
     .donation-card h2 {
       color: var(--green);
+
       margin-bottom: 25px;
     }
 
-    /* ACCOUNT */
+
+    /* =========================
+       ACCOUNT
+    ========================= */
 
     .account-box {
       background: #f8faf9;
+
       border: 2px solid #d9e9e1;
+
       border-radius: 12px;
-      padding: 25px;
+
+      padding: 27px 20px;
+
       margin-bottom: 25px;
     }
 
     .account-label {
       color: var(--muted);
+
       font-size: 13px;
+
       margin-bottom: 4px;
     }
 
     .account-name {
       font-size: 20px;
+
       font-weight: 800;
+
       color: var(--green);
-      margin-bottom: 17px;
-    }
 
-    .account-number {
-      font-size: 30px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      margin-bottom: 6px;
-    }
-
-    .bank-name {
-      color: var(--muted);
       margin-bottom: 20px;
     }
 
+    .account-number {
+      font-size: 32px;
+
+      font-weight: 900;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 12px;
+    }
+
+
+    /* BANK NAME */
+
+    .bank-name {
+      color: var(--green);
+
+      font-size: 23px;
+
+      font-weight: 900;
+
+      letter-spacing: 1px;
+
+      margin-bottom: 22px;
+    }
+
+
+    /* COPY BUTTON */
+
     .copy-btn {
       border: none;
+
       background: var(--green);
+
       color: white;
 
       padding: 12px 22px;
@@ -228,6 +291,7 @@
       border-radius: 8px;
 
       font-weight: 800;
+
       cursor: pointer;
     }
 
@@ -237,17 +301,26 @@
 
     .copy-message {
       display: none;
+
       color: var(--green);
+
       font-size: 13px;
+
       font-weight: 700;
+
       margin-top: 10px;
     }
 
-    /* NOTE */
+
+    /* =========================
+       NOTE
+    ========================= */
 
     .note {
       background: #fffdf5;
+
       border: 1px solid #eadb9c;
+
       border-radius: 10px;
 
       padding: 17px;
@@ -255,33 +328,44 @@
       text-align: left;
 
       color: #65591f;
+
       font-size: 14px;
 
       margin-bottom: 25px;
     }
 
-    /* CONTACT */
+
+    /* =========================
+       CONTACT
+    ========================= */
 
     .contact-title {
       color: var(--green);
+
       margin-bottom: 15px;
+
       font-size: 20px;
     }
 
     .contact-buttons {
       display: flex;
+
       flex-wrap: wrap;
+
       justify-content: center;
+
       gap: 12px;
     }
 
     .contact-btn {
       display: inline-block;
+
       padding: 12px 20px;
 
       border-radius: 8px;
 
       background: var(--green);
+
       color: white;
 
       font-weight: 800;
@@ -299,73 +383,105 @@
       background: #0d65d9;
     }
 
-    /* WHY DONATE */
+
+    /* =========================
+       WHY DONATE
+    ========================= */
 
     .why-grid {
       display: grid;
+
       grid-template-columns: repeat(3, 1fr);
+
       gap: 18px;
+
       margin-top: 30px;
     }
 
     .why-card {
       background: white;
+
       border: 1px solid var(--border);
+
       border-radius: 12px;
+
       padding: 22px;
+
       text-align: center;
     }
 
     .why-card .icon {
       font-size: 27px;
+
       margin-bottom: 10px;
     }
 
     .why-card h3 {
       color: var(--green);
+
       margin-bottom: 7px;
     }
 
     .why-card p {
       color: var(--muted);
+
       font-size: 14px;
     }
 
-    /* CTA */
+
+    /* =========================
+       CTA
+    ========================= */
 
     .cta {
       background: var(--green);
+
       color: white;
+
       text-align: center;
+
       padding: 55px 20px;
     }
 
     .cta h2 {
       font-size: 29px;
+
       margin-bottom: 10px;
     }
 
     .cta p {
       max-width: 700px;
+
       margin: auto;
+
       color: #edf7f2;
     }
 
-    /* FOOTER */
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       background: #063b24;
+
       color: white;
+
       text-align: center;
+
       padding: 25px 15px;
     }
 
     footer p {
       color: #d5e5dd;
+
       font-size: 14px;
     }
 
-    /* MOBILE */
+
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 850px) {
 
@@ -377,8 +493,11 @@
         display: none;
 
         position: absolute;
+
         top: 75px;
+
         left: 0;
+
         right: 0;
 
         background: white;
@@ -396,6 +515,7 @@
 
       nav a {
         width: 100%;
+
         text-align: center;
       }
 
@@ -403,6 +523,7 @@
         grid-template-columns: 1fr;
       }
     }
+
 
     @media (max-width: 600px) {
 
@@ -430,56 +551,84 @@
         font-size: 25px;
       }
 
+      .bank-name {
+        font-size: 20px;
+      }
+
       .contact-buttons {
         flex-direction: column;
       }
 
       .contact-btn {
         width: 100%;
+
         text-align: center;
       }
     }
+
   </style>
+
 </head>
 
 
 <body>
 
 
-  <!-- HEADER -->
+  <!-- =========================
+       HEADER
+  ========================= -->
 
   <header>
 
     <div class="nav-container">
 
       <a href="index.html" class="logo">
-        Fisabilillahi <span>Charity Foundation</span>
+        Fisabilillahi
+        <span>Charity Foundation</span>
       </a>
 
       <button
         class="menu-btn"
         onclick="toggleMenu()"
         aria-label="Open menu">
+
         ☰
+
       </button>
 
       <nav id="mainNav">
 
-        <a href="index.html">Home</a>
+        <a href="index.html">
+          Home
+        </a>
 
-        <a href="about.html">About</a>
+        <a href="about.html">
+          About
+        </a>
 
-        <a href="projects.html">Projects</a>
+        <a href="projects.html">
+          Projects
+        </a>
 
-        <a href="gallery.html">Gallery</a>
+        <a href="gallery.html">
+          Gallery
+        </a>
 
-        <a href="donate.html" class="active">Donate</a>
+        <a href="donate.html" class="active">
+          Donate
+        </a>
 
-        <a href="register.html">Register</a>
+        <a href="register.html">
+          Register
+        </a>
 
-        <a href="login.html">Login</a>
+        <a href="login.html">
+          Login
+        </a>
 
-        <a href="contact.html">Contact</a>
+        <a href="contact.html">
+          Contact
+        </a>
 
       </nav>
 
@@ -488,7 +637,9 @@
   </header>
 
 
-  <!-- HERO -->
+  <!-- =========================
+       HERO
+  ========================= -->
 
   <section class="hero">
 
@@ -505,7 +656,9 @@
   </section>
 
 
-  <!-- DONATE -->
+  <!-- =========================
+       DONATION
+  ========================= -->
 
   <section class="section">
 
@@ -524,9 +677,11 @@
 
       <div class="donation-card">
 
+
         <div class="donation-icon">
           🤲
         </div>
+
 
         <h2>
           Official Donation Account
@@ -535,8 +690,9 @@
 
         <div class="account-box">
 
+
           <p class="account-label">
-            Account Name
+            ACCOUNT NAME
           </p>
 
           <p class="account-name">
@@ -545,7 +701,7 @@
 
 
           <p class="account-label">
-            Account Number
+            ACCOUNT NUMBER
           </p>
 
           <p
@@ -557,257 +713,12 @@
           </p>
 
 
+          <!-- BANK NAME -->
+
           <p class="bank-name">
-            Moniepoint
+            MONIEPOINT MFB BANK
           </p>
 
 
           <button
-            class="copy-btn"
-            onclick="copyAccount()">
-
-            📋 Copy Account Number
-
-          </button>
-
-
-          <p
-            class="copy-message"
-            id="copyMessage">
-
-            Account number copied successfully.
-
-          </p>
-
-        </div>
-
-
-        <div class="note">
-
-          <strong>
-            Important:
-          </strong>
-
-          Please make sure the account name is
-          <strong>
-            Fisabilillahi Charity Foundation
-          </strong>
-          before completing your donation.
-
-        </div>
-
-
-        <!-- CONTACT -->
-
-        <h3 class="contact-title">
-          Need Help With Your Donation?
-        </h3>
-
-        <div class="contact-buttons">
-
-          <a
-            href="https://wa.me/2349036114093?text=Assalamu%20alaikum%2C%20I%20want%20to%20make%20a%20donation%20to%20Fisabilillahi%20Charity%20Foundation."
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-btn">
-
-            💬 WhatsApp President
-
-          </a>
-
-
-          <a
-            href="https://www.facebook.com/profile.php?id=61592460838817"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-btn facebook">
-
-            f Facebook
-
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- WHY DONATE -->
-
-  <section class="section">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        Your Support Can Help
-      </h2>
-
-      <div class="why-grid">
-
-
-        <div class="why-card">
-
-          <div class="icon">
-            🎓
-          </div>
-
-          <h3>
-            Education
-          </h3>
-
-          <p>
-            Supporting children and people who need
-            help accessing education.
-          </p>
-
-        </div>
-
-
-        <div class="why-card">
-
-          <div class="icon">
-            ❤️
-          </div>
-
-          <h3>
-            Humanitarian Support
-          </h3>
-
-          <p>
-            Helping people facing hardship and
-            supporting vulnerable members of society.
-          </p>
-
-        </div>
-
-
-        <div class="why-card">
-
-          <div class="icon">
-            🤝
-          </div>
-
-          <h3>
-            Empowerment
-          </h3>
-
-          <p>
-            Supporting sustainable opportunities that
-            can help people improve their lives.
-          </p>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CTA -->
-
-  <section class="cta">
-
-    <h2>
-      May Allah Reward You
-    </h2>
-
-    <p>
-      We appreciate every person who contributes,
-      shares our mission or supports our humanitarian
-      activities. May Allah reward you abundantly.
-    </p>
-
-  </section>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <p>
-      © <span id="year"></span>
-      Fisabilillahi Charity Foundation.
-      All Rights Reserved.
-    </p>
-
-  </footer>
-
-
-  <!-- JAVASCRIPT -->
-
-  <script>
-
-    function toggleMenu() {
-
-      document
-        .getElementById("mainNav")
-        .classList.toggle("show");
-
-    }
-
-
-    document
-      .querySelectorAll("#mainNav a")
-      .forEach(function(link) {
-
-        link.addEventListener("click", function() {
-
-          document
-            .getElementById("mainNav")
-            .classList.remove("show");
-
-        });
-
-      });
-
-
-    function copyAccount() {
-
-      const account =
-        document
-          .getElementById("accountNumber")
-          .textContent
-          .trim();
-
-      const message =
-        document.getElementById("copyMessage");
-
-
-      navigator.clipboard
-        .writeText(account)
-        .then(function() {
-
-          message.style.display = "block";
-
-          setTimeout(function() {
-
-            message.style.display = "none";
-
-          }, 2500);
-
-        })
-        .catch(function() {
-
-          alert(
-            "Account Number: " + account
-          );
-
-        });
-
-    }
-
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-  </script>
-
-
-</body>
-</html>
+            class="copy

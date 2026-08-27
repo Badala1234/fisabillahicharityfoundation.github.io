@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Admin Panel | Fisabilillahi Charity Foundation</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -17,11 +20,15 @@ body{
   font-family:Arial,sans-serif;
   background:#f4f7f5;
   color:#222;
+  line-height:1.6;
 }
+
+
+/* HEADER */
 
 header{
   background:#063b24;
-  color:white;
+  color:#fff;
   padding:16px 5%;
   border-bottom:4px solid #d4af37;
 }
@@ -35,7 +42,7 @@ header{
 }
 
 .logo{
-  color:white;
+  color:#fff;
   text-decoration:none;
   font-size:20px;
   font-weight:bold;
@@ -48,7 +55,7 @@ header{
 .menu{
   display:none;
   background:#087443;
-  color:white;
+  color:#fff;
   border:0;
   padding:9px 13px;
   border-radius:7px;
@@ -62,7 +69,7 @@ nav{
 }
 
 nav a{
-  color:white;
+  color:#fff;
   text-decoration:none;
   font-size:14px;
   font-weight:bold;
@@ -73,9 +80,12 @@ nav a:hover{
   color:#d4af37;
 }
 
+
+/* HERO */
+
 .hero{
   background:#087443;
-  color:white;
+  color:#fff;
   text-align:center;
   padding:45px 20px;
 }
@@ -89,6 +99,9 @@ nav a:hover{
   color:#e6f1eb;
 }
 
+
+/* CONTAINER */
+
 .container{
   width:94%;
   max-width:1150px;
@@ -99,7 +112,8 @@ nav a:hover{
   padding:40px 0;
 }
 
-/* SUMMARY CARDS */
+
+/* STATISTICS */
 
 .stats{
   display:grid;
@@ -109,7 +123,7 @@ nav a:hover{
 }
 
 .stat{
-  background:white;
+  background:#fff;
   border:1px solid #ddd;
   border-radius:12px;
   padding:22px;
@@ -132,10 +146,11 @@ nav a:hover{
   font-size:14px;
 }
 
+
 /* PANELS */
 
 .panel{
-  background:white;
+  background:#fff;
   border:1px solid #ddd;
   border-radius:12px;
   padding:25px;
@@ -150,6 +165,7 @@ nav a:hover{
 .panel p{
   color:#666;
 }
+
 
 /* QUICK ACTIONS */
 
@@ -167,10 +183,12 @@ nav a:hover{
   padding:20px;
   text-decoration:none;
   color:#222;
+  transition:.2s;
 }
 
 .action:hover{
   border-color:#087443;
+  transform:translateY(-2px);
 }
 
 .action strong{
@@ -184,43 +202,6 @@ nav a:hover{
   font-size:14px;
 }
 
-/* TABLE */
-
-.table-wrap{
-  overflow-x:auto;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-}
-
-th,
-td{
-  padding:13px;
-  text-align:left;
-  border-bottom:1px solid #ddd;
-}
-
-th{
-  background:#087443;
-  color:white;
-}
-
-td{
-  color:#555;
-  font-size:14px;
-}
-
-.status{
-  display:inline-block;
-  padding:5px 9px;
-  border-radius:15px;
-  background:#fff4cc;
-  color:#795f00;
-  font-size:12px;
-  font-weight:bold;
-}
 
 /* NOTICE */
 
@@ -240,18 +221,25 @@ td{
   font-size:14px;
 }
 
-/* BUTTON */
+
+/* BUTTONS */
 
 .button{
   display:inline-block;
   background:#087443;
-  color:white;
+  color:#fff;
   text-decoration:none;
   border:0;
   padding:12px 20px;
   border-radius:7px;
   font-weight:bold;
   cursor:pointer;
+  margin-right:8px;
+  margin-top:8px;
+}
+
+.button:hover{
+  background:#065d36;
 }
 
 .button.gold{
@@ -263,11 +251,12 @@ td{
   background:#9b2525;
 }
 
+
 /* FOOTER */
 
 footer{
   background:#063b24;
-  color:white;
+  color:#fff;
   text-align:center;
   padding:25px 15px;
 }
@@ -276,6 +265,7 @@ footer p{
   color:#d7e7de;
   font-size:14px;
 }
+
 
 /* MOBILE */
 
@@ -313,7 +303,9 @@ footer p{
   .actions{
     grid-template-columns:1fr 1fr;
   }
+
 }
+
 
 @media(max-width:550px){
 
@@ -336,37 +328,65 @@ footer p{
   .panel{
     padding:20px 15px;
   }
+
 }
+
 </style>
+
 </head>
 
+
 <body>
+
+
+<!-- HEADER -->
 
 <header>
 
 <div class="header">
 
 <a href="index.html" class="logo">
-Fisabilillahi <span>Admin Panel</span>
+
+Fisabilillahi
+<span>Admin Panel</span>
+
 </a>
+
 
 <button
 class="menu"
 onclick="toggleMenu()">
+
 ☰
+
 </button>
+
 
 <nav id="nav">
 
-<a href="index.html">Website</a>
+<a href="index.html">
+🌐 Website
+</a>
 
-<a href="dashboard.html">Dashboard</a>
+<a href="dashboard.html">
+👤 Dashboard
+</a>
 
-<a href="register.html">Register</a>
+<a href="members.html">
+👥 Members
+</a>
 
-<a href="donate.html">Donate</a>
+<a href="register.html">
+📝 Register
+</a>
 
-<a href="contact.html">Contact</a>
+<a href="donate.html">
+💰 Donate
+</a>
+
+<a href="contact.html">
+📩 Contact
+</a>
 
 </nav>
 
@@ -375,9 +395,14 @@ onclick="toggleMenu()">
 </header>
 
 
+
+<!-- HERO -->
+
 <section class="hero">
 
-<h1>Admin Panel</h1>
+<h1>
+Admin Panel
+</h1>
 
 <p>
 Fisabilillahi Charity Foundation Management Center
@@ -385,6 +410,9 @@ Fisabilillahi Charity Foundation Management Center
 
 </section>
 
+
+
+<!-- MAIN -->
 
 <section class="section">
 
@@ -467,6 +495,7 @@ Messages
 </div>
 
 
+
 <!-- QUICK ACTIONS -->
 
 <div class="panel">
@@ -479,6 +508,19 @@ Quick Actions
 <div class="actions">
 
 
+<a href="members.html" class="action">
+
+<strong>
+👥 Members
+</strong>
+
+<span>
+View and manage registered members.
+</span>
+
+</a>
+
+
 <a href="dashboard.html" class="action">
 
 <strong>
@@ -486,7 +528,7 @@ Quick Actions
 </strong>
 
 <span>
-View the member dashboard.
+Open the member dashboard.
 </span>
 
 </a>
@@ -562,7 +604,8 @@ Open the Contact Us page.
 </div>
 
 
-<!-- SYSTEM STATUS -->
+
+<!-- DATABASE STATUS -->
 
 <div class="panel">
 
@@ -574,14 +617,17 @@ System Status
 <div class="notice">
 
 <h3>
-Database Connection
+🔐 Database Connection Pending
 </h3>
 
 <p>
-The secure database connection has not been
-activated yet. Member records, donations and
-messages will automatically be connected here
-when the database system is available.
+
+The secure database connection has not yet
+been activated. Member records, donations
+and contact messages will be connected to
+this Admin Panel when the database system
+is activated.
+
 </p>
 
 </div>
@@ -589,74 +635,42 @@ when the database system is available.
 </div>
 
 
-<!-- MEMBERS -->
+
+<!-- MEMBERS PREVIEW -->
 
 <div class="panel">
 
 <h2>
-Recent Members
+👥 Recent Members
 </h2>
 
-<div class="table-wrap">
 
-<table>
+<div class="notice">
 
-<thead>
-
-<tr>
-
-<th>
-Name
-</th>
-
-<th>
-Email
-</th>
-
-<th>
-Status
-</th>
-
-<th>
-Date
-</th>
-
-</tr>
-
-</thead>
-
-
-<tbody>
-
-<tr>
-
-<td>
+<h3>
 No members yet
-</td>
+</h3>
 
-<td>
-—
-</td>
+<p>
 
-<td>
-<span class="status">
-Waiting
-</span>
-</td>
+Registered members will appear here after
+the secure database is connected.
 
-<td>
-—
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+</p>
 
 </div>
 
+
+<a
+href="members.html"
+class="button">
+
+View Members
+
+</a>
+
 </div>
+
 
 
 <!-- DONATIONS -->
@@ -664,63 +678,36 @@ Waiting
 <div class="panel">
 
 <h2>
-Donation Summary
+💰 Donation Summary
 </h2>
 
-<div class="table-wrap">
 
-<table>
+<div class="notice">
 
-<thead>
+<h3>
+Donation Records
+</h3>
 
-<tr>
+<p>
 
-<th>
-Donation Type
-</th>
+Donation records will appear here after
+the secure database is connected.
 
-<th>
-Amount
-</th>
-
-<th>
-Status
-</th>
-
-</tr>
-
-</thead>
-
-
-<tbody>
-
-<tr>
-
-<td>
-Foundation Donations
-</td>
-
-<td>
-₦0
-</td>
-
-<td>
-
-<span class="status">
-Database Pending
-</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+</p>
 
 </div>
 
+
+<a
+href="donate.html"
+class="button gold">
+
+Open Donation Page
+
+</a>
+
 </div>
+
 
 
 <!-- PROJECTS -->
@@ -728,8 +715,9 @@ Database Pending
 <div class="panel">
 
 <h2>
-Foundation Projects
+❤️ Foundation Projects
 </h2>
+
 
 <div class="actions">
 
@@ -817,35 +805,57 @@ Helping people in need.
 </div>
 
 
-<!-- RETURN -->
+
+<!-- WEBSITE MANAGEMENT -->
 
 <div class="panel">
 
 <h2>
-Website Management
+🌐 Website Management
 </h2>
 
-<p style="margin-bottom:18px;">
-Use the links below to move around the foundation
+
+<p style="margin-bottom:12px;">
+
+Use these links to move around the foundation
 website.
+
 </p>
+
 
 <a
 href="index.html"
 class="button">
+
 Open Website
+
 </a>
+
+
+<a
+href="members.html"
+class="button">
+
+👥 Members
+
+</a>
+
 
 <a
 href="dashboard.html"
 class="button gold">
+
 Member Dashboard
+
 </a>
+
 
 <button
 onclick="logout()"
 class="button red">
+
 Logout
+
 </button>
 
 </div>
@@ -856,18 +866,27 @@ Logout
 </section>
 
 
+
+<!-- FOOTER -->
+
 <footer>
 
 <p>
+
 © <span id="year"></span>
 Fisabilillahi Charity Foundation.
 All Rights Reserved.
+
 </p>
 
 </footer>
 
 
+
 <script>
+
+
+/* MOBILE MENU */
 
 function toggleMenu(){
 
@@ -878,16 +897,21 @@ document
 }
 
 
+/* LOGOUT */
+
 function logout(){
 
 alert(
-"Admin security will be activated when the database system is connected."
+"Admin security will be activated when the secure database system is connected."
 );
 
-window.location.href="index.html";
+window.location.href =
+"admin-login.html";
 
 }
 
+
+/* YEAR */
 
 document
 .getElementById("year")
@@ -896,5 +920,7 @@ new Date().getFullYear();
 
 </script>
 
+
 </body>
+
 </html>

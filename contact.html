@@ -1,339 +1,629 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Contact Us | Fisabilillahi Charity Foundation</title>
 
-<meta
-name="description"
-content="Contact Fisabilillahi Charity Foundation for enquiries, support, donations and humanitarian services."
->
+<meta name="description"
+content="Contact Fisabilillahi Charity Foundation for enquiries, partnership, donations and humanitarian support.">
 
 <style>
 
+:root{
+  --green:#075c3b;
+  --green-dark:#043c27;
+  --green-light:#0d8053;
+  --gold:#d6ae3d;
+  --gold-light:#f1d77a;
+  --cream:#f8f6ee;
+  --white:#fff;
+  --text:#25352e;
+  --muted:#68766f;
+  --border:#e4ebe7;
+  --soft:#eef6f1;
+  --shadow:0 20px 55px rgba(0,0,0,.10);
+}
+
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial,sans-serif;
-  background:#f4f7f5;
-  color:#222;
-  line-height:1.6;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:#fff;
+  line-height:1.7;
 }
 
 a{
   text-decoration:none;
+  color:inherit;
 }
 
-
-/* HEADER */
-
-header{
-  background:#063b24;
-  color:#fff;
-  padding:15px 5%;
-  border-bottom:4px solid #d4af37;
+button,
+input,
+textarea{
+  font-family:inherit;
 }
 
-.header{
-  max-width:1150px;
+.container{
+  width:92%;
+  max-width:1200px;
   margin:auto;
+}
+
+/* ================= TOP BAR ================= */
+
+.topbar{
+  background:var(--green-dark);
+  color:#dceae3;
+  font-size:12px;
+  padding:8px 0;
+}
+
+.topbar-inner{
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   gap:20px;
 }
 
-.logo{
-  color:#fff;
-  font-size:20px;
-  font-weight:bold;
+.topbar a:hover{
+  color:var(--gold);
 }
 
-.logo span{
-  color:#d4af37;
+/* ================= HEADER ================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(10px);
 }
 
-nav{
+.navbar{
+  min-height:78px;
   display:flex;
   align-items:center;
-  gap:5px;
+  justify-content:space-between;
 }
 
-nav a{
-  color:#fff;
-  font-size:14px;
-  font-weight:bold;
-  padding:8px;
-}
-
-nav a:hover{
-  color:#d4af37;
-}
-
-.menu{
-  display:none;
-  background:#087443;
-  color:#fff;
-  border:0;
-  border-radius:7px;
-  padding:8px 12px;
-  font-size:21px;
-}
-
-
-/* HERO */
-
-.hero{
-  background:#087443;
-  color:#fff;
-  text-align:center;
-  padding:48px 20px;
-}
-
-.hero h1{
-  font-size:38px;
-  margin-bottom:8px;
-}
-
-.hero p{
-  color:#e5f0ea;
-}
-
-
-/* CONTAINER */
-
-.container{
-  width:94%;
-  max-width:1150px;
-  margin:auto;
-}
-
-.section{
-  padding:42px 0;
-}
-
-
-/* CONTACT GRID */
-
-.contact-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:25px;
-}
-
-
-/* CARDS */
-
-.card{
-  background:#fff;
-  border:1px solid #ddd;
-  border-radius:13px;
-  padding:25px;
-  margin-bottom:20px;
-}
-
-.card h2{
-  color:#087443;
-  margin-bottom:18px;
-  font-size:23px;
-}
-
-
-/* CONTACT ITEM */
-
-.contact-item{
+.logo{
   display:flex;
-  align-items:flex-start;
-  gap:15px;
-  padding:14px 0;
-  border-bottom:1px solid #eee;
+  align-items:center;
+  gap:10px;
+  color:var(--green);
+  font-weight:800;
 }
 
-.contact-item:last-child{
-  border-bottom:0;
-}
-
-.icon{
-  width:42px;
-  height:42px;
-  min-width:42px;
+.logo-mark{
+  width:45px;
+  height:45px;
   border-radius:50%;
-  background:#e8f3ed;
+  background:var(--green);
+  border:2px solid var(--gold);
+  color:var(--gold);
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:21px;
 }
 
+.logo-text{
+  font-size:18px;
+  line-height:1.2;
+}
+
+.logo-text small{
+  display:block;
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  margin-top:3px;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:3px;
+}
+
+nav a{
+  color:#30433a;
+  font-size:13px;
+  font-weight:700;
+  padding:9px 11px;
+}
+
+nav a:hover{
+  color:var(--green-light);
+}
+
+.nav-contact{
+  background:var(--green);
+  color:#fff!important;
+  border-radius:7px;
+}
+
+.menu{
+  display:none;
+  border:0;
+  background:var(--green);
+  color:#fff;
+  padding:9px 12px;
+  border-radius:7px;
+  font-size:21px;
+  cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.contact-hero{
+  min-height:400px;
+  display:flex;
+  align-items:center;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3,55,35,.97),
+      rgba(3,55,35,.72),
+      rgba(3,55,35,.25)
+    ),
+    url("images/contact-hero.jpg") center/cover no-repeat;
+
+  background-color:var(--green-dark);
+}
+
+.hero-content{
+  max-width:760px;
+  color:#fff;
+  padding:80px 0;
+}
+
+.kicker{
+  color:var(--gold);
+  text-transform:uppercase;
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.hero-content h1{
+  font-size:56px;
+  line-height:1.08;
+  margin-bottom:16px;
+}
+
+.hero-content p{
+  color:#e0ebe5;
+  font-size:16px;
+  max-width:650px;
+}
+
+/* ================= CONTACT SECTION ================= */
+
+.section{
+  padding:85px 0;
+}
+
+.contact-section{
+  background:var(--cream);
+}
+
+.contact-layout{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:30px;
+  align-items:start;
+}
+
+/* ================= INFO CARD ================= */
+
+.info-card{
+  background:
+    linear-gradient(
+      145deg,
+      var(--green),
+      var(--green-dark)
+    );
+
+  color:#fff;
+  border-radius:18px;
+  padding:35px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  position:relative;
+}
+
+.info-card:after{
+  content:"";
+  position:absolute;
+  width:240px;
+  height:240px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:50%;
+  right:-120px;
+  top:-100px;
+}
+
+.info-card-content{
+  position:relative;
+  z-index:2;
+}
+
+.info-card h2{
+  font-size:31px;
+  line-height:1.2;
+  margin-bottom:12px;
+}
+
+.info-card-intro{
+  color:#d9e7e0;
+  font-size:13px;
+  margin-bottom:28px;
+}
+
+.contact-item{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  margin:20px 0;
+}
+
+.contact-icon{
+  width:42px;
+  height:42px;
+  flex-shrink:0;
+  border-radius:10px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:19px;
+}
+
+.contact-item small{
+  display:block;
+  color:#abc4b8;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-size:9px;
+  font-weight:800;
+  margin-bottom:2px;
+}
+
 .contact-item strong{
   display:block;
-  color:#087443;
-  margin-bottom:3px;
-}
-
-.contact-item a{
-  color:#555;
-  word-break:break-word;
-}
-
-.contact-item a:hover{
-  color:#087443;
-}
-
-
-/* SOCIAL BUTTONS */
-
-.social-buttons{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-top:18px;
-}
-
-.social-button{
-  display:block;
-  text-align:center;
-  padding:13px;
-  border-radius:8px;
-  font-weight:bold;
-  background:#087443;
+  font-size:14px;
   color:#fff;
 }
 
-.social-button:hover{
-  opacity:.9;
+.contact-item a:hover{
+  color:var(--gold);
 }
 
-.social-button.facebook{
-  background:#1877f2;
+/* ================= SOCIAL ================= */
+
+.social-title{
+  color:var(--gold);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  font-weight:900;
+  margin-top:30px;
+  margin-bottom:12px;
 }
 
-.social-button.whatsapp{
-  background:#128c4a;
+.social-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
 }
 
+.social-link{
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.06);
+  color:#e2eee8;
+  padding:9px 13px;
+  border-radius:7px;
+  font-size:11px;
+  font-weight:800;
+  transition:.2s;
+}
 
-/* FORM */
+.social-link:hover{
+  background:var(--gold);
+  color:#182019;
+}
+
+/* ================= FORM CARD ================= */
+
+.form-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:35px;
+  box-shadow:0 10px 35px rgba(0,0,0,.06);
+}
+
+.form-card h2{
+  color:var(--green-dark);
+  font-size:31px;
+  line-height:1.2;
+  margin-bottom:8px;
+}
+
+.form-intro{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:25px;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
 
 .form-group{
-  margin-bottom:16px;
+  margin-bottom:17px;
 }
 
 .form-group label{
   display:block;
-  font-weight:bold;
-  margin-bottom:7px;
+  color:var(--green-dark);
+  font-size:11px;
+  font-weight:900;
+  margin-bottom:6px;
 }
 
 .form-group input,
 .form-group textarea{
   width:100%;
-  border:1px solid #ccc;
+  border:1px solid var(--border);
+  background:#fbfdfb;
   border-radius:8px;
-  padding:13px;
-  font-family:Arial,sans-serif;
-  font-size:15px;
+  padding:13px 14px;
   outline:none;
+  font-size:13px;
+  color:var(--text);
+  transition:.2s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus{
-  border-color:#087443;
+  border-color:var(--green);
+  background:#fff;
 }
 
 .form-group textarea{
-  min-height:150px;
+  min-height:145px;
   resize:vertical;
 }
 
-.submit{
+.submit-btn{
   width:100%;
-  background:#087443;
-  color:#fff;
   border:0;
-  border-radius:8px;
+  background:var(--green);
+  color:#fff;
   padding:14px;
-  font-size:16px;
-  font-weight:bold;
+  border-radius:8px;
   cursor:pointer;
+  font-size:13px;
+  font-weight:900;
+  transition:.2s;
 }
 
-.submit:hover{
-  background:#065d36;
+.submit-btn:hover{
+  background:var(--green-dark);
+  transform:translateY(-1px);
 }
 
+.form-note{
+  text-align:center;
+  color:var(--muted);
+  font-size:10px;
+  margin-top:11px;
+}
 
-/* NOTICE */
+/* ================= QUICK CONTACT ================= */
 
-.notice{
-  background:#fffdf3;
-  border:1px solid #e4d18a;
-  border-radius:10px;
-  padding:16px;
-  margin-top:18px;
+.quick-section{
+  background:#fff;
+}
+
+.section-head{
+  max-width:720px;
+  margin:0 auto 42px;
+  text-align:center;
+}
+
+.section-head h2{
+  color:var(--green-dark);
+  font-size:40px;
+  line-height:1.2;
+  margin-bottom:10px;
+}
+
+.section-head p{
+  color:var(--muted);
   font-size:14px;
-  color:#665300;
 }
 
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
 
-/* BACK BUTTON */
+.quick-card{
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:30px 22px;
+  text-align:center;
+  transition:.25s;
+}
 
-.back{
-  display:inline-block;
-  margin-top:20px;
-  background:#d4af37;
-  color:#222;
-  padding:11px 18px;
+.quick-card:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow);
+}
+
+.quick-icon{
+  font-size:30px;
+  margin-bottom:9px;
+}
+
+.quick-card h3{
+  color:var(--green-dark);
+  font-size:18px;
+  margin-bottom:5px;
+}
+
+.quick-card p{
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.quick-btn{
+  display:inline-flex;
+  background:var(--soft);
+  color:var(--green);
+  padding:9px 14px;
   border-radius:7px;
-  font-weight:bold;
+  font-size:11px;
+  font-weight:900;
 }
 
-.back:hover{
-  opacity:.9;
+.quick-btn:hover{
+  background:var(--green);
+  color:#fff;
 }
 
+/* ================= CTA ================= */
 
-/* FOOTER */
+.cta{
+  background:var(--green-dark);
+  color:#fff;
+  padding:75px 0;
+}
+
+.cta-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+}
+
+.cta h2{
+  font-size:38px;
+  line-height:1.2;
+  margin-bottom:9px;
+}
+
+.cta p{
+  color:#cbdad2;
+  font-size:14px;
+  max-width:650px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 22px;
+  border-radius:7px;
+  font-size:14px;
+  font-weight:900;
+}
+
+.btn-gold{
+  background:var(--gold);
+  color:#182019;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
-  background:#063b24;
+  background:#032e20;
   color:#fff;
-  text-align:center;
-  padding:25px 15px;
+  padding:55px 0 25px;
 }
 
-footer p{
-  color:#d7e7de;
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:45px;
+  padding-bottom:35px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.footer-brand h3{
+  color:var(--gold);
+  margin-bottom:10px;
+}
+
+.footer-brand p{
+  color:#b9cbc1;
+  font-size:13px;
+  max-width:450px;
+}
+
+.footer-column h4{
   font-size:14px;
+  margin-bottom:12px;
 }
 
+.footer-column a{
+  display:block;
+  color:#b9cbc1;
+  font-size:13px;
+  margin:7px 0;
+}
 
-/* MOBILE */
+.footer-column a:hover{
+  color:var(--gold);
+}
 
-@media(max-width:850px){
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding-top:22px;
+  color:#8fa69b;
+  font-size:12px;
+}
 
-  .menu{
-    display:block;
-  }
+/* ================= TABLET ================= */
+
+@media(max-width:950px){
 
   nav{
     display:none;
     position:absolute;
-    top:67px;
+    top:78px;
     left:0;
     right:0;
-    background:#063b24;
+    background:#fff;
     flex-direction:column;
-    padding:15px 5%;
-    z-index:1000;
+    padding:12px 5%;
+    border-bottom:1px solid var(--border);
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
   }
 
   nav.show{
@@ -343,633 +633,889 @@ footer p{
   nav a{
     width:100%;
     text-align:center;
-    padding:11px;
   }
 
-  .contact-grid{
+  .menu{
+    display:block;
+  }
+
+  .contact-layout{
     grid-template-columns:1fr;
+  }
+
+  .quick-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .cta-inner{
+    flex-direction:column;
+    align-items:flex-start;
   }
 
 }
 
+/* ================= MOBILE ================= */
 
-@media(max-width:500px){
+@media(max-width:600px){
 
-  .logo{
-    font-size:17px;
+  .topbar{
+    display:none;
   }
 
-  .hero h1{
+  .navbar{
+    min-height:68px;
+  }
+
+  nav{
+    top:68px;
+  }
+
+  .contact-hero{
+    min-height:350px;
+  }
+
+  .hero-content{
+    padding:65px 0;
+  }
+
+  .hero-content h1{
+    font-size:40px;
+  }
+
+  .hero-content p{
+    font-size:15px;
+  }
+
+  .section{
+    padding:60px 0;
+  }
+
+  .info-card,
+  .form-card{
+    padding:25px;
+  }
+
+  .info-card h2,
+  .form-card h2{
+    font-size:27px;
+  }
+
+  .form-row{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  .quick-grid{
+    grid-template-columns:1fr;
+  }
+
+  .section-head h2{
     font-size:30px;
   }
 
-  .card{
-    padding:20px 15px;
+  .cta h2{
+    font-size:30px;
   }
 
-  .social-buttons{
+  .footer-grid{
     grid-template-columns:1fr;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
   }
 
 }
 
 </style>
-
 </head>
 
-
 <body>
+
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+  <div class="container topbar-inner">
+
+    <div>
+      Serving Humanity for the Sake of Allah
+    </div>
+
+    <div>
+      <a href="mailto:fisabilillahicharityfoundation@gmail.com">
+        fisabilillahicharityfoundation@gmail.com
+      </a>
+    </div>
+
+  </div>
+
+</div>
 
 
 <!-- HEADER -->
 
 <header>
 
-<div class="header">
+  <div class="container navbar">
+
+    <a href="index.html" class="logo">
+
+      <div class="logo-mark">
+        ♥
+      </div>
+
+      <div class="logo-text">
+        Fisabilillahi
+        <small>Charity Foundation</small>
+      </div>
+
+    </a>
 
 
-<a href="index.html" class="logo">
+    <button
+      class="menu"
+      onclick="toggleMenu()"
+      aria-label="Open navigation">
 
-Fisabilillahi
-<span>Charity Foundation</span>
+      ☰
 
-</a>
-
-
-<button
-class="menu"
-onclick="toggleMenu()"
-aria-label="Open menu">
-
-☰
-
-</button>
+    </button>
 
 
-<nav id="nav">
+    <nav id="nav">
 
-<a href="index.html">
-Home
-</a>
+      <a href="index.html">
+        Home
+      </a>
 
-<a href="about.html">
-About
-</a>
+      <a href="about.html">
+        About
+      </a>
 
-<a href="projects.html">
-Projects
-</a>
+      <a href="projects.html">
+        Projects
+      </a>
 
-<a href="gallery.html">
-Gallery
-</a>
+      <a href="gallery.html">
+        Gallery
+      </a>
 
-<a href="donate.html">
-Donate
-</a>
+      <a href="donate.html">
+        Donate
+      </a>
 
-<a href="contact.html">
-Contact
-</a>
+      <a href="contact.html" class="nav-contact">
+        Contact
+      </a>
 
-<a href="admin-login.html">
-Admin Login
-</a>
+      <a href="admin-login.html">
+        Admin
+      </a>
 
-</nav>
+    </nav>
 
-
-</div>
+  </div>
 
 </header>
 
 
-
 <!-- HERO -->
 
-<section class="hero">
+<section class="contact-hero">
 
-<h1>
-Contact Us
-</h1>
+  <div class="container">
 
-<p>
-We are here to hear from you and serve humanity.
-</p>
+    <div class="hero-content">
+
+      <div class="kicker">
+        Get In Touch
+      </div>
+
+      <h1>
+        Let's Connect & Make a Difference.
+      </h1>
+
+      <p>
+
+        Whether you want to support our mission,
+        partner with us, ask a question or learn
+        more about our work, we would be happy
+        to hear from you.
+
+      </p>
+
+    </div>
+
+  </div>
 
 </section>
 
 
+<!-- CONTACT SECTION -->
 
-<!-- MAIN -->
+<section class="section contact-section">
 
-<section class="section">
+  <div class="container">
 
-<div class="container">
+    <div class="contact-layout">
 
 
-<div class="contact-grid">
+      <!-- CONTACT INFORMATION -->
 
+      <div class="info-card">
 
-<!-- CONTACT INFORMATION -->
+        <div class="info-card-content">
 
-<div>
+          <div class="kicker">
+            Contact Information
+          </div>
 
+          <h2>
+            We Are Here To Listen.
+          </h2>
 
-<div class="card">
+          <p class="info-card-intro">
 
-<h2>
-📞 Contact Information
-</h2>
+            Reach out to Fisabilillahi Charity Foundation
+            through any of the channels below.
 
+          </p>
 
-<!-- PHONE 1 -->
 
-<div class="contact-item">
+          <!-- PHONE -->
 
-<div class="icon">
-📱
-</div>
+          <div class="contact-item">
 
-<div>
+            <div class="contact-icon">
+              📞
+            </div>
 
-<strong>
-Phone
-</strong>
+            <div>
 
-<a href="tel:+2349036114093">
-+234 903 611 4093
-</a>
+              <small>
+                Phone
+              </small>
 
-</div>
+              <strong>
+                <a href="tel:+2348026095455">
+                  +234 802 609 5455
+                </a>
+              </strong>
 
-</div>
+              <strong>
+                <a href="tel:+2349020659331">
+                  +234 902 065 9331
+                </a>
+              </strong>
 
+            </div>
 
-<!-- PHONE 2 -->
+          </div>
 
-<div class="contact-item">
 
-<div class="icon">
-📱
-</div>
+          <!-- WHATSAPP -->
 
-<div>
+          <div class="contact-item">
 
-<strong>
-Phone
-</strong>
+            <div class="contact-icon">
+              💬
+            </div>
 
-<a href="tel:+2347061035705">
-+234 706 103 5705
-</a>
+            <div>
 
-</div>
+              <small>
+                WhatsApp
+              </small>
 
-</div>
+              <strong>
 
+                <a
+                  href="https://wa.me/2349036114093"
+                  target="_blank"
+                  rel="noopener">
 
-<!-- PHONE 3 -->
+                  Chat With Us
 
-<div class="contact-item">
+                </a>
 
-<div class="icon">
-📱
-</div>
+              </strong>
 
-<div>
+            </div>
 
-<strong>
-Phone
-</strong>
+          </div>
 
-<a href="tel:+2347063307729">
-+234 706 330 7729
-</a>
 
-</div>
+          <!-- EMAIL -->
 
-</div>
+          <div class="contact-item">
 
+            <div class="contact-icon">
+              ✉️
+            </div>
 
-<!-- PHONE 4 -->
+            <div>
 
-<div class="contact-item">
+              <small>
+                Email
+              </small>
 
-<div class="icon">
-📱
-</div>
+              <strong>
 
-<div>
+                <a href="mailto:fisabilillahicharityfoundation@gmail.com">
 
-<strong>
-Phone
-</strong>
+                  fisabilillahicharityfoundation@gmail.com
 
-<a href="tel:+2348026095455">
-+234 802 609 5455
-</a>
+                </a>
 
-</div>
+              </strong>
 
-</div>
+            </div>
 
+          </div>
 
-<!-- EMAIL -->
 
-<div class="contact-item">
+          <!-- LOCATION -->
 
-<div class="icon">
-📧
-</div>
+          <div class="contact-item">
 
-<div>
+            <div class="contact-icon">
+              📍
+            </div>
 
-<strong>
-Foundation Email
-</strong>
+            <div>
 
-<a href="mailto:fisabilillahicharityfoundation@gmail.com">
+              <small>
+                Location
+              </small>
 
-fisabilillahicharityfoundation@gmail.com
+              <strong>
+                Jigawa State, Nigeria
+              </strong>
 
-</a>
+            </div>
 
-</div>
+          </div>
 
-</div>
 
+          <!-- SOCIAL -->
 
-<!-- PRESIDENT EMAIL -->
+          <div class="social-title">
+            Follow & Connect
+          </div>
 
-<div class="contact-item">
 
-<div class="icon">
-📧
-</div>
+          <div class="social-links">
 
-<div>
+            <a
+              class="social-link"
+              href="https://www.facebook.com/profile.php?id=61592460838817"
+              target="_blank"
+              rel="noopener">
 
-<strong>
-President's Email
-</strong>
+              Facebook
 
-<a href="mailto:presidentfisabilillahi@gmail.com">
+            </a>
 
-presidentfisabilillahi@gmail.com
 
-</a>
+            <a
+              class="social-link"
+              href="https://wa.me/2349036114093"
+              target="_blank"
+              rel="noopener">
 
-</div>
+              WhatsApp
 
-</div>
+            </a>
 
+          </div>
 
-</div>
+        </div>
 
+      </div>
 
 
-<!-- SOCIAL -->
+      <!-- CONTACT FORM -->
 
-<div class="card">
+      <div class="form-card">
 
-<h2>
-🌐 Connect With Us
-</h2>
+        <div class="kicker">
+          Send A Message
+        </div>
 
+        <h2>
+          How Can We Help?
+        </h2>
 
-<div class="social-buttons">
+        <p class="form-intro">
 
+          Send us a message and we will get back
+          to you through the contact information
+          you provide.
 
-<a
-class="social-button whatsapp"
-href="https://wa.me/2349036114093"
-target="_blank"
-rel="noopener">
+        </p>
 
-💬 WhatsApp President
 
-</a>
+        <form
+          id="contactForm"
+          onsubmit="submitMessage(event)">
 
 
-<a
-class="social-button facebook"
-href="https://www.facebook.com/profile.php?id=61592460838817"
-target="_blank"
-rel="noopener">
+          <div class="form-row">
 
-📘 Facebook
 
-</a>
+            <div class="form-group">
 
+              <label for="name">
+                FULL NAME
+              </label>
 
-</div>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your full name"
+                required>
 
-</div>
+            </div>
 
 
+            <div class="form-group">
 
-<!-- WHATSAPP -->
+              <label for="email">
+                EMAIL ADDRESS
+              </label>
 
-<div class="card">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your email address"
+                required>
 
-<h2>
-💬 WhatsApp
-</h2>
+            </div>
 
-<p>
 
-For quick enquiries, support and information,
-you can contact the President directly through
-WhatsApp.
+          </div>
 
-</p>
 
+          <div class="form-group">
 
-<a
-class="social-button whatsapp"
-href="https://wa.me/2349036114093"
-target="_blank"
-rel="noopener"
-style="margin-top:15px;">
+            <label for="phone">
+              PHONE NUMBER
+            </label>
 
-Chat With Us on WhatsApp
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Your phone number">
 
-</a>
+          </div>
 
-</div>
 
+          <div class="form-group">
 
-</div>
+            <label for="subject">
+              SUBJECT
+            </label>
 
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="What is your message about?"
+              required>
 
+          </div>
 
-<!-- CONTACT FORM -->
 
-<div>
+          <div class="form-group">
 
-<div class="card">
+            <label for="message">
+              MESSAGE
+            </label>
 
-<h2>
-📩 Send Us a Message
-</h2>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Write your message here..."
+              required></textarea>
 
+          </div>
 
-<form
-id="contactForm"
-onsubmit="sendMessage(event)">
 
+          <button
+            type="submit"
+            class="submit-btn">
 
-<div class="form-group">
+            Send Message →
 
-<label for="name">
-Full Name
-</label>
+          </button>
 
-<input
-type="text"
-id="name"
-name="name"
-placeholder="Enter your full name"
-required
->
 
-</div>
+          <div class="form-note">
 
+            We appreciate you taking the time to contact us.
 
+          </div>
 
-<div class="form-group">
 
-<label for="email">
-Email Address
-</label>
+        </form>
 
-<input
-type="email"
-id="email"
-name="email"
-placeholder="Enter your email address"
-required
->
+      </div>
 
-</div>
+    </div>
 
-
-
-<div class="form-group">
-
-<label for="phone">
-Phone Number
-</label>
-
-<input
-type="tel"
-id="phone"
-name="phone"
-placeholder="Enter your phone number"
->
-
-</div>
-
-
-
-<div class="form-group">
-
-<label for="subject">
-Subject
-</label>
-
-<input
-type="text"
-id="subject"
-name="subject"
-placeholder="What is your message about?"
-required
->
-
-</div>
-
-
-
-<div class="form-group">
-
-<label for="message">
-Message
-</label>
-
-<textarea
-id="message"
-name="message"
-placeholder="Write your message here..."
-required
-></textarea>
-
-</div>
-
-
-
-<button
-type="submit"
-class="submit">
-
-📩 Send Message
-
-</button>
-
-
-</form>
-
-
-
-<div class="notice">
-
-<strong>
-🔐 Privacy Notice
-</strong>
-
-<br>
-
-Your information should only be used for
-responding to your enquiry. The secure
-message database will be connected to the
-Admin Messages system in the next stage.
-
-</div>
-
-
-</div>
-
-
-
-<!-- RESPONSE -->
-
-<div class="card">
-
-<h2>
-🤲 How We Can Help
-</h2>
-
-<p>
-
-You can contact Fisabilillahi Charity Foundation
-about our humanitarian projects, orphan support,
-education, healthcare, business empowerment,
-tree planting, donations or general enquiries.
-
-</p>
-
-
-<a
-href="projects.html"
-class="back">
-
-View Our Projects
-
-</a>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
+
+<!-- QUICK CONTACT -->
+
+<section class="section quick-section">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div class="kicker">
+        Quick Contact
+      </div>
+
+      <h2>
+        Choose How You'd Like To Reach Us
+      </h2>
+
+      <p>
+
+        For faster communication, use one of our
+        direct contact channels.
+
+      </p>
+
+    </div>
+
+
+    <div class="quick-grid">
+
+
+      <!-- WHATSAPP -->
+
+      <div class="quick-card">
+
+        <div class="quick-icon">
+          💬
+        </div>
+
+        <h3>
+          WhatsApp
+        </h3>
+
+        <p>
+          Chat with us directly on WhatsApp.
+        </p>
+
+        <a
+          href="https://wa.me/2349036114093"
+          class="quick-btn"
+          target="_blank"
+          rel="noopener">
+
+          Open WhatsApp →
+
+        </a>
+
+      </div>
+
+
+      <!-- EMAIL -->
+
+      <div class="quick-card">
+
+        <div class="quick-icon">
+          ✉️
+        </div>
+
+        <h3>
+          Email
+        </h3>
+
+        <p>
+          Send us a detailed enquiry by email.
+        </p>
+
+        <a
+          href="mailto:fisabilillahicharityfoundation@gmail.com"
+          class="quick-btn">
+
+          Send Email →
+
+        </a>
+
+      </div>
+
+
+      <!-- PHONE -->
+
+      <div class="quick-card">
+
+        <div class="quick-icon">
+          📞
+        </div>
+
+        <h3>
+          Phone
+        </h3>
+
+        <p>
+          Speak with us directly by phone.
+        </p>
+
+        <a
+          href="tel:+2348026095455"
+          class="quick-btn">
+
+          Call Us →
+
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+  <div class="container">
+
+    <div class="cta-inner">
+
+      <div>
+
+        <h2>
+          Your Support Can Create Hope.
+        </h2>
+
+        <p>
+
+          If you would like to support our mission,
+          visit our donation page and join us in
+          serving humanity for the sake of Allah.
+
+        </p>
+
+      </div>
+
+
+      <a
+        href="donate.html"
+        class="btn btn-gold">
+
+        Donate Now →
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
 
 
 <!-- FOOTER -->
 
 <footer>
 
-<p>
+  <div class="container">
 
-© <span id="year"></span>
-Fisabilillahi Charity Foundation.
-All Rights Reserved.
+    <div class="footer-grid">
 
-</p>
+
+      <div class="footer-brand">
+
+        <h3>
+          Fisabilillahi Charity Foundation
+        </h3>
+
+        <p>
+
+          Serving humanity for the sake of Allah
+          through compassion, education, healthcare,
+          empowerment, environmental initiatives
+          and humanitarian services.
+
+        </p>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Quick Links
+        </h4>
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About Us
+        </a>
+
+        <a href="projects.html">
+          Projects
+        </a>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Support
+        </h4>
+
+        <a href="donate.html">
+          Donate
+        </a>
+
+        <a href="contact.html">
+          Contact Us
+        </a>
+
+        <a
+          href="https://wa.me/2349036114093"
+          target="_blank"
+          rel="noopener">
+
+          WhatsApp
+
+        </a>
+
+        <a
+          href="https://www.facebook.com/profile.php?id=61592460838817"
+          target="_blank"
+          rel="noopener">
+
+          Facebook
+
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <div>
+
+        © <span id="year"></span>
+        Fisabilillahi Charity Foundation
+
+      </div>
+
+      <div>
+
+        Serving Humanity • For the Sake of Allah
+
+      </div>
+
+    </div>
+
+  </div>
 
 </footer>
 
 
+<!-- JAVASCRIPT -->
 
 <script>
-
 
 /* MOBILE MENU */
 
 function toggleMenu(){
 
-document
-.getElementById("nav")
-.classList.toggle("show");
+  document
+    .getElementById("nav")
+    .classList
+    .toggle("show");
 
 }
-
-
-
-/* CONTACT FORM */
-
-function sendMessage(event){
-
-event.preventDefault();
-
-
-const name =
-document.getElementById("name").value.trim();
-
-
-const subject =
-document.getElementById("subject").value.trim();
-
-
-if(!name || !subject){
-
-alert(
-"Please fill in all required fields."
-);
-
-return;
-
-}
-
-
-/*
-  Temporary stage.
-
-  The form is ready for database connection.
-  It does not pretend to save the message.
-*/
-
-alert(
-"Thank you, " +
-name +
-". Your message form is ready. The secure message system will be connected in the next stage."
-);
-
-
-document
-.getElementById("contactForm")
-.reset();
-
-}
-
 
 
 /* YEAR */
 
 document
-.getElementById("year")
-.textContent =
-new Date().getFullYear();
+  .getElementById("year")
+  .textContent =
+  new Date().getFullYear();
+
+
+/*
+  CONTACT FORM
+
+  Wannan version yana nuna confirmation
+  ne kawai. Ba ya aika message zuwa
+  database/API har sai mun haɗa backend
+  ko Supabase.
+*/
+
+function submitMessage(event){
+
+  event.preventDefault();
+
+  const form =
+    document.getElementById("contactForm");
+
+  const button =
+    form.querySelector(".submit-btn");
+
+
+  button.textContent =
+    "✓ Message Ready";
+
+  button.disabled = true;
+
+
+  setTimeout(function(){
+
+    alert(
+      "Thank you for contacting Fisabilillahi Charity Foundation. Your message has been prepared successfully."
+    );
+
+    form.reset();
+
+    button.textContent =
+      "Send Message →";
+
+    button.disabled = false;
+
+  },800);
+
+}
 
 </script>
 
-
 </body>
-
 </html>

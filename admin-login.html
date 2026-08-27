@@ -39,7 +39,7 @@ header{
 }
 
 .logo{
-  color:white;
+  color:#fff;
   text-decoration:none;
   font-size:21px;
   font-weight:bold;
@@ -63,7 +63,7 @@ main{
 .login-box{
   width:100%;
   max-width:430px;
-  background:white;
+  background:#fff;
   border:1px solid #ddd;
   border-radius:14px;
   padding:35px 30px;
@@ -130,7 +130,7 @@ input:focus{
 .show{
   position:absolute;
   right:8px;
-  top:6px;
+  top:5px;
   border:0;
   background:transparent;
   color:#087443;
@@ -146,7 +146,7 @@ input:focus{
   width:100%;
   border:0;
   background:#087443;
-  color:white;
+  color:#fff;
   padding:14px;
   border-radius:7px;
   font-size:17px;
@@ -159,25 +159,32 @@ input:focus{
 }
 
 
-/* MESSAGE */
+/* NOTICE */
 
-.message{
-  display:none;
+.notice{
   margin-top:18px;
-  padding:12px;
-  border-radius:7px;
-  text-align:center;
-  font-size:14px;
-}
-
-.message.show{
-  display:block;
-}
-
-.message.info{
+  padding:13px;
   background:#fffdf3;
   border:1px solid #e4d18a;
+  border-radius:7px;
   color:#665300;
+  font-size:13px;
+  line-height:1.6;
+  text-align:center;
+}
+
+
+/* SECURITY */
+
+.security{
+  margin-top:20px;
+  padding:15px;
+  background:#f5f7f6;
+  border-radius:8px;
+  text-align:center;
+  color:#666;
+  font-size:13px;
+  line-height:1.6;
 }
 
 
@@ -196,25 +203,11 @@ input:focus{
 }
 
 
-/* SECURITY */
-
-.security{
-  margin-top:22px;
-  padding:15px;
-  background:#f5f7f6;
-  border-radius:8px;
-  text-align:center;
-  color:#666;
-  font-size:13px;
-  line-height:1.6;
-}
-
-
 /* FOOTER */
 
 footer{
   background:#063b24;
-  color:white;
+  color:#fff;
   text-align:center;
   padding:23px 15px;
 }
@@ -284,9 +277,7 @@ Admin Login
 
 
 <p class="subtitle">
-
 Authorized administrators only.
-
 </p>
 
 
@@ -295,9 +286,7 @@ Authorized administrators only.
 
 
 <label for="email">
-
 Admin Email
-
 </label>
 
 
@@ -305,15 +294,14 @@ Admin Email
 type="email"
 id="email"
 placeholder="Enter admin email"
+autocomplete="username"
 required
 >
 
 
 
 <label for="password">
-
 Password
-
 </label>
 
 
@@ -323,6 +311,7 @@ Password
 type="password"
 id="password"
 placeholder="Enter password"
+autocomplete="current-password"
 required
 >
 
@@ -352,12 +341,14 @@ Login to Admin Panel
 
 
 
-<div
-id="message"
-class="message info">
+<div class="notice">
 
-Admin authentication will be activated when
-the secure database system is connected.
+<strong>⚠️ Database Authentication Pending</strong>
+
+<br>
+
+Secure administrator authentication will be
+connected when the database system is activated.
 
 </div>
 
@@ -369,10 +360,9 @@ the secure database system is connected.
 
 <br>
 
-The Admin Panel is intended only for authorized
-foundation administrators. Real authentication
-will be handled securely through the database
-system.
+Do not use sensitive or real passwords on this
+temporary version. Real authentication will be
+handled securely through Supabase.
 
 </div>
 
@@ -445,9 +435,13 @@ document
 
 event.preventDefault();
 
-document
-.getElementById("message")
-.classList.add("show");
+/*
+ Temporary navigation only.
+ Real authentication will be added
+ through Supabase later.
+*/
+
+window.location.href = "admin.html";
 
 });
 

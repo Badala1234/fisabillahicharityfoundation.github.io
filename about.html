@@ -1,467 +1,1288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>About Us | Fisabilillahi Charity Foundation</title>
-
-  <meta name="description"
-        content="Learn about Fisabilillahi Charity Foundation, our mission, vision and humanitarian objectives.">
-
-  <style>
-    :root {
-      --green: #087443;
-      --dark-green: #045c34;
-      --gold: #d4af37;
-      --white: #ffffff;
-      --light: #f5f8f6;
-      --text: #222222;
-      --muted: #666666;
-      --border: #dddddd;
-      --shadow: 0 8px 28px rgba(0,0,0,0.08);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--light);
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    /* HEADER */
-
-    header {
-      background: var(--white);
-      border-bottom: 3px solid var(--gold);
-      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .nav-container {
-      width: min(1150px, 94%);
-      min-height: 75px;
-      margin: auto;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      color: var(--green);
-      font-size: 22px;
-      font-weight: 800;
-    }
-
-    .logo span {
-      color: var(--gold);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    nav a {
-      color: var(--text);
-      padding: 10px 12px;
-      border-radius: 7px;
-      font-weight: 600;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--green);
-      background: #edf7f2;
-    }
-
-    .menu-btn {
-      display: none;
-      width: 44px;
-      height: 42px;
-      border: none;
-      border-radius: 7px;
-      background: var(--green);
-      color: white;
-      font-size: 22px;
-      cursor: pointer;
-    }
-
-    /* HERO */
-
-    .hero {
-      background:
-        linear-gradient(
-          rgba(4,92,52,0.94),
-          rgba(8,116,67,0.94)
-        );
-
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-    }
-
-    .hero h1 {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      max-width: 750px;
-      margin: auto;
-      font-size: 18px;
-      color: #edf7f2;
-    }
-
-    /* GENERAL */
-
-    .container {
-      width: min(1100px, 94%);
-      margin: auto;
-    }
-
-    .section {
-      padding: 65px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      color: var(--green);
-      font-size: 30px;
-      margin-bottom: 12px;
-    }
-
-    .section-intro {
-      max-width: 800px;
-      margin: 0 auto 35px;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    /* ABOUT */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: stretch;
-    }
-
-    .about-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 32px;
-      box-shadow: var(--shadow);
-    }
-
-    .about-card h2 {
-      color: var(--green);
-      margin-bottom: 15px;
-      font-size: 25px;
-    }
-
-    .about-card p {
-      color: #444;
-      margin-bottom: 12px;
-    }
-
-    /* MISSION / VISION */
-
-    .mv-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-    }
-
-    .mv-card {
-      background: white;
-      border-radius: 14px;
-      padding: 35px;
-      border-top: 5px solid var(--green);
-      box-shadow: var(--shadow);
-    }
-
-    .mv-card h2 {
-      color: var(--green);
-      margin-bottom: 12px;
-    }
-
-    .mv-icon {
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
-
-    /* OBJECTIVES */
-
-    .objectives {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .objective {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 11px;
-      padding: 22px;
-      box-shadow: var(--shadow);
-
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-    }
-
-    .objective-icon {
-      min-width: 43px;
-      height: 43px;
-      border-radius: 50%;
-      background: #edf7f2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 21px;
-    }
-
-    .objective h3 {
-      color: var(--green);
-      margin-bottom: 5px;
-    }
-
-    .objective p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* VALUES */
-
-    .values {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .value {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 25px 18px;
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-
-    .value-icon {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    .value h3 {
-      color: var(--green);
-      margin-bottom: 5px;
-    }
-
-    .value p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* CTA */
-
-    .cta {
-      background: var(--green);
-      color: white;
-      text-align: center;
-      padding: 65px 20px;
-    }
-
-    .cta h2 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-
-    .cta p {
-      max-width: 700px;
-      margin: 0 auto 25px;
-      color: #edf7f2;
-    }
-
-    .cta-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 8px;
-      font-weight: 700;
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: white;
-    }
-
-    .btn-white {
-      background: white;
-      color: var(--green);
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #063b24;
-      color: white;
-      text-align: center;
-      padding: 28px 15px;
-    }
-
-    footer p {
-      color: #d5e5dd;
-      font-size: 14px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 950px) {
-
-      .values {
-        grid-template-columns: 1fr 1fr;
-      }
-
-    }
-
-    @media (max-width: 850px) {
-
-      .menu-btn {
-        display: block;
-      }
-
-      nav {
-        display: none;
-        position: absolute;
-        top: 75px;
-        left: 0;
-        right: 0;
-
-        background: white;
-        padding: 12px 5%;
-
-        flex-direction: column;
-
-        border-bottom: 3px solid var(--gold);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      nav a {
-        width: 100%;
-        text-align: center;
-      }
-
-      .about-grid,
-      .mv-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .objectives {
-        grid-template-columns: 1fr;
-      }
-
-    }
-
-    @media (max-width: 600px) {
-
-      .logo {
-        font-size: 18px;
-      }
-
-      .hero {
-        padding: 60px 18px;
-      }
-
-      .hero h1 {
-        font-size: 32px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .section {
-        padding: 45px 0;
-      }
-
-      .section-title {
-        font-size: 26px;
-      }
-
-      .values {
-        grid-template-columns: 1fr;
-      }
-
-      .about-card,
-      .mv-card {
-        padding: 25px 20px;
-      }
-
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | Fisabilillahi Charity Foundation</title>
+
+<meta name="description" content="Learn about Fisabilillahi Charity Foundation, our mission, vision, values and commitment to serving humanity for the sake of Allah.">
+
+<style>
+:root{
+  --green:#075c3b;
+  --green-dark:#043c27;
+  --green-light:#0d8053;
+  --gold:#d6ae3d;
+  --cream:#f8f6ee;
+  --white:#fff;
+  --text:#25352e;
+  --muted:#68766f;
+  --border:#e5eae7;
+  --shadow:0 18px 45px rgba(0,0,0,.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:#fff;
+  line-height:1.7;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:92%;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* TOP BAR */
+
+.topbar{
+  background:var(--green-dark);
+  color:#dbe9e1;
+  font-size:12px;
+  padding:8px 0;
+}
+
+.topbar-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.topbar a:hover{
+  color:var(--gold);
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--border);
+}
+
+.navbar{
+  min-height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--green);
+  font-weight:800;
+}
+
+.logo-mark{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:var(--green);
+  border:2px solid var(--gold);
+  color:var(--gold);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:21px;
+}
+
+.logo-text{
+  font-size:18px;
+  line-height:1.2;
+}
+
+.logo-text small{
+  display:block;
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  margin-top:3px;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:3px;
+}
+
+nav a{
+  color:#30433a;
+  font-size:13px;
+  font-weight:700;
+  padding:9px 11px;
+}
+
+nav a:hover{
+  color:var(--green-light);
+}
+
+.nav-donate{
+  background:var(--green);
+  color:#fff!important;
+  border-radius:7px;
+}
+
+.menu{
+  display:none;
+  border:0;
+  background:var(--green);
+  color:#fff;
+  padding:9px 12px;
+  border-radius:7px;
+  font-size:21px;
+}
+
+/* PAGE HERO */
+
+.page-hero{
+  min-height:430px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3,48,31,.96),
+      rgba(3,48,31,.72),
+      rgba(3,48,31,.32)
+    ),
+    url("images/about.jpg") center/cover no-repeat;
+  background-color:var(--green-dark);
+}
+
+.page-hero-content{
+  color:#fff;
+  max-width:720px;
+  padding:80px 0;
+}
+
+.kicker{
+  color:var(--gold);
+  text-transform:uppercase;
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.page-hero h1{
+  font-size:55px;
+  line-height:1.1;
+  margin-bottom:15px;
+}
+
+.page-hero p{
+  color:#e0ebe5;
+  max-width:650px;
+  font-size:17px;
+}
+
+/* GENERAL */
+
+.section{
+  padding:90px 0;
+}
+
+.section-head{
+  max-width:700px;
+  margin-bottom:42px;
+}
+
+.section-head.center{
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+
+.section-head h2{
+  color:var(--green-dark);
+  font-size:40px;
+  line-height:1.2;
+  margin-bottom:13px;
+}
+
+.section-head p{
+  color:var(--muted);
+}
+
+/* STORY */
+
+.story{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:65px;
+  align-items:center;
+}
+
+.story-image{
+  min-height:470px;
+  border-radius:15px;
+  background:
+    linear-gradient(
+      rgba(4,60,39,.08),
+      rgba(4,60,39,.08)
+    ),
+    url("images/about.jpg") center/cover no-repeat;
+  background-color:var(--green);
+}
+
+.story-text h2{
+  color:var(--green-dark);
+  font-size:38px;
+  line-height:1.2;
+  margin-bottom:17px;
+}
+
+.story-text p{
+  color:var(--muted);
+  margin-bottom:15px;
+}
+
+.highlight{
+  border-left:4px solid var(--gold);
+  background:var(--cream);
+  padding:20px;
+  margin:25px 0;
+}
+
+.highlight strong{
+  display:block;
+  color:var(--green);
+  margin-bottom:5px;
+}
+
+/* MISSION / VISION */
+
+.mission-section{
+  background:var(--cream);
+}
+
+.mv-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.mv-card{
+  background:#fff;
+  padding:35px;
+  border:1px solid var(--border);
+  border-radius:13px;
+}
+
+.mv-icon{
+  width:55px;
+  height:55px;
+  border-radius:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#eaf4ee;
+  font-size:26px;
+  margin-bottom:18px;
+}
+
+.mv-card h3{
+  color:var(--green-dark);
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+.mv-card p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* VALUES */
+
+.values{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.value{
+  padding:28px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fff;
+  transition:.2s;
+}
+
+.value:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+}
+
+.value-number{
+  color:var(--gold);
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.value h3{
+  color:var(--green-dark);
+  font-size:19px;
+  margin-bottom:7px;
+}
+
+.value p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* AREAS */
+
+.areas-section{
+  background:#f7f9f7;
+}
+
+.areas{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.area{
+  background:#fff;
+  border:1px solid var(--border);
+  padding:25px;
+  border-radius:12px;
+}
+
+.area-icon{
+  font-size:27px;
+  margin-bottom:12px;
+}
+
+.area h3{
+  color:var(--green-dark);
+  font-size:18px;
+  margin-bottom:7px;
+}
+
+.area p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* CTA */
+
+.cta{
+  padding:80px 0;
+  background:
+    linear-gradient(
+      110deg,
+      rgba(3,55,35,.97),
+      rgba(3,55,35,.78)
+    ),
+    url("images/cta.jpg") center/cover no-repeat;
+  color:#fff;
+}
+
+.cta-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+}
+
+.cta h2{
+  font-size:38px;
+  line-height:1.2;
+  margin-bottom:10px;
+}
+
+.cta p{
+  color:#dce7e1;
+  max-width:650px;
+  font-size:14px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 21px;
+  border-radius:7px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.btn-gold{
+  background:var(--gold);
+  color:#1d261f;
+}
+
+/* FOOTER */
+
+footer{
+  background:var(--green-dark);
+  color:#fff;
+  padding:55px 0 25px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:45px;
+  padding-bottom:35px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.footer-brand h3{
+  color:var(--gold);
+  margin-bottom:10px;
+}
+
+.footer-brand p{
+  color:#b9cbc1;
+  font-size:13px;
+  max-width:450px;
+}
+
+.footer-column h4{
+  font-size:14px;
+  margin-bottom:12px;
+}
+
+.footer-column a{
+  display:block;
+  color:#b9cbc1;
+  font-size:13px;
+  margin:7px 0;
+}
+
+.footer-column a:hover{
+  color:var(--gold);
+}
+
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding-top:22px;
+  color:#8fa69b;
+  font-size:12px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+  nav{
+    display:none;
+    position:absolute;
+    top:78px;
+    left:0;
+    right:0;
+    background:#fff;
+    flex-direction:column;
+    padding:12px 5%;
+    border-bottom:1px solid var(--border);
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  nav a{
+    width:100%;
+    text-align:center;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .story{
+    grid-template-columns:1fr;
+  }
+
+  .mv-grid{
+    grid-template-columns:1fr;
+  }
+
+  .values,
+  .areas{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .cta-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:650px){
+
+  .topbar{
+    display:none;
+  }
+
+  .navbar{
+    min-height:68px;
+  }
+
+  nav{
+    top:68px;
+  }
+
+  .page-hero{
+    min-height:390px;
+  }
+
+  .page-hero h1{
+    font-size:39px;
+  }
+
+  .page-hero p{
+    font-size:15px;
+  }
+
+  .section{
+    padding:65px 0;
+  }
+
+  .section-head h2,
+  .story-text h2{
+    font-size:30px;
+  }
+
+  .values,
+  .areas{
+    grid-template-columns:1fr;
+  }
+
+  .cta h2{
+    font-size:30px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+  }
+}
+</style>
 </head>
-
 
 <body>
 
+<!-- TOP BAR -->
 
-  <!-- HEADER -->
+<div class="topbar">
+  <div class="container topbar-inner">
 
-  <header>
+    <div>
+      Serving Humanity for the Sake of Allah
+    </div>
 
-    <div class="nav-container">
+    <div>
+      <a href="mailto:fisabilillahicharityfoundation@gmail.com">
+        fisabilillahicharityfoundation@gmail.com
+      </a>
+    </div>
 
-      <a href="index.html" class="logo">
-        Fisabilillahi <span>Charity Foundation</span>
+  </div>
+</div>
+
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="container navbar">
+
+    <a href="index.html" class="logo">
+
+      <div class="logo-mark">
+        ♥
+      </div>
+
+      <div class="logo-text">
+
+        Fisabilillahi
+
+        <small>
+          Charity Foundation
+        </small>
+
+      </div>
+
+    </a>
+
+
+    <button
+      class="menu"
+      onclick="toggleMenu()"
+      aria-label="Open menu">
+
+      ☰
+
+    </button>
+
+
+    <nav id="nav">
+
+      <a href="index.html">
+        Home
       </a>
 
-      <button
-        class="menu-btn"
-        onclick="toggleMenu()"
-        aria-label="Open menu">
-        ☰
-      </button>
+      <a href="about.html">
+        About
+      </a>
 
-      <nav id="mainNav">
+      <a href="projects.html">
+        Projects
+      </a>
+
+      <a href="gallery.html">
+        Gallery
+      </a>
+
+      <a href="donate.html">
+        Donate
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+      <a href="admin-login.html">
+        Admin
+      </a>
+
+      <a
+        href="donate.html"
+        class="nav-donate">
+
+        Support Us
+
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<!-- PAGE HERO -->
+
+<section class="page-hero">
+
+  <div class="container">
+
+    <div class="page-hero-content">
+
+      <div class="kicker">
+        About Fisabilillahi
+      </div>
+
+      <h1>
+        Serving Humanity With Purpose.
+      </h1>
+
+      <p>
+
+        Learn about our mission, vision, values
+        and commitment to creating meaningful
+        change in the lives of people and communities.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- OUR STORY -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="story">
+
+
+      <div class="story-image"></div>
+
+
+      <div class="story-text">
+
+        <div class="kicker">
+          Who We Are
+        </div>
+
+        <h2>
+          Compassion in Action
+        </h2>
+
+        <p>
+
+          Fisabilillahi Charity Foundation is a
+          humanitarian organization committed to
+          serving people in need and strengthening
+          communities through practical and meaningful
+          initiatives.
+
+        </p>
+
+        <p>
+
+          Our work is guided by compassion, integrity,
+          responsibility and the belief that helping
+          others can create lasting positive change.
+
+        </p>
+
+
+        <div class="highlight">
+
+          <strong>
+            Our Guiding Purpose
+          </strong>
+
+          <span>
+
+            To serve humanity for the sake of Allah
+            and help create opportunities for people
+            to live with dignity, hope and purpose.
+
+          </span>
+
+        </div>
+
+
+        <a
+          href="donate.html"
+          class="btn btn-gold">
+
+          Support Our Mission →
+
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MISSION & VISION -->
+
+<section class="section mission-section">
+
+  <div class="container">
+
+
+    <div class="section-head center">
+
+      <div class="kicker">
+        Our Direction
+      </div>
+
+      <h2>
+        Mission & Vision
+      </h2>
+
+      <p>
+
+        Our mission guides what we do today,
+        while our vision inspires the future
+        we want to help build.
+
+      </p>
+
+    </div>
+
+
+    <div class="mv-grid">
+
+
+      <div class="mv-card">
+
+        <div class="mv-icon">
+          🎯
+        </div>
+
+        <h3>
+          Our Mission
+        </h3>
+
+        <p>
+
+          To support vulnerable people, promote
+          education and healthcare, empower individuals,
+          protect the environment and provide
+          humanitarian assistance with compassion,
+          dignity and responsibility.
+
+        </p>
+
+      </div>
+
+
+      <div class="mv-card">
+
+        <div class="mv-icon">
+          🌍
+        </div>
+
+        <h3>
+          Our Vision
+        </h3>
+
+        <p>
+
+          To contribute to stronger communities where
+          vulnerable people have access to support,
+          children have opportunities to learn,
+          individuals can build sustainable livelihoods
+          and everyone is treated with dignity.
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- VALUES -->
+
+<section class="section">
+
+  <div class="container">
+
+
+    <div class="section-head">
+
+      <div class="kicker">
+        What Guides Us
+      </div>
+
+      <h2>
+        Our Core Values
+      </h2>
+
+      <p>
+
+        The principles below guide our decisions,
+        relationships and humanitarian activities.
+
+      </p>
+
+    </div>
+
+
+    <div class="values">
+
+
+      <div class="value">
+
+        <div class="value-number">
+          01
+        </div>
+
+        <h3>
+          Compassion
+        </h3>
+
+        <p>
+
+          We care about people and seek to respond
+          to genuine needs with kindness and humanity.
+
+        </p>
+
+      </div>
+
+
+      <div class="value">
+
+        <div class="value-number">
+          02
+        </div>
+
+        <h3>
+          Integrity
+        </h3>
+
+        <p>
+
+          We value honesty, transparency and responsible
+          stewardship in our work.
+
+        </p>
+
+      </div>
+
+
+      <div class="value">
+
+        <div class="value-number">
+          03
+        </div>
+
+        <h3>
+          Dignity
+        </h3>
+
+        <p>
+
+          We believe every person deserves respect,
+          regardless of their circumstances.
+
+        </p>
+
+      </div>
+
+
+      <div class="value">
+
+        <div class="value-number">
+          04
+        </div>
+
+        <h3>
+          Service
+        </h3>
+
+        <p>
+
+          We focus on practical action that can
+          positively affect people's lives.
+
+        </p>
+
+      </div>
+
+
+      <div class="value">
+
+        <div class="value-number">
+          05
+        </div>
+
+        <h3>
+          Responsibility
+        </h3>
+
+        <p>
+
+          We aim to use available resources wisely
+          and direct them toward meaningful impact.
+
+        </p>
+
+      </div>
+
+
+      <div class="value">
+
+        <div class="value-number">
+          06
+        </div>
+
+        <h3>
+          Community
+        </h3>
+
+        <p>
+
+          We believe sustainable change is stronger
+          when communities work together.
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- OUR AREAS -->
+
+<section class="section areas-section">
+
+  <div class="container">
+
+
+    <div class="section-head center">
+
+      <div class="kicker">
+        What We Do
+      </div>
+
+      <h2>
+        Our Humanitarian Focus
+      </h2>
+
+      <p>
+
+        We work across several areas where support
+        can create meaningful social impact.
+
+      </p>
+
+    </div>
+
+
+    <div class="areas">
+
+
+      <div class="area">
+
+        <div class="area-icon">
+          🤲
+        </div>
+
+        <h3>
+          Orphans Support
+        </h3>
+
+        <p>
+
+          Supporting orphans and vulnerable children
+          with essential needs and opportunities.
+
+        </p>
+
+      </div>
+
+
+      <div class="area">
+
+        <div class="area-icon">
+          📚
+        </div>
+
+        <h3>
+          Education
+        </h3>
+
+        <p>
+
+          Helping children and young people access
+          educational opportunities.
+
+        </p>
+
+      </div>
+
+
+      <div class="area">
+
+        <div class="area-icon">
+          🏥
+        </div>
+
+        <h3>
+          Healthcare
+        </h3>
+
+        <p>
+
+          Supporting healthcare-related humanitarian
+          initiatives for people in need.
+
+        </p>
+
+      </div>
+
+
+      <div class="area">
+
+        <div class="area-icon">
+          💼
+        </div>
+
+        <h3>
+          Empowerment
+        </h3>
+
+        <p>
+
+          Promoting sustainable livelihoods and
+          opportunities for individuals.
+
+        </p>
+
+      </div>
+
+
+      <div class="area">
+
+        <div class="area-icon">
+          🌳
+        </div>
+
+        <h3>
+          Tree Planting
+        </h3>
+
+        <p>
+
+          Encouraging environmental responsibility
+          through tree planting initiatives.
+
+        </p>
+
+      </div>
+
+
+      <div class="area">
+
+        <div class="area-icon">
+          🤝
+        </div>
+
+        <h3>
+          Humanitarian Services
+        </h3>
+
+        <p>
+
+          Providing responsible assistance to people
+          facing difficult circumstances.
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+  <div class="container">
+
+    <div class="cta-inner">
+
+      <div>
+
+        <h2>
+          Be Part of the Mission.
+        </h2>
+
+        <p>
+
+          Your support can help us continue serving
+          vulnerable people and building stronger
+          communities.
+
+        </p>
+
+      </div>
+
+
+      <a
+        href="donate.html"
+        class="btn btn-gold">
+
+        🤲 Donate Now
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="container">
+
+
+    <div class="footer-grid">
+
+
+      <div class="footer-brand">
+
+        <h3>
+          Fisabilillahi Charity Foundation
+        </h3>
+
+        <p>
+
+          Serving humanity for the sake of Allah
+          through compassion, education, healthcare,
+          empowerment, environmental initiatives and
+          humanitarian services.
+
+        </p>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Quick Links
+        </h4>
 
         <a href="index.html">
           Home
         </a>
 
-        <a href="about.html" class="active">
-          About
+        <a href="about.html">
+          About Us
         </a>
 
         <a href="projects.html">
@@ -472,535 +1293,87 @@
           Gallery
         </a>
 
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Support
+        </h4>
+
         <a href="donate.html">
           Donate
         </a>
 
-        <a href="register.html">
-          Register
-        </a>
-
-        <a href="login.html">
-          Login
-        </a>
-
         <a href="contact.html">
-          Contact
+          Contact Us
         </a>
 
-      </nav>
+        <a
+          href="https://wa.me/2349036114093"
+          target="_blank"
+          rel="noopener">
+
+          WhatsApp
+
+        </a>
+
+        <a
+          href="https://www.facebook.com/profile.php?id=61592460838817"
+          target="_blank"
+          rel="noopener">
+
+          Facebook
+
+        </a>
+
+      </div>
+
 
     </div>
 
-  </header>
 
+    <div class="footer-bottom">
 
-  <!-- HERO -->
+      <div>
 
-  <section class="hero">
+        © <span id="year"></span>
+        Fisabilillahi Charity Foundation
 
-    <h1>
-      About Fisabilillahi Charity Foundation
-    </h1>
+      </div>
 
-    <p>
-      Serving humanity for the sake of Allah by supporting
-      vulnerable people, orphans, education, healthcare,
-      empowerment and humanitarian causes.
-    </p>
+      <div>
 
-  </section>
-
-
-  <!-- WHO WE ARE -->
-
-  <section class="section">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        Who We Are
-      </h2>
-
-      <p class="section-intro">
-        Fisabilillahi Charity Foundation is a humanitarian
-        initiative dedicated to bringing hope, dignity and
-        meaningful support to people who need it most.
-      </p>
-
-
-      <div class="about-grid">
-
-
-        <div class="about-card">
-
-          <h2>
-            🤲 Our Foundation
-          </h2>
-
-          <p>
-            Fisabilillahi Charity Foundation was established
-            with the aim of serving humanity and supporting
-            vulnerable members of our communities.
-          </p>
-
-          <p>
-            We believe that every person deserves dignity,
-            compassion and an opportunity to build a better
-            future.
-          </p>
-
-          <p>
-            Through charitable contributions and humanitarian
-            projects, we seek to provide practical assistance
-            where it is most needed.
-          </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-          <h2>
-            ❤️ What We Believe
-          </h2>
-
-          <p>
-            We believe that even a small act of kindness can
-            make a meaningful difference in someone's life.
-          </p>
-
-          <p>
-            Our work is guided by compassion, accountability,
-            fairness, transparency and the desire to serve
-            humanity for the sake of Allah.
-          </p>
-
-          <p>
-            We aim to create sustainable opportunities rather
-            than providing temporary assistance alone.
-          </p>
-
-        </div>
-
+        Serving Humanity • For the Sake of Allah
 
       </div>
 
     </div>
 
-  </section>
 
+  </div>
 
-  <!-- MISSION AND VISION -->
+</footer>
 
-  <section class="section" style="background:white;">
 
-    <div class="container">
+<script>
 
-      <h2 class="section-title">
-        Our Mission & Vision
-      </h2>
+function toggleMenu(){
 
-      <p class="section-intro">
-        Everything we do is guided by our commitment to
-        humanitarian service and positive community impact.
-      </p>
+  document
+    .getElementById("nav")
+    .classList
+    .toggle("show");
 
+}
 
-      <div class="mv-grid">
+document
+  .getElementById("year")
+  .textContent =
+  new Date().getFullYear();
 
-
-        <div class="mv-card">
-
-          <div class="mv-icon">
-            🎯
-          </div>
-
-          <h2>
-            Our Mission
-          </h2>
-
-          <p>
-            To provide meaningful humanitarian assistance
-            to vulnerable people, support orphans and
-            disadvantaged children, promote education,
-            assist people facing healthcare challenges,
-            and empower individuals and families through
-            sustainable opportunities.
-          </p>
-
-        </div>
-
-
-        <div class="mv-card">
-
-          <div class="mv-icon">
-            🌍
-          </div>
-
-          <h2>
-            Our Vision
-          </h2>
-
-          <p>
-            To build a compassionate society where vulnerable
-            people receive support, children have access to
-            education, families can become self-reliant and
-            communities work together to improve the lives
-            of those in need.
-          </p>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- OBJECTIVES -->
-
-  <section class="section">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        Our Main Objectives
-      </h2>
-
-      <p class="section-intro">
-        Our humanitarian activities focus on areas where
-        charitable support can create lasting positive impact.
-      </p>
-
-
-      <div class="objectives">
-
-
-        <div class="objective">
-
-          <div class="objective-icon">
-            🤲
-          </div>
-
-          <div>
-
-            <h3>
-              Support for Orphans
-            </h3>
-
-            <p>
-              Supporting vulnerable orphans with essential
-              needs, education and other forms of assistance.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="objective">
-
-          <div class="objective-icon">
-            📚
-          </div>
-
-          <div>
-
-            <h3>
-              Education
-            </h3>
-
-            <p>
-              Helping children from disadvantaged families
-              access learning materials, Islamic education
-              and appropriate schooling opportunities.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="objective">
-
-          <div class="objective-icon">
-            🏥
-          </div>
-
-          <div>
-
-            <h3>
-              Healthcare Assistance
-            </h3>
-
-            <p>
-              Providing support to people facing healthcare
-              challenges and helping vulnerable families
-              access essential medical assistance.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="objective">
-
-          <div class="objective-icon">
-            💼
-          </div>
-
-          <div>
-
-            <h3>
-              Economic Empowerment
-            </h3>
-
-            <p>
-              Supporting people with opportunities that can
-              help them develop skills, businesses and
-              sustainable sources of income.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="objective">
-
-          <div class="objective-icon">
-            🍚
-          </div>
-
-          <div>
-
-            <h3>
-              Food Assistance
-            </h3>
-
-            <p>
-              Supporting vulnerable households with food
-              and essential household provisions when needed.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="objective">
-
-          <div class="objective-icon">
-            🏠
-          </div>
-
-          <div>
-
-            <h3>
-              Humanitarian Support
-            </h3>
-
-            <p>
-              Responding to humanitarian needs and providing
-              assistance to individuals and families facing
-              difficult circumstances.
-            </p>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- VALUES -->
-
-  <section class="section" style="background:white;">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        Our Core Values
-      </h2>
-
-      <p class="section-intro">
-        These principles guide the way we serve and manage
-        the trust placed in the foundation.
-      </p>
-
-
-      <div class="values">
-
-
-        <div class="value">
-
-          <div class="value-icon">
-            ❤️
-          </div>
-
-          <h3>
-            Compassion
-          </h3>
-
-          <p>
-            We care about people and their wellbeing.
-          </p>
-
-        </div>
-
-
-        <div class="value">
-
-          <div class="value-icon">
-            🔍
-          </div>
-
-          <h3>
-            Transparency
-          </h3>
-
-          <p>
-            We value honesty and responsible use of donations.
-          </p>
-
-        </div>
-
-
-        <div class="value">
-
-          <div class="value-icon">
-            🤝
-          </div>
-
-          <h3>
-            Service
-          </h3>
-
-          <p>
-            We put humanitarian service at the heart of our work.
-          </p>
-
-        </div>
-
-
-        <div class="value">
-
-          <div class="value-icon">
-            🌱
-          </div>
-
-          <h3>
-            Sustainability
-          </h3>
-
-          <p>
-            We seek solutions that can create lasting impact.
-          </p>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CTA -->
-
-  <section class="cta">
-
-    <h2>
-      Join Us in Serving Humanity
-    </h2>
-
-    <p>
-      Your support, prayers and contributions can help us
-      reach more vulnerable people and create positive change
-      in our communities.
-    </p>
-
-
-    <div class="cta-buttons">
-
-      <a
-        href="donate.html"
-        class="btn btn-gold">
-
-        Support Our Work
-
-      </a>
-
-
-      <a
-        href="projects.html"
-        class="btn btn-white">
-
-        View Our Projects
-
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <p>
-      © <span id="year"></span>
-      Fisabilillahi Charity Foundation.
-      All Rights Reserved.
-    </p>
-
-  </footer>
-
-
-  <!-- JAVASCRIPT -->
-
-  <script>
-
-    function toggleMenu() {
-
-      document
-        .getElementById("mainNav")
-        .classList.toggle("show");
-
-    }
-
-
-    document
-      .querySelectorAll("#mainNav a")
-      .forEach(function(link) {
-
-        link.addEventListener("click", function() {
-
-          document
-            .getElementById("mainNav")
-            .classList.remove("show");
-
-        });
-
-      });
-
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-  </script>
-
+</script>
 
 </body>
 </html>

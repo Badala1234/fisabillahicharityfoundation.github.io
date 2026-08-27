@@ -1,1 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Member Dashboard | Fisabilillahi Charity Foundation</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7f6;
+  color:#222;
+}
+
+header{
+  background:#fff;
+  border-bottom:4px solid #d4af37;
+  padding:15px 5%;
+}
+
+.header{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  color:#087443;
+  font-size:21px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.logo span{
+  color:#d4af37;
+}
+
+.menu{
+  display:none;
+  background:#087443;
+  color:#fff;
+  border:0;
+  padding:9px 13px;
+  border-radius:7px;
+  font-size:21px;
+  cursor:pointer;
+}
+
+nav{
+  display:flex;
+  gap:6px;
+}
+
+nav a{
+  color:#222;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:bold;
+  padding:8px;
+}
+
+nav a:hover,
+nav a.active{
+  color:#087443;
+}
+
+.hero{
+  background:#087443;
+  color:#fff;
+  padding:45px 20px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:36px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#edf7f2;
+}
+
+.container{
+  width:94%;
+  max-width:1100px;
+  margin:auto;
+}
+
+.section{
+  padding:40px 0;
+}
+
+.welcome{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:25px;
+  margin-bottom:25px;
+}
+
+.welcome h2{
+  color:#087443;
+  margin-bottom:7px;
+}
+
+.welcome p{
+  color:#666;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-bottom:25px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:22px;
+}
+
+.card .icon{
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.card h3{
+  color:#087443;
+  margin-bottom:7px;
+}
+
+.card p{
+  color:#666;
+  font-size:14px;
+}
+
+.member{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:25px;
+  margin-bottom:25px;
+}
+
+.member h2{
+  color:#087443;
+  margin-bottom:18px;
+}
+
+.info{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.info-box{
+  background:#f5f7f6;
+  padding:15px;
+  border-radius:8px;
+}
+
+.info-box strong{
+  display:block;
+  color:#087443;
+  margin-bottom:4px;
+}
+
+.info-box span{
+  color:#666;
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.button{
+  display:inline-block;
+  background:#087443;
+  color:#fff;
+  text-decoration:none;
+  padding:12px 20px;
+  border-radius:7px;
+  font-weight:bold;
+}
+
+.button.secondary{
+  background:#d4af37;
+  color:#222;
+}
+
+.button.logout{
+  background:#9b2525;
+  border:0;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.notice{
+  background:#fffdf3;
+  border:1px solid #e5d38b;
+  border-radius:10px;
+  padding:18px;
+  margin-bottom:25px;
+}
+
+.notice h3{
+  color:#087443;
+  margin-bottom:5px;
+}
+
+.notice p{
+  color:#666;
+  font-size:14px;
+}
+
+footer{
+  background:#063b24;
+  color:#fff;
+  text-align:center;
+  padding:23px 15px;
+}
+
+footer p{
+  color:#d7e7de;
+  font-size:14px;
+}
+
+@media(max-width:850px){
+
+  .menu{
+    display:block;
+  }
+
+  nav{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    right:0;
+    background:#fff;
+    flex-direction:column;
+    padding:12px 5%;
+    border-bottom:3px solid #d4af37;
+    z-index:1000;
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  nav a{
+    text-align:center;
+    padding:11px;
+  }
+
+  .cards{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:550px){
+
+  .logo{
+    font-size:17px;
+  }
+
+  .hero h1{
+    font-size:29px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .info{
+    grid-template-columns:1fr;
+  }
+
+  .actions{
+    flex-direction:column;
+  }
+
+  .button{
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="header">
+
+<a href="index.html" class="logo">
+Fisabilillahi <span>Charity Foundation</span>
+</a>
+
+<button class="menu" onclick="toggleMenu()">☰</button>
+
+<nav id="nav">
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="projects.html">Projects</a>
+<a href="gallery.html">Gallery</a>
+<a href="donate.html">Donate</a>
+<a href="register.html">Register</a>
+<a href="login.html">Login</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<h1>Member Dashboard</h1>
+
+<p>
+Welcome to Fisabilillahi Charity Foundation
+</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="container">
+
+
+<div class="welcome">
+
+<h2>
+Welcome, Member
+</h2>
+
+<p>
+Thank you for being part of Fisabilillahi Charity
+Foundation. Together we can make a positive
+difference in the lives of people in need.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">👤</div>
+
+<h3>
+Membership
+</h3>
+
+<p>
+Your membership information will appear here
+when the secure membership system is connected.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">❤️</div>
+
+<h3>
+Your Contribution
+</h3>
+
+<p>
+Your donation and contribution records will be
+displayed here after the database is connected.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🌍</div>
+
+<h3>
+Our Mission
+</h3>
+
+<p>
+Supporting orphans, education, healthcare,
+environmental protection and humanitarian work.
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="member">
+
+<h2>
+Member Information
+</h2>
+
+<div class="info">
+
+
+<div class="info-box">
+
+<strong>
+Full Name
+</strong>
+
+<span>
+Not connected yet
+</span>
+
+</div>
+
+
+<div class="info-box">
+
+<strong>
+Member ID
+</strong>
+
+<span>
+Will be generated automatically
+</span>
+
+</div>
+
+
+<div class="info-box">
+
+<strong>
+Email
+</strong>
+
+<span>
+Not connected yet
+</span>
+
+</div>
+
+
+<div class="info-box">
+
+<strong>
+Membership Status
+</strong>
+
+<span>
+Pending database connection
+</span>
+
+</div>
+
+
+<div class="info-box">
+
+<strong>
+Registration Date
+</strong>
+
+<span>
+Will appear after registration
+</span>
+
+</div>
+
+
+<div class="info-box">
+
+<strong>
+Account Status
+</strong>
+
+<span>
+System preparation stage
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="notice">
+
+<h3>
+Important Notice
+</h3>
+
+<p>
+The member dashboard has been prepared. The secure
+database connection will be added when the
+membership database becomes available.
+</p>
+
+</div>
+
+
+<div class="actions">
+
+<a href="projects.html" class="button">
+View Projects
+</a>
+
+<a href="donate.html" class="button secondary">
+Support Foundation
+</a>
+
+<a href="contact.html" class="button">
+Contact Us
+</a>
+
+<button
+  class="button logout"
+  onclick="logout()">
+  Logout
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>
+© <span id="year"></span>
+Fisabilillahi Charity Foundation.
+All Rights Reserved.
+</p>
+
+</footer>
+
+
+<script>
+
+function toggleMenu(){
+
+  document
+    .getElementById("nav")
+    .classList.toggle("show");
+
+}
+
+
+function logout(){
+
+  alert(
+    "The secure login system will be activated when the database is connected."
+  );
+
+  window.location.href = "index.html";
+
+}
+
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+</script>
+
+</body>
+</html>

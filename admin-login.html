@@ -1,1 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Login | Fisabilillahi Charity Foundation</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7f6;
+  color:#222;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+
+/* HEADER */
+
+header{
+  background:#063b24;
+  border-bottom:4px solid #d4af37;
+  padding:16px 5%;
+}
+
+.header{
+  max-width:1100px;
+  margin:auto;
+}
+
+.logo{
+  color:white;
+  text-decoration:none;
+  font-size:21px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#d4af37;
+}
+
+
+/* MAIN */
+
+main{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:50px 20px;
+}
+
+.login-box{
+  width:100%;
+  max-width:430px;
+  background:white;
+  border:1px solid #ddd;
+  border-radius:14px;
+  padding:35px 30px;
+  box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+
+/* TITLE */
+
+.icon{
+  text-align:center;
+  font-size:48px;
+  margin-bottom:10px;
+}
+
+h1{
+  text-align:center;
+  color:#087443;
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#666;
+  font-size:14px;
+  margin-bottom:28px;
+}
+
+
+/* FORM */
+
+label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+
+input{
+  width:100%;
+  padding:13px;
+  border:1px solid #ccc;
+  border-radius:7px;
+  font-size:16px;
+  margin-bottom:18px;
+  outline:none;
+}
+
+input:focus{
+  border-color:#087443;
+}
+
+
+/* PASSWORD */
+
+.password-box{
+  position:relative;
+}
+
+.password-box input{
+  padding-right:65px;
+}
+
+.show{
+  position:absolute;
+  right:8px;
+  top:6px;
+  border:0;
+  background:transparent;
+  color:#087443;
+  font-weight:bold;
+  padding:8px;
+  cursor:pointer;
+}
+
+
+/* BUTTON */
+
+.login-button{
+  width:100%;
+  border:0;
+  background:#087443;
+  color:white;
+  padding:14px;
+  border-radius:7px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.login-button:hover{
+  background:#065d36;
+}
+
+
+/* MESSAGE */
+
+.message{
+  display:none;
+  margin-top:18px;
+  padding:12px;
+  border-radius:7px;
+  text-align:center;
+  font-size:14px;
+}
+
+.message.show{
+  display:block;
+}
+
+.message.info{
+  background:#fffdf3;
+  border:1px solid #e4d18a;
+  color:#665300;
+}
+
+
+/* BACK */
+
+.back{
+  text-align:center;
+  margin-top:22px;
+}
+
+.back a{
+  color:#087443;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+}
+
+
+/* SECURITY */
+
+.security{
+  margin-top:22px;
+  padding:15px;
+  background:#f5f7f6;
+  border-radius:8px;
+  text-align:center;
+  color:#666;
+  font-size:13px;
+  line-height:1.6;
+}
+
+
+/* FOOTER */
+
+footer{
+  background:#063b24;
+  color:white;
+  text-align:center;
+  padding:23px 15px;
+}
+
+footer p{
+  color:#d7e7de;
+  font-size:14px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+  .login-box{
+    padding:28px 20px;
+  }
+
+  h1{
+    font-size:27px;
+  }
+
+  .logo{
+    font-size:17px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="header">
+
+<a href="index.html" class="logo">
+
+Fisabilillahi
+<span>Admin</span>
+
+</a>
+
+</div>
+
+</header>
+
+
+
+<main>
+
+<div class="login-box">
+
+
+<div class="icon">
+🔐
+</div>
+
+
+<h1>
+Admin Login
+</h1>
+
+
+<p class="subtitle">
+
+Authorized administrators only.
+
+</p>
+
+
+
+<form id="adminLoginForm">
+
+
+<label for="email">
+
+Admin Email
+
+</label>
+
+
+<input
+type="email"
+id="email"
+placeholder="Enter admin email"
+required
+>
+
+
+
+<label for="password">
+
+Password
+
+</label>
+
+
+<div class="password-box">
+
+<input
+type="password"
+id="password"
+placeholder="Enter password"
+required
+>
+
+<button
+type="button"
+class="show"
+onclick="togglePassword()">
+
+Show
+
+</button>
+
+</div>
+
+
+
+<button
+type="submit"
+class="login-button">
+
+Login to Admin Panel
+
+</button>
+
+
+</form>
+
+
+
+<div
+id="message"
+class="message info">
+
+Admin authentication will be activated when
+the secure database system is connected.
+
+</div>
+
+
+
+<div class="security">
+
+<strong>🔒 Security Notice</strong>
+
+<br>
+
+The Admin Panel is intended only for authorized
+foundation administrators. Real authentication
+will be handled securely through the database
+system.
+
+</div>
+
+
+
+<div class="back">
+
+<a href="index.html">
+
+← Back to Website
+
+</a>
+
+</div>
+
+
+</div>
+
+</main>
+
+
+
+<footer>
+
+<p>
+
+© <span id="year"></span>
+Fisabilillahi Charity Foundation.
+All Rights Reserved.
+
+</p>
+
+</footer>
+
+
+
+<script>
+
+
+function togglePassword(){
+
+const password =
+document.getElementById("password");
+
+const button =
+document.querySelector(".show");
+
+
+if(password.type === "password"){
+
+password.type = "text";
+
+button.textContent = "Hide";
+
+}else{
+
+password.type = "password";
+
+button.textContent = "Show";
+
+}
+
+}
+
+
+
+document
+.getElementById("adminLoginForm")
+.addEventListener("submit", function(event){
+
+event.preventDefault();
+
+document
+.getElementById("message")
+.classList.add("show");
+
+});
+
+
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -2,351 +2,804 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gallery | Fisabillahi Charity Foundation</title>
+  <title>Gallery | Fisabilillahi Charity Foundation</title>
 
-    <meta name="description"
-        content="Real moments from Fisabillahi Charity Foundation humanitarian activities, community support and charitable projects.">
+  <meta
+    name="description"
+    content="Gallery of Fisabilillahi Charity Foundation humanitarian activities and projects."
+  >
 
-    <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    :root {
+      --green: #087443;
+      --dark-green: #045c34;
+      --gold: #d4af37;
+      --white: #ffffff;
+      --light: #f5f8f6;
+      --text: #222222;
+      --muted: #666666;
+      --border: #dddddd;
+      --shadow: 0 8px 28px rgba(0,0,0,0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+      background: var(--white);
+      border-bottom: 3px solid var(--gold);
+      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      width: min(1150px, 94%);
+      min-height: 75px;
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--green);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    nav a {
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 7px;
+      font-weight: 600;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--green);
+      background: #edf7f2;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 44px;
+      height: 42px;
+      border: none;
+      border-radius: 7px;
+      background: var(--green);
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      background:
+        linear-gradient(
+          rgba(4,92,52,0.95),
+          rgba(8,116,67,0.95)
+        );
+
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h1 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: auto;
+      font-size: 18px;
+      color: #edf7f2;
+    }
+
+    /* =========================
+       GENERAL
+    ========================== */
+
+    .container {
+      width: min(1100px, 94%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 65px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--green);
+      font-size: 31px;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    /* =========================
+       GALLERY
+    ========================== */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .gallery-item {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.11);
+    }
+
+    .gallery-placeholder {
+      min-height: 220px;
+      background: #edf7f2;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 65px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gallery-caption {
+      padding: 18px 20px;
+    }
+
+    .gallery-caption h3 {
+      color: var(--green);
+      margin-bottom: 5px;
+      font-size: 19px;
+    }
+
+    .gallery-caption p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       PHOTO UPLOAD MESSAGE
+    ========================== */
+
+    .gallery-note {
+      margin-top: 35px;
+      padding: 22px;
+      background: white;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--gold);
+      border-radius: 10px;
+      color: var(--muted);
+    }
+
+    .gallery-note strong {
+      color: var(--green);
+    }
+
+    /* =========================
+       CTA
+    ========================== */
+
+    .cta {
+      background: var(--green);
+      color: white;
+      text-align: center;
+      padding: 65px 20px;
+    }
+
+    .cta h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 25px;
+      color: #edf7f2;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: white;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--green);
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: #063b24;
+      color: white;
+      text-align: center;
+      padding: 28px 15px;
+    }
+
+    footer p {
+      color: #d5e5dd;
+      font-size: 14px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 950px) {
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+    @media (max-width: 850px) {
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        right: 0;
+
+        background: white;
+        padding: 12px 5%;
+
+        flex-direction: column;
+
+        border-bottom: 3px solid var(--gold);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        width: 100%;
+        text-align: center;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .hero {
+        padding: 60px 18px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 45px 0;
+      }
+
+      .section-title {
+        font-size: 27px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-placeholder {
+        min-height: 200px;
+      }
+
+    }
+  </style>
 </head>
 
-<body id="top">
 
-<header>
-    <div class="container">
-
-        <h2 class="logo">
-            Fisabillahi Charity Foundation
-        </h2>
-
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="projects.html">Projects</a>
-            <a href="gallery.html" class="active">Gallery</a>
-            <a href="donate.html">Donate</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-    </div>
-</header>
+<body>
 
 
-<!-- HERO -->
-<section class="hero">
+  <!-- HEADER -->
 
-    <div class="hero-content">
+  <header>
 
-        <h1>Our Gallery</h1>
+    <div class="nav-container">
 
-        <p>
-            Real moments from our humanitarian activities,
-            community support and charitable projects.
-        </p>
+      <a href="index.html" class="logo">
+        Fisabilillahi <span>Charity Foundation</span>
+      </a>
 
-        <a href="#main-content" class="scroll-down">
-            Scroll to explore
-            <span>↓</span>
+      <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Open menu">
+        ☰
+      </button>
+
+      <nav id="mainNav">
+
+        <a href="index.html">
+          Home
         </a>
 
-    </div>
-
-</section>
-
-
-<!-- INTRO -->
-<section class="about-preview" id="main-content">
-
-    <div class="container">
-
-        <div class="about-content">
-
-            <h2>Our Work in Pictures</h2>
-
-            <p>
-                These photographs document some of the activities
-                carried out by Fisabillahi Charity Foundation in our
-                efforts to serve vulnerable people and support our
-                communities for the sake of Allah.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- BUSINESS EMPOWERMENT -->
-<section class="impact">
-
-    <div class="container">
-
-        <div class="about-content">
-
-            <h2>Business Empowerment</h2>
-
-            <p>
-                We support individuals and families with financial
-                assistance and business opportunities to help improve
-                their livelihoods and become more independent.
-            </p>
-
-        </div>
-
-
-        <div class="gallery-card">
-
-            <img src="assets/images/gallery/IMG-20251225-WA0008.jpg"
-                 alt="Fisabillahi Charity Foundation community support"
-                 loading="lazy">
-
-            <h3>Community Support</h3>
-
-            <p>
-                Supporting people in need through direct charitable assistance.
-            </p>
-
-        </div>
-
-
-        <div class="gallery-card">
-
-            <img src="assets/images/gallery/IMG-20251227-WA0011(1).jpg"
-                 alt="Fisabillahi Charity Foundation humanitarian support"
-                 loading="lazy">
-
-            <h3>Empowering Our Community</h3>
-
-            <p>
-                Helping vulnerable members of our community with compassion
-                and dignity.
-            </p>
-
-        </div>
-
-
-        <div class="gallery-card">
-
-            <img src="assets/images/gallery/IMG-20260125-WA0018(1).jpg"
-                 alt="Fisabillahi Charity Foundation support activity"
-                 loading="lazy">
-
-            <h3>Supporting Families</h3>
-
-            <p>
-                Extending a helping hand to families facing hardship.
-            </p>
-
-        </div>
-
-
-        <div class="gallery-card">
-
-            <img src="assets/images/gallery/IMG-20260304-WA0054(2).jpg"
-                 alt="Fisabillahi Charity Foundation charitable activity"
-                 loading="lazy">
-
-            <h3>Charitable Assistance</h3>
-
-            <p>
-                Serving vulnerable people through practical humanitarian support.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- RAMADAN FOOD DISTRIBUTION -->
-<section class="about-preview">
-
-    <div class="container">
-
-        <div class="about-content">
-
-            <h2>Ramadan Food Distribution</h2>
-
-            <p>
-                During Ramadan, we distributed food to people in need
-                as part of our charitable activities and efforts to
-                support vulnerable families.
-            </p>
-
-        </div>
-
-
-        <div class="gallery-card">
-
-            <img src="assets/images/gallery/IMG-20260304-WA0056(2).jpg"
-                 alt="Ramadan food distribution by Fisabillahi Charity Foundation"
-                 loading="lazy">
-
-            <h3>Ramadan Food Assistance</h3>
-
-            <p>
-                Sharing food and supporting families during the blessed
-                month of Ramadan.
-            </p>
-
-        </div>
-
-
-        <div class="gallery-card">
-
-            <img src="assets/images/gallery/IMG-20260304-WA0059(1).jpg"
-                 alt="Food assistance to families during Ramadan"
-                 loading="lazy">
-
-            <h3>Serving Our Community</h3>
-
-            <p>
-                Providing assistance to people experiencing hardship.
-            </p>
-
-        </div>
-
-
-        <div class="gallery-card">
-
-            <img src="assets/images/gallery/IMG-20260304-WA0063(1).jpg"
-                 alt="Fisabillahi Charity Foundation Ramadan charity"
-                 loading="lazy">
-
-            <h3>Ramadan Charity</h3>
-
-            <p>
-                A small act of kindness can bring great joy to someone in need.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- MORE HUMANITARIAN ACTIVITIES -->
-<section class="impact">
-
-    <div class="container">
-
-        <div class="about-content">
-
-            <h2>More Humanitarian Activities</h2>
-
-            <p>
-                We remain committed to supporting vulnerable people
-                through different charitable and humanitarian programmes.
-            </p>
-
-        </div>
-
-
-        <div class="gallery-card">
-
-            <img src="assets/images/gallery/IMG-20260722-WA0007.jpg"
-                 alt="Fisabillahi Charity Foundation humanitarian activity"
-                 loading="lazy">
-
-            <h3>Serving Humanity</h3>
-
-            <p>
-                Working together to make a positive difference in our communities.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CTA -->
-<section class="hero">
-
-    <div class="hero-content">
-
-        <h2>Help Us Create More Stories of Hope</h2>
-
-        <p>
-            Your support can help us reach more vulnerable people
-            and expand our humanitarian activities.
-        </p>
-
-        <a href="donate.html" class="btn">
-            Support Our Mission
+        <a href="about.html">
+          About
         </a>
 
+        <a href="projects.html">
+          Projects
+        </a>
+
+        <a href="gallery.html" class="active">
+          Gallery
+        </a>
+
+        <a href="donate.html">
+          Donate
+        </a>
+
+        <a href="register.html">
+          Register
+        </a>
+
+        <a href="login.html">
+          Login
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </nav>
+
     </div>
 
-</section>
+  </header>
 
 
-<!-- FOOTER -->
-<footer>
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <h1>
+      Our Gallery
+    </h1>
+
+    <p>
+      A collection of moments, activities and humanitarian
+      projects carried out by Fisabilillahi Charity Foundation.
+    </p>
+
+  </section>
+
+
+  <!-- GALLERY -->
+
+  <section class="section">
 
     <div class="container">
 
-        <div class="footer-grid">
+      <h2 class="section-title">
+        Our Activities
+      </h2>
 
-            <div>
-
-                <h3>Fisabillahi Charity Foundation</h3>
-
-                <p>
-                    Serving humanity for the sake of Allah.
-                </p>
-
-            </div>
+      <p class="section-intro">
+        This gallery will showcase our charitable activities,
+        community projects and the people we are privileged
+        to support.
+      </p>
 
 
-            <div>
-
-                <h4>Quick Links</h4>
-
-                <p><a href="index.html">Home</a></p>
-                <p><a href="about.html">About</a></p>
-                <p><a href="projects.html">Projects</a></p>
-                <p><a href="gallery.html">Gallery</a></p>
-
-            </div>
+      <div class="gallery-grid">
 
 
-            <div>
+        <!-- ITEM 1 -->
 
-                <h4>Get Involved</h4>
+        <div class="gallery-item">
 
-                <p><a href="donate.html">Donate</a></p>
-                <p><a href="contact.html">Contact Us</a></p>
+          <div class="gallery-placeholder">
+            🤲
+          </div>
 
-            </div>
+          <div class="gallery-caption">
 
-        </div>
-
-
-        <div class="copyright">
+            <h3>
+              Supporting Those in Need
+            </h3>
 
             <p>
-                © 2026 Fisabillahi Charity Foundation.
-                All Rights Reserved.
+              Moments from our humanitarian assistance
+              activities.
             </p>
 
+          </div>
+
         </div>
+
+
+        <!-- ITEM 2 -->
+
+        <div class="gallery-item">
+
+          <div class="gallery-placeholder">
+            📚
+          </div>
+
+          <div class="gallery-caption">
+
+            <h3>
+              Education Support
+            </h3>
+
+            <p>
+              Supporting children with educational needs
+              and learning materials.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ITEM 3 -->
+
+        <div class="gallery-item">
+
+          <div class="gallery-placeholder">
+            🎒
+          </div>
+
+          <div class="gallery-caption">
+
+            <h3>
+              School Materials
+            </h3>
+
+            <p>
+              Providing essential school supplies to
+              children who need support.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ITEM 4 -->
+
+        <div class="gallery-item">
+
+          <div class="gallery-placeholder">
+            🏥
+          </div>
+
+          <div class="gallery-caption">
+
+            <h3>
+              Healthcare Assistance
+            </h3>
+
+            <p>
+              Humanitarian assistance for people facing
+              healthcare challenges.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ITEM 5 -->
+
+        <div class="gallery-item">
+
+          <div class="gallery-placeholder">
+            🍚
+          </div>
+
+          <div class="gallery-caption">
+
+            <h3>
+              Food Assistance
+            </h3>
+
+            <p>
+              Providing food and essential provisions
+              to vulnerable families.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ITEM 6 -->
+
+        <div class="gallery-item">
+
+          <div class="gallery-placeholder">
+            💼
+          </div>
+
+          <div class="gallery-caption">
+
+            <h3>
+              Empowerment
+            </h3>
+
+            <p>
+              Supporting people through skills, business
+              and livelihood opportunities.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ITEM 7 -->
+
+        <div class="gallery-item">
+
+          <div class="gallery-placeholder">
+            ❤️
+          </div>
+
+          <div class="gallery-caption">
+
+            <h3>
+              Community Service
+            </h3>
+
+            <p>
+              Serving communities with compassion,
+              dignity and kindness.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ITEM 8 -->
+
+        <div class="gallery-item">
+
+          <div class="gallery-placeholder">
+            🕌
+          </div>
+
+          <div class="gallery-caption">
+
+            <h3>
+              Islamic & Moral Values
+            </h3>
+
+            <p>
+              Promoting compassion, charity and service
+              for the sake of Allah.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ITEM 9 -->
+
+        <div class="gallery-item">
+
+          <div class="gallery-placeholder">
+            🌱
+          </div>
+
+          <div class="gallery-caption">
+
+            <h3>
+              Creating Lasting Impact
+            </h3>
+
+            <p>
+              Building sustainable support and opportunities
+              for vulnerable people.
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- NOTE -->
+
+      <div class="gallery-note">
+
+        <strong>
+          Gallery update:
+        </strong>
+
+        Our actual project photographs will be added here
+        as our humanitarian activities continue. We are
+        committed to protecting the dignity and privacy of
+        people who receive assistance.
+
+      </div>
 
     </div>
 
-</footer>
+  </section>
 
 
-<a href="#top" class="back-to-top" aria-label="Back to top">
-    ↑
-</a>
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <h2>
+      Be Part of Our Journey
+    </h2>
+
+    <p>
+      Your contribution can help us create more moments
+      of hope and support more people in need.
+    </p>
+
+
+    <div class="cta-buttons">
+
+      <a
+        href="donate.html"
+        class="btn btn-gold">
+
+        Support Our Work
+
+      </a>
+
+
+      <a
+        href="projects.html"
+        class="btn btn-white">
+
+        View Projects
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © <span id="year"></span>
+      Fisabilillahi Charity Foundation.
+      All Rights Reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    function toggleMenu() {
+
+      document
+        .getElementById("mainNav")
+        .classList.toggle("show");
+
+    }
+
+
+    document
+      .querySelectorAll("#mainNav a")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+          document
+            .getElementById("mainNav")
+            .classList.remove("show");
+
+        });
+
+      });
+
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
 
 
 </body>

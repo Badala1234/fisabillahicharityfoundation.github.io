@@ -65,12 +65,13 @@ header{
 nav{
   display:flex;
   gap:5px;
+  align-items:center;
 }
 
 nav a{
   color:#fff;
   text-decoration:none;
-  font-size:14px;
+  font-size:13px;
   font-weight:bold;
   padding:8px;
 }
@@ -78,6 +79,7 @@ nav a{
 nav a:hover{
   color:#d4af37;
 }
+
 
 /* HERO */
 
@@ -97,6 +99,7 @@ nav a:hover{
   color:#e6f1eb;
 }
 
+
 /* CONTAINER */
 
 .container{
@@ -108,6 +111,7 @@ nav a:hover{
 .section{
   padding:40px 0;
 }
+
 
 /* STATISTICS */
 
@@ -142,6 +146,7 @@ nav a:hover{
   font-size:14px;
 }
 
+
 /* PANELS */
 
 .panel{
@@ -160,6 +165,7 @@ nav a:hover{
 .panel p{
   color:#666;
 }
+
 
 /* QUICK ACTIONS */
 
@@ -196,6 +202,7 @@ nav a:hover{
   font-size:14px;
 }
 
+
 /* NOTICE */
 
 .notice{
@@ -213,6 +220,7 @@ nav a:hover{
 .notice p{
   font-size:14px;
 }
+
 
 /* BUTTONS */
 
@@ -243,6 +251,7 @@ nav a:hover{
   background:#9b2525;
 }
 
+
 /* FOOTER */
 
 footer{
@@ -256,6 +265,7 @@ footer p{
   color:#d7e7de;
   font-size:14px;
 }
+
 
 /* MOBILE */
 
@@ -295,6 +305,7 @@ footer p{
   }
 
 }
+
 
 @media(max-width:550px){
 
@@ -369,6 +380,10 @@ onclick="toggleMenu()">
 💰 Donations
 </a>
 
+<a href="messages.html">
+📩 Messages
+</a>
+
 <a href="register.html">
 📝 Register
 </a>
@@ -378,7 +393,7 @@ onclick="toggleMenu()">
 </a>
 
 <a href="contact.html">
-📩 Contact
+📞 Contact
 </a>
 
 </nav>
@@ -423,7 +438,7 @@ Fisabilillahi Charity Foundation Management Center
 👥
 </div>
 
-<h2 id="members">
+<h2>
 0
 </h2>
 
@@ -440,12 +455,29 @@ Registered Members
 💰
 </div>
 
-<h2 id="donations">
+<h2>
 ₦0
 </h2>
 
 <p>
 Total Donations
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+📩
+</div>
+
+<h2>
+0
+</h2>
+
+<p>
+Messages
 </p>
 
 </div>
@@ -463,23 +495,6 @@ Total Donations
 
 <p>
 Main Activities
-</p>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-icon">
-📩
-</div>
-
-<h2 id="messages">
-0
-</h2>
-
-<p>
-Messages
 </p>
 
 </div>
@@ -503,7 +518,9 @@ Quick Actions
 
 <!-- MEMBERS -->
 
-<a href="members.html" class="action">
+<a
+href="members.html"
+class="action">
 
 <strong>
 👥 Members
@@ -518,14 +535,33 @@ View and manage registered members.
 
 <!-- DONATIONS -->
 
-<a href="donations.html" class="action">
+<a
+href="donations.html"
+class="action">
 
 <strong>
 💰 Donations
 </strong>
 
 <span>
-View donation records and donation summary.
+View donation records and summary.
+</span>
+
+</a>
+
+
+<!-- MESSAGES -->
+
+<a
+href="messages.html"
+class="action">
+
+<strong>
+📩 Messages
+</strong>
+
+<span>
+View messages sent through Contact Us.
 </span>
 
 </a>
@@ -533,7 +569,9 @@ View donation records and donation summary.
 
 <!-- DASHBOARD -->
 
-<a href="dashboard.html" class="action">
+<a
+href="dashboard.html"
+class="action">
 
 <strong>
 👤 Member Dashboard
@@ -548,7 +586,9 @@ Open the member dashboard.
 
 <!-- REGISTER -->
 
-<a href="register.html" class="action">
+<a
+href="register.html"
+class="action">
 
 <strong>
 📝 Registration
@@ -563,7 +603,9 @@ Open the membership registration page.
 
 <!-- PROJECTS -->
 
-<a href="projects.html" class="action">
+<a
+href="projects.html"
+class="action">
 
 <strong>
 ❤️ Projects
@@ -578,7 +620,9 @@ View foundation projects.
 
 <!-- GALLERY -->
 
-<a href="gallery.html" class="action">
+<a
+href="gallery.html"
+class="action">
 
 <strong>
 🖼️ Gallery
@@ -591,24 +635,11 @@ View foundation activities.
 </a>
 
 
-<!-- CONTACT -->
-
-<a href="contact.html" class="action">
-
-<strong>
-📩 Contact Messages
-</strong>
-
-<span>
-Open the Contact Us page.
-</span>
-
-</a>
-
-
 <!-- WEBSITE -->
 
-<a href="index.html" class="action">
+<a
+href="index.html"
+class="action">
 
 <strong>
 🌐 Website
@@ -623,7 +654,9 @@ Open the main foundation website.
 
 <!-- DONATE -->
 
-<a href="donate.html" class="action">
+<a
+href="donate.html"
+class="action">
 
 <strong>
 🤲 Donation Page
@@ -750,6 +783,44 @@ View Donations
 
 
 
+<!-- MESSAGES -->
+
+<div class="panel">
+
+<h2>
+📩 Contact Messages
+</h2>
+
+
+<div class="notice">
+
+<h3>
+Message Management
+</h3>
+
+<p>
+
+Messages sent through the Contact Us page
+will appear in the Messages Management page
+after the secure database is connected.
+
+</p>
+
+</div>
+
+
+<a
+href="messages.html"
+class="button">
+
+View Messages
+
+</a>
+
+</div>
+
+
+
 <!-- PROJECTS -->
 
 <div class="panel">
@@ -762,7 +833,9 @@ View Donations
 <div class="actions">
 
 
-<a href="projects.html" class="action">
+<a
+href="projects.html"
+class="action">
 
 <strong>
 🤲 Orphans Support
@@ -775,7 +848,9 @@ Supporting vulnerable children.
 </a>
 
 
-<a href="projects.html" class="action">
+<a
+href="projects.html"
+class="action">
 
 <strong>
 📚 Education
@@ -788,7 +863,9 @@ Educational support and opportunities.
 </a>
 
 
-<a href="projects.html" class="action">
+<a
+href="projects.html"
+class="action">
 
 <strong>
 🏥 Healthcare
@@ -801,7 +878,9 @@ Healthcare and humanitarian assistance.
 </a>
 
 
-<a href="projects.html" class="action">
+<a
+href="projects.html"
+class="action">
 
 <strong>
 💼 Business Empowerment
@@ -814,7 +893,9 @@ Supporting sustainable livelihoods.
 </a>
 
 
-<a href="projects.html" class="action">
+<a
+href="projects.html"
+class="action">
 
 <strong>
 🌳 Tree Planting
@@ -827,7 +908,9 @@ Environmental protection and tree planting.
 </a>
 
 
-<a href="projects.html" class="action">
+<a
+href="projects.html"
+class="action">
 
 <strong>
 🤝 Humanitarian Services
@@ -886,6 +969,15 @@ href="donations.html"
 class="button">
 
 💰 Donations
+
+</a>
+
+
+<a
+href="messages.html"
+class="button">
+
+📩 Messages
 
 </a>
 

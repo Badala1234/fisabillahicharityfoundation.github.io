@@ -1,262 +1,1047 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Fisabillahi Charity Foundation</title>
+  <title>Fisabilillahi Charity Foundation</title>
 
-    <meta name="description" content="Serving Humanity for the Sake of Allah">
+  <meta
+    name="description"
+    content="Fisabilillahi Charity Foundation - Serving Humanity for the Sake of Allah. Supporting orphans, education, healthcare, business empowerment and humanitarian services."
+  >
 
-    <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    :root {
+      --green: #087443;
+      --dark-green: #045c34;
+      --gold: #d4af37;
+      --white: #ffffff;
+      --light: #f6f8f7;
+      --text: #222222;
+      --muted: #666666;
+      --border: #e5e5e5;
+      --red: #b3261e;
+      --shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 3px solid var(--gold);
+      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+    }
+
+    .nav-container {
+      width: min(1200px, 94%);
+      margin: auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--green);
+      font-size: 25px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      padding: 10px 12px;
+      font-weight: 600;
+      color: #222;
+      border-radius: 7px;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--green);
+      background: #edf7f2;
+    }
+
+    .register-nav {
+      background: var(--green);
+      color: white !important;
+    }
+
+    .register-nav:hover {
+      background: var(--dark-green) !important;
+      color: white !important;
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: var(--green);
+      color: white;
+      width: 45px;
+      height: 42px;
+      border-radius: 7px;
+      font-size: 23px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 680px;
+      background:
+        linear-gradient(rgba(0,91,51,0.94), rgba(0,104,57,0.94)),
+        url("images/hero.jpg") center/cover no-repeat;
+      color: white;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-content {
+      width: min(950px, 92%);
+      margin: auto;
+      padding: 80px 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.08;
+      margin-bottom: 28px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: clamp(20px, 3vw, 28px);
+      max-width: 800px;
+      margin: auto;
+      opacity: 0.96;
+    }
+
+    .hero-buttons {
+      margin-top: 42px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 7px;
+      font-weight: 700;
+      border: 2px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-white {
+      border-color: white;
+      color: white;
+    }
+
+    .btn-white:hover {
+      background: white;
+      color: var(--green);
+    }
+
+    .scroll-text {
+      margin-top: 65px;
+      color: var(--gold);
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    /* =========================
+       GENERAL
+    ========================== */
+
+    section {
+      padding: 80px 0;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      color: var(--green);
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* =========================
+       ABOUT
+    ========================== */
+
+    .about {
+      background: var(--light);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .about-card {
+      background: white;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-card h3 {
+      color: var(--green);
+      margin-bottom: 15px;
+      font-size: 25px;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================== */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      padding: 28px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #eaf6f0;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      margin-bottom: 18px;
+    }
+
+    .project-card h3 {
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       CTA
+    ========================== */
+
+    .cta {
+      background: var(--green);
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: auto auto 28px;
+      font-size: 18px;
+    }
+
+    /* =========================
+       DONATE
+    ========================== */
+
+    .donate {
+      background: var(--light);
+    }
+
+    .donate-box {
+      max-width: 750px;
+      margin: auto;
+      background: white;
+      padding: 40px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .donate-box h3 {
+      color: var(--green);
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .account {
+      margin: 25px 0;
+      padding: 20px;
+      border: 2px dashed var(--gold);
+      border-radius: 10px;
+      background: #fffdf5;
+    }
+
+    .account strong {
+      display: block;
+      font-size: 25px;
+      color: var(--green);
+      letter-spacing: 1px;
+    }
+
+    .account small {
+      color: var(--muted);
+    }
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .contact-card {
+      text-align: center;
+      padding: 28px 20px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .contact-card h3 {
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: #063b24;
+      color: white;
+      padding: 50px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 35px;
+    }
+
+    footer h3 {
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+
+    footer p,
+    footer a {
+      color: #d7e6df;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 20px;
+      text-align: center;
+      color: #c7d9d1;
+      font-size: 14px;
+    }
+
+    /* =========================
+       BACK TO TOP
+    ========================== */
+
+    .top-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      background: var(--green);
+      color: white;
+      font-size: 23px;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 850px) {
+
+      .nav-container {
+        min-height: 68px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 15px 5%;
+        border-bottom: 3px solid var(--gold);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        text-align: center;
+        padding: 13px;
+      }
+
+      .hero {
+        min-height: 620px;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+
+      .hero p {
+        font-size: 20px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .hero h1 {
+        font-size: 39px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .hero-content {
+        padding: 65px 0;
+      }
+
+      .donate-box {
+        padding: 25px 18px;
+      }
+
+      .account strong {
+        font-size: 20px;
+      }
+
+      .section-title h2 {
+        font-size: 31px;
+      }
+    }
+  </style>
 </head>
 
-<body id="top">
+<body>
 
-<header>
-    <div class="container">
+  <!-- =========================
+       HEADER / NAVIGATION
+  ========================== -->
 
-        <h2 class="logo">
-            Fisabillahi Charity Foundation
-        </h2>
+  <header>
+    <div class="nav-container">
 
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="about.html">About</a>
-            <a href="projects.html">Projects</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="donate.html">Donate</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+      <a href="index.html" class="logo">
+        Fisabilillahi <span>Charity Foundation</span>
+      </a>
+
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
+        ☰
+      </button>
+
+      <nav id="mainNav">
+
+        <a href="index.html" class="active">Home</a>
+
+        <a href="about.html">About</a>
+
+        <a href="projects.html">Projects</a>
+
+        <a href="gallery.html">Gallery</a>
+
+        <a href="donate.html">Donate</a>
+
+        <a href="register.html" class="register-nav">Register</a>
+
+        <a href="contact.html">Contact</a>
+
+      </nav>
 
     </div>
-</header>
+  </header>
 
 
-<!-- HERO SECTION -->
-<section class="hero">
+  <!-- =========================
+       HERO
+  ========================== -->
 
-    <div class="hero-content">
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="hero-content">
 
         <h1>
-            Serving Humanity for the Sake of Allah
+          Serving Humanity<br>
+          for the Sake of Allah
         </h1>
 
         <p>
-            Supporting orphans, education, healthcare,
-            business empowerment and humanitarian services.
+          Supporting orphans, education, healthcare,
+          business empowerment and humanitarian services.
         </p>
 
-        <a href="#main-content" class="scroll-down">
-            Scroll to explore
-            <span>↓</span>
-        </a>
+        <div class="hero-buttons">
 
-    </div>
+          <a href="donate.html" class="btn btn-gold">
+            Donate & Support
+          </a>
 
-</section>
-
-
-<!-- MAIN CONTENT -->
-<section class="about-preview" id="main-content">
-
-    <div class="container">
-
-        <div class="about-content">
-
-            <h2>Welcome to Fisabillahi Charity Foundation</h2>
-
-            <p>
-                Fisabillahi Charity Foundation is dedicated to serving
-                humanity for the sake of Allah by supporting vulnerable
-                people and creating opportunities for a better future.
-            </p>
-
-            <p>
-                Our work focuses on helping orphans, supporting education,
-                assisting people with healthcare needs, providing food
-                assistance and empowering people to become self-reliant.
-            </p>
-
-            <a href="about.html" class="btn">
-                Learn More About Us
-            </a>
+          <a href="register.html" class="btn btn-white">
+            Become a Member
+          </a>
 
         </div>
 
-    </div>
+        <div class="scroll-text">
+          Scroll to explore ↓
+        </div>
 
-</section>
+      </div>
+
+    </section>
 
 
-<!-- OUR MISSION -->
-<section class="impact">
+    <!-- =========================
+         ABOUT
+    ========================== -->
 
-    <div class="container">
+    <section class="about" id="about">
 
-        <div class="impact-card">
+      <div class="container">
 
-            <h2>01</h2>
+        <div class="section-title">
+
+          <h2>About Us</h2>
+
+          <p>
+            Fisabilillahi Charity Foundation is dedicated
+            to serving humanity through compassion,
+            charity and sustainable community support.
+          </p>
+
+        </div>
+
+        <div class="about-grid">
+
+          <div class="about-card">
+
+            <h3>Our Mission</h3>
+
+            <p>
+              Our mission is to support people in need,
+              especially orphans and vulnerable members
+              of society, while creating opportunities
+              for education, healthcare and economic
+              empowerment.
+            </p>
+
+          </div>
+
+          <div class="about-card">
+
+            <h3>Our Vision</h3>
+
+            <p>
+              We envision a stronger and more caring
+              community where vulnerable people receive
+              support and every child has an opportunity
+              to learn, grow and build a better future.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>Our Areas of Support</h2>
+
+          <p>
+            Your support helps us reach people and families
+            who need assistance.
+          </p>
+
+        </div>
+
+        <div class="projects-grid">
+
+          <div class="project-card">
+
+            <div class="project-icon">❤️</div>
 
             <h3>Orphan Support</h3>
 
             <p>
-                Supporting orphans and vulnerable children with
-                essential needs, education and care.
+              Supporting orphans with essential needs,
+              educational materials and other assistance.
             </p>
 
-        </div>
+          </div>
 
 
-        <div class="impact-card">
+          <div class="project-card">
 
-            <h2>02</h2>
+            <div class="project-icon">📚</div>
 
             <h3>Education</h3>
 
             <p>
-                Helping children from disadvantaged families access
-                quality education and learning materials.
+              Helping children access quality education,
+              school materials and Islamic learning.
             </p>
 
-        </div>
+          </div>
 
 
-        <div class="impact-card">
+          <div class="project-card">
 
-            <h2>03</h2>
+            <div class="project-icon">🏥</div>
 
             <h3>Healthcare</h3>
 
             <p>
-                Providing assistance to vulnerable people facing
-                healthcare challenges.
+              Supporting people facing healthcare needs
+              and humanitarian emergencies.
             </p>
 
-        </div>
+          </div>
 
 
-        <div class="impact-card">
+          <div class="project-card">
 
-            <h2>04</h2>
+            <div class="project-icon">💼</div>
 
-            <h3>Empowerment</h3>
+            <h3>Business Empowerment</h3>
 
             <p>
-                Supporting people with opportunities that can help
-                them build a sustainable future.
+              Helping vulnerable people develop sustainable
+              means of earning a living.
             </p>
+
+          </div>
+
+
+          <div class="project-card">
+
+            <div class="project-icon">🤝</div>
+
+            <h3>Humanitarian Services</h3>
+
+            <p>
+              Providing assistance to individuals and
+              families facing difficult circumstances.
+            </p>
+
+          </div>
+
+
+          <div class="project-card">
+
+            <div class="project-icon">🕌</div>
+
+            <h3>Community Support</h3>
+
+            <p>
+              Building a culture of compassion, cooperation
+              and helping one another for the sake of Allah.
+            </p>
+
+          </div>
 
         </div>
 
-    </div>
+      </div>
 
-</section>
+    </section>
 
 
-<!-- CALL TO ACTION -->
-<section class="hero">
+    <!-- =========================
+         CALL TO ACTION
+    ========================== -->
 
-    <div class="hero-content">
+    <section class="cta">
 
-        <h2>
-            Together, We Can Make a Difference
-        </h2>
+      <div class="container">
+
+        <h2>Together, We Can Make a Difference</h2>
 
         <p>
-            Your support can help us reach more people in need
-            and bring hope to vulnerable families and children.
+          A small contribution can become a great source
+          of hope for someone in need.
         </p>
 
-        <a href="donate.html" class="btn">
-            Donate Now
+        <a href="donate.html" class="btn btn-gold">
+          Support Our Work
         </a>
 
-    </div>
+      </div>
 
-</section>
+    </section>
 
 
-<!-- FOOTER -->
-<footer>
+    <!-- =========================
+         DONATION
+    ========================== -->
+
+    <section class="donate" id="donate">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>Support Fisabilillahi Charity Foundation</h2>
+
+          <p>
+            Your donation helps us continue our humanitarian
+            activities and support vulnerable people.
+          </p>
+
+        </div>
+
+        <div class="donate-box">
+
+          <h3>Donation Account</h3>
+
+          <p>
+            You can support the foundation through the
+            account below.
+          </p>
+
+          <div class="account">
+
+            <strong>6959530406</strong>
+
+            <small>
+              Fisabilillahi Charity Foundation<br>
+              Moniepoint
+            </small>
+
+          </div>
+
+          <a href="donate.html" class="btn btn-gold">
+            View Donation Details
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>Contact Us</h2>
+
+          <p>
+            We welcome questions, suggestions, volunteers
+            and people who want to support our work.
+          </p>
+
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-card">
+
+            <h3>📱 Phone</h3>
+
+            <p>
+              +234 802 609 5455
+            </p>
+
+          </div>
+
+
+          <div class="contact-card">
+
+            <h3>📧 Email</h3>
+
+            <p>
+              fisabilillahicharityfoundation@gmail.com
+            </p>
+
+          </div>
+
+
+          <div class="contact-card">
+
+            <h3>🌍 Website</h3>
+
+            <p>
+              Fisabilillahi Charity Foundation
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
 
     <div class="container">
 
-        <div class="footer-grid">
+      <div class="footer-grid">
 
-            <div>
+        <div>
 
-                <h3>
-                    Fisabillahi Charity Foundation
-                </h3>
+          <h3>Fisabilillahi Charity Foundation</h3>
 
-                <p>
-                    Serving humanity for the sake of Allah.
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <h4>Quick Links</h4>
-
-                <p>
-                    <a href="index.html">Home</a>
-                </p>
-
-                <p>
-                    <a href="about.html">About</a>
-                </p>
-
-                <p>
-                    <a href="projects.html">Projects</a>
-                </p>
-
-                <p>
-                    <a href="gallery.html">Gallery</a>
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <h4>Get Involved</h4>
-
-                <p>
-                    <a href="donate.html">Donate</a>
-                </p>
-
-                <p>
-                    <a href="contact.html">Contact Us</a>
-                </p>
-
-            </div>
+          <p>
+            Serving Humanity for the Sake of Allah.
+            Supporting orphans, education, healthcare,
+            business empowerment and humanitarian services.
+          </p>
 
         </div>
 
 
-        <div class="copyright">
+        <div>
 
-            <p>
-                © 2026 Fisabillahi Charity Foundation.
-                All Rights Reserved.
-            </p>
+          <h3>Quick Links</h3>
+
+          <p>
+            <a href="index.html">Home</a><br>
+            <a href="about.html">About</a><br>
+            <a href="projects.html">Projects</a><br>
+            <a href="gallery.html">Gallery</a>
+          </p>
 
         </div>
+
+
+        <div>
+
+          <h3>Get Involved</h3>
+
+          <p>
+            <a href="donate.html">Donate</a><br>
+            <a href="register.html">Become a Member</a><br>
+            <a href="contact.html">Contact Us</a>
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        © <span id="year"></span>
+        Fisabilillahi Charity Foundation.
+        All Rights Reserved.
+
+      </div>
 
     </div>
 
-</footer>
+  </footer>
 
 
-<!-- BACK TO TOP -->
-<a href="#top" class="back-to-top" aria-label="Back to top">
+  <!-- BACK TO TOP -->
+
+  <button
+    class="top-btn"
+    onclick="window.scrollTo({top:0, behavior:'smooth'})"
+    aria-label="Back to top"
+  >
     ↑
-</a>
+  </button>
 
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    function toggleMenu() {
+      const nav = document.getElementById("mainNav");
+      nav.classList.toggle("show");
+    }
+
+    document.querySelectorAll("#mainNav a").forEach(function(link) {
+      link.addEventListener("click", function() {
+        document.getElementById("mainNav").classList.remove("show");
+      });
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
 
 </body>
 </html>

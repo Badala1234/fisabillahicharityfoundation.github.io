@@ -2,410 +2,562 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Donate | Fisabilillahi Charity Foundation</title>
+  <title>Donate | Fisabilillahi Charity Foundation</title>
 
-    <meta name="description"
-        content="Support Fisabilillahi Charity Foundation and help us serve humanity through education, food assistance, healthcare and humanitarian projects.">
+  <meta
+    name="description"
+    content="Support Fisabilillahi Charity Foundation through donations and charitable contributions."
+  >
 
-    <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    :root {
+      --green: #087443;
+      --dark-green: #045c34;
+      --gold: #d4af37;
+      --white: #ffffff;
+      --light: #f5f8f6;
+      --text: #222222;
+      --muted: #666666;
+      --border: #dddddd;
+      --shadow: 0 8px 28px rgba(0,0,0,0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
+    header {
+      background: var(--white);
+      border-bottom: 3px solid var(--gold);
+      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      width: min(1150px, 94%);
+      min-height: 75px;
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--green);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    nav a {
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 7px;
+      font-weight: 600;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--green);
+      background: #edf7f2;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 44px;
+      height: 42px;
+      border: none;
+      border-radius: 7px;
+      background: var(--green);
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      background:
+        linear-gradient(
+          rgba(4,92,52,0.95),
+          rgba(8,116,67,0.95)
+        );
+
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h1 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: auto;
+      font-size: 18px;
+      color: #edf7f2;
+    }
+
+    /* GENERAL */
+
+    .container {
+      width: min(1000px, 94%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 65px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--green);
+      font-size: 31px;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      max-width: 780px;
+      margin: 0 auto 35px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    /* DONATION CARD */
+
+    .donation-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 38px;
+      box-shadow: var(--shadow);
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .donation-card h2 {
+      text-align: center;
+      color: var(--green);
+      margin-bottom: 10px;
+      font-size: 27px;
+    }
+
+    .donation-card > p {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    /* ACCOUNT */
+
+    .account-box {
+      background: #edf7f2;
+      border: 2px solid #c8e5d7;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .account-row {
+      padding: 14px 0;
+      border-bottom: 1px solid #c8ddd3;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .account-row:last-child {
+      border-bottom: none;
+    }
+
+    .account-label {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .account-value {
+      color: var(--green);
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .account-number {
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    /* COPY BUTTON */
+
+    .copy-btn {
+      width: 100%;
+      border: none;
+      background: var(--green);
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    .copy-btn:hover {
+      background: var(--dark-green);
+    }
+
+    .copy-message {
+      display: none;
+      text-align: center;
+      color: var(--green);
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    /* MONTHLY */
+
+    .monthly {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 30px;
+      margin-top: 30px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .monthly h2 {
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .monthly-amount {
+      font-size: 38px;
+      color: var(--gold);
+      font-weight: 900;
+      margin: 12px 0;
+    }
+
+    /* IMPACT */
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .impact-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 25px 18px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .impact-icon {
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    .impact-card h3 {
+      color: var(--green);
+      margin-bottom: 7px;
+    }
+
+    .impact-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* NOTICE */
+
+    .notice {
+      background: #fffdf5;
+      border: 1px solid #eadb9c;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 25px;
+      color: #695a1c;
+      font-size: 14px;
+    }
+
+    /* CTA */
+
+    .cta {
+      background: var(--green);
+      color: white;
+      text-align: center;
+      padding: 65px 20px;
+    }
+
+    .cta h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 25px;
+      color: #edf7f2;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: white;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--green);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #063b24;
+      color: white;
+      text-align: center;
+      padding: 28px 15px;
+    }
+
+    footer p {
+      color: #d5e5dd;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        right: 0;
+
+        background: white;
+        padding: 12px 5%;
+
+        flex-direction: column;
+
+        border-bottom: 3px solid var(--gold);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        width: 100%;
+        text-align: center;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .hero {
+        padding: 60px 18px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 45px 0;
+      }
+
+      .donation-card {
+        padding: 25px 18px;
+      }
+
+      .account-row {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .account-value {
+        text-align: left;
+      }
+
+      .account-number {
+        font-size: 21px;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+  </style>
 </head>
 
-<body id="top">
 
-<header>
-    <div class="container">
-
-        <h2 class="logo">
-            Fisabilillahi Charity Foundation
-        </h2>
-
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="projects.html">Projects</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="donate.html" class="active">Donate</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-    </div>
-</header>
+<body>
 
 
-<!-- HERO -->
-<section class="hero">
+  <!-- HEADER -->
 
-    <div class="hero-content">
+  <header>
 
-        <h1>Support Our Mission</h1>
+    <div class="nav-container">
 
-        <p>
-            Your generosity can help us support vulnerable children,
-            education, healthcare, food assistance and humanitarian projects.
-        </p>
+      <a href="index.html" class="logo">
+        Fisabilillahi <span>Charity Foundation</span>
+      </a>
 
-        <a href="#main-content" class="scroll-down">
-            Scroll to explore
-            <span>↓</span>
+      <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Open menu">
+        ☰
+      </button>
+
+      <nav id="mainNav">
+
+        <a href="index.html">
+          Home
         </a>
 
-    </div>
-
-</section>
-
-
-<!-- INTRO -->
-<section class="about-preview" id="main-content">
-
-    <div class="container">
-
-        <div class="about-content">
-
-            <h2>Give for the Sake of Allah</h2>
-
-            <p>
-                Every contribution, no matter how small, can become
-                a means of bringing hope and relief to someone in need.
-            </p>
-
-            <p>
-                Your support helps Fisabilillahi Charity Foundation
-                carry out humanitarian activities and reach vulnerable
-                people in our communities.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- WHAT YOUR DONATION SUPPORTS -->
-<section class="impact">
-
-    <div class="container">
-
-        <div class="donation-card">
-
-            <h2>01</h2>
-
-            <h3>Orphan Support</h3>
-
-            <p>
-                Help provide educational materials, basic needs and
-                support for vulnerable children.
-            </p>
-
-        </div>
-
-
-        <div class="donation-card">
-
-            <h2>02</h2>
-
-            <h3>Education</h3>
-
-            <p>
-                Support children from disadvantaged families to access
-                education and learning opportunities.
-            </p>
-
-        </div>
-
-
-        <div class="donation-card">
-
-            <h2>03</h2>
-
-            <h3>Food Assistance</h3>
-
-            <p>
-                Help provide food and essential items to families and
-                individuals facing hardship.
-            </p>
-
-        </div>
-
-
-        <div class="donation-card">
-
-            <h2>04</h2>
-
-            <h3>Healthcare</h3>
-
-            <p>
-                Support humanitarian assistance for people facing
-                healthcare and medical needs.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- BANK DETAILS -->
-<section class="about-preview">
-
-    <div class="container">
-
-        <div class="about-content">
-
-            <h2>Donate Directly</h2>
-
-            <div class="donation-card">
-
-                <h3>Fisabilillahi Charity Foundation</h3>
-
-                <p>
-                    <strong>Bank:</strong>
-                    Moniepoint MFB
-                </p>
-
-                <p>
-                    <strong>Account Name:</strong>
-                    Fisabilillahi Charity Foundation
-                </p>
-
-                <p>
-                    <strong>Account Number:</strong>
-                    <span id="accountNumber">6959530406</span>
-                </p>
-
-                <button class="btn" onclick="copyAccountNumber()">
-                    Copy Account Number
-                </button>
-
-                <p id="copyMessage"></p>
-
-            </div>
-
-            <p>
-                Please confirm the account name before making your donation.
-                May Allah reward you abundantly for your generosity.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CONTACT / SOCIAL -->
-<section class="impact">
-
-    <div class="container">
-
-        <div class="contact-card">
-
-            <h2>Phone / WhatsApp</h2>
-
-            <p>
-                <a href="tel:+2349036114093">
-                    +234 903 611 4093
-                </a>
-            </p>
-
-            <p>
-                <a href="tel:+2347061035705">
-                    +234 706 103 5705
-                </a>
-            </p>
-
-        </div>
-
-
-        <div class="contact-card">
-
-            <h2>Facebook</h2>
-
-            <h3>Fisabilillahi Charity Foundation</h3>
-
-            <p>
-                Follow our official Facebook account for updates
-                about our activities and humanitarian projects.
-            </p>
-
-        </div>
-
-
-        <div class="contact-card">
-
-            <h2>WhatsApp Group</h2>
-
-            <h3>Join Our Community</h3>
-
-            <p>
-                Join our WhatsApp group to receive updates about
-                our activities, projects and opportunities to help.
-            </p>
-
-            <a
-                href="https://chat.whatsapp.com/BlqeM6ABiBJ9QGjSAMKtlB"
-                class="btn"
-                target="_blank"
-                rel="noopener">
-                Join WhatsApp Group
-            </a>
-
-        </div>
-
-
-        <div class="contact-card">
-
-            <h2>Email</h2>
-
-            <h3>Send Us a Message</h3>
-
-            <p>
-                <a href="mailto:fisabilillahicharityfoundation@gmail.com">
-                    fisabilillahicharityfoundation@gmail.com
-                </a>
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- LOCATION -->
-<section class="about-preview">
-
-    <div class="container">
-
-        <div class="about-content">
-
-            <h2>Our Location</h2>
-
-            <div class="contact-card">
-
-                <h3>Fisabilillahi Charity Foundation</h3>
-
-                <p>
-                    Along Maigatari Road,
-                    Gumel L.G.A.,
-                    Jigawa State, Nigeria.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CTA -->
-<section class="hero">
-
-    <div class="hero-content">
-
-        <h2>Together We Can Make a Difference</h2>
-
-        <p>
-            Your support, prayers and generosity can help us reach
-            more people and make a meaningful difference.
-        </p>
-
-        <a href="contact.html" class="btn">
-            Contact Us
+        <a href="about.html">
+          About
         </a>
 
+        <a href="projects.html">
+          Projects
+        </a>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="donate.html" class="active">
+          Donate
+        </a>
+
+        <a href="register.html">
+          Register
+        </a>
+
+        <a href="login.html">
+          Login
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </nav>
+
     </div>
 
-</section>
+  </header>
 
 
-<!-- FOOTER -->
-<footer>
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <h1>
+      Support Our Work
+    </h1>
+
+    <p>
+      Your contribution can help us support vulnerable
+      people, orphans, education, healthcare and other
+      humanitarian needs.
+    </p>
+
+  </section>
+
+
+  <!-- DONATION -->
+
+  <section class="section">
 
     <div class="container">
 
-        <div class="footer-grid">
+      <h2 class="section-title">
+        Make a Donation
+      </h2>
 
-            <div>
-
-                <h3>Fisabilillahi Charity Foundation</h3>
-
-                <p>
-                    Serving humanity for the sake of Allah.
-                </p>
-
-            </div>
+      <p class="section-intro">
+        Every contribution, regardless of its size, can
+        become a means of helping someone in need.
+      </p>
 
 
-            <div>
+      <div class="donation-card">
 
-                <h4>Quick Links</h4>
-
-                <p><a href="index.html">Home</a></p>
-                <p><a href="about.html">About</a></p>
-                <p><a href="projects.html">Projects</a></p>
-                <p><a href="gallery.html">Gallery</a></p>
-
-            </div>
-
-
-            <div>
-
-                <h4>Get Involved</h4>
-
-                <p><a href="donate.html">Donate</a></p>
-                <p><a href="contact.html">Contact Us</a></p>
-
-            </div>
-
-        </div>
-
-
-        <div class="copyright">
-
-            <p>
-                © 2026 Fisabilillahi Charity Foundation.
-                All Rights Reserved.
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-<a href="#top" class="back-to-top" aria-label="Back to top">
-    ↑
-</a>
-
-
-<script>
-function copyAccountNumber() {
-
-    const accountNumber =
-        document.getElementById("accountNumber").innerText;
-
-    navigator.clipboard.writeText(accountNumber).then(function () {
-
-        document.getElementById("copyMessage").innerText =
-            "Account number copied successfully ✓";
-
-    }).catch(function () {
-
-        document.getElementById("copyMessage").innerText =
-            "Please copy the account number manually.";
-
-    });
-}
-</script>
-
-
-</body>
-</html>
+        <h2>
+          🕌 Fisabilill

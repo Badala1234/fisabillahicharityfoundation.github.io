@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Our Projects | Fisabilillahi Charity Foundation</title>
+  <title>Projects | Fisabilillahi Charity Foundation</title>
 
   <meta
     name="description"
-    content="Explore the humanitarian projects and charitable activities of Fisabilillahi Charity Foundation."
+    content="Explore the humanitarian projects and programs of Fisabilillahi Charity Foundation."
   >
 
   <style>
@@ -22,7 +21,7 @@
       --text: #222222;
       --muted: #666666;
       --border: #dddddd;
-      --shadow: 0 8px 28px rgba(0,0,0,0.08);
+      --blue: #1877f2;
     }
 
     * {
@@ -31,48 +30,41 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--light);
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
     a {
       text-decoration: none;
     }
 
-    /* =========================
-       HEADER
-    ========================== */
+    /* HEADER */
 
     header {
       background: var(--white);
       border-bottom: 3px solid var(--gold);
-      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
     .nav-container {
-      width: min(1150px, 94%);
+      width: 94%;
+      max-width: 1150px;
       min-height: 75px;
       margin: auto;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
     }
 
     .logo {
       color: var(--green);
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 800;
     }
 
@@ -83,944 +75,154 @@
     nav {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
     }
 
     nav a {
       color: var(--text);
-      padding: 10px 12px;
+      padding: 10px;
       border-radius: 7px;
       font-weight: 600;
     }
 
     nav a:hover,
     nav a.active {
-      color: var(--green);
       background: #edf7f2;
+      color: var(--green);
     }
 
     .menu-btn {
       display: none;
-      width: 44px;
-      height: 42px;
-      border: none;
-      border-radius: 7px;
+      border: 0;
       background: var(--green);
       color: white;
+      padding: 9px 13px;
+      border-radius: 7px;
       font-size: 22px;
       cursor: pointer;
     }
 
-    /* =========================
-       HERO
-    ========================== */
+    /* HERO */
 
     .hero {
-      background:
-        linear-gradient(
-          rgba(4,92,52,0.95),
-          rgba(8,116,67,0.95)
-        );
-
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-    }
-
-    .hero h1 {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      max-width: 760px;
-      margin: auto;
-      font-size: 18px;
-      color: #edf7f2;
-    }
-
-    /* =========================
-       GENERAL
-    ========================== */
-
-    .container {
-      width: min(1100px, 94%);
-      margin: auto;
-    }
-
-    .section {
-      padding: 65px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      color: var(--green);
-      font-size: 31px;
-      margin-bottom: 12px;
-    }
-
-    .section-intro {
-      max-width: 800px;
-      margin: 0 auto 40px;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    /* =========================
-       PROJECT GRID
-    ========================== */
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .project-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 35px rgba(0,0,0,0.11);
-    }
-
-    .project-icon {
-      height: 145px;
-      background: #edf7f2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 58px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .project-content {
-      padding: 25px;
-    }
-
-    .project-content h2 {
-      color: var(--green);
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .project-content p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .project-status {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 6px 12px;
-      border-radius: 20px;
-      background: #edf7f2;
-      color: var(--green);
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    /* =========================
-       FEATURE PROJECT
-    ========================== */
-
-    .feature {
-      background: white;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .feature-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .feature-icon {
-      min-height: 330px;
-      border-radius: 15px;
-      background: #edf7f2;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-size: 100px;
-      border: 1px solid var(--border);
-    }
-
-    .feature-content h2 {
-      color: var(--green);
-      font-size: 31px;
-      margin-bottom: 15px;
-    }
-
-    .feature-content p {
-      color: #444;
-      margin-bottom: 15px;
-    }
-
-    .feature-list {
-      list-style: none;
-      margin-top: 18px;
-    }
-
-    .feature-list li {
-      margin-bottom: 10px;
-      padding-left: 28px;
-      position: relative;
-    }
-
-    .feature-list li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--green);
-      font-weight: 900;
-    }
-
-    /* =========================
-       HOW WE WORK
-    ========================== */
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .step {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 25px 18px;
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-
-    .step-number {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 12px;
-      border-radius: 50%;
-      background: var(--green);
-      color: white;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .step h3 {
-      color: var(--green);
-      margin-bottom: 7px;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* =========================
-       CTA
-    ========================== */
-
-    .cta {
       background: var(--green);
       color: white;
       text-align: center;
       padding: 65px 20px;
     }
 
-    .cta h2 {
-      font-size: 32px;
-      margin-bottom: 10px;
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
     }
 
-    .cta p {
-      max-width: 700px;
-      margin: 0 auto 25px;
+    .hero p {
+      max-width: 750px;
+      margin: auto;
       color: #edf7f2;
     }
 
-    .cta-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
+    /* MAIN */
+
+    .container {
+      width: 94%;
+      max-width: 1100px;
+      margin: auto;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 8px;
-      font-weight: 700;
+    .section {
+      padding: 55px 0;
     }
 
-    .btn-gold {
-      background: var(--gold);
-      color: white;
-    }
-
-    .btn-white {
-      background: white;
-      color: var(--green);
-    }
-
-    /* =========================
-       FOOTER
-    ========================== */
-
-    footer {
-      background: #063b24;
-      color: white;
+    .section-title {
       text-align: center;
-      padding: 28px 15px;
+      color: var(--green);
+      font-size: 30px;
+      margin-bottom: 12px;
     }
 
-    footer p {
-      color: #d5e5dd;
-      font-size: 14px;
+    .intro {
+      max-width: 760px;
+      margin: 0 auto 38px;
+      text-align: center;
+      color: var(--muted);
     }
 
-    /* =========================
-       MOBILE
-    ========================== */
+    /* PROJECT GRID */
 
-    @media (max-width: 1000px) {
-
-      .projects-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .steps {
-        grid-template-columns: 1fr 1fr;
-      }
-
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
     }
 
-    @media (max-width: 850px) {
+    .project-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
 
-      .menu-btn {
-        display: block;
-      }
-
-      nav {
-        display: none;
-        position: absolute;
-        top: 75px;
-        left: 0;
-        right: 0;
-
-        background: white;
-        padding: 12px 5%;
-
-        flex-direction: column;
-
-        border-bottom: 3px solid var(--gold);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      nav a {
-        width: 100%;
-        text-align: center;
-      }
-
-      .feature-box {
-        grid-template-columns: 1fr;
-      }
-
+      transition: transform 0.2s ease,
+                  box-shadow 0.2s ease;
     }
 
-    @media (max-width: 600px) {
-
-      .logo {
-        font-size: 18px;
-      }
-
-      .hero {
-        padding: 60px 18px;
-      }
-
-      .hero h1 {
-        font-size: 32px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .section {
-        padding: 45px 0;
-      }
-
-      .section-title {
-        font-size: 27px;
-      }
-
-      .projects-grid,
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .feature-content h2 {
-        font-size: 27px;
-      }
-
-      .feature-icon {
-        min-height: 240px;
-        font-size: 75px;
-      }
-
-    }
-  </style>
-</head>
-
-
-<body>
-
-
-  <!-- HEADER -->
-
-  <header>
-
-    <div class="nav-container">
-
-      <a href="index.html" class="logo">
-        Fisabilillahi <span>Charity Foundation</span>
-      </a>
-
-      <button
-        class="menu-btn"
-        onclick="toggleMenu()"
-        aria-label="Open menu">
-        ☰
-      </button>
-
-      <nav id="mainNav">
-
-        <a href="index.html">
-          Home
-        </a>
-
-        <a href="about.html">
-          About
-        </a>
-
-        <a href="projects.html" class="active">
-          Projects
-        </a>
-
-        <a href="gallery.html">
-          Gallery
-        </a>
-
-        <a href="donate.html">
-          Donate
-        </a>
-
-        <a href="register.html">
-          Register
-        </a>
-
-        <a href="login.html">
-          Login
-        </a>
-
-        <a href="contact.html">
-          Contact
-        </a>
-
-      </nav>
-
-    </div>
-
-  </header>
-
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <h1>
-      Our Projects
-    </h1>
-
-    <p>
-      Practical humanitarian projects designed to support
-      vulnerable people, empower communities and create
-      lasting positive impact.
-    </p>
-
-  </section>
-
-
-  <!-- PROJECTS -->
-
-  <section class="section">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        What We Do
-      </h2>
-
-      <p class="section-intro">
-        Our projects focus on essential areas that can
-        improve the lives of individuals, children and
-        families in need.
-      </p>
-
-
-      <div class="projects-grid">
-
-
-        <!-- ORPHANS -->
-
-        <article class="project-card">
-
-          <div class="project-icon">
-            🤲
-          </div>
-
-          <div class="project-content">
-
-            <h2>
-              Orphan Support
-            </h2>
-
-            <p>
-              Supporting vulnerable orphans with essential
-              needs and helping provide opportunities for
-              education and a better future.
-            </p>
-
-            <span class="project-status">
-              Humanitarian Support
-            </span>
-
-          </div>
-
-        </article>
-
-
-        <!-- EDUCATION -->
-
-        <article class="project-card">
-
-          <div class="project-icon">
-            📚
-          </div>
-
-          <div class="project-content">
-
-            <h2>
-              Education Support
-            </h2>
-
-            <p>
-              Providing school materials and supporting
-              disadvantaged children so that lack of
-              resources does not prevent them from learning.
-            </p>
-
-            <span class="project-status">
-              Education
-            </span>
-
-          </div>
-
-        </article>
-
-
-        <!-- HEALTHCARE -->
-
-        <article class="project-card">
-
-          <div class="project-icon">
-            🏥
-          </div>
-
-          <div class="project-content">
-
-            <h2>
-              Healthcare Assistance
-            </h2>
-
-            <p>
-              Helping vulnerable individuals and families
-              facing healthcare challenges with appropriate
-              humanitarian assistance.
-            </p>
-
-            <span class="project-status">
-              Healthcare
-            </span>
-
-          </div>
-
-        </article>
-
-
-        <!-- EMPOWERMENT -->
-
-        <article class="project-card">
-
-          <div class="project-icon">
-            💼
-          </div>
-
-          <div class="project-content">
-
-            <h2>
-              Economic Empowerment
-            </h2>
-
-            <p>
-              Supporting people with opportunities to develop
-              useful skills, small businesses and sustainable
-              sources of income.
-            </p>
-
-            <span class="project-status">
-              Empowerment
-            </span>
-
-          </div>
-
-        </article>
-
-
-        <!-- FOOD -->
-
-        <article class="project-card">
-
-          <div class="project-icon">
-            🍚
-          </div>
-
-          <div class="project-content">
-
-            <h2>
-              Food Assistance
-            </h2>
-
-            <p>
-              Providing food and essential provisions to
-              vulnerable households and people experiencing
-              difficult circumstances.
-            </p>
-
-            <span class="project-status">
-              Food Support
-            </span>
-
-          </div>
-
-        </article>
-
-
-        <!-- EMERGENCY -->
-
-        <article class="project-card">
-
-          <div class="project-icon">
-            🆘
-          </div>
-
-          <div class="project-content">
-
-            <h2>
-              Emergency Assistance
-            </h2>
-
-            <p>
-              Responding to urgent humanitarian needs and
-              supporting people and families affected by
-              difficult situations.
-            </p>
-
-            <span class="project-status">
-              Emergency Support
-            </span>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FEATURE PROJECT -->
-
-  <section class="section feature">
-
-    <div class="container">
-
-      <div class="feature-box">
-
-
-        <div class="feature-icon">
-          🎓
-        </div>
-
-
-        <div class="feature-content">
-
-          <h2>
-            Education & Orphan Support Initiative
-          </h2>
-
-          <p>
-            One of our important goals is to identify
-            vulnerable children, particularly orphans and
-            children whose families have limited financial
-            means, and support them in accessing education.
-          </p>
-
-          <p>
-            Where resources allow, assistance may include
-            educational materials, school-related expenses
-            and other necessary support.
-          </p>
-
-
-          <ul class="feature-list">
-
-            <li>
-              Identify children who need assistance
-            </li>
-
-            <li>
-              Provide essential learning materials
-            </li>
-
-            <li>
-              Support access to appropriate education
-            </li>
-
-            <li>
-              Encourage Islamic and moral education
-            </li>
-
-            <li>
-              Monitor the impact of the assistance
-            </li>
-
-          </ul>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- HOW WE WORK -->
-
-  <section class="section">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        How We Work
-      </h2>
-
-      <p class="section-intro">
-        We aim to ensure that charitable resources reach
-        people who genuinely need assistance.
-      </p>
-
-
-      <div class="steps">
-
-
-        <div class="step">
-
-          <div class="step-number">
-            1
-          </div>
-
-          <h3>
-            Identify
-          </h3>
-
-          <p>
-            We identify people and families who require
-            humanitarian assistance.
-          </p>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">
-            2
-          </div>
-
-          <h3>
-            Assess
-          </h3>
-
-          <p>
-            We consider the nature and urgency of the need
-            before providing available support.
-          </p>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">
-            3
-          </div>
-
-          <h3>
-            Support
-          </h3>
-
-          <p>
-            We provide appropriate assistance according to
-            available charitable resources.
-          </p>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">
-            4
-          </div>
-
-          <h3>
-            Follow Up
-          </h3>
-
-          <p>
-            Where appropriate, we follow up to understand
-            the impact of our assistance.
-          </p>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CTA -->
-
-  <section class="cta">
-
-    <h2>
-      Help Us Make a Difference
-    </h2>
-
-    <p>
-      Every contribution can help us reach someone in need.
-      Together, we can serve humanity and create positive
-      change for the sake of Allah.
-    </p>
-
-
-    <div class="cta-buttons">
-
-      <a
-        href="donate.html"
-        class="btn btn-gold">
-
-        Support Our Projects
-
-      </a>
-
-
-      <a
-        href="contact.html"
-        class="btn btn-white">
-
-        Contact Us
-
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <p>
-      © <span id="year"></span>
-      Fisabilillahi Charity Foundation.
-      All Rights Reserved.
-    </p>
-
-  </footer>
-
-
-  <!-- JAVASCRIPT -->
-
-  <script>
-
-    function toggleMenu() {
-
-      document
-        .getElementById("mainNav")
-        .classList.toggle("show");
-
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
 
+    .project-icon {
+      width: 60px;
+      height: 60px;
 
-    document
-      .querySelectorAll("#mainNav a")
-      .forEach(function(link) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-        link.addEventListener("click", function() {
+      background: #edf7f2;
+      border-radius: 50%;
 
-          document
-            .getElementById("mainNav")
-            .classList.remove("show");
+      font-size: 28px;
 
-        });
+      margin-bottom: 17px;
+    }
 
-      });
+    .project-card h2 {
+      color: var(--green);
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
 
+    .project-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    /* FUTURE PROJECTS */
 
-  </script>
+    .future {
+      margin-top: 45px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 30px;
+      text-align: center;
+    }
 
+    .future h2 {
+      color: var(--green);
+      margin-bottom: 10px;
+    }
 
-</body>
-</html>
+    .future p {
+      color: var(--muted);
+      max-width: 750px;
+      margin: auto;
+    }
+
+    /* SUPPORT */
+
+    .support {
+      background: #fffdf5;
+      border-top: 1px solid #eadb9c;
+      border-bottom: 

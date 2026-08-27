@@ -1,25 +1,2075 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fisabilillahi Charity Foundation</title>
 
-<title>Fisabilillahi Charity Foundation | Serving Humanity</title>
+  <meta
+    name="description"
+    content="Fisabilillahi Charity Foundation - Serving Humanity for the Sake of Allah through orphan support, education, healthcare, empowerment, tree planting and humanitarian services."
+  >
 
-<meta
-name="description"
-content="Fisabilillahi Charity Foundation supports orphans, education, healthcare, business empowerment, tree planting and humanitarian services."
->
+  <style>
 
-<style>
+    :root{
+      --green:#075c3b;
+      --green-dark:#043c27;
+      --green-light:#0d8053;
+      --gold:#d6ae3d;
+      --cream:#f8f6ee;
+      --white:#ffffff;
+      --text:#25352e;
+      --muted:#68766f;
+      --border:#e5eae7;
+      --shadow:0 18px 45px rgba(0,0,0,.08);
+    }
 
-:root{
-  --green:#075c38;
-  --green2:#0a7b4b;
-  --dark:#032d1d;
-  --gold:#d5ad38;
-  --cream:#f7f5ee;
-  --white:#ffffff;
-  --text:#26352e
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:#fff;
+      line-height:1.7;
+    }
+
+    img{
+      width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:92%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+
+    /* =========================
+       TOP BAR
+    ========================= */
+
+    .topbar{
+      background:var(--green-dark);
+      color:#dbe9e1;
+      font-size:12px;
+      padding:8px 0;
+    }
+
+    .topbar-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .topbar a:hover{
+      color:var(--gold);
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.97);
+      border-bottom:1px solid var(--border);
+    }
+
+    .navbar{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--green);
+      font-weight:800;
+    }
+
+    .logo-mark{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      background:var(--green);
+      border:2px solid var(--gold);
+      color:var(--gold);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:21px;
+    }
+
+    .logo-text{
+      font-size:18px;
+      line-height:1.2;
+    }
+
+    .logo-text small{
+      display:block;
+      color:var(--muted);
+      font-size:9px;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+      margin-top:3px;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:3px;
+    }
+
+    nav a{
+      color:#30433a;
+      font-size:13px;
+      font-weight:700;
+      padding:9px 11px;
+    }
+
+    nav a:hover{
+      color:var(--green-light);
+    }
+
+    .nav-donate{
+      background:var(--green);
+      color:#fff!important;
+      border-radius:7px;
+      margin-left:5px;
+    }
+
+    .nav-donate:hover{
+      background:var(--green-dark);
+    }
+
+    .menu{
+      display:none;
+      border:0;
+      background:var(--green);
+      color:#fff;
+      padding:9px 12px;
+      border-radius:7px;
+      font-size:21px;
+      cursor:pointer;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero{
+      min-height:670px;
+      position:relative;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(2,42,27,.97) 0%,
+          rgba(4,65,42,.90) 42%,
+          rgba(4,65,42,.58) 72%,
+          rgba(4,65,42,.25) 100%
+        ),
+        url("images/hero.jpg") center/cover no-repeat;
+
+      background-color:var(--green-dark);
+    }
+
+    .hero-content{
+      max-width:720px;
+      color:#fff;
+      padding:90px 0;
+      position:relative;
+      z-index:2;
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(214,174,61,.55);
+      color:var(--gold);
+      border-radius:30px;
+      padding:7px 14px;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.7px;
+      margin-bottom:20px;
+    }
+
+    .hero h1{
+      font-size:61px;
+      line-height:1.06;
+      letter-spacing:-2px;
+      margin-bottom:20px;
+    }
+
+    .hero h1 span{
+      color:var(--gold);
+    }
+
+    .hero p{
+      color:#e0ebe5;
+      max-width:650px;
+      font-size:17px;
+      margin-bottom:30px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 21px;
+      border-radius:7px;
+      font-size:14px;
+      font-weight:800;
+      transition:.2s;
+    }
+
+    .btn-gold{
+      background:var(--gold);
+      color:#1d261f;
+    }
+
+    .btn-gold:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-outline{
+      color:#fff;
+      border:1px solid rgba(255,255,255,.65);
+    }
+
+    .btn-outline:hover{
+      background:#fff;
+      color:var(--green);
+    }
+
+
+    /* =========================
+       IMPACT
+    ========================= */
+
+    .impact{
+      margin-top:-52px;
+      position:relative;
+      z-index:10;
+    }
+
+    .impact-box{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:13px;
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      overflow:hidden;
+    }
+
+    .impact-item{
+      padding:25px;
+      text-align:center;
+      border-right:1px solid var(--border);
+    }
+
+    .impact-item:last-child{
+      border-right:0;
+    }
+
+    .impact-item strong{
+      display:block;
+      color:var(--green);
+      font-size:28px;
+      line-height:1.2;
+    }
+
+    .impact-item span{
+      color:var(--muted);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+
+
+    /* =========================
+       GENERAL SECTION
+    ========================= */
+
+    .section{
+      padding:90px 0;
+    }
+
+    .section-head{
+      max-width:680px;
+      margin-bottom:40px;
+    }
+
+    .kicker{
+      color:var(--green-light);
+      text-transform:uppercase;
+      font-size:11px;
+      letter-spacing:1.8px;
+      font-weight:900;
+      margin-bottom:8px;
+    }
+
+    .section-head h2{
+      color:var(--green-dark);
+      font-size:40px;
+      line-height:1.2;
+      margin-bottom:13px;
+    }
+
+    .section-head p{
+      color:var(--muted);
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:65px;
+      align-items:center;
+    }
+
+    .about-image{
+      min-height:460px;
+      border-radius:15px;
+      overflow:hidden;
+      position:relative;
+
+      background:
+        linear-gradient(
+          rgba(3,61,39,.20),
+          rgba(3,61,39,.20)
+        ),
+        url("images/about.jpg") center/cover no-repeat;
+
+      background-color:var(--green);
+    }
+
+    .about-label{
+      position:absolute;
+      left:25px;
+      bottom:25px;
+      background:#fff;
+      border-left:4px solid var(--gold);
+      padding:18px 20px;
+      max-width:350px;
+      box-shadow:var(--shadow);
+    }
+
+    .about-label strong{
+      display:block;
+      color:var(--green);
+      font-size:19px;
+    }
+
+    .about-label span{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .about-text h3{
+      color:var(--green-dark);
+      font-size:30px;
+      line-height:1.3;
+      margin-bottom:15px;
+    }
+
+    .about-text p{
+      color:var(--muted);
+      margin-bottom:15px;
+    }
+
+    .checks{
+      list-style:none;
+      margin:20px 0;
+    }
+
+    .checks li{
+      font-size:14px;
+      font-weight:700;
+      margin:9px 0;
+    }
+
+    .checks li::before{
+      content:"✓";
+      color:var(--gold);
+      font-weight:900;
+      margin-right:9px;
+    }
+
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects-section{
+      background:var(--cream);
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .project{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:28px;
+      transition:.2s;
+    }
+
+    .project:hover{
+      transform:translateY(-5px);
+      box-shadow:var(--shadow);
+    }
+
+    .project-icon{
+      width:53px;
+      height:53px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#eaf4ee;
+      border-radius:10px;
+      font-size:25px;
+      margin-bottom:18px;
+    }
+
+    .project h3{
+      color:var(--green-dark);
+      font-size:19px;
+      margin-bottom:8px;
+    }
+
+    .project p{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+
+    /* =========================
+       FEATURED MISSION
+    ========================= */
+
+    .mission{
+      background:
+        linear-gradient(
+          115deg,
+          var(--green-dark),
+          var(--green)
+        );
+      color:#fff;
+      padding:75px 0;
+      overflow:hidden;
+    }
+
+    .mission-grid{
+      display:grid;
+      grid-template-columns:1.4fr .6fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .mission h2{
+      font-size:39px;
+      line-height:1.2;
+      margin-bottom:13px;
+    }
+
+    .mission p{
+      color:#dcebe4;
+      max-width:650px;
+      font-size:14px;
+    }
+
+    .mission-stat{
+      text-align:center;
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:12px;
+      padding:30px;
+    }
+
+    .mission-stat strong{
+      display:block;
+      color:var(--gold);
+      font-size:47px;
+      line-height:1;
+      margin-bottom:8px;
+    }
+
+    .mission-stat span{
+      color:#dcebe4;
+      font-size:12px;
+      font-weight:700;
+    }
+
+
+    /* =========================
+       GALLERY
+    ========================= */
+
+    .gallery{
+      display:grid;
+      grid-template-columns:1.5fr .75fr .75fr;
+      grid-template-rows:190px 190px;
+      gap:12px;
+    }
+
+    .gallery-item{
+      position:relative;
+      border-radius:11px;
+      overflow:hidden;
+      background:var(--green-dark);
+    }
+
+    .gallery-item.large{
+      grid-row:1 / 3;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .gallery-placeholder{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+      color:#fff;
+      background:
+        linear-gradient(
+          145deg,
+          var(--green-light),
+          var(--green-dark)
+        );
+      font-weight:800;
+      font-size:13px;
+    }
+
+    .gallery-caption{
+      position:absolute;
+      left:12px;
+      right:12px;
+      bottom:12px;
+      background:rgba(0,0,0,.48);
+      color:#fff;
+      border-radius:6px;
+      padding:7px 10px;
+      font-size:11px;
+      font-weight:800;
+    }
+
+
+    /* =========================
+       DONATE CTA
+    ========================= */
+
+    .donate-section{
+      padding:85px 0;
+      background:#f7f9f7;
+    }
+
+    .donate-box{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:30px;
+      align-items:center;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:45px;
+      box-shadow:var(--shadow);
+    }
+
+    .donate-box h2{
+      color:var(--green-dark);
+      font-size:34px;
+      line-height:1.2;
+      margin-bottom:12px;
+    }
+
+    .donate-box p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .donate-action{
+      text-align:center;
+    }
+
+    .donate-action strong{
+      display:block;
+      color:var(--green);
+      font-size:27px;
+      margin-bottom:8px;
+    }
+
+    .donate-action span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      margin-bottom:17px;
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .contact-card{
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:28px;
+      background:#fff;
+    }
+
+    .contact-card h3{
+      color:var(--green);
+      margin-bottom:15px;
+    }
+
+    .contact-line{
+      display:flex;
+      gap:12px;
+      padding:11px 0;
+      border-bottom:1px solid #edf0ee;
+    }
+
+    .contact-line:last-child{
+      border-bottom:0;
+    }
+
+    .contact-icon{
+      width:38px;
+      height:38px;
+      min-width:38px;
+      border-radius:50%;
+      background:#eaf4ee;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .contact-line strong{
+      display:block;
+      color:var(--green-dark);
+      font-size:13px;
+    }
+
+    .contact-line a{
+      color:var(--muted);
+      font-size:13px;
+      word-break:break-word;
+    }
+
+    .contact-line a:hover{
+      color:var(--green);
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer{
+      background:var(--green-dark);
+      color:#fff;
+      padding:55px 0 25px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.4fr 1fr 1fr;
+      gap:45px;
+      padding-bottom:35px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+
+    .footer-brand h3{
+      color:var(--gold);
+      margin-bottom:10px;
+    }
+
+    .footer-brand p{
+      color:#b9cbc1;
+      font-size:13px;
+      max-width:450px;
+    }
+
+    .footer-column h4{
+      font-size:14px;
+      margin-bottom:12px;
+    }
+
+    .footer-column a{
+      display:block;
+      color:#b9cbc1;
+      font-size:13px;
+      margin:7px 0;
+    }
+
+    .footer-column a:hover{
+      color:var(--gold);
+    }
+
+    .footer-bottom{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding-top:22px;
+      color:#8fa69b;
+      font-size:12px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:950px){
+
+      nav{
+        display:none;
+        position:absolute;
+        top:78px;
+        left:0;
+        right:0;
+        background:#fff;
+        flex-direction:column;
+        padding:12px 5%;
+        border-bottom:1px solid var(--border);
+        box-shadow:0 12px 25px rgba(0,0,0,.08);
+      }
+
+      nav.show{
+        display:flex;
+      }
+
+      nav a{
+        width:100%;
+        text-align:center;
+        padding:11px;
+      }
+
+      .menu{
+        display:block;
+      }
+
+      .hero h1{
+        font-size:48px;
+      }
+
+      .about{
+        grid-template-columns:1fr;
+      }
+
+      .projects{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .mission-grid{
+        grid-template-columns:1fr;
+      }
+
+      .donate-box{
+        grid-template-columns:1fr;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+    }
+
+
+    @media(max-width:650px){
+
+      .topbar{
+        display:none;
+      }
+
+      .navbar{
+        min-height:68px;
+      }
+
+      nav{
+        top:68px;
+      }
+
+      .hero{
+        min-height:590px;
+      }
+
+      .hero-content{
+        padding:70px 0;
+      }
+
+      .hero h1{
+        font-size:38px;
+        letter-spacing:-1px;
+      }
+
+      .hero p{
+        font-size:15px;
+      }
+
+      .impact{
+        margin-top:-30px;
+      }
+
+      .impact-box{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .impact-item{
+        border-right:0;
+        border-bottom:1px solid var(--border);
+      }
+
+      .section{
+        padding:65px 0;
+      }
+
+      .section-head h2{
+        font-size:30px;
+      }
+
+      .projects{
+        grid-template-columns:1fr;
+      }
+
+      .mission h2{
+        font-size:30px;
+      }
+
+      .gallery{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:150px 150px 150px;
+      }
+
+      .gallery-item.large{
+        grid-row:1 / 3;
+      }
+
+      .donate-box{
+        padding:30px 20px;
+      }
+
+      .donate-box h2{
+        font-size:29px;
+      }
+
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      .footer-bottom{
+        flex-direction:column;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- TOP BAR -->
+
+  <div class="topbar">
+
+    <div class="container topbar-inner">
+
+      <div>
+        Serving Humanity for the Sake of Allah
+      </div>
+
+      <div>
+        <a href="mailto:fisabilillahicharityfoundation@gmail.com">
+          fisabilillahicharityfoundation@gmail.com
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- NAVIGATION -->
+
+  <header>
+
+    <div class="container navbar">
+
+
+      <a href="index.html" class="logo">
+
+        <div class="logo-mark">
+          ♥
+        </div>
+
+        <div class="logo-text">
+
+          Fisabilillahi
+
+          <small>
+            Charity Foundation
+          </small>
+
+        </div>
+
+      </a>
+
+
+      <button
+        class="menu"
+        onclick="toggleMenu()"
+        aria-label="Open menu">
+
+        ☰
+
+      </button>
+
+
+      <nav id="nav">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About
+        </a>
+
+        <a href="projects.html">
+          Projects
+        </a>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="donate.html">
+          Donate
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a href="admin-login.html">
+          Admin
+        </a>
+
+        <a
+          href="donate.html"
+          class="nav-donate">
+
+          Support Us
+
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="hero-content">
+
+
+        <div class="hero-badge">
+
+          ♥ FISABILILLAHI CHARITY FOUNDATION
+
+        </div>
+
+
+        <h1>
+
+          Serving Humanity
+
+          <br>
+
+          <span>For the Sake of Allah</span>
+
+        </h1>
+
+
+        <p>
+
+          Supporting orphans, education, healthcare,
+          business empowerment, tree planting and
+          humanitarian services through compassion,
+          generosity and community action.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+          <a
+            href="donate.html"
+            class="btn btn-gold">
+
+            🤲 Support Our Mission
+
+          </a>
+
+
+          <a
+            href="projects.html"
+            class="btn btn-outline">
+
+            Explore Our Projects →
+
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- IMPACT -->
+
+  <section class="impact">
+
+    <div class="container">
+
+      <div class="impact-box">
+
+
+        <div class="impact-item">
+
+          <strong>
+            6
+          </strong>
+
+          <span>
+            CORE AREAS
+          </span>
+
+        </div>
+
+
+        <div class="impact-item">
+
+          <strong>
+            🤲
+          </strong>
+
+          <span>
+            COMMUNITY SUPPORT
+          </span>
+
+        </div>
+
+
+        <div class="impact-item">
+
+          <strong>
+            ♥
+          </strong>
+
+          <span>
+            HUMANITARIAN CARE
+          </span>
+
+        </div>
+
+
+        <div class="impact-item">
+
+          <strong>
+            🌱
+          </strong>
+
+          <span>
+            BUILDING A BETTER FUTURE
+          </span>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ABOUT -->
+
+  <section class="section">
+
+    <div class="container">
+
+
+      <div class="about">
+
+
+        <div class="about-image">
+
+          <div class="about-label">
+
+            <strong>
+              Together We Can Make a Difference
+            </strong>
+
+            <span>
+              Every act of kindness can become
+              someone's hope.
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="about-text">
+
+
+          <div class="kicker">
+            Who We Are
+          </div>
+
+
+          <h3>
+            A foundation built around compassion,
+            service and meaningful impact.
+          </h3>
+
+
+          <p>
+
+            Fisabilillahi Charity Foundation is dedicated
+            to serving vulnerable people and supporting
+            communities through practical humanitarian
+            initiatives.
+
+          </p>
+
+
+          <p>
+
+            We believe that generosity should create
+            meaningful change and that those in need
+            deserve dignity, compassion and opportunity.
+
+          </p>
+
+
+          <ul class="checks">
+
+            <li>
+              Supporting orphans and vulnerable children
+            </li>
+
+            <li>
+              Promoting access to education
+            </li>
+
+            <li>
+              Supporting healthcare initiatives
+            </li>
+
+            <li>
+              Empowering sustainable livelihoods
+            </li>
+
+            <li>
+              Protecting the environment
+            </li>
+
+          </ul>
+
+
+          <a
+            href="about.html"
+            class="btn btn-gold">
+
+            Learn More About Us →
+
+          </a>
+
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- PROJECTS -->
+
+  <section class="section projects-section">
+
+    <div class="container">
+
+
+      <div class="section-head">
+
+        <div class="kicker">
+          Our Mission
+        </div>
+
+        <h2>
+          Areas Where We Create Impact
+        </h2>
+
+        <p>
+
+          Our work focuses on practical initiatives
+          that improve lives and strengthen communities.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="projects">
+
+
+        <div class="project">
+
+          <div class="project-icon">
+            🤲
+          </div>
+
+          <h3>
+            Orphans Support
+          </h3>
+
+          <p>
+
+            Supporting orphans and vulnerable children
+            with essential needs, care and opportunities.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="project">
+
+          <div class="project-icon">
+            📚
+          </div>
+
+          <h3>
+            Education
+          </h3>
+
+          <p>
+
+            Helping children and young people access
+            education and build a brighter future.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="project">
+
+          <div class="project-icon">
+            🏥
+          </div>
+
+          <h3>
+            Healthcare
+          </h3>
+
+          <p>
+
+            Supporting humanitarian healthcare initiatives
+            for people who need assistance.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="project">
+
+          <div class="project-icon">
+            💼
+          </div>
+
+          <h3>
+            Business Empowerment
+          </h3>
+
+          <p>
+
+            Helping people develop sustainable livelihoods
+            and economic opportunities.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="project">
+
+          <div class="project-icon">
+            🌳
+          </div>
+
+          <h3>
+            Tree Planting
+          </h3>
+
+          <p>
+
+            Promoting environmental responsibility through
+            tree planting and community participation.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="project">
+
+          <div class="project-icon">
+            🤝
+          </div>
+
+          <h3>
+            Humanitarian Services
+          </h3>
+
+          <p>
+
+            Responding to genuine needs with compassion,
+            dignity and responsible assistance.
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <a
+        href="projects.html"
+        class="btn btn-gold"
+        style="margin-top:25px;">
+
+        View All Projects →
+
+      </a>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- MISSION CTA -->
+
+  <section class="mission">
+
+    <div class="container">
+
+      <div class="mission-grid">
+
+
+        <div>
+
+          <div class="kicker">
+            Our Purpose
+          </div>
+
+          <h2>
+            Your kindness can become someone's hope.
+          </h2>
+
+          <p>
+
+            Whether through a donation, volunteering,
+            sharing our work or supporting someone in
+            need, every positive action can contribute
+            to a better community.
+
+          </p>
+
+        </div>
+
+
+        <div class="mission-stat">
+
+          <strong>
+            ♥
+          </strong>
+
+          <span>
+            SERVING HUMANITY
+            <br>
+            FOR THE SAKE OF ALLAH
+          </span>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- GALLERY -->
+
+  <section class="section">
+
+    <div class="container">
+
+
+      <div class="section-head">
+
+        <div class="kicker">
+          Our Journey
+        </div>
+
+        <h2>
+          Moments From Our Work
+        </h2>
+
+        <p>
+
+          Explore moments from our activities,
+          community engagement and humanitarian work.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="gallery">
+
+
+        <!-- MAIN IMAGE -->
+
+        <div class="gallery-item large">
+
+          <img
+            src="images/gallery1.jpg"
+            alt="Fisabilillahi Charity Foundation activity"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+          >
+
+          <div
+            class="gallery-placeholder"
+            style="display:none;">
+
+            ❤️
+            <br>
+            Foundation Activities
+
+          </div>
+
+          <div class="gallery-caption">
+            Foundation Activities
+          </div>
+
+        </div>
+
+
+
+        <!-- IMAGE 2 -->
+
+        <div class="gallery-item">
+
+          <img
+            src="images/gallery2.jpg"
+            alt="Community support activity"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+          >
+
+          <div
+            class="gallery-placeholder"
+            style="display:none;">
+
+            🤲
+            <br>
+            Helping Others
+
+          </div>
+
+          <div class="gallery-caption">
+            Helping Others
+          </div>
+
+        </div>
+
+
+
+        <!-- IMAGE 3 -->
+
+        <div class="gallery-item">
+
+          <img
+            src="images/gallery3.jpg"
+            alt="Education support"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+          >
+
+          <div
+            class="gallery-placeholder"
+            style="display:none;">
+
+            📚
+            <br>
+            Education
+
+          </div>
+
+          <div class="gallery-caption">
+            Education
+          </div>
+
+        </div>
+
+
+
+        <!-- IMAGE 4 -->
+
+        <div class="gallery-item">
+
+          <img
+            src="images/gallery4.jpg"
+            alt="Tree planting activity"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+          >
+
+          <div
+            class="gallery-placeholder"
+            style="display:none;">
+
+            🌳
+            <br>
+            Tree Planting
+
+          </div>
+
+          <div class="gallery-caption">
+            Tree Planting
+          </div>
+
+        </div>
+
+
+
+        <!-- IMAGE 5 -->
+
+        <div class="gallery-item">
+
+          <img
+            src="images/gallery5.jpg"
+            alt="Community humanitarian activity"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+          >
+
+          <div
+            class="gallery-placeholder"
+            style="display:none;">
+
+            🤝
+            <br>
+            Community
+
+          </div>
+
+          <div class="gallery-caption">
+            Community
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+      <a
+        href="gallery.html"
+        class="btn btn-gold"
+        style="margin-top:22px;">
+
+        View Full Gallery →
+
+      </a>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- DONATE -->
+
+  <section class="donate-section">
+
+    <div class="container">
+
+      <div class="donate-box">
+
+
+        <div>
+
+          <div class="kicker">
+            Make a Difference
+          </div>
+
+          <h2>
+            Help us reach someone who needs hope.
+          </h2>
+
+          <p>
+
+            Your contribution can help support our
+            humanitarian projects and the people
+            we serve.
+
+          </p>
+
+        </div>
+
+
+        <div class="donate-action">
+
+          <strong>
+            🤲 Give With Purpose
+          </strong>
+
+          <span>
+            Every contribution matters.
+          </span>
+
+          <a
+            href="donate.html"
+            class="btn btn-gold">
+
+            Donate Now →
+
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- CONTACT -->
+
+  <section class="section">
+
+    <div class="container">
+
+
+      <div class="section-head">
+
+        <div class="kicker">
+          Get In Touch
+        </div>
+
+        <h2>
+          We would love to hear from you.
+        </h2>
+
+        <p>
+
+          Have a question, want to support our work
+          or need more information? Reach out to us.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="contact-grid">
+
+
+        <div class="contact-card">
+
+          <h3>
+            📞 Contact Information
+          </h3>
+
+
+          <div class="contact-line">
+
+            <div class="contact-icon">
+              📱
+            </div>
+
+            <div>
+
+              <strong>
+                Phone
+              </strong>
+
+              <a href="tel:+2349036114093">
+                +234 903 611 4093
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="contact-line">
+
+            <div class="contact-icon">
+              📧
+            </div>
+
+            <div>
+
+              <strong>
+                Email
+              </strong>
+
+              <a href="mailto:fisabilillahicharityfoundation@gmail.com">
+
+                fisabilillahicharityfoundation@gmail.com
+
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="contact-line">
+
+            <div class="contact-icon">
+              💬
+            </div>
+
+            <div>
+
+              <strong>
+                WhatsApp
+              </strong>
+
+              <a
+                href="https://wa.me/2349036114093"
+                target="_blank"
+                rel="noopener">
+
+                Chat With President
+
+              </a>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="contact-card">
+
+          <h3>
+            🌐 Connect With Us
+          </h3>
+
+          <p style="color:#68766f;font-size:14px;margin-bottom:18px;">
+
+            Follow our journey and stay connected
+            with Fisabilillahi Charity Foundation.
+
+          </p>
+
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+
+
+            <a
+              href="https://wa.me/2349036114093"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-gold">
+
+              💬 WhatsApp
+
+            </a>
+
+
+            <a
+              href="https://www.facebook.com/profile.php?id=61592460838817"
+              target="_blank"
+              rel="noopener"
+              class="btn"
+              style="background:#1877f2;color:#fff;">
+
+              📘 Facebook
+
+            </a>
+
+
+            <a
+              href="contact.html"
+              class="btn"
+              style="background:#075c3b;color:#fff;">
+
+              📩 Contact Us
+
+            </a>
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+
+      <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+          <h3>
+            Fisabilillahi Charity Foundation
+          </h3>
+
+          <p>
+
+            Serving humanity for the sake of Allah.
+            Supporting orphans, education, healthcare,
+            business empowerment, tree planting and
+            humanitarian services.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+          <h4>
+            Quick Links
+          </h4>
+
+          <a href="index.html">
+            Home
+          </a>
+
+          <a href="about.html">
+            About Us
+          </a>
+
+          <a href="projects.html">
+            Projects
+          </a>
+
+          <a href="gallery.html">
+            Gallery
+          </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+          <h4>
+            Support
+          </h4>
+
+          <a href="donate.html">
+            Donate
+          </a>
+
+          <a href="contact.html">
+            Contact Us
+          </a>
+
+          <a
+            href="https://wa.me/2349036114093"
+            target="_blank"
+            rel="noopener">
+
+            WhatsApp
+
+          </a>
+
+          <a
+            href="https://www.facebook.com/profile.php?id=61592460838817"
+            target="_blank"
+            rel="noopener">
+
+            Facebook
+
+          </a>
+
+        </div>
+
+
+      </div>
+
+
+
+      <div class="footer-bottom">
+
+        <div>
+
+          © <span id="year"></span>
+          Fisabilillahi Charity Foundation
+
+        </div>
+
+        <div>
+
+          Serving Humanity • For the Sake of Allah
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </footer>
+
+
+
+  <script>
+
+    function toggleMenu(){
+
+      document
+        .getElementById("nav")
+        .classList
+        .toggle("show");
+
+    }
+
+
+    document
+      .getElementById("year")
+      .textContent =
+      new Date().getFullYear();
+
+  </script>
+
+
+</body>
+</html>

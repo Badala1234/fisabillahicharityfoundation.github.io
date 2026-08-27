@@ -1,1 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Member Dashboard | Fisabilillahi Charity Foundation</title>
+
+  <meta
+    name="description"
+    content="Fisabilillahi Charity Foundation member dashboard."
+  >
+
+  <style>
+    :root {
+      --green: #087443;
+      --dark-green: #045c34;
+      --gold: #d4af37;
+      --white: #ffffff;
+      --light: #f5f8f6;
+      --text: #222222;
+      --muted: #666666;
+      --border: #dddddd;
+      --success: #167044;
+      --warning: #9a7200;
+      --danger: #b3261e;
+      --shadow: 0 8px 28px rgba(0,0,0,0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
+    header {
+      background: white;
+      border-bottom: 3px solid var(--gold);
+      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      width: min(1150px, 94%);
+      min-height: 75px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--green);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text);
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: 7px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--green);
+      background: #edf7f2;
+    }
+
+    .logout-top {
+      color: var(--danger) !important;
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: var(--green);
+      color: white;
+      width: 44px;
+      height: 42px;
+      border-radius: 7px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* PAGE */
+
+    .page {
+      width: min(1150px, 94%);
+      margin: auto;
+      padding: 45px 0 70px;
+    }
+
+    .welcome {
+      margin-bottom: 30px;
+    }
+
+    .welcome h1 {
+      color: var(--green);
+      font-size: 34px;
+      margin-bottom: 6px;
+    }
+
+    .welcome p {
+      color: var(--muted);
+    }
+
+    /* STATUS */
+
+    .status-card {
+      background: linear-gradient(
+        135deg,
+        var(--dark-green),
+        var(--green)
+      );
+      color: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .status-card h2 {
+      margin-bottom: 5px;
+    }
+
+    .status-card p {
+      opacity: 0.9;
+    }
+
+    .status-badge {
+      background: white;
+      color: var(--success);
+      padding: 9px 18px;
+      border-radius: 30px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    /* STAT GRID */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 23px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-icon {
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+
+    .stat-card h3 {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .stat-value {
+      color: var(--green);
+      font-size: 25px;
+      font-weight: 800;
+    }
+
+    /* GRID */
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2 {
+      color: var(--green);
+      margin-bottom: 20px;
+      font-size: 23px;
+    }
+
+    /* PROFILE */
+
+    .profile-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .profile-row:last-child {
+      border-bottom: none;
+    }
+
+    .profile-label {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .profile-value {
+      font-weight: 700;
+      text-align: right;
+    }
+
+    /* CONTRIBUTIONS */
+
+    .contribution {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 15px 0;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .contribution:last-child {
+      border-bottom: none;
+    }
+
+    .month {
+      font-weight: 700;
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .paid {
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    .pending {
+      color: var(--warning);
+      font-weight: 800;
+    }
+
+    /* BUTTONS */
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 7px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--dark-green);
+    }
+
+    .btn-light {
+      background: #edf7f2;
+      color: var(--green);
+    }
+
+    .btn-danger {
+      background: #fdecec;
+      color: var(--danger);
+    }
+
+    /* NOTICE */
+
+    .system-notice {
+      margin-top: 25px;
+      padding: 17px;
+      background: #fffdf5;
+      border: 1px solid #eadb9c;
+      border-radius: 9px;
+      color: #695a1c;
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #063b24;
+      color: white;
+      padding: 28px 0;
+      text-align: center;
+    }
+
+    footer p {
+      color: #d5e5dd;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 950px) {
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (max-width: 850px) {
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 12px 5%;
+        flex-direction: column;
+        border-bottom: 3px solid var(--gold);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        width: 100%;
+        text-align: center;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .page {
+        padding-top: 30px;
+      }
+
+      .welcome h1 {
+        font-size: 28px;
+      }
+
+      .status-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 22px 18px;
+      }
+
+      .profile-row {
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .profile-value {
+        text-align: left;
+      }
+
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="nav-container">
+
+      <a href="index.html" class="logo">
+        Fisabilillahi <span>Charity Foundation</span>
+      </a>
+
+      <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Open menu">
+        ☰
+      </button>
+
+      <nav id="mainNav">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About
+        </a>
+
+        <a href="projects.html">
+          Projects
+        </a>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="donate.html">
+          Donate
+        </a>
+
+        <a href="member-dashboard.html" class="active">
+          Dashboard
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a href="login.html" class="logout-top">
+          Logout
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- DASHBOARD -->
+
+  <main class="page">
+
+
+    <div class="welcome">
+
+      <h1>
+        Welcome, Member 👋
+      </h1>
+
+      <p>
+        Welcome to your Fisabilillahi Charity Foundation
+        member dashboard.
+      </p>
+
+    </div>
+
+
+    <!-- MEMBERSHIP STATUS -->
+
+    <div class="status-card">
+
+      <div>
+
+        <h2>
+          Membership Status
+        </h2>
+
+        <p>
+          Thank you for being part of our humanitarian family.
+        </p>
+
+      </div>
+
+      <div class="status-badge">
+        Active Member
+      </div>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="stats">
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          💰
+        </div>
+
+        <h3>
+          Monthly Contribution
+        </h3>
+
+        <div class="stat-value">
+          ₦500
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          ❤️
+        </div>
+
+        <h3>
+          Total Contributions
+        </h3>
+
+        <div class="stat-value">
+          ₦0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          📅
+        </div>
+
+        <h3>
+          Months Paid
+        </h3>
+
+        <div class="stat-value">
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          ⏳
+        </div>
+
+        <h3>
+          Pending Months
+        </h3>
+
+        <div class="stat-value">
+          0
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- DASHBOARD CONTENT -->
+
+    <div class="dashboard-grid">
+
+
+      <!-- PROFILE -->
+
+      <div class="card">
+
+        <h2>
+          👤 My Profile
+        </h2>
+
+
+        <div class="profile-row">
+
+          <span class="profile-label">
+            Full Name
+          </span>
+
+          <span class="profile-value">
+            Member Name
+          </span>
+
+        </div>
+
+
+        <div class="profile-row">
+
+          <span class="profile-label">
+            Email
+          </span>
+
+          <span class="profile-value">
+            member@example.com
+          </span>
+
+        </div>
+
+
+        <div class="profile-row">
+
+          <span class="profile-label">
+            Phone
+          </span>
+
+          <span class="profile-value">
+            +234 XXX XXX XXXX
+          </span>
+
+        </div>
+
+
+        <div class="profile-row">
+
+          <span class="profile-label">
+            State
+          </span>
+
+          <span class="profile-value">
+            —
+          </span>
+
+        </div>
+
+
+        <div class="profile-row">
+
+          <span class="profile-label">
+            LGA
+          </span>
+
+          <span class="profile-value">
+            —
+          </span>
+
+        </div>
+
+
+        <div class="profile-row">
+
+          <span class="profile-label">
+            Membership
+          </span>
+
+          <span class="profile-value">
+            Active
+          </span>
+
+        </div>
+
+
+        <div class="actions">
+
+          <a
+            href="contact.html"
+            class="btn btn-light">
+            Need Help?
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CONTRIBUTION HISTORY -->
+
+      <div class="card">
+
+        <h2>
+          💳 Contribution History
+        </h2>
+
+
+        <div class="contribution">
+
+          <div>
+
+            <div class="month">
+              August 2026
+            </div>
+
+            <div class="date">
+              No payment recorded
+            </div>
+
+          </div>
+
+          <div class="pending">
+            Pending
+          </div>
+
+        </div>
+
+
+        <div class="contribution">
+
+          <div>
+
+            <div class="month">
+              July 2026
+            </div>
+
+            <div class="date">
+              No payment recorded
+            </div>
+
+          </div>
+
+          <div class="pending">
+            Pending
+          </div>
+
+        </div>
+
+
+        <div class="contribution">
+
+          <div>
+
+            <div class="month">
+              June 2026
+            </div>
+
+            <div class="date">
+              No payment recorded
+            </div>
+
+          </div>
+
+          <div class="pending">
+            Pending
+          </div>
+
+        </div>
+
+
+        <div class="contribution">
+
+          <div>
+
+            <div class="month">
+              May 2026
+            </div>
+
+            <div class="date">
+              No payment recorded
+            </div>
+
+          </div>
+
+          <div class="pending">
+            Pending
+          </div>
+
+        </div>
+
+
+        <div class="actions">
+
+          <a
+            href="donate.html"
+            class="btn btn-primary">
+
+            Make a Contribution
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- QUICK ACTIONS -->
+
+    <div class="card" style="margin-top:25px;">
+
+      <h2>
+        ⚡ Quick Actions
+      </h2>
+
+      <div class="actions">
+
+        <a
+          href="donate.html"
+          class="btn btn-primary">
+          💰 Donate
+        </a>
+
+        <a
+          href="projects.html"
+          class="btn btn-light">
+          🤝 View Projects
+        </a>
+
+        <a
+          href="contact.html"
+          class="btn btn-light">
+          📞 Contact Foundation
+        </a>
+
+        <button
+          onclick="logout()"
+          class="btn btn-danger">
+          🔐 Logout
+        </button>
+
+      </div>
+
+
+      <div class="system-notice">
+
+        <strong>Membership system notice:</strong><br>
+
+        Your dashboard is currently in preparation mode.
+        Member information, payments and contribution history
+        will be loaded automatically from the secure membership
+        database after the membership system is connected.
+
+      </div>
+
+    </div>
+
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © <span id="year"></span>
+      Fisabilillahi Charity Foundation.
+      All Rights Reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    /* Mobile menu */
+
+    function toggleMenu() {
+
+      document
+        .getElementById("mainNav")
+        .classList.toggle("show");
+
+    }
+
+
+    /* Close menu */
+
+    document
+      .querySelectorAll("#mainNav a")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+          document
+            .getElementById("mainNav")
+            .classList.remove("show");
+
+        });
+
+      });
+
+
+    /* Logout */
+
+    function logout() {
+
+      const confirmLogout =
+        confirm("Are you sure you want to logout?");
+
+      if (confirmLogout) {
+
+        window.location.href =
+          "login.html";
+
+      }
+
+    }
+
+
+    /* Current year */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
+
+
+</body>
+</html>

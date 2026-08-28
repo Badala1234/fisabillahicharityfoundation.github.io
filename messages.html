@@ -15,14 +15,13 @@
   --green2:#0d8053;
   --gold:#d6ae3d;
   --cream:#f7f6ef;
-  --white:#fff;
+  --white:#ffffff;
   --text:#26372f;
   --muted:#718078;
   --border:#e2e9e5;
   --soft:#edf6f1;
   --red:#b93636;
-  --orange:#bd721d;
-  --shadow:0 8px 30px rgba(0,0,0,.05);
+  --shadow:0 8px 30px rgba(0,0,0,.06);
 }
 
 *{
@@ -37,17 +36,20 @@ body{
   color:var(--text);
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-button,input,select{
+button,
+input,
+select,
+textarea{
   font-family:inherit;
 }
 
 button{
   cursor:pointer;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
 .container{
@@ -245,7 +247,7 @@ button{
 
 .summary{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:16px;
   margin-bottom:22px;
 }
@@ -287,6 +289,7 @@ button{
   border:1px solid var(--border);
   border-radius:13px;
   box-shadow:var(--shadow);
+  overflow:hidden;
 }
 
 
@@ -299,6 +302,7 @@ button{
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   gap:12px;
   flex-wrap:wrap;
 }
@@ -353,122 +357,120 @@ button{
 /* ================= MESSAGE LIST ================= */
 
 .message-list{
-  display:flex;
-  flex-direction:column;
+  width:100%;
 }
 
-.message{
+.message-row{
   display:grid;
-  grid-template-columns:45px 1fr auto;
-  gap:14px;
-  padding:18px;
+  grid-template-columns:42px minmax(150px,1fr) minmax(180px,2fr) 115px 80px;
+  gap:15px;
+  align-items:center;
+
+  padding:17px 20px;
+
   border-bottom:1px solid var(--border);
+
   transition:.2s;
 }
 
-.message:hover{
+.message-row:hover{
   background:#fbfdfb;
 }
 
-.message.unread{
-  background:#f5faf7;
-  border-left:3px solid var(--green);
+.message-row.unread{
+  background:#f2f9f5;
+}
+
+.message-row.unread:hover{
+  background:#eaf5ef;
 }
 
 .message-avatar{
-  width:42px;
-  height:42px;
+  width:38px;
+  height:38px;
   border-radius:50%;
+
   background:var(--soft);
   color:var(--green);
+
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:11px;
+
+  font-size:13px;
   font-weight:900;
 }
 
-.message-content{
+.sender{
   min-width:0;
 }
 
-.message-top{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
-.message-name{
-  color:var(--dark);
-  font-size:12px;
-  font-weight:900;
-}
-
-.unread-dot{
-  width:7px;
-  height:7px;
-  background:var(--green2);
-  border-radius:50%;
-}
-
-.message-email{
-  color:var(--muted);
-  font-size:9px;
-}
-
-.message-subject{
+.sender-name{
   color:var(--dark);
   font-size:11px;
   font-weight:900;
-  margin-top:6px;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.sender-email{
+  color:var(--muted);
+  font-size:9px;
+
+  margin-top:4px;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.subject{
+  color:var(--dark);
+  font-size:11px;
+  font-weight:800;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .message-preview{
   color:var(--muted);
-  font-size:10px;
-  line-height:1.5;
+  font-size:9px;
   margin-top:5px;
 
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
+  white-space:nowrap;
   overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .message-date{
   color:var(--muted);
   font-size:9px;
-  white-space:nowrap;
 }
 
-.message-actions{
-  display:flex;
-  align-items:flex-start;
-  gap:5px;
-  margin-top:10px;
+.status{
+  display:inline-block;
+  width:max-content;
+
+  padding:5px 8px;
+
+  border-radius:20px;
+
+  font-size:8px;
+  font-weight:900;
 }
 
-.action-btn{
-  border:1px solid var(--border);
-  background:#fff;
-  border-radius:6px;
-  padding:6px 9px;
-  font-size:9px;
-  font-weight:800;
-  color:var(--green);
+.status.unread{
+  background:#fff3d5;
+  color:#8b6500;
 }
 
-.action-btn:hover{
+.status.read{
   background:var(--soft);
-}
-
-.delete-btn{
-  color:var(--red);
-}
-
-.delete-btn:hover{
-  background:#fff1f1;
+  color:var(--green);
 }
 
 
@@ -477,36 +479,40 @@ button{
 .empty{
   display:none;
   text-align:center;
-  padding:65px 20px;
+  padding:70px 20px;
 }
 
 .empty-icon{
-  font-size:38px;
-  margin-bottom:10px;
+  font-size:42px;
+  margin-bottom:12px;
 }
 
 .empty h3{
   color:var(--dark);
-  font-size:16px;
+  font-size:17px;
 }
 
 .empty p{
   color:var(--muted);
   font-size:10px;
-  margin-top:5px;
+  margin-top:6px;
 }
 
 
-/* ================= VIEW MODAL ================= */
+/* ================= MESSAGE MODAL ================= */
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.55);
+
+  background:rgba(0,0,0,.58);
+
   z-index:3000;
+
   align-items:center;
   justify-content:center;
+
   padding:20px;
 }
 
@@ -516,19 +522,30 @@ button{
 
 .modal-box{
   width:100%;
-  max-width:600px;
+  max-width:650px;
+
+  max-height:
+    calc(100vh - 40px);
+
+  overflow:auto;
+
   background:#fff;
+
   border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 25px 80px rgba(0,0,0,.2);
+
+  box-shadow:
+    0 25px 80px
+    rgba(0,0,0,.25);
 }
 
 .modal-head{
   padding:20px 22px;
+
   border-bottom:1px solid var(--border);
+
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 }
 
 .modal-head h2{
@@ -539,93 +556,147 @@ button{
 .close{
   width:32px;
   height:32px;
+
   border:0;
+
   background:#f1f4f2;
+
   border-radius:50%;
-  font-size:17px;
+
+  font-size:18px;
 }
 
-.modal-body{
+.message-detail{
   padding:22px;
 }
 
-.sender{
+.detail-top{
   display:flex;
   align-items:center;
   gap:12px;
-  margin-bottom:20px;
+
+  padding-bottom:18px;
+
+  border-bottom:1px solid var(--border);
 }
 
-.sender-avatar{
-  width:46px;
-  height:46px;
+.detail-avatar{
+  width:45px;
+  height:45px;
+
   border-radius:50%;
-  background:var(--soft);
-  color:var(--green);
+
+  background:var(--green);
+
+  color:#fff;
+
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:12px;
+
+  font-size:14px;
   font-weight:900;
 }
 
-.sender-name{
+.detail-name{
   color:var(--dark);
   font-size:13px;
   font-weight:900;
 }
 
-.sender-email{
+.detail-email{
   color:var(--muted);
   font-size:9px;
-  margin-top:3px;
+  margin-top:4px;
 }
 
-.detail{
-  margin-bottom:15px;
-}
-
-.detail-label{
+.detail-date{
+  margin-left:auto;
   color:var(--muted);
-  text-transform:uppercase;
-  font-size:8px;
-  letter-spacing:1px;
-  font-weight:900;
-  margin-bottom:5px;
+  font-size:9px;
 }
 
-.detail-value{
+.detail-subject{
   color:var(--dark);
-  font-size:11px;
-  line-height:1.7;
+  font-size:17px;
+  font-weight:900;
+  margin-top:20px;
 }
 
-.message-full{
+.detail-message{
+  color:var(--text);
+  font-size:12px;
+  line-height:1.8;
   white-space:pre-wrap;
-  background:#f8faf9;
-  border:1px solid var(--border);
+  margin-top:14px;
+}
+
+.detail-actions{
+  display:flex;
+  gap:8px;
+
+  margin-top:22px;
+
+  padding-top:18px;
+
+  border-top:1px solid var(--border);
+}
+
+.detail-btn{
+  flex:1;
+
+  height:42px;
+
   border-radius:8px;
-  padding:14px;
-}
 
-
-/* ================= INFO ================= */
-
-.info{
-  margin-top:18px;
-  padding:14px 17px;
-  background:#fff;
   border:1px solid var(--border);
-  border-radius:10px;
-  color:var(--muted);
-  font-size:9px;
-  line-height:1.6;
+
+  background:#fff;
+
+  color:var(--green);
+
+  font-size:10px;
+
+  font-weight:900;
+}
+
+.detail-btn:hover{
+  background:var(--soft);
+}
+
+.detail-btn.delete{
+  color:var(--red);
+}
+
+.detail-btn.delete:hover{
+  background:#fff1f1;
 }
 
 
-/* ================= RESPONSIVE ================= */
+/* ================= MOBILE ================= */
 
-@media(max-width:900px){
+@media(max-width:1100px){
+
+  .message-row{
+    grid-template-columns:
+      42px
+      1fr
+      1fr
+      90px;
+  }
+
+  .message-row .status{
+    display:none;
+  }
+
+  .summary{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:1000px){
 
   .layout{
     grid-template-columns:1fr;
@@ -641,7 +712,27 @@ button{
 
 }
 
-@media(max-width:650px){
+@media(max-width:700px){
+
+  .message-row{
+    grid-template-columns:
+      40px
+      1fr
+      75px;
+  }
+
+  .message-row .message-content{
+    grid-column:2;
+  }
+
+  .message-row .message-date{
+    grid-column:3;
+    grid-row:1;
+  }
+
+}
+
+@media(max-width:600px){
 
   .summary{
     grid-template-columns:1fr;
@@ -652,24 +743,32 @@ button{
     flex-direction:column;
   }
 
+  .toolbar{
+    align-items:stretch;
+  }
+
+  .search{
+    width:100%;
+  }
+
   .filters{
     width:100%;
   }
 
   .filters select{
-    flex:1;
+    width:100%;
   }
 
-  .message{
-    grid-template-columns:40px 1fr;
+  .detail-top{
+    align-items:flex-start;
   }
 
-  .message-date{
-    grid-column:2;
+  .detail-date{
+    display:none;
   }
 
-  .message-actions{
-    grid-column:2;
+  .detail-actions{
+    flex-direction:column;
   }
 
 }
@@ -689,8 +788,8 @@ button{
     display:none;
   }
 
-  .toolbar{
-    padding:13px;
+  .main{
+    padding:20px 3%;
   }
 
 }
@@ -710,7 +809,9 @@ button{
 <div class="container header-inner">
 
 
-<a href="admin.html" class="brand">
+<a
+href="admin.html"
+class="brand">
 
 <div class="brand-logo">
 ♥
@@ -819,7 +920,6 @@ Messages
 </a>
 
 
-
 <div
 class="sidebar-title"
 style="margin-top:25px;">
@@ -867,7 +967,6 @@ onclick="openSettings(event)">
 Settings
 
 </a>
-
 
 
 <div class="sidebar-bottom">
@@ -922,7 +1021,7 @@ Messages
 </h1>
 
 <p>
-Manage messages received from website visitors.
+Read and manage messages received from website visitors.
 </p>
 
 </div>
@@ -952,9 +1051,7 @@ Total Messages
 <div
 class="summary-value"
 id="totalMessages">
-
 0
-
 </div>
 
 <div class="summary-note">
@@ -973,13 +1070,11 @@ Unread
 <div
 class="summary-value"
 id="unreadMessages">
-
 0
-
 </div>
 
 <div class="summary-note">
-Messages waiting to be read
+Messages waiting for review
 </div>
 
 </div>
@@ -994,13 +1089,30 @@ Read
 <div
 class="summary-value"
 id="readMessages">
-
 0
-
 </div>
 
 <div class="summary-note">
-Messages already reviewed
+Already reviewed
+</div>
+
+</div>
+
+
+<div class="summary-card">
+
+<div class="summary-label">
+Today
+</div>
+
+<div
+class="summary-value"
+id="todayMessages">
+0
+</div>
+
+<div class="summary-note">
+Messages received today
 </div>
 
 </div>
@@ -1027,7 +1139,7 @@ Messages already reviewed
 <input
 type="search"
 id="searchInput"
-placeholder="Search messages..."
+placeholder="Search name, email or message..."
 oninput="filterMessages()">
 
 </div>
@@ -1063,7 +1175,6 @@ Read
 <div
 class="message-list"
 id="messageList">
-
 </div>
 
 
@@ -1072,7 +1183,7 @@ class="empty"
 id="emptyState">
 
 <div class="empty-icon">
-💬
+📭
 </div>
 
 <h3>
@@ -1080,7 +1191,7 @@ No messages found
 </h3>
 
 <p>
-Messages submitted through the website will appear here.
+There are no messages matching your search.
 </p>
 
 </div>
@@ -1090,15 +1201,25 @@ Messages submitted through the website will appear here.
 
 
 
-<div class="info">
+<div class="info"
+style="
+margin-top:18px;
+padding:14px 17px;
+background:#fff;
+border:1px solid var(--border);
+border-radius:10px;
+color:var(--muted);
+font-size:9px;
+line-height:1.6;
+">
 
 <strong>
-Database status:
+Storage status:
 </strong>
 
-Messages are currently prepared for database
-integration. Once Supabase is connected, website
-contact-form messages can appear here automatically.
+Messages are currently stored temporarily in this browser.
+The next step will connect the Contact Us form to Supabase so
+new messages will appear here automatically.
 
 </div>
 
@@ -1109,7 +1230,7 @@ contact-form messages can appear here automatically.
 
 
 
-<!-- ================= VIEW MESSAGE MODAL ================= -->
+<!-- ================= MESSAGE MODAL ================= -->
 
 <div
 class="modal"
@@ -1127,7 +1248,7 @@ Message Details
 
 <button
 class="close"
-onclick="closeMessage()">
+onclick="closeMessageModal()">
 
 ×
 
@@ -1137,8 +1258,8 @@ onclick="closeMessage()">
 
 
 <div
-class="modal-body"
-id="modalBody">
+class="message-detail"
+id="messageDetail">
 
 </div>
 
@@ -1152,11 +1273,14 @@ id="modalBody">
 <script>
 
 
-/* ================= LOGIN PROTECTION ================= */
+/* =========================================================
+   LOGIN PROTECTION
+========================================================= */
 
 (function(){
 
 const loggedIn =
+
 localStorage.getItem(
 "fisabilillahi_admin"
 ) === "true"
@@ -1179,13 +1303,18 @@ window.location.href =
 
 
 
-/* ================= DATE ================= */
+/* =========================================================
+   DATE
+========================================================= */
+
+const now =
+new Date();
 
 document.getElementById(
 "currentDate"
 ).textContent =
 
-new Date().toLocaleDateString(
+now.toLocaleDateString(
 "en-NG",
 {
 weekday:"long",
@@ -1197,57 +1326,88 @@ day:"numeric"
 
 
 
-/* ================= MESSAGE DATA ================= */
-
-/*
-  TEMPORARY DATA
-
-  Wannan list din demo ne kawai.
-
-  Daga baya za mu cire shi mu haɗa
-  shi da Supabase database.
-*/
+/* =========================================================
+   DEMO MESSAGES
+========================================================= */
 
 let messages = [
 
 {
-  name:"Aisha Muhammad",
-  email:"aisha@example.com",
-  phone:"+234 801 234 5678",
-  subject:"Donation Support",
+  name:
+  "Aisha Musa",
+
+  email:
+  "aisha@example.com",
+
+  subject:
+  "How can I support the foundation?",
+
   message:
-  "Assalamu alaikum. Ina son in san yadda zan iya taimakawa foundation din da gudummawa.",
-  date:"2026-08-27",
-  read:false
+  "Assalamu Alaikum. I would like to know how I can support the foundation and participate in your monthly charity programme.",
+
+  date:
+  "2026-08-27",
+
+  time:
+  "09:35",
+
+  read:
+  false
 },
 
 {
-  name:"Abdullahi Sani",
-  email:"abdullahi@example.com",
-  phone:"+234 802 345 6789",
-  subject:"School Support Project",
+  name:
+  "Abdullahi Ibrahim",
+
+  email:
+  "abdullahi@example.com",
+
+  subject:
+  "Donation Information",
+
   message:
-  "Ina son samun karin bayani game da shirin tallafawa marayu da kayan makaranta.",
-  date:"2026-08-26",
-  read:true
+  "Please send me more information about your donation programmes and the areas where the foundation currently needs support.",
+
+  date:
+  "2026-08-26",
+
+  time:
+  "14:20",
+
+  read:
+  true
 },
 
 {
-  name:"Fatima Ibrahim",
-  email:"fatima@example.com",
-  phone:"+234 803 456 7890",
-  subject:"Volunteer",
+  name:
+  "Maryam Sani",
+
+  email:
+  "maryam@example.com",
+
+  subject:
+  "Education Project",
+
   message:
-  "Ina sha'awar yin aikin sa kai tare da Fisabilillahi Charity Foundation. Don Allah ku sanar da ni yadda zan fara.",
-  date:"2026-08-25",
-  read:false
+  "I am interested in the education support project. Kindly let me know how I can sponsor a child or contribute educational materials.",
+
+  date:
+  "2026-08-25",
+
+  time:
+  "11:10",
+
+  read:
+  true
 }
 
 ];
 
 
 
-/* ================= RENDER ================= */
+/* =========================================================
+   RENDER
+========================================================= */
 
 function renderMessages(list){
 
@@ -1278,98 +1438,72 @@ empty.style.display =
 }
 
 
-list.forEach(function(message){
+list.forEach(function(item){
 
-const originalIndex =
-messages.indexOf(message);
-
-
-const initials =
-message.name
-.split(" ")
-.map(word =>
-word.charAt(0)
-)
-.slice(0,2)
-.join("")
-.toUpperCase();
+const index =
+messages.indexOf(item);
 
 
-const div =
-document.createElement("div");
+const row =
+document.createElement(
+"div"
+);
+
+row.className =
+"message-row" +
+
+(
+item.read
+? ""
+: " unread"
+);
 
 
-div.className =
-"message" +
-(message.read ? "" : " unread");
+row.onclick =
+function(){
+
+openMessage(index);
+
+};
 
 
-div.innerHTML = `
+row.innerHTML = `
 
 <div class="message-avatar">
-${initials}
+
+${initials(item.name)}
+
+</div>
+
+
+<div class="sender">
+
+<div class="sender-name">
+
+${escapeHTML(item.name)}
+
+</div>
+
+<div class="sender-email">
+
+${escapeHTML(item.email)}
+
+</div>
+
 </div>
 
 
 <div class="message-content">
 
-<div class="message-top">
+<div class="subject">
 
-<span class="message-name">
-${escapeHTML(message.name)}
-</span>
-
-${message.read ? "" : `
-<span
-class="unread-dot"
-title="Unread">
-</span>
-`}
-
-<span class="message-email">
-${escapeHTML(message.email)}
-</span>
+${escapeHTML(item.subject)}
 
 </div>
-
-
-<div class="message-subject">
-${escapeHTML(message.subject)}
-</div>
-
 
 <div class="message-preview">
-${escapeHTML(message.message)}
-</div>
 
-
-<div class="message-actions">
-
-<button
-class="action-btn"
-onclick="viewMessage(${originalIndex})">
-
-👁 View
-
-</button>
-
-
-<button
-class="action-btn"
-onclick="toggleRead(${originalIndex})">
-
-${message.read ? "↩ Unread" : "✓ Mark Read"}
-
-</button>
-
-
-<button
-class="action-btn delete-btn"
-onclick="deleteMessage(${originalIndex})">
-
-🗑 Delete
-
-</button>
+${escapeHTML(item.message)}
 
 </div>
 
@@ -1378,14 +1512,44 @@ onclick="deleteMessage(${originalIndex})">
 
 <div class="message-date">
 
-${escapeHTML(message.date)}
+${escapeHTML(item.date)}
+
+<br>
+
+<span style="font-size:8px;">
+
+${escapeHTML(item.time)}
+
+</span>
+
+</div>
+
+
+<div>
+
+<span
+class="status ${
+item.read
+? "read"
+: "unread"
+}">
+
+${
+item.read
+? "READ"
+: "UNREAD"
+}
+
+</span>
 
 </div>
 
 `;
 
 
-container.appendChild(div);
+container.appendChild(
+row
+);
 
 });
 
@@ -1396,41 +1560,54 @@ updateSummary();
 
 
 
-/* ================= FILTER ================= */
+/* =========================================================
+   FILTER
+========================================================= */
 
 function filterMessages(){
 
 const search =
+
 document
-.getElementById("searchInput")
+.getElementById(
+"searchInput"
+)
 .value
 .toLowerCase()
 .trim();
 
 
 const status =
+
 document
-.getElementById("statusFilter")
+.getElementById(
+"statusFilter"
+)
 .value;
 
 
 const filtered =
-messages.filter(function(message){
 
-const text =
-(
-message.name +
+messages.filter(
+function(item){
+
+const searchable = (
+
+item.name +
 " " +
-message.email +
+item.email +
 " " +
-message.subject +
+item.subject +
 " " +
-message.message
+item.message
+
 ).toLowerCase();
 
 
 const matchesSearch =
-text.includes(search);
+searchable.includes(
+search
+);
 
 
 const matchesStatus =
@@ -1439,30 +1616,41 @@ status === "all"
 
 ||
 
-(status === "read" &&
-message.read)
+(
+status === "read"
+&&
+item.read
+)
 
 ||
 
-(status === "unread" &&
-!message.read);
+(
+status === "unread"
+&&
+!item.read
+);
 
 
-return (
+return(
 matchesSearch &&
 matchesStatus
 );
 
-});
+}
+);
 
 
-renderMessages(filtered);
+renderMessages(
+filtered
+);
 
 }
 
 
 
-/* ================= SUMMARY ================= */
+/* =========================================================
+   SUMMARY
+========================================================= */
 
 function updateSummary(){
 
@@ -1472,13 +1660,26 @@ messages.length;
 
 const unread =
 messages.filter(
-message => !message.read
+item => !item.read
 ).length;
 
 
 const read =
 messages.filter(
-message => message.read
+item => item.read
+).length;
+
+
+const todayString =
+new Date()
+.toISOString()
+.split("T")[0];
+
+
+const today =
+messages.filter(
+item =>
+item.date === todayString
 ).length;
 
 
@@ -1499,124 +1700,145 @@ document.getElementById(
 ).textContent =
 read;
 
+
+document.getElementById(
+"todayMessages"
+).textContent =
+today;
+
 }
 
 
 
-/* ================= VIEW ================= */
+/* =========================================================
+   OPEN MESSAGE
+========================================================= */
 
-function viewMessage(index){
+function openMessage(index){
 
-const message =
+const item =
 messages[index];
 
 
-if(!message){
+if(!item){
 
 return;
 
 }
 
 
-/* Automatically mark as read */
+/*
+  Automatically mark message as read
+  when admin opens it.
+*/
 
-message.read =
+item.read =
 true;
 
 
-const initials =
-message.name
-.split(" ")
-.map(word =>
-word.charAt(0)
-)
-.slice(0,2)
-.join("")
-.toUpperCase();
-
-
+const detail =
 document.getElementById(
-"modalBody"
-).innerHTML = `
+"messageDetail"
+);
 
-<div class="sender">
 
-<div class="sender-avatar">
-${initials}
+detail.innerHTML = `
+
+<div class="detail-top">
+
+
+<div class="detail-avatar">
+
+${initials(item.name)}
+
 </div>
+
 
 <div>
 
-<div class="sender-name">
-${escapeHTML(message.name)}
-</div>
+<div class="detail-name">
 
-<div class="sender-email">
-${escapeHTML(message.email)}
-</div>
+${escapeHTML(item.name)}
 
 </div>
 
-</div>
+<div class="detail-email">
 
+${escapeHTML(item.email)}
 
-<div class="detail">
-
-<div class="detail-label">
-Phone
-</div>
-
-<div class="detail-value">
-${escapeHTML(message.phone)}
 </div>
 
 </div>
 
 
-<div class="detail">
+<div class="detail-date">
 
-<div class="detail-label">
-Subject
-</div>
-
-<div class="detail-value">
-${escapeHTML(message.subject)}
-</div>
+${escapeHTML(item.date)}
+<br>
+${escapeHTML(item.time)}
 
 </div>
 
 
-<div class="detail">
-
-<div class="detail-label">
-Date
 </div>
 
-<div class="detail-value">
-${escapeHTML(message.date)}
-</div>
+
+<div class="detail-subject">
+
+${escapeHTML(item.subject)}
 
 </div>
 
 
-<div class="detail">
+<div class="detail-message">
 
-<div class="detail-label">
-Message
+${escapeHTML(item.message)}
+
 </div>
 
-<div class="detail-value message-full">
-${escapeHTML(message.message)}
-</div>
+
+<div class="detail-actions">
+
+
+<button
+class="detail-btn"
+onclick="replyToMessage(${index})">
+
+✉️ Reply
+
+</button>
+
+
+<button
+class="detail-btn"
+onclick="toggleRead(${index})">
+
+${item.read
+? "Mark as Unread"
+: "Mark as Read"}
+
+</button>
+
+
+<button
+class="detail-btn delete"
+onclick="deleteMessage(${index})">
+
+🗑️ Delete
+
+</button>
+
 
 </div>
 
 `;
 
 
-document
-.getElementById("messageModal")
-.classList.add("show");
+document.getElementById(
+"messageModal"
+).classList.add(
+"show"
+);
 
 
 renderMessages(
@@ -1627,79 +1849,25 @@ getCurrentFilteredMessages()
 
 
 
-/* ================= CURRENT FILTER ================= */
+/* =========================================================
+   CLOSE MESSAGE
+========================================================= */
 
-function getCurrentFilteredMessages(){
+function closeMessageModal(){
 
-const search =
-document
-.getElementById("searchInput")
-.value
-.toLowerCase()
-.trim();
-
-
-const status =
-document
-.getElementById("statusFilter")
-.value;
-
-
-return messages.filter(function(message){
-
-const text =
-(
-message.name +
-" " +
-message.email +
-" " +
-message.subject +
-" " +
-message.message
-).toLowerCase();
-
-
-return(
-
-text.includes(search)
-
-&&
-
-(
-status === "all"
-
-||
-
-(status === "read" &&
-message.read)
-
-||
-
-(status === "unread" &&
-!message.read)
-)
-
+document.getElementById(
+"messageModal"
+).classList.remove(
+"show"
 );
 
-});
-
 }
 
 
 
-/* ================= CLOSE MODAL ================= */
-
-function closeMessage(){
-
-document
-.getElementById("messageModal")
-.classList.remove("show");
-
-}
-
-
-
-/* ================= TOGGLE READ ================= */
+/* =========================================================
+   MARK READ / UNREAD
+========================================================= */
 
 function toggleRead(index){
 
@@ -1714,21 +1882,23 @@ messages[index].read =
 !messages[index].read;
 
 
-filterMessages();
+openMessage(index);
 
 }
 
 
 
-/* ================= DELETE ================= */
+/* =========================================================
+   DELETE
+========================================================= */
 
 function deleteMessage(index){
 
-const message =
+const item =
 messages[index];
 
 
-if(!message){
+if(!item){
 
 return;
 
@@ -1737,7 +1907,9 @@ return;
 
 const confirmed =
 confirm(
-"Delete this message from the temporary list?"
+
+"Delete this message from the temporary message list?"
+
 );
 
 
@@ -1748,7 +1920,13 @@ return;
 }
 
 
-messages.splice(index,1);
+messages.splice(
+index,
+1
+);
+
+
+closeMessageModal();
 
 
 filterMessages();
@@ -1757,7 +1935,60 @@ filterMessages();
 
 
 
-/* ================= SETTINGS ================= */
+/* =========================================================
+   REPLY
+========================================================= */
+
+function replyToMessage(index){
+
+const item =
+messages[index];
+
+
+if(!item){
+
+return;
+
+}
+
+
+/*
+  For now this opens the user's email
+  application.
+
+  Later this can be connected to a real
+  email service.
+*/
+
+window.location.href =
+
+"mailto:" +
+
+encodeURIComponent(
+item.email
+) +
+
+"?subject=" +
+
+encodeURIComponent(
+"Re: " + item.subject
+) +
+
+"&body=" +
+
+encodeURIComponent(
+"Assalamu Alaikum " +
+item.name +
+",\n\nThank you for contacting Fisabilillahi Charity Foundation.\n\n"
+);
+
+}
+
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
 
 function openSettings(event){
 
@@ -1771,7 +2002,9 @@ alert(
 
 
 
-/* ================= LOGOUT ================= */
+/* =========================================================
+   LOGOUT
+========================================================= */
 
 function logoutAdmin(event){
 
@@ -1802,48 +2035,188 @@ window.location.href =
 
 
 
-/* ================= HELPERS ================= */
+/* =========================================================
+   FILTER STATE
+========================================================= */
+
+function getCurrentFilteredMessages(){
+
+const search =
+
+document
+.getElementById(
+"searchInput"
+)
+.value
+.toLowerCase()
+.trim();
+
+
+const status =
+
+document
+.getElementById(
+"statusFilter"
+)
+.value;
+
+
+return messages.filter(
+function(item){
+
+const searchable = (
+
+item.name +
+" " +
+item.email +
+" " +
+item.subject +
+" " +
+item.message
+
+).toLowerCase();
+
+
+const matchesSearch =
+searchable.includes(
+search
+);
+
+
+const matchesStatus =
+
+status === "all"
+
+||
+
+(
+status === "read"
+&&
+item.read
+)
+
+||
+
+(
+status === "unread"
+&&
+!item.read
+);
+
+
+return(
+matchesSearch &&
+matchesStatus
+);
+
+}
+);
+
+}
+
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function initials(name){
+
+return name
+.split(" ")
+.map(
+word =>
+word.charAt(0)
+)
+.slice(0,2)
+.join("")
+.toUpperCase();
+
+}
+
 
 function escapeHTML(value){
 
 return String(value)
 
-.replace(/&/g,"&amp;")
+.replace(
+/&/g,
+"&amp;"
+)
 
-.replace(/</g,"&lt;")
+.replace(
+/</g,
+"&lt;"
+)
 
-.replace(/>/g,"&gt;")
+.replace(
+/>/g,
+"&gt;"
+)
 
-.replace(/"/g,"&quot;")
+.replace(
+/"/g,
+"&quot;"
+)
 
-.replace(/'/g,"&#039;");
+.replace(
+/'/g,
+"&#039;"
+);
 
 }
 
 
 
-/* ================= INITIAL LOAD ================= */
-
-renderMessages(messages);
-
-
-
-/* CLOSE MODAL OUTSIDE */
+/* =========================================================
+   CLOSE MODAL OUTSIDE
+========================================================= */
 
 document
-.getElementById("messageModal")
+.getElementById(
+"messageModal"
+)
 .addEventListener(
 "click",
 function(event){
 
-if(event.target === this){
+if(
+event.target === this
+){
 
-closeMessage();
+closeMessageModal();
 
 }
 
 });
 
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Escape"){
+
+closeMessageModal();
+
+}
+
+});
+
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+renderMessages(
+messages
+);
 
 </script>
 

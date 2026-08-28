@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,7 +20,6 @@
   --muted:#718078;
   --border:#e1e9e4;
   --red:#b93636;
-  --shadow:0 25px 70px rgba(0,0,0,.12);
 }
 
 *{
@@ -31,325 +31,532 @@
 body{
   min-height:100vh;
   font-family:Arial,Helvetica,sans-serif;
+
   background:
-    radial-gradient(circle at 10% 10%,rgba(214,174,61,.13),transparent 30%),
-    radial-gradient(circle at 90% 90%,rgba(7,92,59,.15),transparent 35%),
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(214,174,61,.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(7,92,59,.18),
+      transparent 35%
+    ),
     var(--cream);
 
   display:flex;
   align-items:center;
   justify-content:center;
+
+  padding:20px;
   color:var(--text);
-  padding:25px;
 }
 
 .page{
   width:100%;
   max-width:1050px;
+
   display:grid;
   grid-template-columns:1fr 1fr;
+
   background:#fff;
+
   border-radius:22px;
   overflow:hidden;
-  box-shadow:var(--shadow);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.12);
+
   border:1px solid var(--border);
 }
 
 
-/* ================= BRAND SIDE ================= */
+/* ================= BRAND ================= */
 
 .brand-side{
+
   min-height:650px;
+
   padding:55px;
+
   color:#fff;
 
   background:
     linear-gradient(
       145deg,
-      rgba(4,60,39,.97),
-      rgba(7,92,59,.91)
+      rgba(4,60,39,.98),
+      rgba(7,92,59,.93)
     );
 
   position:relative;
-  overflow:hidden;
+
   display:flex;
   flex-direction:column;
   justify-content:space-between;
+
+  overflow:hidden;
 }
 
 .brand-side:before,
 .brand-side:after{
+
   content:"";
+
   position:absolute;
-  border:1px solid rgba(255,255,255,.08);
+
+  border:
+    1px solid
+    rgba(255,255,255,.08);
+
   border-radius:50%;
 }
 
 .brand-side:before{
+
   width:390px;
   height:390px;
+
   right:-180px;
   top:-120px;
 }
 
 .brand-side:after{
+
   width:300px;
   height:300px;
+
   left:-180px;
   bottom:-130px;
 }
 
 .brand-content{
+
   position:relative;
   z-index:2;
 }
 
 .logo{
+
   display:flex;
   align-items:center;
   gap:13px;
 }
 
 .logo-mark{
+
   width:58px;
   height:58px;
+
   border-radius:50%;
-  border:2px solid var(--gold);
-  background:rgba(255,255,255,.08);
+
+  border:
+    2px solid
+    var(--gold);
+
+  background:
+    rgba(255,255,255,.08);
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   color:var(--gold);
+
   font-size:27px;
 }
 
 .logo-text{
+
   font-size:20px;
   font-weight:900;
+
   line-height:1.2;
 }
 
 .logo-text small{
+
   display:block;
+
   font-size:9px;
+
   letter-spacing:1.6px;
+
   color:#b8d0c4;
+
   text-transform:uppercase;
+
   margin-top:4px;
 }
 
 .brand-side h1{
+
   font-size:42px;
+
   line-height:1.1;
+
   margin-top:70px;
+
   max-width:450px;
 }
 
 .brand-side h1 span{
+
   color:var(--gold);
 }
 
 .brand-side p{
+
   color:#d0e0d8;
+
   font-size:14px;
+
   max-width:430px;
+
   margin-top:18px;
+
+  line-height:1.7;
 }
 
 .motto{
+
   position:relative;
   z-index:2;
+
   color:#9dbbae;
+
   font-size:11px;
+
   letter-spacing:.5px;
 }
 
 
-/* ================= LOGIN SIDE ================= */
+/* ================= LOGIN ================= */
 
 .login-side{
+
   padding:55px;
+
   display:flex;
   align-items:center;
 }
 
 .login-box{
+
   width:100%;
+
   max-width:410px;
+
   margin:auto;
 }
 
 .login-kicker{
+
   color:var(--green2);
+
   font-size:10px;
+
   font-weight:900;
+
   letter-spacing:2px;
+
   text-transform:uppercase;
+
   margin-bottom:10px;
 }
 
 .login-box h2{
+
   color:var(--dark);
+
   font-size:34px;
+
   line-height:1.2;
 }
 
 .login-intro{
+
   color:var(--muted);
+
   font-size:13px;
-  margin:10px 0 28px;
+
+  margin:
+    10px 0 28px;
+
+  line-height:1.6;
 }
 
-.form-group{
-  margin-bottom:18px;
-}
 
-.form-group label{
-  display:block;
-  color:var(--dark);
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:.7px;
-  margin-bottom:7px;
-}
-
-.input-wrap{
-  position:relative;
-}
-
-.input-wrap span{
-  position:absolute;
-  left:14px;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:16px;
-  opacity:.65;
-}
-
-.input-wrap input{
-  width:100%;
-  height:50px;
-  padding:0 45px;
-  border:1px solid var(--border);
-  background:#fbfdfb;
-  border-radius:9px;
-  outline:none;
-  font-size:13px;
-  color:var(--text);
-  transition:.2s;
-}
-
-.input-wrap input:focus{
-  border-color:var(--green);
-  background:#fff;
-  box-shadow:0 0 0 3px rgba(7,92,59,.08);
-}
-
-.password-toggle{
-  position:absolute;
-  right:12px;
-  top:50%;
-  transform:translateY(-50%);
-  border:0;
-  background:none;
-  cursor:pointer;
-  font-size:16px;
-  opacity:.65;
-}
-
-.password-toggle:hover{
-  opacity:1;
-}
-
-.login-options{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin:3px 0 22px;
-}
-
-.remember{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  color:var(--muted);
-  font-size:11px;
-}
-
-.remember input{
-  accent-color:var(--green);
-}
-
-.forgot{
-  color:var(--green);
-  font-size:11px;
-  font-weight:800;
-}
-
-.forgot:hover{
-  color:var(--green2);
-}
-
-.login-btn{
-  width:100%;
-  height:51px;
-  border:0;
-  border-radius:9px;
-  background:var(--green);
-  color:#fff;
-  font-size:13px;
-  font-weight:900;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.login-btn:hover{
-  background:var(--dark);
-  transform:translateY(-1px);
-}
-
-.login-btn:disabled{
-  opacity:.7;
-  cursor:not-allowed;
-  transform:none;
-}
+/* ERROR */
 
 .error{
+
   display:none;
+
   background:#fff1f1;
+
   color:var(--red);
-  border:1px solid #f0d0d0;
+
+  border:
+    1px solid
+    #f0d0d0;
+
   border-radius:8px;
-  padding:10px 12px;
+
+  padding:11px 12px;
+
   font-size:11px;
+
   margin-bottom:16px;
 }
 
 .error.show{
+
   display:block;
 }
 
-.security{
-  margin-top:24px;
-  padding-top:20px;
-  border-top:1px solid var(--border);
-  text-align:center;
+
+/* FORM */
+
+.form-group{
+
+  margin-bottom:18px;
+}
+
+.form-group label{
+
+  display:block;
+
+  color:var(--dark);
+
+  font-size:10px;
+
+  font-weight:900;
+
+  letter-spacing:.7px;
+
+  margin-bottom:7px;
+}
+
+.input-wrap{
+
+  position:relative;
+}
+
+.input-wrap span{
+
+  position:absolute;
+
+  left:14px;
+
+  top:50%;
+
+  transform:
+    translateY(-50%);
+
+  font-size:16px;
+
+  opacity:.65;
+}
+
+.input-wrap input{
+
+  width:100%;
+
+  height:50px;
+
+  padding:
+    0 45px;
+
+  border:
+    1px solid
+    var(--border);
+
+  background:#fbfdfb;
+
+  border-radius:9px;
+
+  outline:none;
+
+  font-size:13px;
+
+  color:var(--text);
+
+  transition:.2s;
+}
+
+.input-wrap input:focus{
+
+  border-color:var(--green);
+
+  background:#fff;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(7,92,59,.08);
+}
+
+
+/* PASSWORD BUTTON */
+
+.password-toggle{
+
+  position:absolute;
+
+  right:12px;
+
+  top:50%;
+
+  transform:
+    translateY(-50%);
+
+  border:0;
+
+  background:none;
+
+  cursor:pointer;
+
+  font-size:16px;
+
+  opacity:.65;
+}
+
+.password-toggle:hover{
+
+  opacity:1;
+}
+
+
+/* OPTIONS */
+
+.login-options{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin:
+    3px 0 22px;
+}
+
+.remember{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:7px;
+
   color:var(--muted);
-  font-size:9px;
-  line-height:1.5;
+
+  font-size:11px;
 }
 
-.back{
-  display:block;
-  text-align:center;
-  margin-top:20px;
+.remember input{
+
+  accent-color:
+    var(--green);
+}
+
+.forgot{
+
   color:var(--green);
+
   font-size:11px;
+
   font-weight:800;
 }
 
-.back:hover{
-  color:var(--dark);
+
+/* LOGIN BUTTON */
+
+.login-btn{
+
+  width:100%;
+
+  height:51px;
+
+  border:0;
+
+  border-radius:9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--green),
+      var(--green2)
+    );
+
+  color:#fff;
+
+  font-size:13px;
+
+  font-weight:900;
+
+  cursor:pointer;
+
+  transition:.2s;
+}
+
+.login-btn:hover{
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 8px 20px
+    rgba(7,92,59,.18);
+}
+
+.login-btn:disabled{
+
+  opacity:.7;
+
+  cursor:not-allowed;
+
+  transform:none;
+}
+
+
+/* SECURITY */
+
+.security{
+
+  margin-top:24px;
+
+  padding-top:20px;
+
+  border-top:
+    1px solid
+    var(--border);
+
+  text-align:center;
+
+  color:var(--muted);
+
+  font-size:9px;
+
+  line-height:1.5;
+}
+
+
+/* BACK */
+
+.back{
+
+  display:block;
+
+  text-align:center;
+
+  margin-top:20px;
+
+  color:var(--green);
+
+  font-size:11px;
+
+  font-weight:800;
 }
 
 
@@ -358,25 +565,33 @@ body{
 @media(max-width:800px){
 
   .page{
+
     grid-template-columns:1fr;
+
     max-width:500px;
   }
 
   .brand-side{
+
     min-height:auto;
+
     padding:35px;
   }
 
   .brand-side h1{
+
     font-size:34px;
+
     margin-top:40px;
   }
 
   .motto{
+
     margin-top:45px;
   }
 
   .login-side{
+
     padding:35px;
   }
 
@@ -385,28 +600,34 @@ body{
 @media(max-width:500px){
 
   body{
+
     padding:12px;
   }
 
   .brand-side{
+
     padding:28px;
   }
 
   .brand-side h1{
+
     font-size:30px;
   }
 
   .login-side{
+
     padding:28px;
   }
 
   .login-box h2{
+
     font-size:29px;
   }
 
 }
 
 </style>
+
 </head>
 
 
@@ -416,222 +637,234 @@ body{
 <div class="page">
 
 
-  <!-- BRAND -->
+<!-- ================= BRAND SIDE ================= -->
 
-  <section class="brand-side">
+<section class="brand-side">
 
-    <div class="brand-content">
+  <div class="brand-content">
 
-      <div class="logo">
 
-        <div class="logo-mark">
-          ♥
-        </div>
+    <div class="logo">
 
-        <div class="logo-text">
-
-          Fisabilillahi
-
-          <small>
-            Charity Foundation
-          </small>
-
-        </div>
-
+      <div class="logo-mark">
+        ♥
       </div>
 
+      <div class="logo-text">
 
-      <h1>
+        Fisabilillahi
 
-        Welcome to the
-        <span>Admin Portal.</span>
+        <small>
+          Charity Foundation
+        </small>
 
-      </h1>
-
-
-      <p>
-
-        Manage donations, members, messages,
-        projects and gallery content from one
-        secure administration dashboard.
-
-      </p>
+      </div>
 
     </div>
 
 
-    <div class="motto">
+    <h1>
 
-      Serving Humanity for the Sake of Allah
+      Welcome to the
+      <span>Admin Portal.</span>
+
+    </h1>
+
+
+    <p>
+
+      Manage donations, members,
+      messages, projects and gallery
+      content from your foundation
+      administration dashboard.
+
+    </p>
+
+  </div>
+
+
+  <div class="motto">
+
+    Serving Humanity for the Sake of Allah
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= LOGIN SIDE ================= -->
+
+<section class="login-side">
+
+<div class="login-box">
+
+
+  <div class="login-kicker">
+    Administration
+  </div>
+
+
+  <h2>
+    Sign In
+  </h2>
+
+
+  <p class="login-intro">
+
+    Enter your administrator credentials
+    to access the foundation dashboard.
+
+  </p>
+
+
+
+  <!-- ERROR -->
+
+  <div
+    id="error"
+    class="error">
+
+    Invalid email or password.
+    Please check your login details.
+
+  </div>
+
+
+
+  <form
+    id="loginForm"
+    onsubmit="login(event)">
+
+
+    <!-- EMAIL -->
+
+    <div class="form-group">
+
+      <label for="email">
+        ADMIN EMAIL
+      </label>
+
+      <div class="input-wrap">
+
+        <span>
+          ✉
+        </span>
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter admin email"
+          autocomplete="username"
+          required>
+
+      </div>
 
     </div>
 
-  </section>
 
 
+    <!-- PASSWORD -->
 
-  <!-- LOGIN -->
+    <div class="form-group">
 
-  <section class="login-side">
+      <label for="password">
+        PASSWORD
+      </label>
 
-    <div class="login-box">
+      <div class="input-wrap">
 
-      <div class="login-kicker">
-        Administration
-      </div>
+        <span>
+          🔒
+        </span>
 
-      <h2>
-        Sign In
-      </h2>
-
-      <p class="login-intro">
-
-        Enter your administrator credentials
-        to access the foundation dashboard.
-
-      </p>
-
-
-      <!-- ERROR -->
-
-      <div
-        id="error"
-        class="error">
-
-        Invalid login details. Please check
-        your email and password.
-
-      </div>
-
-
-      <form
-        id="loginForm"
-        onsubmit="login(event)">
-
-
-        <!-- EMAIL -->
-
-        <div class="form-group">
-
-          <label for="email">
-            ADMIN EMAIL
-          </label>
-
-          <div class="input-wrap">
-
-            <span>
-              ✉
-            </span>
-
-            <input
-              type="email"
-              id="email"
-              placeholder="admin@example.com"
-              autocomplete="username"
-              required>
-
-          </div>
-
-        </div>
-
-
-        <!-- PASSWORD -->
-
-        <div class="form-group">
-
-          <label for="password">
-            PASSWORD
-          </label>
-
-          <div class="input-wrap">
-
-            <span>
-              🔒
-            </span>
-
-            <input
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-              autocomplete="current-password"
-              required>
-
-            <button
-              type="button"
-              class="password-toggle"
-              onclick="togglePassword()"
-              aria-label="Show password">
-
-              👁
-
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <!-- OPTIONS -->
-
-        <div class="login-options">
-
-          <label class="remember">
-
-            <input
-              type="checkbox"
-              id="remember">
-
-            Remember me
-
-          </label>
-
-
-          <a
-            href="#"
-            class="forgot"
-            onclick="forgotPassword(event)">
-
-            Forgot password?
-
-          </a>
-
-        </div>
-
-
-        <!-- BUTTON -->
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter password"
+          autocomplete="current-password"
+          required>
 
         <button
-          type="submit"
-          class="login-btn"
-          id="loginButton">
+          type="button"
+          class="password-toggle"
+          onclick="togglePassword()">
 
-          Sign In →
+          👁
 
         </button>
 
-
-      </form>
-
-
-      <div class="security">
-
-        🔐 Admin access is restricted to authorised
-        foundation administrators.
-
       </div>
+
+    </div>
+
+
+
+    <!-- OPTIONS -->
+
+    <div class="login-options">
+
+      <label class="remember">
+
+        <input
+          type="checkbox"
+          id="remember">
+
+        Remember me
+
+      </label>
 
 
       <a
-        href="index.html"
-        class="back">
+        href="#"
+        class="forgot"
+        onclick="forgotPassword(event)">
 
-        ← Back to Website
+        Forgot password?
 
       </a>
 
     </div>
 
-  </section>
+
+
+    <!-- LOGIN -->
+
+    <button
+      type="submit"
+      class="login-btn"
+      id="loginButton">
+
+      Sign In →
+
+    </button>
+
+
+  </form>
+
+
+
+  <div class="security">
+
+    🔐 Admin access is restricted to
+    authorised foundation administrators.
+
+  </div>
+
+
+
+  <a
+    href="index.html"
+    class="back">
+
+    ← Back to Website
+
+  </a>
+
+
+</div>
+
+</section>
 
 </div>
 
@@ -641,15 +874,36 @@ body{
 
 
 /*
-  TEMPORARY FRONTEND LOGIN
+====================================================
+TEMPORARY ADMIN LOGIN
+====================================================
 
-  Wannan login na yanzu demo ne kawai.
-  Ba ya amfani da real database.
+Email:
+admin@fisabilillahicharityfoundation.org
 
-  Da zarar backend/Supabase ya kasance ready,
-  za mu maye gurbin wannan da real authentication.
+Password:
+admin12345
+
+NOTE:
+Wannan frontend login ne na wucin gadi.
+Ba real secure authentication ba ne.
+
+Daga baya idan Supabase ya dawo,
+za mu maye gurbin wannan da
+real authentication.
+====================================================
 */
 
+
+const ADMIN_EMAIL =
+  "admin@fisabilillahicharityfoundation.org";
+
+const ADMIN_PASSWORD =
+  "admin12345";
+
+
+
+/* ================= LOGIN ================= */
 
 function login(event){
 
@@ -660,7 +914,8 @@ function login(event){
     document
       .getElementById("email")
       .value
-      .trim();
+      .trim()
+      .toLowerCase();
 
 
   const password =
@@ -670,50 +925,40 @@ function login(event){
 
 
   const error =
-    document.getElementById("error");
+    document
+      .getElementById("error");
 
 
   const button =
-    document.getElementById("loginButton");
+    document
+      .getElementById("loginButton");
 
 
-  /*
-    TEMPORARY DEMO CREDENTIALS
-
-    Email:
-    admin@fisabilillahicharityfoundation.org
-
-    Password:
-    admin12345
-
-    ZA A CANZA WANNAN LOKACIN DA
-    MUKA HAƊA REAL AUTHENTICATION.
-  */
-
-
-  const demoEmail =
-    "admin@fisabilillahicharityfoundation.org";
-
-  const demoPassword =
-    "admin12345";
-
+  /* CHECK LOGIN */
 
   if(
-    email === demoEmail &&
-    password === demoPassword
+    email === ADMIN_EMAIL &&
+    password === ADMIN_PASSWORD
   ){
 
-    error.classList.remove("show");
+    error.classList.remove(
+      "show"
+    );
+
 
     button.textContent =
       "Signing In...";
 
-    button.disabled = true;
+
+    button.disabled =
+      true;
 
 
     /*
-      Store temporary login status.
-      Wannan ba security na gaske ba ne.
+      Remember me:
+
+      checked  = localStorage
+      unchecked = sessionStorage
     */
 
     if(
@@ -727,11 +972,19 @@ function login(event){
         "true"
       );
 
+      sessionStorage.removeItem(
+        "fisabilillahi_admin"
+      );
+
     }else{
 
       sessionStorage.setItem(
         "fisabilillahi_admin",
         "true"
+      );
+
+      localStorage.removeItem(
+        "fisabilillahi_admin"
       );
 
     }
@@ -742,35 +995,52 @@ function login(event){
       window.location.href =
         "admin.html";
 
-    },700);
+    },500);
 
 
-  }else{
-
-    error.classList.add("show");
-
-    button.textContent =
-      "Sign In →";
-
-    button.disabled = false;
+    return;
 
   }
+
+
+  /* INVALID LOGIN */
+
+  error.classList.add(
+    "show"
+  );
+
+
+  button.textContent =
+    "Sign In →";
+
+
+  button.disabled =
+    false;
 
 }
 
 
-/* SHOW / HIDE PASSWORD */
+
+/* ================= PASSWORD ================= */
 
 function togglePassword(){
 
   const password =
-    document.getElementById("password");
+    document
+      .getElementById("password");
+
 
   const button =
-    document.querySelector(".password-toggle");
+    document
+      .querySelector(
+        ".password-toggle"
+      );
 
 
-  if(password.type === "password"){
+  if(
+    password.type ===
+    "password"
+  ){
 
     password.type =
       "text";
@@ -791,20 +1061,23 @@ function togglePassword(){
 }
 
 
-/* FORGOT PASSWORD */
+
+/* ================= FORGOT PASSWORD ================= */
 
 function forgotPassword(event){
 
   event.preventDefault();
 
+
   alert(
-    "Password recovery will be connected when the real admin authentication system is enabled."
+    "Password recovery will be added when the real admin authentication system is connected."
   );
 
 }
 
 
 </script>
+
 
 </body>
 </html>

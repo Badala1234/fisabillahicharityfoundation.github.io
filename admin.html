@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Admin Dashboard | Fisabilillahi Charity Foundation</title>
-
-<meta name="description"
-content="Fisabilillahi Charity Foundation Administration Dashboard">
 
 <style>
 
@@ -20,10 +18,11 @@ content="Fisabilillahi Charity Foundation Administration Dashboard">
   --white:#ffffff;
   --text:#26372f;
   --muted:#718078;
-  --border:#e2e9e5;
+  --border:#e1e9e4;
   --soft:#edf6f1;
   --red:#b93636;
-  --shadow:0 15px 45px rgba(0,0,0,.08);
+  --orange:#c47b19;
+  --shadow:0 8px 30px rgba(0,0,0,.06);
 }
 
 *{
@@ -43,14 +42,13 @@ a{
   color:inherit;
 }
 
-button{
+button,
+input{
   font-family:inherit;
 }
 
-.container{
-  width:94%;
-  max-width:1400px;
-  margin:auto;
+button{
+  cursor:pointer;
 }
 
 
@@ -63,6 +61,12 @@ button{
   position:sticky;
   top:0;
   z-index:1000;
+}
+
+.container{
+  width:94%;
+  max-width:1400px;
+  margin:auto;
 }
 
 .header-inner{
@@ -113,22 +117,12 @@ button{
 }
 
 .view-site{
-  color:var(--green);
   border:1px solid var(--border);
+  color:var(--green);
   padding:9px 14px;
   border-radius:7px;
-  font-size:12px;
-  font-weight:800;
-}
-
-.view-site:hover{
-  background:var(--soft);
-}
-
-.admin-user{
-  display:flex;
-  align-items:center;
-  gap:9px;
+  font-size:11px;
+  font-weight:900;
 }
 
 .avatar{
@@ -140,18 +134,8 @@ button{
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:12px;
+  font-size:11px;
   font-weight:900;
-}
-
-.admin-user small{
-  display:block;
-  color:var(--muted);
-  font-size:9px;
-}
-
-.admin-user strong{
-  font-size:12px;
 }
 
 
@@ -213,17 +197,12 @@ button{
 
 .sidebar-bottom{
   margin-top:35px;
-  border-top:1px solid rgba(255,255,255,.1);
   padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.1);
 }
 
 .logout{
   color:#ffb1b1;
-}
-
-.logout:hover{
-  background:rgba(255,0,0,.08);
-  color:#fff;
 }
 
 
@@ -231,21 +210,20 @@ button{
 
 .main{
   padding:35px;
-  overflow:hidden;
+  min-width:0;
 }
 
 .page-heading{
   display:flex;
-  justify-content:space-between;
   align-items:flex-end;
+  justify-content:space-between;
   gap:20px;
   margin-bottom:28px;
 }
 
 .page-heading h1{
   color:var(--dark);
-  font-size:32px;
-  line-height:1.2;
+  font-size:31px;
 }
 
 .page-heading p{
@@ -255,12 +233,12 @@ button{
 }
 
 .date-box{
-  color:var(--muted);
-  font-size:11px;
   background:#fff;
   border:1px solid var(--border);
-  padding:9px 12px;
   border-radius:7px;
+  padding:9px 12px;
+  color:var(--muted);
+  font-size:10px;
 }
 
 
@@ -268,79 +246,64 @@ button{
 
 .stats{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:17px;
-  margin-bottom:25px;
+  grid-template-columns:
+    repeat(4,1fr);
+  gap:16px;
+  margin-bottom:22px;
 }
 
-.stat{
+.stat-card{
   background:#fff;
   border:1px solid var(--border);
-  border-radius:13px;
-  padding:22px;
-  box-shadow:0 5px 20px rgba(0,0,0,.03);
+  border-radius:12px;
+  padding:20px;
+  box-shadow:var(--shadow);
   position:relative;
   overflow:hidden;
 }
 
-.stat:after{
+.stat-card:after{
   content:"";
   position:absolute;
-  width:80px;
-  height:80px;
+  width:70px;
+  height:70px;
+  right:-25px;
+  bottom:-30px;
   border-radius:50%;
   background:var(--soft);
-  right:-30px;
-  top:-30px;
-}
-
-.stat-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:relative;
-  z-index:2;
 }
 
 .stat-icon{
-  width:39px;
-  height:39px;
-  background:var(--soft);
+  width:38px;
+  height:38px;
   border-radius:9px;
+  background:var(--soft);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:18px;
+  font-size:17px;
+  margin-bottom:14px;
 }
 
 .stat-label{
   color:var(--muted);
-  font-size:10px;
+  font-size:9px;
   text-transform:uppercase;
   letter-spacing:1px;
   font-weight:900;
 }
 
-.stat-number{
+.stat-value{
   color:var(--dark);
-  font-size:28px;
+  font-size:25px;
   font-weight:900;
-  margin-top:13px;
-  position:relative;
-  z-index:2;
+  margin-top:7px;
 }
 
 .stat-note{
   color:var(--muted);
-  font-size:10px;
-  margin-top:3px;
-  position:relative;
-  z-index:2;
-}
-
-.stat-note span{
-  color:var(--green2);
-  font-weight:900;
+  font-size:9px;
+  margin-top:5px;
 }
 
 
@@ -348,96 +311,84 @@ button{
 
 .content-grid{
   display:grid;
-  grid-template-columns:1.4fr .8fr;
+  grid-template-columns:
+    1.5fr 1fr;
   gap:20px;
+  margin-bottom:20px;
 }
 
 .card{
   background:#fff;
   border:1px solid var(--border);
   border-radius:13px;
-  padding:24px;
-  box-shadow:0 5px 20px rgba(0,0,0,.03);
+  box-shadow:var(--shadow);
+  overflow:hidden;
 }
 
 .card-head{
+  padding:18px 20px;
+  border-bottom:1px solid var(--border);
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:15px;
-  margin-bottom:20px;
 }
 
 .card-head h2{
   color:var(--dark);
-  font-size:17px;
+  font-size:15px;
 }
 
-.card-head a{
-  color:var(--green);
-  font-size:11px;
-  font-weight:900;
-}
-
-
-/* ================= DONATIONS ================= */
-
-.donation-row{
-  display:grid;
-  grid-template-columns:1.1fr .8fr .7fr;
-  align-items:center;
-  gap:10px;
-  padding:14px 0;
-  border-bottom:1px solid var(--border);
-}
-
-.donation-row:last-child{
-  border-bottom:0;
-}
-
-.donor{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.donor-avatar{
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  background:var(--soft);
-  color:var(--green);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:11px;
-  font-weight:900;
-}
-
-.donor strong{
-  display:block;
-  font-size:12px;
-}
-
-.donor small{
+.card-head span{
   color:var(--muted);
   font-size:9px;
 }
 
-.amount{
-  color:var(--green);
-  font-weight:900;
-  font-size:12px;
+
+/* ================= DONATION CHART ================= */
+
+.chart-area{
+  height:280px;
+  padding:25px 20px 15px;
+  display:flex;
+  align-items:flex-end;
+  gap:13px;
 }
 
-.status{
-  justify-self:end;
-  padding:5px 8px;
-  border-radius:20px;
-  background:var(--soft);
-  color:var(--green);
+.bar{
+  flex:1;
+  min-width:15px;
+  height:100%;
+  display:flex;
+  align-items:flex-end;
+}
+
+.bar-fill{
+  width:100%;
+  height:var(--height);
+  background:var(--green);
+  border-radius:5px 5px 0 0;
+  position:relative;
+  transition:.3s;
+}
+
+.bar-fill:hover{
+  background:var(--green2);
+}
+
+.bar-label{
+  position:absolute;
+  bottom:-20px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:8px;
+  color:var(--muted);
+}
+
+.chart-legend{
+  padding:10px 20px 18px;
+  color:var(--muted);
   font-size:9px;
-  font-weight:900;
 }
 
 
@@ -445,51 +396,106 @@ button{
 
 .actions{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:
+    repeat(2,1fr);
   gap:10px;
+  padding:20px;
 }
 
 .action{
+  min-height:92px;
   border:1px solid var(--border);
   border-radius:9px;
-  padding:18px 12px;
-  text-align:center;
+  padding:15px;
+  background:#fbfdfb;
   transition:.2s;
 }
 
 .action:hover{
-  transform:translateY(-3px);
-  box-shadow:var(--shadow);
-  border-color:#cbdcd3;
+  border-color:var(--green);
+  transform:translateY(-2px);
 }
 
 .action-icon{
-  font-size:22px;
-  margin-bottom:7px;
+  font-size:19px;
 }
 
-.action strong{
-  display:block;
+.action-title{
   color:var(--dark);
-  font-size:11px;
+  font-size:10px;
+  font-weight:900;
+  margin-top:8px;
 }
 
-.action small{
+.action-text{
   color:var(--muted);
+  font-size:8px;
+  margin-top:4px;
+}
+
+
+/* ================= RECENT DONATIONS ================= */
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th{
+  padding:12px 20px;
+  text-align:left;
+  color:var(--muted);
+  font-size:8px;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--border);
+}
+
+td{
+  padding:14px 20px;
+  color:var(--text);
   font-size:9px;
+  border-bottom:1px solid var(--border);
+}
+
+td strong{
+  color:var(--dark);
+  font-size:10px;
+}
+
+.status{
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:20px;
+  font-size:7px;
+  font-weight:900;
+}
+
+.status.completed{
+  background:var(--soft);
+  color:var(--green);
+}
+
+.status.pending{
+  background:#fff4d8;
+  color:#916600;
 }
 
 
 /* ================= ACTIVITY ================= */
 
 .activity{
-  margin-top:20px;
+  padding:5px 20px 15px;
 }
 
 .activity-item{
   display:flex;
   gap:12px;
-  padding:13px 0;
+  padding:14px 0;
   border-bottom:1px solid var(--border);
 }
 
@@ -498,77 +504,61 @@ button{
 }
 
 .activity-dot{
-  width:9px;
-  height:9px;
+  width:31px;
+  height:31px;
   border-radius:50%;
-  background:var(--green2);
-  margin-top:7px;
+  background:var(--soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
   flex-shrink:0;
 }
 
-.activity-text{
-  font-size:11px;
-}
-
-.activity-text strong{
+.activity-title{
   color:var(--dark);
+  font-size:10px;
+  font-weight:900;
 }
 
-.activity-text small{
-  display:block;
+.activity-text{
   color:var(--muted);
-  font-size:9px;
-  margin-top:2px;
+  font-size:8px;
+  margin-top:4px;
+  line-height:1.5;
+}
+
+.activity-time{
+  color:#9aa69f;
+  font-size:7px;
+  margin-top:4px;
 }
 
 
-/* ================= WELCOME ================= */
+/* ================= SYSTEM NOTICE ================= */
 
-.welcome{
+.notice{
+  padding:15px 18px;
   margin-top:20px;
-  background:
-    linear-gradient(135deg,var(--green),var(--dark));
-  color:#fff;
-  border-radius:13px;
-  padding:25px;
-  position:relative;
-  overflow:hidden;
+  border-radius:9px;
+  border:1px solid #eadcb1;
+  background:#fffaf0;
+  color:#735d21;
+  font-size:9px;
+  line-height:1.6;
 }
 
-.welcome:after{
-  content:"";
-  position:absolute;
-  width:200px;
-  height:200px;
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:50%;
-  right:-80px;
-  top:-90px;
-}
-
-.welcome-content{
-  position:relative;
-  z-index:2;
-}
-
-.welcome h2{
-  font-size:20px;
-  margin-bottom:6px;
-}
-
-.welcome p{
-  color:#d1e1d9;
-  font-size:11px;
-  max-width:650px;
+.notice strong{
+  color:#5e4a13;
 }
 
 
-/* ================= RESPONSIVE ================= */
+/* ================= MOBILE ================= */
 
-@media(max-width:1100px){
+@media(max-width:1150px){
 
   .stats{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:
+      repeat(2,1fr);
   }
 
   .content-grid{
@@ -577,7 +567,7 @@ button{
 
 }
 
-@media(max-width:800px){
+@media(max-width:1000px){
 
   .layout{
     grid-template-columns:1fr;
@@ -591,725 +581,899 @@ button{
     padding:25px 4%;
   }
 
-  .page-heading{
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
-  .header-right .view-site{
-    display:none;
-  }
-
 }
 
-@media(max-width:550px){
+@media(max-width:650px){
 
   .header{
     height:65px;
-  }
-
-  .layout{
-    min-height:calc(100vh - 65px);
   }
 
   .brand-name{
     font-size:14px;
   }
 
-  .admin-user{
+  .header-right .view-site,
+  .header-right .avatar{
     display:none;
+  }
+
+  .page-heading{
+    flex-direction:column;
+    align-items:flex-start;
   }
 
   .stats{
     grid-template-columns:1fr;
   }
 
+  .actions{
+    grid-template-columns:1fr;
+  }
+
+  .main{
+    padding:20px 3%;
+  }
+
   .page-heading h1{
-    font-size:27px;
-  }
-
-  .card{
-    padding:18px;
-  }
-
-  .donation-row{
-    grid-template-columns:1fr auto;
-  }
-
-  .donation-row .amount{
-    text-align:right;
-  }
-
-  .donation-row .status{
-    grid-column:2;
+    font-size:26px;
   }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
-  <div class="container header-inner">
-
-    <a href="admin.html" class="brand">
-
-      <div class="brand-logo">
-        ♥
-      </div>
-
-      <div class="brand-name">
-
-        Fisabilillahi
-
-        <small>
-          Charity Foundation • Admin
-        </small>
-
-      </div>
-
-    </a>
+<div class="container header-inner">
 
 
-    <div class="header-right">
+<a
+href="admin.html"
+class="brand">
 
-      <a
-        href="index.html"
-        class="view-site">
+<div class="brand-logo">
+♥
+</div>
 
-        ↗ View Website
+<div class="brand-name">
 
-      </a>
+Fisabilillahi
+
+<small>
+Charity Foundation • Admin
+</small>
+
+</div>
+
+</a>
 
 
-      <div class="admin-user">
+<div class="header-right">
 
-        <div class="avatar">
-          A
-        </div>
+<a
+href="index.html"
+class="view-site">
 
-        <div>
+↗ View Website
 
-          <small>
-            Administrator
-          </small>
+</a>
 
-          <strong>
-            Admin
-          </strong>
+<div class="avatar">
+A
+</div>
 
-        </div>
+</div>
 
-      </div>
 
-    </div>
-
-  </div>
+</div>
 
 </header>
 
 
 
-<!-- LAYOUT -->
+<!-- ================= LAYOUT ================= -->
 
 <div class="layout">
 
 
-  <!-- SIDEBAR -->
+<!-- ================= SIDEBAR ================= -->
 
-  <aside class="sidebar">
+<aside class="sidebar">
 
-    <div class="sidebar-title">
-      Main Menu
-    </div>
 
+<div class="sidebar-title">
+Main Menu
+</div>
 
-    <a
-      href="admin.html"
-      class="side-link active">
 
-      <span class="side-icon">
-        📊
-      </span>
+<a
+href="admin.html"
+class="side-link active">
 
-      Dashboard
+<span class="side-icon">
+📊
+</span>
 
-    </a>
+Dashboard
 
+</a>
 
-    <a
-      href="donations.html"
-      class="side-link">
 
-      <span class="side-icon">
-        💰
-      </span>
+<a
+href="donations.html"
+class="side-link">
 
-      Donations
+<span class="side-icon">
+💰
+</span>
 
-    </a>
+Donations
 
+</a>
 
-    <a
-      href="members.html"
-      class="side-link">
 
-      <span class="side-icon">
-        👥
-      </span>
+<a
+href="members.html"
+class="side-link">
 
-      Members
+<span class="side-icon">
+👥
+</span>
 
-    </a>
+Members
 
+</a>
 
-    <a
-      href="messages.html"
-      class="side-link">
 
-      <span class="side-icon">
-        💬
-      </span>
+<a
+href="messages.html"
+class="side-link">
 
-      Messages
+<span class="side-icon">
+💬
+</span>
 
-    </a>
+Messages
 
+</a>
 
-    <div class="sidebar-title"
-         style="margin-top:25px;">
 
-      Content
+<div
+class="sidebar-title"
+style="margin-top:25px;">
 
-    </div>
+Content
 
+</div>
 
-    <a
-      href="projects.html"
-      class="side-link">
 
-      <span class="side-icon">
-        📁
-      </span>
+<a
+href="projects.html"
+class="side-link">
 
-      Projects
+<span class="side-icon">
+📁
+</span>
 
-    </a>
+Projects
 
+</a>
 
-    <a
-      href="gallery.html"
-      class="side-link">
 
-      <span class="side-icon">
-        🖼️
-      </span>
+<a
+href="gallery.html"
+class="side-link">
 
-      Gallery
+<span class="side-icon">
+🖼️
+</span>
 
-    </a>
+Gallery
 
+</a>
 
-    <a
-      href="#"
-      class="side-link"
-      onclick="openSettings(event)">
 
-      <span class="side-icon">
-        ⚙️
-      </span>
+<a
+href="#"
+class="side-link"
+onclick="openSettings(event)">
 
-      Settings
+<span class="side-icon">
+⚙️
+</span>
 
-    </a>
+Settings
 
+</a>
 
-    <div class="sidebar-bottom">
 
-      <a
-        href="index.html"
-        class="side-link">
+<div class="sidebar-bottom">
 
-        <span class="side-icon">
-          🌐
-        </span>
 
-        Visit Website
+<a
+href="index.html"
+class="side-link">
 
-      </a>
+<span class="side-icon">
+🌐
+</span>
 
+Visit Website
 
-      <a
-        href="#"
-        class="side-link logout"
-        onclick="logoutAdmin(event)">
+</a>
 
-        <span class="side-icon">
-          🚪
-        </span>
 
-        Logout
+<a
+href="#"
+class="side-link logout"
+onclick="logoutAdmin(event)">
 
-      </a>
+<span class="side-icon">
+🚪
+</span>
 
-    </div>
+Logout
 
-  </aside>
+</a>
 
 
+</div>
 
-  <!-- MAIN -->
 
-  <main class="main">
+</aside>
 
 
-    <!-- PAGE HEADING -->
 
-    <div class="page-heading">
+<!-- ================= MAIN ================= -->
 
-      <div>
+<main class="main">
 
-        <h1>
-          Dashboard
-        </h1>
 
-        <p>
-          Welcome back. Here's what's happening with the foundation.
-        </p>
+<div class="page-heading">
 
-      </div>
 
+<div>
 
-      <div
-        class="date-box"
-        id="currentDate">
+<h1>
+Dashboard
+</h1>
 
-      </div>
+<p>
+Welcome back. Here is an overview of your foundation.
+</p>
 
-    </div>
+</div>
 
 
+<div
+class="date-box"
+id="currentDate">
+</div>
 
-    <!-- STATS -->
 
-    <section class="stats">
+</div>
 
 
-      <div class="stat">
 
-        <div class="stat-top">
+<!-- ================= STATISTICS ================= -->
 
-          <div class="stat-label">
-            Total Donations
-          </div>
+<section class="stats">
 
-          <div class="stat-icon">
-            💰
-          </div>
 
-        </div>
+<div class="stat-card">
 
-        <div class="stat-number">
-          ₦0
-        </div>
+<div class="stat-icon">
+💰
+</div>
 
-        <div class="stat-note">
-          <span>
-            0
-          </span>
-          donations recorded
-        </div>
+<div class="stat-label">
+Total Donations
+</div>
 
-      </div>
+<div class="stat-value">
+₦60,890
+</div>
 
+<div class="stat-note">
+Current foundation balance
+</div>
 
+</div>
 
-      <div class="stat">
 
-        <div class="stat-top">
+<div class="stat-card">
 
-          <div class="stat-label">
-            Members
-          </div>
+<div class="stat-icon">
+👥
+</div>
 
-          <div class="stat-icon">
-            👥
-          </div>
+<div class="stat-label">
+Members
+</div>
 
-        </div>
+<div class="stat-value">
+0
+</div>
 
-        <div class="stat-number">
-          0
-        </div>
+<div class="stat-note">
+Member system awaiting backend
+</div>
 
-        <div class="stat-note">
-          Registered members
-        </div>
+</div>
 
-      </div>
 
+<div class="stat-card">
 
+<div class="stat-icon">
+💬
+</div>
 
-      <div class="stat">
+<div class="stat-label">
+Messages
+</div>
 
-        <div class="stat-top">
+<div class="stat-value">
+3
+</div>
 
-          <div class="stat-label">
-            Messages
-          </div>
+<div class="stat-note">
+2 read • 1 unread
+</div>
 
-          <div class="stat-icon">
-            💬
-          </div>
+</div>
 
-        </div>
 
-        <div class="stat-number">
-          0
-        </div>
+<div class="stat-card">
 
-        <div class="stat-note">
-          <span>
-            0
-          </span>
-          unread messages
-        </div>
+<div class="stat-icon">
+📁
+</div>
 
-      </div>
+<div class="stat-label">
+Projects
+</div>
 
+<div class="stat-value">
+3
+</div>
 
+<div class="stat-note">
+Foundation projects
+</div>
 
-      <div class="stat">
+</div>
 
-        <div class="stat-top">
 
-          <div class="stat-label">
-            Projects
-          </div>
+</section>
 
-          <div class="stat-icon">
-            📁
-          </div>
 
-        </div>
 
-        <div class="stat-number">
-          0
-        </div>
+<!-- ================= CONTENT ================= -->
 
-        <div class="stat-note">
-          Active foundation projects
-        </div>
+<div class="content-grid">
 
-      </div>
 
+<!-- DONATION OVERVIEW -->
 
-    </section>
+<section class="card">
 
 
+<div class="card-head">
 
-    <!-- CONTENT -->
+<h2>
+Donation Overview
+</h2>
 
-    <div class="content-grid">
+<span>
+Monthly activity
+</span>
 
+</div>
 
-      <!-- RECENT DONATIONS -->
 
-      <section class="card">
+<div class="chart-area">
 
-        <div class="card-head">
 
-          <h2>
-            Recent Donations
-          </h2>
+<div class="bar">
+<div
+class="bar-fill"
+style="--height:35%;">
+<span class="bar-label">Mar</span>
+</div>
+</div>
 
-          <a href="donations.html">
-            View All →
-          </a>
 
-        </div>
+<div class="bar">
+<div
+class="bar-fill"
+style="--height:48%;">
+<span class="bar-label">Apr</span>
+</div>
+</div>
 
 
-        <div id="donationList">
+<div class="bar">
+<div
+class="bar-fill"
+style="--height:42%;">
+<span class="bar-label">May</span>
+</div>
+</div>
 
-          <div
-            style="
-            text-align:center;
-            padding:35px 10px;
-            color:#718078;
-            font-size:12px;
-            ">
 
-            No donations recorded yet.
+<div class="bar">
+<div
+class="bar-fill"
+style="--height:60%;">
+<span class="bar-label">Jun</span>
+</div>
+</div>
 
-          </div>
 
-        </div>
+<div class="bar">
+<div
+class="bar-fill"
+style="--height:72%;">
+<span class="bar-label">Jul</span>
+</div>
+</div>
 
-      </section>
 
+<div class="bar">
+<div
+class="bar-fill"
+style="--height:82%;">
+<span class="bar-label">Aug</span>
+</div>
+</div>
 
 
-      <!-- QUICK ACTIONS -->
+</div>
 
-      <section class="card">
 
-        <div class="card-head">
+<div class="chart-legend">
 
-          <h2>
-            Quick Actions
-          </h2>
+Donation activity shown for demonstration.
+Real statistics will be connected to the database later.
 
-        </div>
+</div>
 
 
-        <div class="actions">
+</section>
 
 
-          <a
-            href="donations.html"
-            class="action">
 
-            <div class="action-icon">
-              💰
-            </div>
+<!-- QUICK ACTIONS -->
 
-            <strong>
-              Donations
-            </strong>
+<section class="card">
 
-            <small>
-              Manage donations
-            </small>
 
-          </a>
+<div class="card-head">
 
+<h2>
+Quick Actions
+</h2>
 
-          <a
-            href="members.html"
-            class="action">
+<span>
+Manage website
+</span>
 
-            <div class="action-icon">
-              👥
-            </div>
+</div>
 
-            <strong>
-              Members
-            </strong>
 
-            <small>
-              Manage members
-            </small>
+<div class="actions">
 
-          </a>
 
+<a
+href="projects.html"
+class="action">
 
-          <a
-            href="messages.html"
-            class="action">
+<div class="action-icon">
+📁
+</div>
 
-            <div class="action-icon">
-              💬
-            </div>
+<div class="action-title">
+Manage Projects
+</div>
 
-            <strong>
-              Messages
-            </strong>
+<div class="action-text">
+View and manage foundation projects.
+</div>
 
-            <small>
-              View messages
-            </small>
+</a>
 
-          </a>
 
+<a
+href="gallery.html"
+class="action">
 
-          <a
-            href="projects.html"
-            class="action">
+<div class="action-icon">
+🖼️
+</div>
 
-            <div class="action-icon">
-              📁
-            </div>
+<div class="action-title">
+Manage Gallery
+</div>
 
-            <strong>
-              Projects
-            </strong>
+<div class="action-text">
+View foundation photos and gallery.
+</div>
 
-            <small>
-              Manage projects
-            </small>
+</a>
 
-          </a>
 
+<a
+href="messages.html"
+class="action">
 
-          <a
-            href="gallery.html"
-            class="action">
+<div class="action-icon">
+💬
+</div>
 
-            <div class="action-icon">
-              🖼️
-            </div>
+<div class="action-title">
+View Messages
+</div>
 
-            <strong>
-              Gallery
-            </strong>
+<div class="action-text">
+Read messages from visitors.
+</div>
 
-            <small>
-              Manage photos
-            </small>
+</a>
 
-          </a>
 
+<a
+href="donate.html"
+class="action">
 
-          <a
-            href="donate.html"
-            class="action">
+<div class="action-icon">
+💰
+</div>
 
-            <div class="action-icon">
-              ❤️
-            </div>
+<div class="action-title">
+Donation Page
+</div>
 
-            <strong>
-              Donation Page
-            </strong>
+<div class="action-text">
+Open the public donation page.
+</div>
 
-            <small>
-              View public page
-            </small>
+</a>
 
-          </a>
 
+</div>
 
-        </div>
 
-      </section>
+</section>
 
 
-    </div>
+</div>
 
 
 
-    <!-- LOWER CONTENT -->
+<!-- ================= LOWER GRID ================= -->
 
-    <div class="content-grid">
+<div class="content-grid">
 
 
-      <!-- ACTIVITY -->
+<!-- RECENT DONATIONS -->
 
-      <section class="card activity">
+<section class="card">
 
-        <div class="card-head">
 
-          <h2>
-            Recent Activity
-          </h2>
+<div class="card-head">
 
-        </div>
+<h2>
+Recent Donations
+</h2>
 
+<span>
+Demo records
+</span>
 
-        <div id="activityList">
+</div>
 
-          <div
-            class="activity-item">
 
-            <div class="activity-dot"></div>
+<div class="table-wrap">
 
-            <div class="activity-text">
 
-              <strong>
-                Dashboard initialized
-              </strong>
+<table>
 
-              <small>
-                Admin dashboard is ready.
-              </small>
 
-            </div>
+<thead>
 
-          </div>
+<tr>
 
+<th>
+Donor
+</th>
 
-          <div
-            class="activity-item">
+<th>
+Amount
+</th>
 
-            <div class="activity-dot"></div>
+<th>
+Date
+</th>
 
-            <div class="activity-text">
+<th>
+Status
+</th>
 
-              <strong>
-                Website frontend active
-              </strong>
+</tr>
 
-              <small>
-                Public foundation pages are available.
-              </small>
+</thead>
 
-            </div>
 
-          </div>
+<tbody>
 
 
-          <div
-            class="activity-item">
+<tr>
 
-            <div class="activity-dot"></div>
+<td>
+<strong>
+Anonymous
+</strong>
 
-            <div class="activity-text">
+<br>
 
-              <strong>
-                Database connection pending
-              </strong>
+<span>
+Fisabilillahi
+</span>
 
-              <small>
-                Supabase integration will be connected later.
-              </small>
+</td>
 
-            </div>
+<td>
+₦5,000
+</td>
 
-          </div>
+<td>
+28 Aug 2026
+</td>
 
+<td>
 
-        </div>
+<span
+class="status completed">
 
-      </section>
+Completed
 
+</span>
 
+</td>
 
-      <!-- WELCOME -->
+</tr>
 
-      <section class="welcome">
 
-        <div class="welcome-content">
+<tr>
 
-          <h2>
-            Fisabilillahi Charity Foundation
-          </h2>
+<td>
+<strong>
+Anonymous
+</strong>
 
-          <p>
+<br>
 
-            Serving humanity for the sake of Allah.
-            Use this dashboard to manage donations,
-            members, messages, projects and gallery
-            content.
+<span>
+Monthly Support
+</span>
 
-          </p>
+</td>
 
-        </div>
+<td>
+₦3,500
+</td>
 
-      </section>
+<td>
+27 Aug 2026
+</td>
 
+<td>
 
-    </div>
+<span
+class="status completed">
 
+Completed
 
-  </main>
+</span>
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+<strong>
+Anonymous
+</strong>
+
+<br>
+
+<span>
+Charity
+</span>
+
+</td>
+
+<td>
+₦2,500
+</td>
+
+<td>
+26 Aug 2026
+</td>
+
+<td>
+
+<span
+class="status completed">
+
+Completed
+
+</span>
+
+</td>
+
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- ACTIVITY -->
+
+<section class="card">
+
+
+<div class="card-head">
+
+<h2>
+Recent Activity
+</h2>
+
+<span>
+Admin activity
+</span>
+
+</div>
+
+
+<div class="activity">
+
+
+<div class="activity-item">
+
+
+<div class="activity-dot">
+💬
+</div>
+
+
+<div>
+
+<div class="activity-title">
+New message received
+</div>
+
+<div class="activity-text">
+A visitor sent a message through the website.
+</div>
+
+<div class="activity-time">
+Today
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="activity-item">
+
+
+<div class="activity-dot">
+🖼️
+</div>
+
+
+<div>
+
+<div class="activity-title">
+Gallery updated
+</div>
+
+<div class="activity-text">
+Foundation gallery content was updated.
+</div>
+
+<div class="activity-time">
+Yesterday
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="activity-item">
+
+
+<div class="activity-dot">
+📁
+</div>
+
+
+<div>
+
+<div class="activity-title">
+Projects updated
+</div>
+
+<div class="activity-text">
+Foundation project information was updated.
+</div>
+
+<div class="activity-time">
+Yesterday
+</div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+
+<!-- ================= NOTICE ================= -->
+
+<div class="notice">
+
+<strong>
+⚠️ Development Notice:
+</strong>
+
+This dashboard is currently running with frontend/demo data.
+Supabase authentication, donations, members and messages database
+integration will be connected later. No Supabase code is required
+for this version.
+
+</div>
+
+
+</main>
 
 </div>
 
@@ -1317,56 +1481,106 @@ button{
 
 <script>
 
-/* DATE */
+
+/* =========================================================
+   LOGIN PROTECTION
+========================================================= */
+
+(function(){
+
+const loggedIn =
+
+localStorage.getItem(
+"fisabilillahi_admin"
+) === "true"
+
+||
+
+sessionStorage.getItem(
+"fisabilillahi_admin"
+) === "true";
+
+
+if(!loggedIn){
+
+window.location.href =
+"admin-login.html";
+
+}
+
+})();
+
+
+
+/* =========================================================
+   CURRENT DATE
+========================================================= */
 
 const dateElement =
-  document.getElementById("currentDate");
-
-const today =
-  new Date();
+document.getElementById(
+"currentDate"
+);
 
 dateElement.textContent =
-  today.toLocaleDateString(
-    "en-NG",
-    {
-      weekday:"long",
-      year:"numeric",
-      month:"long",
-      day:"numeric"
-    }
-  );
+
+new Date().toLocaleDateString(
+"en-NG",
+{
+weekday:"long",
+year:"numeric",
+month:"long",
+day:"numeric"
+}
+);
 
 
-/* SETTINGS */
+
+/* =========================================================
+   SETTINGS
+========================================================= */
 
 function openSettings(event){
 
-  event.preventDefault();
+event.preventDefault();
 
-  alert(
-    "Settings section will be connected when the admin backend is ready."
-  );
+alert(
+"Settings will be added later."
+);
 
 }
 
 
-/* LOGOUT */
+
+/* =========================================================
+   LOGOUT
+========================================================= */
 
 function logoutAdmin(event){
 
-  event.preventDefault();
+event.preventDefault();
 
-  const confirmLogout =
-    confirm(
-      "Are you sure you want to logout?"
-    );
 
-  if(confirmLogout){
+const confirmLogout =
 
-    window.location.href =
-      "admin-login.html";
+confirm(
+"Are you sure you want to logout?"
+);
 
-  }
+
+if(confirmLogout){
+
+localStorage.removeItem(
+"fisabilillahi_admin"
+);
+
+sessionStorage.removeItem(
+"fisabilillahi_admin"
+);
+
+window.location.href =
+"admin-login.html";
+
+}
 
 }
 

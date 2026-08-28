@@ -243,7 +243,7 @@ button{
 }
 
 
-/* ================= STATISTICS ================= */
+/* ================= STATS ================= */
 
 .stats{
   display:grid;
@@ -310,9 +310,11 @@ button{
 .toolbar{
   padding:18px;
   border-bottom:1px solid var(--border);
+
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   gap:10px;
   flex-wrap:wrap;
 }
@@ -364,9 +366,6 @@ button{
   outline:none;
 }
 
-
-/* ================= ADD MEMBER ================= */
-
 .add-btn{
   height:42px;
   padding:0 15px;
@@ -392,7 +391,7 @@ button{
 table{
   width:100%;
   border-collapse:collapse;
-  min-width:800px;
+  min-width:820px;
 }
 
 th{
@@ -423,8 +422,8 @@ tbody tr:hover{
 }
 
 .member-avatar{
-  width:37px;
-  height:37px;
+  width:36px;
+  height:36px;
   border-radius:50%;
   background:var(--soft);
   color:var(--green);
@@ -459,8 +458,23 @@ tbody tr:hover{
 }
 
 .role{
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:20px;
+  background:#f2f4f3;
   color:var(--text);
-  font-size:9px;
+  font-size:7px;
+  font-weight:900;
+}
+
+.role.volunteer{
+  background:#eef5ff;
+  color:#315d9b;
+}
+
+.role.donor{
+  background:#fff6df;
+  color:#8b6500;
 }
 
 .status{
@@ -472,13 +486,13 @@ tbody tr:hover{
 }
 
 .status.active{
-  color:var(--green);
   background:var(--soft);
+  color:var(--green);
 }
 
 .status.inactive{
-  color:var(--red);
   background:#fff0f0;
+  color:var(--red);
 }
 
 .action-btn{
@@ -521,6 +535,24 @@ tbody tr:hover{
 }
 
 
+/* ================= NOTICE ================= */
+
+.notice{
+  margin-top:18px;
+  padding:15px 18px;
+  background:#fffaf0;
+  border:1px solid #eadcb1;
+  border-radius:10px;
+  color:#735d21;
+  font-size:9px;
+  line-height:1.6;
+}
+
+.notice strong{
+  color:#5e4a13;
+}
+
+
 /* ================= MODAL ================= */
 
 .modal{
@@ -551,8 +583,8 @@ tbody tr:hover{
   padding:18px 20px;
   border-bottom:1px solid var(--border);
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 }
 
 .modal-head h2{
@@ -571,6 +603,40 @@ tbody tr:hover{
 
 .detail{
   padding:22px;
+}
+
+.detail-top{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding-bottom:18px;
+  margin-bottom:5px;
+  border-bottom:1px solid var(--border);
+}
+
+.detail-avatar{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:var(--soft);
+  color:var(--green);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  font-weight:900;
+}
+
+.detail-name{
+  color:var(--dark);
+  font-size:15px;
+  font-weight:900;
+}
+
+.detail-email{
+  color:var(--muted);
+  font-size:9px;
+  margin-top:4px;
 }
 
 .detail-row{
@@ -613,14 +679,13 @@ tbody tr:hover{
   color:var(--dark);
   font-size:9px;
   font-weight:900;
-  margin-bottom:7px;
-  letter-spacing:.5px;
+  margin-bottom:6px;
 }
 
 .form-group input,
 .form-group select{
   width:100%;
-  height:42px;
+  height:43px;
   border:1px solid var(--border);
   border-radius:8px;
   padding:0 12px;
@@ -640,43 +705,26 @@ tbody tr:hover{
   margin-top:20px;
 }
 
-.cancel-btn,
 .save-btn{
   flex:1;
   height:43px;
+  border:0;
   border-radius:8px;
+  background:var(--green);
+  color:#fff;
   font-size:10px;
   font-weight:900;
 }
 
 .cancel-btn{
-  background:#fff;
-  color:var(--muted);
+  flex:1;
+  height:43px;
   border:1px solid var(--border);
-}
-
-.save-btn{
-  background:var(--green);
-  color:#fff;
-  border:0;
-}
-
-.save-btn:hover{
-  background:var(--dark);
-}
-
-
-/* ================= NOTICE ================= */
-
-.notice{
-  margin-top:18px;
-  padding:15px 18px;
-  background:#fffaf0;
-  border:1px solid #eadcb1;
-  border-radius:10px;
-  color:#735d21;
-  font-size:9px;
-  line-height:1.6;
+  border-radius:8px;
+  background:#fff;
+  color:var(--text);
+  font-size:10px;
+  font-weight:900;
 }
 
 
@@ -985,7 +1033,7 @@ Members
 </h1>
 
 <p>
-Manage foundation members and membership information.
+Manage foundation members, volunteers and supporters.
 </p>
 
 </div>
@@ -1018,11 +1066,13 @@ Total Members
 <div
 class="stat-value"
 id="totalMembers">
-0
+
+3
+
 </div>
 
 <div class="stat-note">
-Registered members
+Registered demo members
 </div>
 
 </div>
@@ -1031,7 +1081,7 @@ Registered members
 <div class="stat">
 
 <div class="stat-icon">
-✅
+🟢
 </div>
 
 <div class="stat-label">
@@ -1041,7 +1091,9 @@ Active Members
 <div
 class="stat-value"
 id="activeMembers">
-0
+
+3
+
 </div>
 
 <div class="stat-note">
@@ -1054,21 +1106,23 @@ Currently active
 <div class="stat">
 
 <div class="stat-icon">
-⏸️
+🤝
 </div>
 
 <div class="stat-label">
-Inactive
+Volunteers
 </div>
 
 <div
 class="stat-value"
-id="inactiveMembers">
-0
+id="volunteerCount">
+
+1
+
 </div>
 
 <div class="stat-note">
-Inactive members
+Foundation volunteers
 </div>
 
 </div>
@@ -1077,21 +1131,23 @@ Inactive members
 <div class="stat">
 
 <div class="stat-icon">
-📅
+❤️
 </div>
 
 <div class="stat-label">
-This Month
+Supporters
 </div>
 
 <div
 class="stat-value"
-id="newMembers">
-0
+id="supporterCount">
+
+2
+
 </div>
 
 <div class="stat-note">
-New members
+Donors and supporters
 </div>
 
 </div>
@@ -1101,7 +1157,7 @@ New members
 
 
 
-<!-- ================= MEMBER TABLE ================= -->
+<!-- ================= MEMBER CARD ================= -->
 
 <section class="card">
 
@@ -1118,13 +1174,36 @@ New members
 <input
 type="search"
 id="searchInput"
-placeholder="Search member, email or phone..."
+placeholder="Search name, email or phone..."
 oninput="filterMembers()">
 
 </div>
 
 
 <div class="filters">
+
+
+<select
+id="roleFilter"
+onchange="filterMembers()">
+
+<option value="all">
+All Roles
+</option>
+
+<option value="Volunteer">
+Volunteer
+</option>
+
+<option value="Donor">
+Donor
+</option>
+
+<option value="Supporter">
+Supporter
+</option>
+
+</select>
 
 
 <select
@@ -1146,35 +1225,12 @@ Inactive
 </select>
 
 
-<select
-id="roleFilter"
-onchange="filterMembers()">
-
-<option value="all">
-All Roles
-</option>
-
-<option value="Member">
-Member
-</option>
-
-<option value="Volunteer">
-Volunteer
-</option>
-
-<option value="Coordinator">
-Coordinator
-</option>
-
-</select>
-
-
 </div>
 
 
 <button
 class="add-btn"
-onclick="openAddModal()">
+onclick="openAddMember()">
 
 + Add Member
 
@@ -1189,6 +1245,7 @@ onclick="openAddModal()">
 
 
 <table>
+
 
 <thead>
 
@@ -1227,6 +1284,7 @@ Action
 id="memberTable">
 </tbody>
 
+
 </table>
 
 
@@ -1247,7 +1305,7 @@ No members found
 </h3>
 
 <p>
-No members match your current search or filters.
+No member matches your search or selected filters.
 </p>
 
 </div>
@@ -1263,9 +1321,9 @@ No members match your current search or filters.
 ⚠️ Development Notice:
 </strong>
 
-Member records are currently stored only in this browser as demo data.
-The real membership database will be connected later when we resume
-the Supabase part of the project.
+This member page currently uses frontend/demo data.
+The real member registration and database system will be connected
+later when we resume the Supabase part of the project.
 
 </div>
 
@@ -1276,11 +1334,11 @@ the Supabase part of the project.
 
 
 
-<!-- ================= DETAIL MODAL ================= -->
+<!-- ================= VIEW MODAL ================= -->
 
 <div
 class="modal"
-id="detailModal">
+id="viewModal">
 
 <div class="modal-box">
 
@@ -1293,7 +1351,7 @@ Member Details
 
 <button
 class="close"
-onclick="closeDetailModal()">
+onclick="closeViewModal()">
 
 ×
 
@@ -1326,12 +1384,12 @@ id="addModal">
 <div class="modal-head">
 
 <h2>
-Add New Member
+Add Member
 </h2>
 
 <button
 class="close"
-onclick="closeAddModal()">
+onclick="closeAddMember()">
 
 ×
 
@@ -1347,13 +1405,13 @@ onsubmit="addMember(event)">
 
 <div class="form-group">
 
-<label for="memberName">
+<label>
 FULL NAME
 </label>
 
 <input
 type="text"
-id="memberName"
+id="newName"
 placeholder="Enter full name"
 required>
 
@@ -1362,14 +1420,14 @@ required>
 
 <div class="form-group">
 
-<label for="memberEmail">
-EMAIL ADDRESS
+<label>
+EMAIL
 </label>
 
 <input
 type="email"
-id="memberEmail"
-placeholder="member@example.com"
+id="newEmail"
+placeholder="Enter email address"
 required>
 
 </div>
@@ -1377,14 +1435,14 @@ required>
 
 <div class="form-group">
 
-<label for="memberPhone">
-PHONE NUMBER
+<label>
+PHONE
 </label>
 
 <input
 type="tel"
-id="memberPhone"
-placeholder="+234..."
+id="newPhone"
+placeholder="Enter phone number"
 required>
 
 </div>
@@ -1392,45 +1450,23 @@ required>
 
 <div class="form-group">
 
-<label for="memberRole">
+<label>
 ROLE
 </label>
 
 <select
-id="memberRole">
+id="newRole">
 
-<option value="Member">
-Member
+<option>
+Supporter
 </option>
 
-<option value="Volunteer">
+<option>
+Donor
+</option>
+
+<option>
 Volunteer
-</option>
-
-<option value="Coordinator">
-Coordinator
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="memberStatus">
-STATUS
-</label>
-
-<select
-id="memberStatus">
-
-<option value="active">
-Active
-</option>
-
-<option value="inactive">
-Inactive
 </option>
 
 </select>
@@ -1443,7 +1479,7 @@ Inactive
 <button
 type="button"
 class="cancel-btn"
-onclick="closeAddModal()">
+onclick="closeAddMember()">
 
 Cancel
 
@@ -1504,7 +1540,7 @@ window.location.href =
 
 
 /* =========================================================
-   CURRENT DATE
+   DATE
 ========================================================= */
 
 document.getElementById(
@@ -1532,27 +1568,27 @@ let members = [
 {
   name:"Abdullahi Musa",
   email:"abdullahi@example.com",
-  phone:"+234 802 000 0001",
-  role:"Member",
-  joined:"2026-08-03",
+  phone:"+234 801 000 0001",
+  role:"Volunteer",
+  date:"2026-08-10",
   status:"active"
 },
 
 {
   name:"Aisha Ibrahim",
   email:"aisha@example.com",
-  phone:"+234 803 000 0002",
-  role:"Volunteer",
-  joined:"2026-08-10",
+  phone:"+234 802 000 0002",
+  role:"Donor",
+  date:"2026-08-15",
   status:"active"
 },
 
 {
-  name:"Muhammad Sani",
-  email:"muhammad@example.com",
-  phone:"+234 804 000 0003",
-  role:"Coordinator",
-  joined:"2026-07-18",
+  name:"Anonymous Supporter",
+  email:"supporter@example.com",
+  phone:"+234 803 000 0003",
+  role:"Supporter",
+  date:"2026-08-20",
   status:"active"
 }
 
@@ -1605,6 +1641,21 @@ document.createElement(
 );
 
 
+let roleClass = "";
+
+if(item.role === "Volunteer"){
+
+roleClass = "volunteer";
+
+}
+
+else if(item.role === "Donor"){
+
+roleClass = "donor";
+
+}
+
+
 row.innerHTML = `
 
 <td>
@@ -1652,11 +1703,12 @@ ${escapeHTML(item.phone)}
 
 <td>
 
-<div class="role">
+<span
+class="role ${roleClass}">
 
 ${escapeHTML(item.role)}
 
-</div>
+</span>
 
 </td>
 
@@ -1665,7 +1717,7 @@ ${escapeHTML(item.role)}
 
 <div class="join-date">
 
-${escapeHTML(item.joined)}
+${escapeHTML(item.date)}
 
 </div>
 
@@ -1700,9 +1752,7 @@ title="View member">
 `;
 
 
-table.appendChild(
-row
-);
+table.appendChild(row);
 
 });
 
@@ -1730,20 +1780,20 @@ document
 .trim();
 
 
-const status =
-
-document
-.getElementById(
-"statusFilter"
-)
-.value;
-
-
 const role =
 
 document
 .getElementById(
 "roleFilter"
+)
+.value;
+
+
+const status =
+
+document
+.getElementById(
+"statusFilter"
 )
 .value;
 
@@ -1770,15 +1820,6 @@ search
 );
 
 
-const statusMatch =
-
-status === "all"
-
-||
-
-item.status === status;
-
-
 const roleMatch =
 
 role === "all"
@@ -1788,26 +1829,33 @@ role === "all"
 item.role === role;
 
 
+const statusMatch =
+
+status === "all"
+
+||
+
+item.status === status;
+
+
 return(
 searchMatch &&
-statusMatch &&
-roleMatch
+roleMatch &&
+statusMatch
 );
 
 }
 );
 
 
-renderMembers(
-filtered
-);
+renderMembers(filtered);
 
 }
 
 
 
 /* =========================================================
-   STATISTICS
+   UPDATE STATISTICS
 ========================================================= */
 
 function updateStats(){
@@ -1824,25 +1872,20 @@ item.status === "active"
 ).length;
 
 
-const inactive =
+const volunteers =
 
 members.filter(
 item =>
-item.status === "inactive"
+item.role === "Volunteer"
 ).length;
 
 
-const thisMonth =
-"2026-08";
-
-
-const newThisMonth =
+const supporters =
 
 members.filter(
 item =>
-item.joined.startsWith(
-thisMonth
-)
+item.role === "Donor" ||
+item.role === "Supporter"
 ).length;
 
 
@@ -1859,15 +1902,15 @@ active;
 
 
 document.getElementById(
-"inactiveMembers"
+"volunteerCount"
 ).textContent =
-inactive;
+volunteers;
 
 
 document.getElementById(
-"newMembers"
+"supporterCount"
 ).textContent =
-newThisMonth;
+supporters;
 
 }
 
@@ -1898,27 +1941,29 @@ document.getElementById(
 
 detail.innerHTML = `
 
-<div class="detail-row">
+<div class="detail-top">
 
-<div class="detail-label">
-Full Name
+<div class="detail-avatar">
+
+${initials(item.name)}
+
 </div>
 
-<div class="detail-value">
+
+<div>
+
+<div class="detail-name">
+
 ${escapeHTML(item.name)}
-</div>
 
 </div>
 
+<div class="detail-email">
 
-<div class="detail-row">
-
-<div class="detail-label">
-Email
-</div>
-
-<div class="detail-value">
 ${escapeHTML(item.email)}
+
+</div>
+
 </div>
 
 </div>
@@ -1957,7 +2002,7 @@ Joined
 </div>
 
 <div class="detail-value">
-${escapeHTML(item.joined)}
+${escapeHTML(item.date)}
 </div>
 
 </div>
@@ -1987,7 +2032,7 @@ ${capitalize(item.status)}
 
 document
 .getElementById(
-"detailModal"
+"viewModal"
 )
 .classList.add(
 "show"
@@ -1998,14 +2043,14 @@ document
 
 
 /* =========================================================
-   CLOSE DETAIL
+   CLOSE VIEW MODAL
 ========================================================= */
 
-function closeDetailModal(){
+function closeViewModal(){
 
 document
 .getElementById(
-"detailModal"
+"viewModal"
 )
 .classList.remove(
 "show"
@@ -2019,7 +2064,7 @@ document
    ADD MEMBER
 ========================================================= */
 
-function openAddModal(){
+function openAddMember(){
 
 document
 .getElementById(
@@ -2032,7 +2077,7 @@ document
 }
 
 
-function closeAddModal(){
+function closeAddMember(){
 
 document
 .getElementById(
@@ -2045,64 +2090,117 @@ document
 }
 
 
+
+/* =========================================================
+   SAVE MEMBER
+========================================================= */
+
 function addMember(event){
 
 event.preventDefault();
 
 
-const member = {
+const name =
+document
+.getElementById(
+"newName"
+)
+.value
+.trim();
 
-name:
-document.getElementById(
-"memberName"
-).value.trim(),
 
-email:
-document.getElementById(
-"memberEmail"
-).value.trim(),
+const email =
+document
+.getElementById(
+"newEmail"
+)
+.value
+.trim();
 
-phone:
-document.getElementById(
-"memberPhone"
-).value.trim(),
 
-role:
-document.getElementById(
-"memberRole"
-).value,
+const phone =
+document
+.getElementById(
+"newPhone"
+)
+.value
+.trim();
 
-joined:
-new Date()
+
+const role =
+document
+.getElementById(
+"newRole"
+)
+.value;
+
+
+if(
+!name ||
+!email ||
+!phone
+){
+
+return;
+
+}
+
+
+members.unshift({
+
+name:name,
+
+email:email,
+
+phone:phone,
+
+role:role,
+
+date:new Date()
 .toISOString()
 .slice(0,10),
 
-status:
-document.getElementById(
-"memberStatus"
-).value
+status:"active"
 
-};
+});
 
 
-members.unshift(
-member
-);
+document
+.getElementById(
+"newName"
+)
+.value = "";
 
 
-renderMembers(
-members
-);
+document
+.getElementById(
+"newEmail"
+)
+.value = "";
 
 
-event.target.reset();
+document
+.getElementById(
+"newPhone"
+)
+.value = "";
 
 
-closeAddModal();
+document
+.getElementById(
+"newRole"
+)
+.value = "Supporter";
+
+
+closeAddMember();
+
+
+filterMembers();
 
 
 alert(
-"Member added successfully."
+"Member added successfully to the demo list."
 );
 
 }
@@ -2115,7 +2213,7 @@ alert(
 
 document
 .getElementById(
-"detailModal"
+"viewModal"
 )
 .addEventListener(
 "click",
@@ -2123,7 +2221,7 @@ function(event){
 
 if(event.target === this){
 
-closeDetailModal();
+closeViewModal();
 
 }
 
@@ -2140,7 +2238,7 @@ function(event){
 
 if(event.target === this){
 
-closeAddModal();
+closeAddMember();
 
 }
 
@@ -2153,9 +2251,9 @@ function(event){
 
 if(event.key === "Escape"){
 
-closeDetailModal();
+closeViewModal();
 
-closeAddModal();
+closeAddMember();
 
 }
 
@@ -2277,9 +2375,7 @@ return String(value)
    INITIAL LOAD
 ========================================================= */
 
-renderMembers(
-members
-);
+renderMembers(members);
 
 </script>
 

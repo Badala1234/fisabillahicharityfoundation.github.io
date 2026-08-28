@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Gallery | Fisabilillahi Charity Foundation</title>
 
-<meta name="description" content="Explore moments, activities and humanitarian work of Fisabilillahi Charity Foundation.">
-
 <style>
+
 :root{
   --green:#075c3b;
-  --green-dark:#043c27;
-  --green-light:#0d8053;
+  --dark:#043c27;
+  --green2:#0d8053;
   --gold:#d6ae3d;
-  --cream:#f8f6ee;
-  --white:#fff;
-  --text:#25352e;
-  --muted:#68766f;
-  --border:#e5eae7;
-  --shadow:0 18px 45px rgba(0,0,0,.10);
+  --cream:#f7f6ef;
+  --white:#ffffff;
+  --text:#26372f;
+  --muted:#718078;
+  --border:#e2e9e5;
+  --soft:#edf6f1;
+  --red:#b93636;
+  --orange:#bd721d;
+  --shadow:0 8px 30px rgba(0,0,0,.06);
 }
 
 *{
@@ -28,15 +31,21 @@
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
   font-family:Arial,Helvetica,sans-serif;
+  background:var(--cream);
   color:var(--text);
-  background:#fff;
-  line-height:1.6;
+}
+
+button,
+input,
+select,
+textarea{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
 }
 
 a{
@@ -45,354 +54,669 @@ a{
 }
 
 .container{
-  width:92%;
-  max-width:1200px;
+  width:94%;
+  max-width:1400px;
   margin:auto;
 }
 
-/* TOP BAR */
 
-.topbar{
-  background:var(--green-dark);
-  color:#dbe9e1;
-  font-size:12px;
-  padding:8px 0;
-}
+/* ================= HEADER ================= */
 
-.topbar-inner{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.topbar a:hover{
-  color:var(--gold);
-}
-
-/* HEADER */
-
-header{
+.header{
+  height:72px;
+  background:#fff;
+  border-bottom:1px solid var(--border);
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(255,255,255,.97);
-  border-bottom:1px solid var(--border);
 }
 
-.navbar{
-  min-height:78px;
+.header-inner{
+  height:100%;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
 
-.logo{
+.brand{
   display:flex;
   align-items:center;
-  gap:10px;
-  color:var(--green);
-  font-weight:800;
+  gap:11px;
 }
 
-.logo-mark{
-  width:44px;
-  height:44px;
+.brand-logo{
+  width:42px;
+  height:42px;
   border-radius:50%;
   background:var(--green);
-  border:2px solid var(--gold);
   color:var(--gold);
+  border:2px solid var(--gold);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:21px;
+  font-size:20px;
 }
 
-.logo-text{
-  font-size:18px;
-  line-height:1.2;
+.brand-name{
+  color:var(--green);
+  font-size:17px;
+  font-weight:900;
 }
 
-.logo-text small{
+.brand-name small{
   display:block;
   color:var(--muted);
-  font-size:9px;
-  letter-spacing:1.4px;
+  font-size:8px;
+  letter-spacing:1.2px;
   text-transform:uppercase;
-  margin-top:3px;
+  margin-top:2px;
 }
 
-nav{
+.header-right{
   display:flex;
   align-items:center;
-  gap:3px;
-}
-
-nav a{
-  color:#30433a;
-  font-size:13px;
-  font-weight:700;
-  padding:9px 11px;
-}
-
-nav a:hover{
-  color:var(--green-light);
-}
-
-.nav-donate{
-  background:var(--green);
-  color:#fff!important;
-  border-radius:7px;
-}
-
-.menu{
-  display:none;
-  border:0;
-  background:var(--green);
-  color:#fff;
-  padding:9px 12px;
-  border-radius:7px;
-  font-size:21px;
-  cursor:pointer;
-}
-
-/* HERO */
-
-.gallery-hero{
-  min-height:420px;
-  display:flex;
-  align-items:center;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(3,55,35,.96),
-      rgba(3,55,35,.68),
-      rgba(3,55,35,.25)
-    ),
-    url("images/gallery-hero.jpg") center/cover no-repeat;
-
-  background-color:var(--green-dark);
-}
-
-.hero-content{
-  max-width:700px;
-  color:#fff;
-  padding:80px 0;
-}
-
-.kicker{
-  color:var(--gold);
-  text-transform:uppercase;
-  font-size:11px;
-  letter-spacing:2px;
-  font-weight:900;
-  margin-bottom:10px;
-}
-
-.hero-content h1{
-  font-size:56px;
-  line-height:1.1;
-  margin-bottom:15px;
-}
-
-.hero-content p{
-  color:#e0ebe5;
-  font-size:17px;
-  max-width:650px;
-}
-
-/* SECTION */
-
-.section{
-  padding:85px 0;
-}
-
-.section-head{
-  text-align:center;
-  max-width:720px;
-  margin:0 auto 40px;
-}
-
-.section-head h2{
-  color:var(--green-dark);
-  font-size:40px;
-  line-height:1.2;
-  margin-bottom:12px;
-}
-
-.section-head p{
-  color:var(--muted);
-  font-size:14px;
-}
-
-/* FILTER */
-
-.filters{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-bottom:35px;
-}
-
-.filter-btn{
-  border:1px solid var(--border);
-  background:#fff;
-  color:var(--green-dark);
-  padding:9px 16px;
-  border-radius:30px;
-  font-size:12px;
-  font-weight:800;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.filter-btn:hover,
-.filter-btn.active{
-  background:var(--green);
-  color:#fff;
-  border-color:var(--green);
-}
-
-/* GALLERY GRID */
-
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
   gap:15px;
 }
 
-.gallery-item{
-  position:relative;
-  height:260px;
-  border-radius:12px;
-  overflow:hidden;
-  background:var(--cream);
-  cursor:pointer;
+.view-site{
+  color:var(--green);
   border:1px solid var(--border);
-}
-
-.gallery-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.4s;
-}
-
-.gallery-item:hover img{
-  transform:scale(1.07);
-}
-
-.gallery-overlay{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  padding:35px 15px 14px;
-
-  background:
-    linear-gradient(
-      transparent,
-      rgba(0,0,0,.75)
-    );
-
-  color:#fff;
-}
-
-.gallery-overlay strong{
-  display:block;
-  font-size:14px;
-}
-
-.gallery-overlay span{
-  font-size:11px;
-  color:#dce7e1;
-}
-
-/* PLACEHOLDER */
-
-.placeholder{
-  width:100%;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:#fff;
-
-  background:
-    linear-gradient(
-      145deg,
-      var(--green-light),
-      var(--green-dark)
-    );
-
-  font-weight:800;
-  font-size:14px;
-}
-
-/* LOAD MORE */
-
-.load-more{
-  text-align:center;
-  margin-top:35px;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:13px 21px;
+  padding:9px 14px;
   border-radius:7px;
-  font-size:14px;
+  font-size:12px;
   font-weight:800;
-  border:0;
-  cursor:pointer;
 }
 
-.btn-gold{
-  background:var(--gold);
-  color:#1d261f;
-}
-
-/* CTA */
-
-.cta{
-  background:var(--green-dark);
+.avatar{
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  background:var(--green);
   color:#fff;
-  padding:75px 0;
-}
-
-.cta-inner{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:30px;
+  justify-content:center;
+  font-size:12px;
+  font-weight:900;
 }
 
-.cta h2{
-  font-size:38px;
-  line-height:1.2;
+
+/* ================= LAYOUT ================= */
+
+.layout{
+  display:grid;
+  grid-template-columns:235px 1fr;
+  min-height:calc(100vh - 72px);
+}
+
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+  background:var(--dark);
+  color:#fff;
+  padding:25px 15px;
+}
+
+.sidebar-title{
+  color:#86a99a;
+  font-size:9px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-weight:900;
+  padding:0 12px;
   margin-bottom:10px;
 }
 
-.cta p{
-  color:#cbdad2;
-  font-size:14px;
-  max-width:650px;
+.side-link{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:12px;
+  margin:4px 0;
+  border-radius:7px;
+  color:#c5d5cd;
+  font-size:12px;
+  font-weight:800;
+  transition:.2s;
 }
 
-/* LIGHTBOX */
+.side-link:hover{
+  background:rgba(255,255,255,.07);
+  color:#fff;
+}
+
+.side-link.active{
+  background:var(--gold);
+  color:#1b261f;
+}
+
+.side-icon{
+  width:25px;
+  text-align:center;
+  font-size:15px;
+}
+
+.sidebar-bottom{
+  margin-top:35px;
+  border-top:1px solid rgba(255,255,255,.1);
+  padding-top:18px;
+}
+
+.logout{
+  color:#ffb1b1;
+}
+
+
+/* ================= MAIN ================= */
+
+.main{
+  padding:35px;
+  min-width:0;
+}
+
+.page-heading{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:28px;
+}
+
+.page-heading h1{
+  color:var(--dark);
+  font-size:31px;
+}
+
+.page-heading p{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:6px;
+}
+
+.date-box{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:7px;
+  padding:9px 12px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+
+/* ================= SUMMARY ================= */
+
+.summary{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-bottom:22px;
+}
+
+.summary-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+
+.summary-label{
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-size:9px;
+  font-weight:900;
+}
+
+.summary-value{
+  color:var(--dark);
+  font-size:25px;
+  font-weight:900;
+  margin-top:10px;
+}
+
+.summary-note{
+  color:var(--muted);
+  font-size:9px;
+  margin-top:4px;
+}
+
+
+/* ================= CARD ================= */
+
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:13px;
+  box-shadow:var(--shadow);
+}
+
+
+/* ================= TOOLBAR ================= */
+
+.toolbar{
+  padding:18px;
+  border-bottom:1px solid var(--border);
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.search{
+  position:relative;
+  flex:1;
+  min-width:220px;
+}
+
+.search span{
+  position:absolute;
+  left:13px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:14px;
+  color:var(--muted);
+}
+
+.search input{
+  width:100%;
+  height:42px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:0 12px 0 37px;
+  outline:none;
+  font-size:11px;
+  background:#fbfdfb;
+}
+
+.search input:focus{
+  border-color:var(--green);
+}
+
+.filters{
+  display:flex;
+  gap:8px;
+}
+
+.filters select{
+  height:42px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:0 12px;
+  background:#fff;
+  color:var(--text);
+  font-size:11px;
+  outline:none;
+}
+
+.add-btn{
+  height:42px;
+  padding:0 16px;
+  border:0;
+  border-radius:8px;
+  background:var(--green);
+  color:#fff;
+  font-size:11px;
+  font-weight:900;
+}
+
+.add-btn:hover{
+  background:var(--dark);
+}
+
+
+/* ================= GALLERY GRID ================= */
+
+.gallery-grid{
+  padding:20px;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,minmax(0,1fr));
+
+  gap:18px;
+}
+
+.gallery-item{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  transition:.2s;
+}
+
+.gallery-item:hover{
+  transform:translateY(-3px);
+  box-shadow:
+    0 15px 35px
+    rgba(0,0,0,.09);
+}
+
+.gallery-image{
+  height:190px;
+  background:
+    linear-gradient(
+      135deg,
+      var(--dark),
+      var(--green2)
+    );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#fff;
+  font-size:50px;
+
+  overflow:hidden;
+  cursor:pointer;
+}
+
+.gallery-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.gallery-body{
+  padding:14px;
+}
+
+.gallery-title{
+  color:var(--dark);
+  font-size:13px;
+  font-weight:900;
+  line-height:1.4;
+}
+
+.gallery-category{
+  display:inline-block;
+  margin-top:7px;
+  padding:5px 8px;
+  border-radius:20px;
+  background:var(--soft);
+  color:var(--green);
+  font-size:8px;
+  font-weight:900;
+}
+
+.gallery-description{
+  color:var(--muted);
+  font-size:9px;
+  line-height:1.6;
+  margin-top:8px;
+
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.gallery-meta{
+  margin-top:11px;
+  padding-top:10px;
+  border-top:1px solid var(--border);
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.gallery-date{
+  color:var(--muted);
+  font-size:8px;
+}
+
+.gallery-actions{
+  display:flex;
+  gap:5px;
+  margin-top:10px;
+}
+
+.action-btn{
+  flex:1;
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:6px;
+  padding:7px 8px;
+  font-size:9px;
+  font-weight:800;
+  color:var(--green);
+}
+
+.action-btn:hover{
+  background:var(--soft);
+}
+
+.delete-btn{
+  color:var(--red);
+}
+
+.delete-btn:hover{
+  background:#fff1f1;
+}
+
+
+/* ================= EMPTY ================= */
+
+.empty{
+  display:none;
+  text-align:center;
+  padding:65px 20px;
+}
+
+.empty-icon{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.empty h3{
+  color:var(--dark);
+  font-size:16px;
+}
+
+.empty p{
+  color:var(--muted);
+  font-size:10px;
+  margin-top:5px;
+}
+
+
+/* ================= MODAL ================= */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.58);
+  z-index:3000;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:100%;
+  max-width:620px;
+
+  max-height:
+    calc(100vh - 40px);
+
+  overflow:auto;
+
+  background:#fff;
+  border-radius:15px;
+
+  box-shadow:
+    0 25px 80px
+    rgba(0,0,0,.25);
+}
+
+.modal-head{
+  padding:20px 22px;
+
+  border-bottom:
+    1px solid
+    var(--border);
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.modal-head h2{
+  color:var(--dark);
+  font-size:19px;
+}
+
+.close{
+  width:32px;
+  height:32px;
+
+  border:0;
+  background:#f1f4f2;
+
+  border-radius:50%;
+  font-size:17px;
+}
+
+.modal-body{
+  padding:22px;
+}
+
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group label{
+  display:block;
+
+  color:var(--dark);
+
+  font-size:9px;
+
+  font-weight:900;
+
+  text-transform:uppercase;
+
+  letter-spacing:.7px;
+
+  margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+  width:100%;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:8px;
+
+  padding:10px 11px;
+
+  outline:none;
+
+  font-size:11px;
+
+  color:var(--text);
+
+  background:#fbfdfb;
+}
+
+.form-group input,
+.form-group select{
+  height:43px;
+}
+
+.form-group textarea{
+  min-height:90px;
+  resize:vertical;
+  line-height:1.5;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:var(--green);
+  background:#fff;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.file-note{
+  color:var(--muted);
+  font-size:8px;
+  line-height:1.5;
+  margin-top:5px;
+}
+
+.image-preview{
+  display:none;
+  margin-top:10px;
+  width:100%;
+  height:180px;
+  border-radius:9px;
+  overflow:hidden;
+  border:1px solid var(--border);
+}
+
+.image-preview.show{
+  display:block;
+}
+
+.image-preview img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.save-btn{
+  width:100%;
+  height:45px;
+  border:0;
+  border-radius:8px;
+  background:var(--green);
+  color:#fff;
+  font-weight:900;
+  font-size:11px;
+}
+
+
+/* ================= LIGHTBOX ================= */
 
 .lightbox{
   display:none;
   position:fixed;
   inset:0;
-  z-index:2000;
-  background:rgba(0,0,0,.93);
+
+  background:
+    rgba(0,0,0,.88);
+
+  z-index:5000;
+
   align-items:center;
   justify-content:center;
+
   padding:25px;
 }
 
@@ -401,1173 +725,1839 @@ nav a:hover{
 }
 
 .lightbox-content{
-  max-width:1100px;
+  max-width:1000px;
   width:100%;
   text-align:center;
 }
 
-.lightbox img{
+.lightbox-content img{
   max-width:100%;
-  max-height:78vh;
+  max-height:75vh;
   object-fit:contain;
   border-radius:8px;
 }
 
 .lightbox-title{
   color:#fff;
-  margin-top:12px;
   font-size:14px;
-  font-weight:800;
+  font-weight:900;
+  margin-top:12px;
 }
 
 .lightbox-close{
   position:absolute;
+  right:25px;
   top:20px;
-  right:25px;
-  width:45px;
-  height:45px;
+
+  width:40px;
+  height:40px;
+
   border:0;
   border-radius:50%;
-  background:#fff;
-  color:var(--green-dark);
-  font-size:25px;
-  cursor:pointer;
-}
 
-.lightbox-prev,
-.lightbox-next{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:45px;
-  height:45px;
-  border:0;
-  border-radius:50%;
-  background:#fff;
-  color:var(--green-dark);
-  font-size:25px;
-  cursor:pointer;
-}
-
-.lightbox-prev{
-  left:25px;
-}
-
-.lightbox-next{
-  right:25px;
-}
-
-/* FOOTER */
-
-footer{
-  background:var(--green-dark);
+  background:rgba(255,255,255,.15);
   color:#fff;
-  padding:55px 0 25px;
+
+  font-size:22px;
 }
 
-.footer-grid{
-  display:grid;
-  grid-template-columns:1.4fr 1fr 1fr;
-  gap:45px;
-  padding-bottom:35px;
-  border-bottom:1px solid rgba(255,255,255,.12);
+
+/* ================= INFO ================= */
+
+.info{
+  margin-top:18px;
+
+  padding:14px 17px;
+
+  background:#fff;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:10px;
+
+  color:var(--muted);
+
+  font-size:9px;
+
+  line-height:1.6;
 }
 
-.footer-brand h3{
-  color:var(--gold);
-  margin-bottom:10px;
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1150px){
+
+  .gallery-grid{
+    grid-template-columns:
+      repeat(3,minmax(0,1fr));
+  }
+
 }
 
-.footer-brand p{
-  color:#b9cbc1;
-  font-size:13px;
-  max-width:450px;
-}
+@media(max-width:1000px){
 
-.footer-column h4{
-  font-size:14px;
-  margin-bottom:12px;
-}
+  .layout{
+    grid-template-columns:1fr;
+  }
 
-.footer-column a{
-  display:block;
-  color:#b9cbc1;
-  font-size:13px;
-  margin:7px 0;
-}
-
-.footer-column a:hover{
-  color:var(--gold);
-}
-
-.footer-bottom{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  padding-top:22px;
-  color:#8fa69b;
-  font-size:12px;
-}
-
-/* TABLET */
-
-@media(max-width:950px){
-
-  nav{
+  .sidebar{
     display:none;
-    position:absolute;
-    top:78px;
-    left:0;
-    right:0;
-    background:#fff;
-    flex-direction:column;
-    padding:12px 5%;
-    border-bottom:1px solid var(--border);
-    box-shadow:0 12px 25px rgba(0,0,0,.08);
   }
 
-  nav.show{
-    display:flex;
+  .main{
+    padding:25px 4%;
   }
 
-  nav a{
-    width:100%;
-    text-align:center;
+}
+
+@media(max-width:800px){
+
+  .gallery-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
   }
 
-  .menu{
-    display:block;
+  .summary{
+    grid-template-columns:
+      repeat(3,1fr);
   }
 
-  .gallery{
-    grid-template-columns:repeat(2,1fr);
+}
+
+@media(max-width:650px){
+
+  .summary{
+    grid-template-columns:1fr;
   }
 
-  .cta-inner{
-    flex-direction:column;
+  .gallery-grid{
+    grid-template-columns:1fr;
+    padding:14px;
+  }
+
+  .page-heading{
     align-items:flex-start;
+    flex-direction:column;
   }
 
-  .footer-grid{
-    grid-template-columns:1fr 1fr;
+  .filters{
+    width:100%;
   }
+
+  .filters select{
+    flex:1;
+  }
+
+  .add-btn{
+    width:100%;
+  }
+
+  .form-row{
+    grid-template-columns:1fr;
+  }
+
 }
 
-/* MOBILE */
+@media(max-width:450px){
 
-@media(max-width:600px){
+  .header{
+    height:65px;
+  }
 
-  .topbar{
+  .brand-name{
+    font-size:14px;
+  }
+
+  .header-right .view-site,
+  .header-right .avatar{
     display:none;
   }
 
-  .navbar{
-    min-height:68px;
-  }
-
-  nav{
-    top:68px;
-  }
-
-  .gallery-hero{
-    min-height:360px;
-  }
-
-  .hero-content h1{
-    font-size:39px;
-  }
-
-  .hero-content p{
-    font-size:15px;
-  }
-
-  .section{
-    padding:65px 0;
-  }
-
-  .section-head h2{
-    font-size:30px;
-  }
-
-  .gallery{
-    grid-template-columns:1fr;
-  }
-
-  .gallery-item{
-    height:280px;
-  }
-
-  .lightbox-prev{
-    left:10px;
-  }
-
-  .lightbox-next{
-    right:10px;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr;
-  }
-
-  .footer-bottom{
-    flex-direction:column;
-  }
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<!-- TOP BAR -->
 
-<div class="topbar">
-  <div class="container topbar-inner">
+<!-- ================= HEADER ================= -->
 
-    <div>
-      Serving Humanity for the Sake of Allah
-    </div>
+<header class="header">
 
-    <div>
-      <a href="mailto:fisabilillahicharityfoundation@gmail.com">
-        fisabilillahicharityfoundation@gmail.com
-      </a>
-    </div>
+<div class="container header-inner">
 
-  </div>
+
+<a
+href="admin.html"
+class="brand">
+
+<div class="brand-logo">
+♥
+</div>
+
+<div class="brand-name">
+
+Fisabilillahi
+
+<small>
+Charity Foundation • Admin
+</small>
+
+</div>
+
+</a>
+
+
+<div class="header-right">
+
+<a
+href="index.html"
+class="view-site">
+
+↗ View Website
+
+</a>
+
+<div class="avatar">
+A
+</div>
+
 </div>
 
 
-<!-- HEADER -->
-
-<header>
-
-  <div class="container navbar">
-
-    <a href="index.html" class="logo">
-
-      <div class="logo-mark">
-        ♥
-      </div>
-
-      <div class="logo-text">
-        Fisabilillahi
-        <small>Charity Foundation</small>
-      </div>
-
-    </a>
-
-
-    <button
-      class="menu"
-      onclick="toggleMenu()"
-      aria-label="Open menu">
-
-      ☰
-
-    </button>
-
-
-    <nav id="nav">
-
-      <a href="index.html">Home</a>
-
-      <a href="about.html">About</a>
-
-      <a href="projects.html">Projects</a>
-
-      <a href="gallery.html">Gallery</a>
-
-      <a href="donate.html">Donate</a>
-
-      <a href="contact.html">Contact</a>
-
-      <a href="admin-login.html">Admin</a>
-
-      <a href="donate.html" class="nav-donate">
-        Support Us
-      </a>
-
-    </nav>
-
-  </div>
+</div>
 
 </header>
 
 
-<!-- HERO -->
 
-<section class="gallery-hero">
+<!-- ================= LAYOUT ================= -->
 
-  <div class="container">
+<div class="layout">
 
-    <div class="hero-content">
 
-      <div class="kicker">
-        Our Gallery
-      </div>
+<!-- ================= SIDEBAR ================= -->
 
-      <h1>
-        Moments That Tell Our Story.
-      </h1>
+<aside class="sidebar">
 
-      <p>
 
-        Explore photographs from our humanitarian
-        activities, community projects and moments
-        of service.
+<div class="sidebar-title">
+Main Menu
+</div>
 
-      </p>
 
-    </div>
+<a
+href="admin.html"
+class="side-link">
 
-  </div>
+<span class="side-icon">
+📊
+</span>
 
-</section>
+Dashboard
 
+</a>
 
-<!-- GALLERY -->
 
-<section class="section">
+<a
+href="donations.html"
+class="side-link">
 
-  <div class="container">
+<span class="side-icon">
+💰
+</span>
 
+Donations
 
-    <div class="section-head">
+</a>
 
-      <div class="kicker">
-        Fisabilillahi In Action
-      </div>
 
-      <h2>
-        Our Journey Through Pictures
-      </h2>
+<a
+href="members.html"
+class="side-link">
 
-      <p>
+<span class="side-icon">
+👥
+</span>
 
-        Every picture represents a moment of service,
-        compassion, community and hope.
+Members
 
-      </p>
+</a>
 
-    </div>
 
+<a
+href="messages.html"
+class="side-link">
 
-    <!-- FILTER BUTTONS -->
+<span class="side-icon">
+💬
+</span>
 
-    <div class="filters">
+Messages
 
-      <button
-        class="filter-btn active"
-        onclick="filterGallery('all',this)">
+</a>
 
-        All
-
-      </button>
-
-      <button
-        class="filter-btn"
-        onclick="filterGallery('orphans',this)">
-
-        Orphans
-
-      </button>
-
-      <button
-        class="filter-btn"
-        onclick="filterGallery('education',this)">
-
-        Education
-
-      </button>
-
-      <button
-        class="filter-btn"
-        onclick="filterGallery('healthcare',this)">
-
-        Healthcare
-
-      </button>
-
-      <button
-        class="filter-btn"
-        onclick="filterGallery('empowerment',this)">
-
-        Empowerment
-
-      </button>
-
-      <button
-        class="filter-btn"
-        onclick="filterGallery('tree',this)">
-
-        Tree Planting
-
-      </button>
-
-      <button
-        class="filter-btn"
-        onclick="filterGallery('humanitarian',this)">
-
-        Humanitarian
-
-      </button>
-
-    </div>
-
-
-    <!-- GALLERY GRID -->
-
-    <div class="gallery" id="gallery">
-
-
-      <!-- PHOTO 1 -->
-
-      <div
-        class="gallery-item"
-        data-category="orphans"
-        onclick="openLightbox(0)">
-
-        <img
-          src="images/gallery1.jpg"
-          alt="Orphans support"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-
-        <div
-          class="placeholder"
-          style="display:none;">
-
-          🤲
-          <br>
-          Orphans Support
-
-        </div>
-
-        <div class="gallery-overlay">
-
-          <strong>
-            Orphans Support
-          </strong>
-
-          <span>
-            Supporting vulnerable children
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- PHOTO 2 -->
-
-      <div
-        class="gallery-item"
-        data-category="education"
-        onclick="openLightbox(1)">
-
-        <img
-          src="images/gallery2.jpg"
-          alt="Education project"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-
-        <div
-          class="placeholder"
-          style="display:none;">
-
-          📚
-          <br>
-          Education
-
-        </div>
-
-        <div class="gallery-overlay">
-
-          <strong>
-            Education Support
-          </strong>
-
-          <span>
-            Helping children learn
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- PHOTO 3 -->
-
-      <div
-        class="gallery-item"
-        data-category="healthcare"
-        onclick="openLightbox(2)">
-
-        <img
-          src="images/gallery3.jpg"
-          alt="Healthcare activity"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-
-        <div
-          class="placeholder"
-          style="display:none;">
-
-          🏥
-          <br>
-          Healthcare
-
-        </div>
-
-        <div class="gallery-overlay">
-
-          <strong>
-            Healthcare
-          </strong>
-
-          <span>
-            Humanitarian healthcare support
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- PHOTO 4 -->
-
-      <div
-        class="gallery-item"
-        data-category="empowerment"
-        onclick="openLightbox(3)">
-
-        <img
-          src="images/gallery4.jpg"
-          alt="Business empowerment"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-
-        <div
-          class="placeholder"
-          style="display:none;">
-
-          💼
-          <br>
-          Empowerment
-
-        </div>
-
-        <div class="gallery-overlay">
-
-          <strong>
-            Business Empowerment
-          </strong>
-
-          <span>
-            Creating opportunities
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- PHOTO 5 -->
-
-      <div
-        class="gallery-item"
-        data-category="tree"
-        onclick="openLightbox(4)">
-
-        <img
-          src="images/gallery5.jpg"
-          alt="Tree planting"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-
-        <div
-          class="placeholder"
-          style="display:none;">
-
-          🌳
-          <br>
-          Tree Planting
-
-        </div>
-
-        <div class="gallery-overlay">
-
-          <strong>
-            Tree Planting
-          </strong>
-
-          <span>
-            Caring for our environment
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- PHOTO 6 -->
-
-      <div
-        class="gallery-item"
-        data-category="humanitarian"
-        onclick="openLightbox(5)">
-
-        <img
-          src="images/gallery6.jpg"
-          alt="Humanitarian service"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-
-        <div
-          class="placeholder"
-          style="display:none;">
-
-          🤝
-          <br>
-          Humanitarian Service
-
-        </div>
-
-        <div class="gallery-overlay">
-
-          <strong>
-            Humanitarian Service
-          </strong>
-
-          <span>
-            Serving people in need
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- PHOTO 7 -->
-
-      <div
-        class="gallery-item"
-        data-category="orphans"
-        onclick="openLightbox(6)">
-
-        <img
-          src="images/gallery7.jpg"
-          alt="Children support"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-
-        <div
-          class="placeholder"
-          style="display:none;">
-
-          ❤️
-          <br>
-          Children Support
-
-        </div>
-
-        <div class="gallery-overlay">
-
-          <strong>
-            Children Support
-          </strong>
-
-          <span>
-            Compassion in action
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- PHOTO 8 -->
-
-      <div
-        class="gallery-item"
-        data-category="humanitarian"
-        onclick="openLightbox(7)">
-
-        <img
-          src="images/gallery8.jpg"
-          alt="Community service"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-
-        <div
-          class="placeholder"
-          style="display:none;">
-
-          🤲
-          <br>
-          Community Service
-
-        </div>
-
-        <div class="gallery-overlay">
-
-          <strong>
-            Community Service
-          </strong>
-
-          <span>
-            Together for a better community
-          </span>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-
-    <div class="load-more">
-
-      <button
-        class="btn btn-gold"
-        onclick="showMore()">
-
-        Load More Photos →
-
-      </button>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- CTA -->
-
-<section class="cta">
-
-  <div class="container">
-
-    <div class="cta-inner">
-
-      <div>
-
-        <h2>
-          Be Part of the Story.
-        </h2>
-
-        <p>
-
-          Your support helps us create more moments
-          of hope, service and positive change.
-
-        </p>
-
-      </div>
-
-
-      <a
-        href="donate.html"
-        class="btn btn-gold">
-
-        🤲 Support Our Work
-
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- LIGHTBOX -->
 
 <div
-  class="lightbox"
-  id="lightbox"
-  onclick="closeOutside(event)">
+class="sidebar-title"
+style="margin-top:25px;">
 
-  <button
-    class="lightbox-close"
-    onclick="closeLightbox()">
-
-    ×
-
-  </button>
-
-
-  <button
-    class="lightbox-prev"
-    onclick="previousPhoto(event)">
-
-    ‹
-
-  </button>
-
-
-  <div class="lightbox-content">
-
-    <img
-      id="lightboxImage"
-      src=""
-      alt="Gallery image">
-
-    <div
-      class="lightbox-title"
-      id="lightboxTitle">
-
-    </div>
-
-  </div>
-
-
-  <button
-    class="lightbox-next"
-    onclick="nextPhoto(event)">
-
-    ›
-
-  </button>
+Content
 
 </div>
 
 
-<!-- FOOTER -->
+<a
+href="projects.html"
+class="side-link">
 
-<footer>
+<span class="side-icon">
+📁
+</span>
 
-  <div class="container">
+Projects
 
-    <div class="footer-grid">
-
-
-      <div class="footer-brand">
-
-        <h3>
-          Fisabilillahi Charity Foundation
-        </h3>
-
-        <p>
-
-          Serving humanity for the sake of Allah
-          through compassion, education, healthcare,
-          empowerment, environmental initiatives and
-          humanitarian services.
-
-        </p>
-
-      </div>
+</a>
 
 
-      <div class="footer-column">
+<a
+href="gallery.html"
+class="side-link active">
 
-        <h4>
-          Quick Links
-        </h4>
+<span class="side-icon">
+🖼️
+</span>
 
-        <a href="index.html">Home</a>
+Gallery
 
-        <a href="about.html">About Us</a>
-
-        <a href="projects.html">Projects</a>
-
-        <a href="gallery.html">Gallery</a>
-
-      </div>
+</a>
 
 
-      <div class="footer-column">
+<a
+href="#"
+class="side-link"
+onclick="openSettings(event)">
 
-        <h4>
-          Support
-        </h4>
+<span class="side-icon">
+⚙️
+</span>
 
-        <a href="donate.html">Donate</a>
+Settings
 
-        <a href="contact.html">Contact Us</a>
-
-        <a
-          href="https://wa.me/2349036114093"
-          target="_blank"
-          rel="noopener">
-
-          WhatsApp
-
-        </a>
-
-        <a
-          href="https://www.facebook.com/profile.php?id=61592460838817"
-          target="_blank"
-          rel="noopener">
-
-          Facebook
-
-        </a>
-
-      </div>
+</a>
 
 
-    </div>
+<div class="sidebar-bottom">
 
 
-    <div class="footer-bottom">
+<a
+href="index.html"
+class="side-link">
 
-      <div>
+<span class="side-icon">
+🌐
+</span>
 
-        © <span id="year"></span>
-        Fisabilillahi Charity Foundation
+Visit Website
 
-      </div>
+</a>
 
-      <div>
 
-        Serving Humanity • For the Sake of Allah
+<a
+href="#"
+class="side-link logout"
+onclick="logoutAdmin(event)">
 
-      </div>
+<span class="side-icon">
+🚪
+</span>
 
-    </div>
+Logout
 
-  </div>
+</a>
 
-</footer>
+
+</div>
+
+
+</aside>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+
+<div class="page-heading">
+
+
+<div>
+
+<h1>
+Gallery
+</h1>
+
+<p>
+Manage photos and memories from Fisabilillahi Charity Foundation activities.
+</p>
+
+</div>
+
+
+<div
+class="date-box"
+id="currentDate">
+</div>
+
+
+</div>
+
+
+
+<!-- ================= SUMMARY ================= -->
+
+<section class="summary">
+
+
+<div class="summary-card">
+
+<div class="summary-label">
+Total Photos
+</div>
+
+<div
+class="summary-value"
+id="totalPhotos">
+0
+</div>
+
+<div class="summary-note">
+All gallery photos
+</div>
+
+</div>
+
+
+<div class="summary-card">
+
+<div class="summary-label">
+Categories
+</div>
+
+<div
+class="summary-value"
+id="totalCategories">
+0
+</div>
+
+<div class="summary-note">
+Photo categories
+</div>
+
+</div>
+
+
+<div class="summary-card">
+
+<div class="summary-label">
+This Month
+</div>
+
+<div
+class="summary-value"
+id="thisMonth">
+0
+</div>
+
+<div class="summary-note">
+Photos added this month
+</div>
+
+</div>
+
+
+</section>
+
+
+
+<!-- ================= GALLERY ================= -->
+
+<section class="card">
+
+
+<div class="toolbar">
+
+
+<div class="search">
+
+<span>
+🔎
+</span>
+
+<input
+type="search"
+id="searchInput"
+placeholder="Search gallery..."
+oninput="filterGallery()">
+
+</div>
+
+
+<div class="filters">
+
+
+<select
+id="categoryFilter"
+onchange="filterGallery()">
+
+<option value="all">
+All Categories
+</option>
+
+<option value="education">
+Education
+</option>
+
+<option value="food">
+Food Support
+</option>
+
+<option value="health">
+Healthcare
+</option>
+
+<option value="business">
+Business Empowerment
+</option>
+
+<option value="orphan">
+Orphan Support
+</option>
+
+<option value="humanitarian">
+Humanitarian
+</option>
+
+</select>
+
+
+</div>
+
+
+<button
+class="add-btn"
+onclick="openGalleryModal()">
+
++ Add Photo
+
+</button>
+
+
+</div>
+
+
+
+<div
+class="gallery-grid"
+id="galleryGrid">
+</div>
+
+
+<div
+class="empty"
+id="emptyState">
+
+<div class="empty-icon">
+🖼️
+</div>
+
+<h3>
+No photos found
+</h3>
+
+<p>
+Add your first foundation photo to the gallery.
+</p>
+
+</div>
+
+
+</section>
+
+
+
+<div class="info">
+
+<strong>
+Storage status:
+</strong>
+
+Photos are currently stored temporarily inside this browser.
+Later we can connect this page to Supabase Storage so the images
+will be permanently stored and automatically displayed on the public website.
+
+</div>
+
+
+</main>
+
+</div>
+
+
+
+<!-- ================= ADD / EDIT MODAL ================= -->
+
+<div
+class="modal"
+id="galleryModal">
+
+
+<div class="modal-box">
+
+
+<div class="modal-head">
+
+<h2 id="modalTitle">
+Add Photo
+</h2>
+
+<button
+class="close"
+onclick="closeGalleryModal()">
+
+×
+
+</button>
+
+</div>
+
+
+<div class="modal-body">
+
+
+<form
+id="galleryForm"
+onsubmit="saveGalleryItem(event)">
+
+
+<input
+type="hidden"
+id="editingIndex"
+value="-1">
+
+
+<div class="form-group">
+
+<label for="photoTitle">
+Photo Title
+</label>
+
+<input
+type="text"
+id="photoTitle"
+placeholder="e.g. Food Distribution Programme"
+required>
+
+</div>
+
+
+
+<div class="form-row">
+
+
+<div class="form-group">
+
+<label for="photoCategory">
+Category
+</label>
+
+<select
+id="photoCategory"
+required>
+
+<option value="education">
+Education
+</option>
+
+<option value="food">
+Food Support
+</option>
+
+<option value="health">
+Healthcare
+</option>
+
+<option value="business">
+Business Empowerment
+</option>
+
+<option value="orphan">
+Orphan Support
+</option>
+
+<option value="humanitarian">
+Humanitarian
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="photoDate">
+Photo Date
+</label>
+
+<input
+type="date"
+id="photoDate"
+required>
+
+</div>
+
+
+</div>
+
+
+
+<div class="form-group">
+
+<label for="photoFile">
+Choose Photo
+</label>
+
+<input
+type="file"
+id="photoFile"
+accept="image/*">
+
+<div class="file-note">
+
+Choose a clear photo from your phone or computer.
+For permanent storage, we will connect this to Supabase Storage.
+
+</div>
+
+
+<div
+class="image-preview"
+id="imagePreview">
+
+<img
+id="previewImage"
+src=""
+alt="Photo preview">
+
+</div>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label for="photoDescription">
+Description
+</label>
+
+<textarea
+id="photoDescription"
+placeholder="Write a short description of this photo..."
+required>
+</textarea>
+
+</div>
+
+
+
+<button
+type="submit"
+class="save-btn">
+
+Save Photo
+
+</button>
+
+
+</form>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= LIGHTBOX ================= -->
+
+<div
+class="lightbox"
+id="lightbox"
+onclick="closeLightbox(event)">
+
+
+<button
+class="lightbox-close"
+onclick="closeLightbox()">
+
+×
+
+</button>
+
+
+<div class="lightbox-content">
+
+<img
+id="lightboxImage"
+src=""
+alt="Gallery image">
+
+<div
+class="lightbox-title"
+id="lightboxTitle">
+</div>
+
+</div>
+
+
+</div>
+
 
 
 <script>
 
-/* MENU */
 
-function toggleMenu(){
+/* =========================================================
+   LOGIN PROTECTION
+========================================================= */
 
-  document
-    .getElementById("nav")
-    .classList
-    .toggle("show");
+(function(){
+
+const loggedIn =
+
+localStorage.getItem(
+"fisabilillahi_admin"
+) === "true"
+
+||
+
+sessionStorage.getItem(
+"fisabilillahi_admin"
+) === "true";
+
+
+if(!loggedIn){
+
+window.location.href =
+"admin-login.html";
 
 }
 
-
-/* YEAR */
-
-document
-  .getElementById("year")
-  .textContent =
-  new Date().getFullYear();
+})();
 
 
-/* GALLERY DATA */
 
-const photos = [
+/* =========================================================
+   DATE
+========================================================= */
 
-  {
-    image:"images/gallery1.jpg",
-    title:"Orphans Support"
-  },
+document.getElementById(
+"currentDate"
+).textContent =
 
-  {
-    image:"images/gallery2.jpg",
-    title:"Education Support"
-  },
+new Date().toLocaleDateString(
+"en-NG",
+{
+weekday:"long",
+year:"numeric",
+month:"long",
+day:"numeric"
+}
+);
 
-  {
-    image:"images/gallery3.jpg",
-    title:"Healthcare"
-  },
 
-  {
-    image:"images/gallery4.jpg",
-    title:"Business Empowerment"
-  },
 
-  {
-    image:"images/gallery5.jpg",
-    title:"Tree Planting"
-  },
+/* =========================================================
+   GALLERY DATA
+========================================================= */
 
-  {
-    image:"images/gallery6.jpg",
-    title:"Humanitarian Service"
-  },
+let gallery = [
 
-  {
-    image:"images/gallery7.jpg",
-    title:"Children Support"
-  },
+{
+  title:
+  "Education Support for Children",
 
-  {
-    image:"images/gallery8.jpg",
-    title:"Community Service"
-  }
+  category:
+  "education",
+
+  date:
+  "2026-08-25",
+
+  description:
+  "Supporting children with educational materials and helping them continue their studies.",
+
+  image:
+  ""
+},
+
+{
+  title:
+  "Monthly Food Distribution",
+
+  category:
+  "food",
+
+  date:
+  "2026-08-25",
+
+  description:
+  "Distribution of food assistance to families and individuals in need.",
+
+  image:
+  ""
+},
+
+{
+  title:
+  "Humanitarian Support",
+
+  category:
+  "humanitarian",
+
+  date:
+  "2026-08-25",
+
+  description:
+  "A humanitarian activity carried out to support members of the community.",
+
+  image:
+  ""
+}
 
 ];
 
 
-let currentPhoto = 0;
+
+/* =========================================================
+   RENDER GALLERY
+========================================================= */
+
+function renderGallery(list){
+
+const grid =
+document.getElementById(
+"galleryGrid"
+);
+
+const empty =
+document.getElementById(
+"emptyState"
+);
 
 
-/* FILTER */
-
-function filterGallery(category,button){
-
-  const items =
-    document.querySelectorAll(".gallery-item");
-
-  const buttons =
-    document.querySelectorAll(".filter-btn");
-
-  buttons.forEach(function(btn){
-    btn.classList.remove("active");
-  });
-
-  button.classList.add("active");
+grid.innerHTML = "";
 
 
-  items.forEach(function(item){
+if(list.length === 0){
 
-    if(
-      category === "all" ||
-      item.dataset.category === category
-    ){
+empty.style.display =
+"block";
 
-      item.style.display = "block";
+}else{
 
-    }else{
-
-      item.style.display = "none";
-
-    }
-
-  });
+empty.style.display =
+"none";
 
 }
 
 
-/* LIGHTBOX */
+list.forEach(function(item){
 
-function openLightbox(index){
-
-  currentPhoto = index;
-
-  const lightbox =
-    document.getElementById("lightbox");
-
-  const image =
-    document.getElementById("lightboxImage");
-
-  const title =
-    document.getElementById("lightboxTitle");
+const originalIndex =
+gallery.indexOf(item);
 
 
-  image.src =
-    photos[index].image;
+const card =
+document.createElement("article");
 
-  image.alt =
-    photos[index].title;
-
-  title.textContent =
-    photos[index].title;
+card.className =
+"gallery-item";
 
 
-  lightbox.classList.add("show");
+let imageHTML =
+"🖼️";
 
-  document.body.style.overflow = "hidden";
+
+if(item.image){
+
+imageHTML =
+
+`<img
+src="${item.image}"
+alt="${escapeHTML(item.title)}">`;
 
 }
 
 
-function closeLightbox(){
+card.innerHTML = `
 
-  document
-    .getElementById("lightbox")
-    .classList
-    .remove("show");
+<div
+class="gallery-image"
+onclick="openLightbox(${originalIndex})">
 
-  document.body.style.overflow = "";
+${imageHTML}
 
-}
-
-
-function closeOutside(event){
-
-  if(event.target.id === "lightbox"){
-
-    closeLightbox();
-
-  }
-
-}
+</div>
 
 
-/* NEXT */
-
-function nextPhoto(event){
-
-  if(event){
-    event.stopPropagation();
-  }
-
-  currentPhoto++;
-
-  if(currentPhoto >= photos.length){
-    currentPhoto = 0;
-  }
-
-  openLightbox(currentPhoto);
-
-}
+<div class="gallery-body">
 
 
-/* PREVIOUS */
+<div class="gallery-title">
 
-function previousPhoto(event){
+${escapeHTML(item.title)}
 
-  if(event){
-    event.stopPropagation();
-  }
-
-  currentPhoto--;
-
-  if(currentPhoto < 0){
-    currentPhoto = photos.length - 1;
-  }
-
-  openLightbox(currentPhoto);
-
-}
+</div>
 
 
-/* KEYBOARD */
+<span class="gallery-category">
 
-document.addEventListener("keydown",function(event){
+${categoryName(item.category)}
 
-  const lightbox =
-    document.getElementById("lightbox");
+</span>
 
-  if(!lightbox.classList.contains("show")){
-    return;
-  }
 
-  if(event.key === "Escape"){
-    closeLightbox();
-  }
+<div class="gallery-description">
 
-  if(event.key === "ArrowRight"){
-    nextPhoto();
-  }
+${escapeHTML(item.description)}
 
-  if(event.key === "ArrowLeft"){
-    previousPhoto();
-  }
+</div>
+
+
+<div class="gallery-meta">
+
+<span class="gallery-date">
+
+${escapeHTML(item.date)}
+
+</span>
+
+<span>
+📷
+</span>
+
+</div>
+
+
+<div class="gallery-actions">
+
+
+<button
+class="action-btn"
+onclick="editGalleryItem(${originalIndex})">
+
+✏️ Edit
+
+</button>
+
+
+<button
+class="action-btn delete-btn"
+onclick="deleteGalleryItem(${originalIndex})">
+
+🗑️ Delete
+
+</button>
+
+
+</div>
+
+
+</div>
+
+`;
+
+
+grid.appendChild(card);
 
 });
 
 
-/* LOAD MORE */
-
-function showMore(){
-
-  alert(
-    "More photos can be added to the gallery by uploading them to the images folder and adding them to the gallery list."
-  );
+updateSummary();
 
 }
 
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+function filterGallery(){
+
+const search =
+
+document
+.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+
+const category =
+
+document
+.getElementById("categoryFilter")
+.value;
+
+
+const filtered =
+
+gallery.filter(function(item){
+
+const text =
+
+(
+item.title +
+" " +
+item.description
+).toLowerCase();
+
+
+return(
+
+text.includes(search)
+
+&&
+
+(
+category === "all" ||
+item.category === category
+)
+
+);
+
+});
+
+
+renderGallery(filtered);
+
+}
+
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+function updateSummary(){
+
+document.getElementById(
+"totalPhotos"
+).textContent =
+gallery.length;
+
+
+const categories =
+new Set(
+gallery.map(
+item => item.category
+)
+);
+
+
+document.getElementById(
+"totalCategories"
+).textContent =
+categories.size;
+
+
+const now =
+new Date();
+
+
+const month =
+String(
+now.getMonth() + 1
+).padStart(2,"0");
+
+
+const year =
+now.getFullYear();
+
+
+const thisMonth =
+gallery.filter(
+item =>
+item.date.startsWith(
+year + "-" + month
+)
+).length;
+
+
+document.getElementById(
+"thisMonth"
+).textContent =
+thisMonth;
+
+}
+
+
+
+/* =========================================================
+   OPEN MODAL
+========================================================= */
+
+function openGalleryModal(){
+
+document.getElementById(
+"modalTitle"
+).textContent =
+"Add Photo";
+
+
+document.getElementById(
+"editingIndex"
+).value =
+"-1";
+
+
+document.getElementById(
+"galleryForm"
+).reset();
+
+
+document.getElementById(
+"photoDate"
+).value =
+
+new Date()
+.toISOString()
+.split("T")[0];
+
+
+document.getElementById(
+"imagePreview"
+).classList.remove(
+"show"
+);
+
+
+document.getElementById(
+"galleryModal"
+).classList.add(
+"show"
+);
+
+}
+
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeGalleryModal(){
+
+document.getElementById(
+"galleryModal"
+).classList.remove(
+"show"
+);
+
+}
+
+
+
+/* =========================================================
+   IMAGE PREVIEW
+========================================================= */
+
+document.getElementById(
+"photoFile"
+).addEventListener(
+"change",
+function(){
+
+const file =
+this.files[0];
+
+
+if(!file){
+
+return;
+
+}
+
+
+if(
+!file.type.startsWith(
+"image/"
+)
+){
+
+alert(
+"Please choose an image file."
+);
+
+this.value = "";
+
+return;
+
+}
+
+
+const reader =
+new FileReader();
+
+
+reader.onload =
+function(event){
+
+document.getElementById(
+"previewImage"
+).src =
+event.target.result;
+
+
+document.getElementById(
+"imagePreview"
+).classList.add(
+"show"
+);
+
+};
+
+
+reader.readAsDataURL(
+file
+);
+
+});
+
+
+
+/* =========================================================
+   SAVE GALLERY ITEM
+========================================================= */
+
+function saveGalleryItem(event){
+
+event.preventDefault();
+
+
+const editingIndex =
+parseInt(
+document.getElementById(
+"editingIndex"
+).value
+);
+
+
+const file =
+document.getElementById(
+"photoFile"
+).files[0];
+
+
+function completeSave(imageData){
+
+const item = {
+
+title:
+document.getElementById(
+"photoTitle"
+).value.trim(),
+
+category:
+document.getElementById(
+"photoCategory"
+).value,
+
+date:
+document.getElementById(
+"photoDate"
+).value,
+
+description:
+document.getElementById(
+"photoDescription"
+).value.trim(),
+
+image:
+imageData ||
+(
+editingIndex >= 0
+? gallery[editingIndex].image
+: ""
+)
+
+};
+
+
+if(editingIndex >= 0){
+
+gallery[editingIndex] =
+item;
+
+}else{
+
+gallery.push(
+item
+);
+
+}
+
+
+renderGallery(gallery);
+
+closeGalleryModal();
+
+
+alert(
+
+editingIndex >= 0
+
+? "Photo updated successfully."
+
+: "Photo added successfully."
+
+);
+
+}
+
+
+if(file){
+
+const reader =
+new FileReader();
+
+
+reader.onload =
+function(){
+
+completeSave(
+reader.result
+);
+
+};
+
+
+reader.readAsDataURL(
+file
+);
+
+}else{
+
+completeSave("");
+
+}
+
+}
+
+
+
+/* =========================================================
+   EDIT
+========================================================= */
+
+function editGalleryItem(index){
+
+const item =
+gallery[index];
+
+
+if(!item){
+
+return;
+
+}
+
+
+document.getElementById(
+"modalTitle"
+).textContent =
+"Edit Photo";
+
+
+document.getElementById(
+"editingIndex"
+).value =
+index;
+
+
+document.getElementById(
+"photoTitle"
+).value =
+item.title;
+
+
+document.getElementById(
+"photoCategory"
+).value =
+item.category;
+
+
+document.getElementById(
+"photoDate"
+).value =
+item.date;
+
+
+document.getElementById(
+"photoDescription"
+).value =
+item.description;
+
+
+document.getElementById(
+"photoFile"
+).value =
+"";
+
+
+if(item.image){
+
+document.getElementById(
+"previewImage"
+).src =
+item.image;
+
+
+document.getElementById(
+"imagePreview"
+).classList.add(
+"show"
+);
+
+}else{
+
+document.getElementById(
+"imagePreview"
+).classList.remove(
+"show"
+);
+
+}
+
+
+document.getElementById(
+"galleryModal"
+).classList.add(
+"show"
+);
+
+}
+
+
+
+/* =========================================================
+   DELETE
+========================================================= */
+
+function deleteGalleryItem(index){
+
+const item =
+gallery[index];
+
+
+if(!item){
+
+return;
+
+}
+
+
+const confirmed =
+confirm(
+
+"Delete \"" +
+item.title +
+"\" from the temporary gallery?"
+
+);
+
+
+if(!confirmed){
+
+return;
+
+}
+
+
+gallery.splice(
+index,
+1
+);
+
+
+filterGallery();
+
+}
+
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+function openLightbox(index){
+
+const item =
+gallery[index];
+
+
+if(!item){
+
+return;
+
+}
+
+
+if(!item.image){
+
+alert(
+"This photo does not have an uploaded image yet."
+);
+
+return;
+
+}
+
+
+document.getElementById(
+"lightboxImage"
+).src =
+item.image;
+
+
+document.getElementById(
+"lightboxTitle"
+).textContent =
+item.title;
+
+
+document.getElementById(
+"lightbox"
+).classList.add(
+"show"
+);
+
+}
+
+
+
+function closeLightbox(event){
+
+if(
+event &&
+event.target &&
+event.target !==
+document.getElementById(
+"lightbox"
+)
+){
+
+return;
+
+}
+
+
+document.getElementById(
+"lightbox"
+).classList.remove(
+"show"
+);
+
+}
+
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+function openSettings(event){
+
+event.preventDefault();
+
+alert(
+"Settings will be connected when the admin backend is enabled."
+);
+
+}
+
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+function logoutAdmin(event){
+
+event.preventDefault();
+
+
+if(
+confirm(
+"Are you sure you want to logout?"
+)
+){
+
+localStorage.removeItem(
+"fisabilillahi_admin"
+);
+
+sessionStorage.removeItem(
+"fisabilillahi_admin"
+);
+
+
+window.location.href =
+"admin-login.html";
+
+}
+
+}
+
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function categoryName(value){
+
+const names = {
+
+education:
+"Education",
+
+food:
+"Food Support",
+
+health:
+"Healthcare",
+
+business:
+"Business Empowerment",
+
+orphan:
+"Orphan Support",
+
+humanitarian:
+"Humanitarian"
+
+};
+
+
+return names[value] ||
+value;
+
+}
+
+
+function escapeHTML(value){
+
+return String(value)
+
+.replace(
+/&/g,
+"&amp;"
+)
+
+.replace(
+/</g,
+"&lt;"
+)
+
+.replace(
+/>/g,
+"&gt;"
+)
+
+.replace(
+/"/g,
+"&quot;"
+)
+
+.replace(
+/'/g,
+"&#039;"
+);
+
+}
+
+
+
+/* =========================================================
+   CLOSE MODAL OUTSIDE
+========================================================= */
+
+document
+.getElementById(
+"galleryModal"
+)
+.addEventListener(
+"click",
+function(event){
+
+if(
+event.target === this
+){
+
+closeGalleryModal();
+
+}
+
+});
+
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Escape"){
+
+closeGalleryModal();
+
+document
+.getElementById(
+"lightbox"
+)
+.classList.remove(
+"show"
+);
+
+}
+
+});
+
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+renderGallery(gallery);
+
 </script>
+
 
 </body>
 </html>

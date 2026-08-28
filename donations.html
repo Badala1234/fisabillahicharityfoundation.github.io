@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,11 +18,11 @@
   --white:#fff;
   --text:#26372f;
   --muted:#718078;
-  --border:#e2e9e5;
+  --border:#e1e9e4;
   --soft:#edf6f1;
   --red:#b93636;
-  --orange:#bd721d;
-  --shadow:0 8px 30px rgba(0,0,0,.05);
+  --orange:#b87817;
+  --shadow:0 8px 30px rgba(0,0,0,.06);
 }
 
 *{
@@ -41,7 +42,9 @@ a{
   color:inherit;
 }
 
-button,input,select{
+button,
+input,
+select{
   font-family:inherit;
 }
 
@@ -115,12 +118,12 @@ button{
 }
 
 .view-site{
-  color:var(--green);
   border:1px solid var(--border);
+  color:var(--green);
   padding:9px 14px;
   border-radius:7px;
-  font-size:12px;
-  font-weight:800;
+  font-size:11px;
+  font-weight:900;
 }
 
 .avatar{
@@ -132,7 +135,7 @@ button{
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:12px;
+  font-size:11px;
   font-weight:900;
 }
 
@@ -195,8 +198,8 @@ button{
 
 .sidebar-bottom{
   margin-top:35px;
-  border-top:1px solid rgba(255,255,255,.1);
   padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.1);
 }
 
 .logout{
@@ -236,20 +239,20 @@ button{
   border-radius:7px;
   padding:9px 12px;
   color:var(--muted);
-  font-size:11px;
+  font-size:10px;
 }
 
 
-/* ================= SUMMARY ================= */
+/* ================= STATISTICS ================= */
 
-.summary{
+.stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:16px;
   margin-bottom:22px;
 }
 
-.summary-card{
+.stat{
   background:#fff;
   border:1px solid var(--border);
   border-radius:12px;
@@ -257,36 +260,52 @@ button{
   box-shadow:var(--shadow);
 }
 
-.summary-label{
-  color:var(--muted);
-  text-transform:uppercase;
-  letter-spacing:1px;
-  font-size:9px;
-  font-weight:900;
+.stat-icon{
+  width:38px;
+  height:38px;
+  border-radius:9px;
+  background:var(--soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:17px;
+  margin-bottom:13px;
 }
 
-.summary-value{
+.stat-label{
+  color:var(--muted);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.stat-value{
   color:var(--dark);
   font-size:25px;
   font-weight:900;
-  margin-top:10px;
+  margin-top:7px;
 }
 
-.summary-note{
+.stat-note{
   color:var(--muted);
   font-size:9px;
-  margin-top:4px;
+  margin-top:5px;
 }
 
 
-/* ================= TOOLBAR ================= */
+/* ================= CARD ================= */
 
 .card{
   background:#fff;
   border:1px solid var(--border);
   border-radius:13px;
   box-shadow:var(--shadow);
+  overflow:hidden;
 }
+
+
+/* ================= TOOLBAR ================= */
 
 .toolbar{
   padding:18px;
@@ -295,7 +314,8 @@ button{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:12px;
+
+  gap:10px;
   flex-wrap:wrap;
 }
 
@@ -305,29 +325,28 @@ button{
   min-width:220px;
 }
 
-.search span{
+.search-icon{
   position:absolute;
   left:13px;
   top:50%;
   transform:translateY(-50%);
-  font-size:14px;
   color:var(--muted);
+  font-size:14px;
 }
 
 .search input{
   width:100%;
   height:42px;
+  padding:0 12px 0 37px;
   border:1px solid var(--border);
   border-radius:8px;
-  padding:0 12px 0 37px;
   outline:none;
-  font-size:11px;
   background:#fbfdfb;
+  font-size:11px;
 }
 
 .search input:focus{
   border-color:var(--green);
-  box-shadow:0 0 0 3px rgba(7,92,59,.07);
 }
 
 .filters{
@@ -337,23 +356,27 @@ button{
 
 .filters select{
   height:42px;
+  min-width:125px;
+  padding:0 12px;
   border:1px solid var(--border);
   border-radius:8px;
-  padding:0 12px;
   background:#fff;
   color:var(--text);
-  font-size:11px;
+  font-size:10px;
   outline:none;
 }
 
+
+/* ================= EXPORT ================= */
+
 .export-btn{
   height:42px;
-  padding:0 15px;
+  padding:0 14px;
   border:0;
   border-radius:8px;
   background:var(--green);
   color:#fff;
-  font-size:11px;
+  font-size:10px;
   font-weight:900;
 }
 
@@ -374,22 +397,25 @@ table{
   min-width:780px;
 }
 
-thead th{
-  background:#fafcfb;
-  color:var(--muted);
-  font-size:9px;
-  text-transform:uppercase;
-  letter-spacing:.8px;
+th{
+  padding:13px 20px;
   text-align:left;
-  padding:14px 17px;
+  color:var(--muted);
+  font-size:8px;
+  letter-spacing:.8px;
+  text-transform:uppercase;
   border-bottom:1px solid var(--border);
+  background:#fbfdfb;
 }
 
-tbody td{
-  padding:14px 17px;
+td{
+  padding:15px 20px;
   border-bottom:1px solid var(--border);
-  font-size:11px;
-  vertical-align:middle;
+  font-size:9px;
+}
+
+tr{
+  transition:.15s;
 }
 
 tbody tr:hover{
@@ -411,60 +437,70 @@ tbody tr:hover{
   display:flex;
   align-items:center;
   justify-content:center;
+  font-size:9px;
   font-weight:900;
-  font-size:10px;
   flex-shrink:0;
 }
 
 .donor-name{
-  font-weight:900;
   color:var(--dark);
+  font-size:10px;
+  font-weight:900;
 }
 
 .donor-email{
-  display:block;
   color:var(--muted);
   font-size:8px;
-  margin-top:2px;
+  margin-top:3px;
 }
 
 .amount{
   color:var(--green);
+  font-size:11px;
   font-weight:900;
 }
 
-.badge{
-  display:inline-flex;
-  align-items:center;
+.type{
+  color:var(--text);
+  font-size:9px;
+}
+
+.date{
+  color:var(--muted);
+  font-size:9px;
+}
+
+.status{
+  display:inline-block;
   padding:5px 9px;
   border-radius:20px;
-  font-size:8px;
+  font-size:7px;
   font-weight:900;
 }
 
-.badge.completed{
-  background:#e9f7ef;
+.status.completed{
   color:var(--green);
+  background:var(--soft);
 }
 
-.badge.pending{
-  background:#fff5df;
-  color:var(--orange);
+.status.pending{
+  color:#8b6500;
+  background:#fff3d4;
 }
 
-.badge.failed{
-  background:#fff0f0;
+.status.cancelled{
   color:var(--red);
+  background:#fff0f0;
 }
 
 .action-btn{
   border:1px solid var(--border);
   background:#fff;
-  border-radius:6px;
-  padding:6px 9px;
-  font-size:9px;
-  font-weight:800;
   color:var(--green);
+  width:30px;
+  height:30px;
+  border-radius:7px;
+  font-size:12px;
 }
 
 .action-btn:hover{
@@ -472,56 +508,137 @@ tbody tr:hover{
 }
 
 
-/* ================= EMPTY STATE ================= */
+/* ================= EMPTY ================= */
 
 .empty{
   display:none;
   text-align:center;
-  padding:60px 20px;
+  padding:70px 20px;
 }
 
 .empty-icon{
-  font-size:35px;
-  margin-bottom:10px;
+  font-size:42px;
+  margin-bottom:12px;
 }
 
 .empty h3{
   color:var(--dark);
-  font-size:16px;
+  font-size:17px;
 }
 
 .empty p{
   color:var(--muted);
   font-size:10px;
-  margin-top:5px;
+  margin-top:6px;
 }
 
 
-/* ================= FOOTER INFO ================= */
+/* ================= BOTTOM INFO ================= */
 
 .info{
   margin-top:18px;
-  padding:14px 17px;
-  background:#fff;
-  border:1px solid var(--border);
+  padding:15px 18px;
+  background:#fffaf0;
+  border:1px solid #eadcb1;
   border-radius:10px;
-  color:var(--muted);
+  color:#735d21;
   font-size:9px;
   line-height:1.6;
+}
+
+.info strong{
+  color:#5e4a13;
+}
+
+
+/* ================= MODAL ================= */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.58);
+  z-index:3000;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:100%;
+  max-width:520px;
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 25px 80px rgba(0,0,0,.25);
+}
+
+.modal-head{
+  padding:18px 20px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.modal-head h2{
+  color:var(--dark);
+  font-size:17px;
+}
+
+.close{
+  border:0;
+  width:31px;
+  height:31px;
+  border-radius:50%;
+  background:#f1f4f2;
+  font-size:17px;
+}
+
+.detail{
+  padding:22px;
+}
+
+.detail-row{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  padding:11px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.detail-row:last-child{
+  border-bottom:0;
+}
+
+.detail-label{
+  color:var(--muted);
+  font-size:9px;
+}
+
+.detail-value{
+  color:var(--dark);
+  font-size:10px;
+  font-weight:800;
+  text-align:right;
 }
 
 
 /* ================= MOBILE ================= */
 
-@media(max-width:1100px){
+@media(max-width:1150px){
 
-  .summary{
-    grid-template-columns:1fr 1fr;
+  .stats{
+    grid-template-columns:repeat(2,1fr);
   }
 
 }
 
-@media(max-width:800px){
+@media(max-width:1000px){
 
   .layout{
     grid-template-columns:1fr;
@@ -535,21 +652,54 @@ tbody tr:hover{
     padding:25px 4%;
   }
 
+}
+
+@media(max-width:700px){
+
   .page-heading{
-    align-items:flex-start;
     flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .toolbar{
+    align-items:stretch;
+  }
+
+  .search{
+    width:100%;
+  }
+
+  .filters{
+    width:100%;
+  }
+
+  .filters select{
+    flex:1;
+    min-width:0;
+  }
+
+  .export-btn{
+    width:100%;
   }
 
 }
 
-@media(max-width:550px){
+@media(max-width:600px){
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .main{
+    padding:20px 3%;
+  }
+
+  .page-heading h1{
+    font-size:26px;
+  }
 
   .header{
     height:65px;
-  }
-
-  .layout{
-    min-height:calc(100vh - 65px);
   }
 
   .brand-name{
@@ -561,29 +711,10 @@ tbody tr:hover{
     display:none;
   }
 
-  .summary{
-    grid-template-columns:1fr;
-  }
-
-  .filters{
-    width:100%;
-  }
-
-  .filters select{
-    flex:1;
-  }
-
-  .export-btn{
-    width:100%;
-  }
-
-  .search{
-    min-width:100%;
-  }
-
 }
 
 </style>
+
 </head>
 
 
@@ -594,44 +725,48 @@ tbody tr:hover{
 
 <header class="header">
 
-  <div class="container header-inner">
-
-    <a href="admin.html" class="brand">
-
-      <div class="brand-logo">
-        ♥
-      </div>
-
-      <div class="brand-name">
-
-        Fisabilillahi
-
-        <small>
-          Charity Foundation • Admin
-        </small>
-
-      </div>
-
-    </a>
+<div class="container header-inner">
 
 
-    <div class="header-right">
+<a
+href="admin.html"
+class="brand">
 
-      <a
-        href="index.html"
-        class="view-site">
+<div class="brand-logo">
+♥
+</div>
 
-        ↗ View Website
+<div class="brand-name">
 
-      </a>
+Fisabilillahi
 
-      <div class="avatar">
-        A
-      </div>
+<small>
+Charity Foundation • Admin
+</small>
 
-    </div>
+</div>
 
-  </div>
+</a>
+
+
+<div class="header-right">
+
+<a
+href="index.html"
+class="view-site">
+
+↗ View Website
+
+</a>
+
+<div class="avatar">
+A
+</div>
+
+</div>
+
+
+</div>
 
 </header>
 
@@ -642,466 +777,515 @@ tbody tr:hover{
 <div class="layout">
 
 
-  <!-- ================= SIDEBAR ================= -->
+<!-- ================= SIDEBAR ================= -->
 
-  <aside class="sidebar">
+<aside class="sidebar">
 
-    <div class="sidebar-title">
-      Main Menu
-    </div>
 
+<div class="sidebar-title">
+Main Menu
+</div>
 
-    <a
-      href="admin.html"
-      class="side-link">
 
-      <span class="side-icon">📊</span>
+<a
+href="admin.html"
+class="side-link">
 
-      Dashboard
+<span class="side-icon">
+📊
+</span>
 
-    </a>
+Dashboard
 
+</a>
 
-    <a
-      href="donations.html"
-      class="side-link active">
 
-      <span class="side-icon">💰</span>
+<a
+href="donations.html"
+class="side-link active">
 
-      Donations
+<span class="side-icon">
+💰
+</span>
 
-    </a>
+Donations
 
+</a>
 
-    <a
-      href="members.html"
-      class="side-link">
 
-      <span class="side-icon">👥</span>
+<a
+href="members.html"
+class="side-link">
 
-      Members
+<span class="side-icon">
+👥
+</span>
 
-    </a>
+Members
 
+</a>
 
-    <a
-      href="messages.html"
-      class="side-link">
 
-      <span class="side-icon">💬</span>
+<a
+href="messages.html"
+class="side-link">
 
-      Messages
+<span class="side-icon">
+💬
+</span>
 
-    </a>
+Messages
 
+</a>
 
-    <div
-      class="sidebar-title"
-      style="margin-top:25px;">
 
-      Content
+<div
+class="sidebar-title"
+style="margin-top:25px;">
 
-    </div>
+Content
 
+</div>
 
-    <a
-      href="projects.html"
-      class="side-link">
 
-      <span class="side-icon">📁</span>
+<a
+href="projects.html"
+class="side-link">
 
-      Projects
+<span class="side-icon">
+📁
+</span>
 
-    </a>
+Projects
 
+</a>
 
-    <a
-      href="gallery.html"
-      class="side-link">
 
-      <span class="side-icon">🖼️</span>
+<a
+href="gallery.html"
+class="side-link">
 
-      Gallery
+<span class="side-icon">
+🖼️
+</span>
 
-    </a>
+Gallery
 
+</a>
 
-    <a
-      href="#"
-      class="side-link"
-      onclick="openSettings(event)">
 
-      <span class="side-icon">⚙️</span>
+<a
+href="#"
+class="side-link"
+onclick="openSettings(event)">
 
-      Settings
+<span class="side-icon">
+⚙️
+</span>
 
-    </a>
+Settings
 
+</a>
 
-    <div class="sidebar-bottom">
 
-      <a
-        href="index.html"
-        class="side-link">
+<div class="sidebar-bottom">
 
-        <span class="side-icon">🌐</span>
 
-        Visit Website
+<a
+href="index.html"
+class="side-link">
 
-      </a>
+<span class="side-icon">
+🌐
+</span>
 
+Visit Website
 
-      <a
-        href="#"
-        class="side-link logout"
-        onclick="logoutAdmin(event)">
+</a>
 
-        <span class="side-icon">🚪</span>
 
-        Logout
+<a
+href="#"
+class="side-link logout"
+onclick="logoutAdmin(event)">
 
-      </a>
+<span class="side-icon">
+🚪
+</span>
 
-    </div>
+Logout
 
-  </aside>
+</a>
 
 
+</div>
 
-  <!-- ================= MAIN ================= -->
 
-  <main class="main">
+</aside>
 
 
-    <!-- HEADING -->
 
-    <div class="page-heading">
+<!-- ================= MAIN ================= -->
 
-      <div>
+<main class="main">
 
-        <h1>
-          Donations
-        </h1>
 
-        <p>
-          Track and manage foundation donations.
-        </p>
+<div class="page-heading">
 
-      </div>
 
+<div>
 
-      <div
-        class="date-box"
-        id="currentDate">
-      </div>
+<h1>
+Donations
+</h1>
 
-    </div>
+<p>
+View and manage donation records for the foundation.
+</p>
 
+</div>
 
 
-    <!-- ================= SUMMARY ================= -->
+<div
+class="date-box"
+id="currentDate">
+</div>
 
-    <section class="summary">
 
+</div>
 
-      <div class="summary-card">
 
-        <div class="summary-label">
-          Total Received
-        </div>
 
-        <div
-          class="summary-value"
-          id="totalAmount">
+<!-- ================= STATS ================= -->
 
-          ₦0
+<section class="stats">
 
-        </div>
 
-        <div class="summary-note">
-          Total recorded donations
-        </div>
+<div class="stat">
 
-      </div>
+<div class="stat-icon">
+💰
+</div>
 
+<div class="stat-label">
+Total Donations
+</div>
 
-      <div class="summary-card">
+<div
+class="stat-value"
+id="totalAmount">
 
-        <div class="summary-label">
-          Donations
-        </div>
+₦60,890
 
-        <div
-          class="summary-value"
-          id="totalDonations">
+</div>
 
-          0
+<div class="stat-note">
+Current demo total
+</div>
 
-        </div>
+</div>
 
-        <div class="summary-note">
-          All recorded transactions
-        </div>
 
-      </div>
+<div class="stat">
 
+<div class="stat-icon">
+📅
+</div>
 
-      <div class="summary-card">
+<div class="stat-label">
+This Month
+</div>
 
-        <div class="summary-label">
-          Completed
-        </div>
+<div
+class="stat-value"
+id="monthAmount">
 
-        <div
-          class="summary-value"
-          id="completedDonations">
+₦11,000
 
-          0
+</div>
 
-        </div>
+<div class="stat-note">
+August 2026
+</div>
 
-        <div class="summary-note">
-          Successfully received
-        </div>
+</div>
 
-      </div>
 
+<div class="stat">
 
-      <div class="summary-card">
+<div class="stat-icon">
+👥
+</div>
 
-        <div class="summary-label">
-          Pending
-        </div>
+<div class="stat-label">
+Donors
+</div>
 
-        <div
-          class="summary-value"
-          id="pendingDonations">
+<div
+class="stat-value"
+id="donorCount">
 
-          0
+3
 
-        </div>
+</div>
 
-        <div class="summary-note">
-          Awaiting confirmation
-        </div>
+<div class="stat-note">
+Demo donor records
+</div>
 
-      </div>
+</div>
 
 
-    </section>
+<div class="stat">
 
+<div class="stat-icon">
+⏳
+</div>
 
+<div class="stat-label">
+Pending
+</div>
 
-    <!-- ================= DONATIONS CARD ================= -->
+<div
+class="stat-value"
+id="pendingAmount">
 
-    <section class="card">
+₦0
 
+</div>
 
-      <!-- TOOLBAR -->
+<div class="stat-note">
+Awaiting confirmation
+</div>
 
-      <div class="toolbar">
+</div>
 
 
-        <div class="search">
+</section>
 
-          <span>
-            🔎
-          </span>
 
-          <input
-            type="search"
-            id="searchInput"
-            placeholder="Search donor, email or reference..."
-            oninput="filterDonations()">
 
-        </div>
+<!-- ================= DONATIONS TABLE ================= -->
 
+<section class="card">
 
-        <div class="filters">
 
-          <select
-            id="statusFilter"
-            onchange="filterDonations()">
+<div class="toolbar">
 
-            <option value="all">
-              All Status
-            </option>
 
-            <option value="completed">
-              Completed
-            </option>
+<div class="search">
 
-            <option value="pending">
-              Pending
-            </option>
+<span class="search-icon">
+🔎
+</span>
 
-            <option value="failed">
-              Failed
-            </option>
+<input
+type="search"
+id="searchInput"
+placeholder="Search donor, email or donation type..."
+oninput="filterDonations()">
 
-          </select>
+</div>
 
 
-          <select
-            id="monthFilter"
-            onchange="filterDonations()">
+<div class="filters">
 
-            <option value="all">
-              All Months
-            </option>
 
-            <option value="01">
-              January
-            </option>
+<select
+id="statusFilter"
+onchange="filterDonations()">
 
-            <option value="02">
-              February
-            </option>
+<option value="all">
+All Status
+</option>
 
-            <option value="03">
-              March
-            </option>
+<option value="completed">
+Completed
+</option>
 
-            <option value="04">
-              April
-            </option>
+<option value="pending">
+Pending
+</option>
 
-            <option value="05">
-              May
-            </option>
+<option value="cancelled">
+Cancelled
+</option>
 
-            <option value="06">
-              June
-            </option>
+</select>
 
-            <option value="07">
-              July
-            </option>
 
-            <option value="08">
-              August
-            </option>
+<select
+id="typeFilter"
+onchange="filterDonations()">
 
-            <option value="09">
-              September
-            </option>
+<option value="all">
+All Types
+</option>
 
-            <option value="10">
-              October
-            </option>
+<option value="500 Fisabilillahi">
+500 Fisabilillahi
+</option>
 
-            <option value="11">
-              November
-            </option>
+<option value="General Donation">
+General Donation
+</option>
 
-            <option value="12">
-              December
-            </option>
+<option value="Education">
+Education
+</option>
 
-          </select>
+<option value="Food Support">
+Food Support
+</option>
 
-        </div>
+</select>
 
 
-        <button
-          class="export-btn"
-          onclick="exportCSV()">
+</div>
 
-          ↓ Export CSV
 
-        </button>
+<button
+class="export-btn"
+onclick="exportDonations()">
 
-      </div>
+⬇ Export CSV
 
+</button>
 
 
-      <!-- TABLE -->
+</div>
 
-      <div class="table-wrap">
 
-        <table>
 
-          <thead>
+<div class="table-wrap">
 
-            <tr>
 
-              <th>
-                Donor
-              </th>
+<table>
 
-              <th>
-                Amount
-              </th>
 
-              <th>
-                Date
-              </th>
+<thead>
 
-              <th>
-                Reference
-              </th>
+<tr>
 
-              <th>
-                Status
-              </th>
+<th>
+Donor
+</th>
 
-              <th>
-                Action
-              </th>
+<th>
+Amount
+</th>
 
-            </tr>
+<th>
+Type
+</th>
 
-          </thead>
+<th>
+Date
+</th>
 
+<th>
+Status
+</th>
 
-          <tbody
-            id="donationTable">
+<th>
+Action
+</th>
 
-          </tbody>
+</tr>
 
-        </table>
+</thead>
 
 
-        <div
-          class="empty"
-          id="emptyState">
+<tbody
+id="donationTable">
+</tbody>
 
-          <div class="empty-icon">
-            💰
-          </div>
 
-          <h3>
-            No donations found
-          </h3>
+</table>
 
-          <p>
-            Donations will appear here when they are recorded.
-          </p>
 
-        </div>
+</div>
 
-      </div>
 
-    </section>
 
+<div
+class="empty"
+id="emptyState">
 
+<div class="empty-icon">
+📭
+</div>
 
-    <!-- INFO -->
+<h3>
+No donations found
+</h3>
 
-    <div class="info">
+<p>
+No donation records match your current search or filters.
+</p>
 
-      <strong>
-        Database status:
-      </strong>
+</div>
 
-      This page is currently prepared for the future
-      database connection. Once Supabase is available,
-      donation records can be loaded here automatically.
 
-    </div>
+</section>
 
 
-  </main>
+
+<!-- ================= INFO ================= -->
+
+<div class="info">
+
+<strong>
+⚠️ Development Notice:
+</strong>
+
+Donation records on this page are currently demo/frontend data.
+The real donation database will be connected later when we resume
+the Supabase part of the project.
+
+</div>
+
+
+</main>
+
+</div>
+
+
+
+<!-- ================= DETAIL MODAL ================= -->
+
+<div
+class="modal"
+id="donationModal">
+
+
+<div class="modal-box">
+
+
+<div class="modal-head">
+
+<h2>
+Donation Details
+</h2>
+
+<button
+class="close"
+onclick="closeModal()">
+
+×
+
+</button>
+
+</div>
+
+
+<div
+class="detail"
+id="donationDetail">
+</div>
+
+
+</div>
 
 </div>
 
@@ -1109,499 +1293,852 @@ tbody tr:hover{
 
 <script>
 
-/* ================= LOGIN PROTECTION ================= */
+
+/* =========================================================
+   LOGIN PROTECTION
+========================================================= */
 
 (function(){
 
-  const loggedIn =
-    localStorage.getItem("fisabilillahi_admin") === "true" ||
-    sessionStorage.getItem("fisabilillahi_admin") === "true";
+const loggedIn =
 
-  if(!loggedIn){
+localStorage.getItem(
+"fisabilillahi_admin"
+) === "true"
 
-    window.location.href =
-      "admin-login.html";
+||
 
-  }
+sessionStorage.getItem(
+"fisabilillahi_admin"
+) === "true";
+
+
+if(!loggedIn){
+
+window.location.href =
+"admin-login.html";
+
+}
 
 })();
 
 
 
-/* ================= DATE ================= */
+/* =========================================================
+   CURRENT DATE
+========================================================= */
 
-document.getElementById("currentDate").textContent =
-  new Date().toLocaleDateString(
-    "en-NG",
-    {
-      weekday:"long",
-      year:"numeric",
-      month:"long",
-      day:"numeric"
-    }
-  );
+document.getElementById(
+"currentDate"
+).textContent =
 
-
-
-/* ================= DONATION DATA ================= */
-
-/*
-  Wannan array din demo ne.
-
-  Yayin da Supabase bai haɗu ba,
-  babu real donation data a nan.
-
-  Daga baya za mu maye gurbin wannan
-  da database query.
-*/
-
-let donations = [];
+new Date().toLocaleDateString(
+"en-NG",
+{
+weekday:"long",
+year:"numeric",
+month:"long",
+day:"numeric"
+}
+);
 
 
 
-/* ================= RENDER ================= */
+/* =========================================================
+   DEMO DONATIONS
+========================================================= */
+
+let donations = [
+
+{
+  name:"Anonymous",
+  email:"anonymous@example.com",
+  amount:5000,
+  type:"500 Fisabilillahi",
+  date:"2026-08-28",
+  status:"completed",
+  reference:"FIS-082826-001"
+},
+
+{
+  name:"Anonymous",
+  email:"anonymous@example.com",
+  amount:3500,
+  type:"500 Fisabilillahi",
+  date:"2026-08-27",
+  status:"completed",
+  reference:"FIS-082726-002"
+},
+
+{
+  name:"Anonymous",
+  email:"anonymous@example.com",
+  amount:2500,
+  type:"General Donation",
+  date:"2026-08-26",
+  status:"completed",
+  reference:"FIS-082626-003"
+}
+
+];
+
+
+
+/* =========================================================
+   RENDER DONATIONS
+========================================================= */
 
 function renderDonations(list){
 
-  const table =
-    document.getElementById("donationTable");
+const table =
+document.getElementById(
+"donationTable"
+);
 
-  const empty =
-    document.getElementById("emptyState");
-
-
-  table.innerHTML = "";
-
-
-  if(list.length === 0){
-
-    empty.style.display = "block";
-
-  }else{
-
-    empty.style.display = "none";
-
-  }
+const empty =
+document.getElementById(
+"emptyState"
+);
 
 
-  list.forEach(function(donation){
-
-    const tr =
-      document.createElement("tr");
+table.innerHTML = "";
 
 
-    const initials =
-      donation.name
-        .split(" ")
-        .map(word => word.charAt(0))
-        .slice(0,2)
-        .join("")
-        .toUpperCase();
+if(list.length === 0){
+
+empty.style.display =
+"block";
+
+}else{
+
+empty.style.display =
+"none";
+
+}
 
 
-    tr.innerHTML = `
+list.forEach(function(item){
 
-      <td>
-
-        <div class="donor">
-
-          <div class="donor-avatar">
-            ${initials}
-          </div>
-
-          <div>
-
-            <div class="donor-name">
-              ${escapeHTML(donation.name)}
-            </div>
-
-            <span class="donor-email">
-              ${escapeHTML(donation.email)}
-            </span>
-
-          </div>
-
-        </div>
-
-      </td>
+const index =
+donations.indexOf(item);
 
 
-      <td>
-
-        <span class="amount">
-          ₦${Number(donation.amount).toLocaleString("en-NG")}
-        </span>
-
-      </td>
+const row =
+document.createElement(
+"tr"
+);
 
 
-      <td>
-        ${escapeHTML(donation.date)}
-      </td>
+row.innerHTML = `
+
+<td>
+
+<div class="donor">
+
+<div class="donor-avatar">
+
+${initials(item.name)}
+
+</div>
 
 
-      <td>
-        ${escapeHTML(donation.reference)}
-      </td>
+<div>
+
+<div class="donor-name">
+
+${escapeHTML(item.name)}
+
+</div>
+
+<div class="donor-email">
+
+${escapeHTML(item.email)}
+
+</div>
+
+</div>
+
+</div>
+
+</td>
 
 
-      <td>
+<td>
 
-        <span class="badge ${donation.status}">
-          ${capitalize(donation.status)}
-        </span>
+<div class="amount">
 
-      </td>
+₦${formatMoney(item.amount)}
 
+</div>
 
-      <td>
-
-        <button
-          class="action-btn"
-          onclick="viewDonation('${donation.reference}')">
-
-          View
-
-        </button>
-
-      </td>
-
-    `;
+</td>
 
 
-    table.appendChild(tr);
+<td>
 
-  });
+<div class="type">
+
+${escapeHTML(item.type)}
+
+</div>
+
+</td>
 
 
-  updateSummary();
+<td>
+
+<div class="date">
+
+${escapeHTML(item.date)}
+
+</div>
+
+</td>
+
+
+<td>
+
+<span
+class="status ${item.status}">
+
+${capitalize(item.status)}
+
+</span>
+
+</td>
+
+
+<td>
+
+<button
+class="action-btn"
+onclick="viewDonation(${index})"
+title="View donation">
+
+👁
+
+</button>
+
+</td>
+
+`;
+
+
+table.appendChild(
+row
+);
+
+});
+
+
+updateStats();
 
 }
 
 
 
-/* ================= FILTER ================= */
+/* =========================================================
+   FILTER
+========================================================= */
 
 function filterDonations(){
 
-  const search =
-    document
-      .getElementById("searchInput")
-      .value
-      .toLowerCase()
-      .trim();
+const search =
+
+document
+.getElementById(
+"searchInput"
+)
+.value
+.toLowerCase()
+.trim();
 
 
-  const status =
-    document
-      .getElementById("statusFilter")
-      .value;
+const status =
+
+document
+.getElementById(
+"statusFilter"
+)
+.value;
 
 
-  const month =
-    document
-      .getElementById("monthFilter")
-      .value;
+const type =
+
+document
+.getElementById(
+"typeFilter"
+)
+.value;
 
 
-  const filtered =
-    donations.filter(function(donation){
+const filtered =
 
-      const text =
-        (
-          donation.name +
-          " " +
-          donation.email +
-          " " +
-          donation.reference
-        ).toLowerCase();
+donations.filter(
+function(item){
 
+const searchable = (
 
-      const searchMatch =
-        text.includes(search);
+item.name +
+" " +
+item.email +
+" " +
+item.type +
+" " +
+item.reference
 
-
-      const statusMatch =
-        status === "all" ||
-        donation.status === status;
+).toLowerCase();
 
 
-      let monthMatch = true;
+const searchMatch =
+searchable.includes(
+search
+);
 
 
-      if(month !== "all"){
+const statusMatch =
 
-        const parts =
-          donation.date.split("-");
+status === "all"
 
-        if(parts.length >= 2){
+||
 
-          monthMatch =
-            parts[1] === month;
-
-        }else{
-
-          monthMatch = false;
-
-        }
-
-      }
+item.status === status;
 
 
-      return(
-        searchMatch &&
-        statusMatch &&
-        monthMatch
-      );
+const typeMatch =
 
-    });
+type === "all"
+
+||
+
+item.type === type;
 
 
-  renderDonations(filtered);
+return(
+searchMatch &&
+statusMatch &&
+typeMatch
+);
+
+}
+);
+
+
+renderDonations(
+filtered
+);
 
 }
 
 
 
-/* ================= SUMMARY ================= */
+/* =========================================================
+   STATISTICS
+========================================================= */
 
-function updateSummary(){
+function updateStats(){
 
-  const total =
-    donations.reduce(
-      (sum,item) =>
-        sum + Number(item.amount || 0),
-      0
-    );
+const total =
 
-
-  const completed =
-    donations.filter(
-      item => item.status === "completed"
-    ).length;
+donations.reduce(
+(sum,item) =>
+sum + item.amount,
+0
+);
 
 
-  const pending =
-    donations.filter(
-      item => item.status === "pending"
-    ).length;
+const pending =
+
+donations
+.filter(
+item =>
+item.status === "pending"
+)
+.reduce(
+(sum,item) =>
+sum + item.amount,
+0
+);
 
 
-  document.getElementById(
-    "totalAmount"
-  ).textContent =
-    "₦" +
-    total.toLocaleString("en-NG");
+const currentMonth =
+"2026-08";
 
 
-  document.getElementById(
-    "totalDonations"
-  ).textContent =
-    donations.length;
+const monthTotal =
+
+donations
+.filter(
+item =>
+item.date.startsWith(
+currentMonth
+)
+&&
+item.status === "completed"
+)
+.reduce(
+(sum,item) =>
+sum + item.amount,
+0
+);
 
 
-  document.getElementById(
-    "completedDonations"
-  ).textContent =
-    completed;
+const donors =
+
+new Set(
+donations.map(
+item =>
+item.email
+)
+).size;
 
 
-  document.getElementById(
-    "pendingDonations"
-  ).textContent =
-    pending;
-
-}
+document.getElementById(
+"totalAmount"
+).textContent =
+"₦" + formatMoney(total);
 
 
-
-/* ================= VIEW ================= */
-
-function viewDonation(reference){
-
-  const donation =
-    donations.find(
-      item => item.reference === reference
-    );
+document.getElementById(
+"monthAmount"
+).textContent =
+"₦" + formatMoney(monthTotal);
 
 
-  if(!donation){
-
-    alert(
-      "Donation record not found."
-    );
-
-    return;
-
-  }
+document.getElementById(
+"donorCount"
+).textContent =
+donors;
 
 
-  alert(
-
-    "Donation Details\n\n" +
-
-    "Donor: " +
-    donation.name +
-
-    "\nAmount: ₦" +
-    Number(donation.amount).toLocaleString("en-NG") +
-
-    "\nDate: " +
-    donation.date +
-
-    "\nReference: " +
-    donation.reference +
-
-    "\nStatus: " +
-    donation.status
-
-  );
+document.getElementById(
+"pendingAmount"
+).textContent =
+"₦" + formatMoney(pending);
 
 }
 
 
 
-/* ================= EXPORT CSV ================= */
+/* =========================================================
+   VIEW DONATION
+========================================================= */
 
-function exportCSV(){
+function viewDonation(index){
 
-  if(donations.length === 0){
-
-    alert(
-      "There are no donation records to export yet."
-    );
-
-    return;
-
-  }
+const item =
+donations[index];
 
 
-  let csv =
-    "Donor,Email,Amount,Date,Reference,Status\n";
+if(!item){
+
+return;
+
+}
 
 
-  donations.forEach(function(item){
-
-    csv +=
-      '"' + item.name + '",' +
-      '"' + item.email + '",' +
-      item.amount + ',' +
-      item.date + ',' +
-      '"' + item.reference + '",' +
-      item.status +
-      "\n";
-
-  });
+const detail =
+document.getElementById(
+"donationDetail"
+);
 
 
-  const blob =
-    new Blob(
-      [csv],
-      {
-        type:"text/csv;charset=utf-8;"
-      }
-    );
+detail.innerHTML = `
+
+<div class="detail-row">
+
+<div class="detail-label">
+Donor
+</div>
+
+<div class="detail-value">
+${escapeHTML(item.name)}
+</div>
+
+</div>
 
 
-  const url =
-    URL.createObjectURL(blob);
+<div class="detail-row">
+
+<div class="detail-label">
+Email
+</div>
+
+<div class="detail-value">
+${escapeHTML(item.email)}
+</div>
+
+</div>
 
 
-  const link =
-    document.createElement("a");
+<div class="detail-row">
+
+<div class="detail-label">
+Amount
+</div>
+
+<div class="detail-value"
+style="color:var(--green);">
+
+₦${formatMoney(item.amount)}
+
+</div>
+
+</div>
 
 
-  link.href = url;
+<div class="detail-row">
 
-  link.download =
-    "fisabilillahi-donations.csv";
+<div class="detail-label">
+Donation Type
+</div>
+
+<div class="detail-value">
+${escapeHTML(item.type)}
+</div>
+
+</div>
 
 
-  document.body.appendChild(link);
+<div class="detail-row">
 
-  link.click();
+<div class="detail-label">
+Date
+</div>
 
-  document.body.removeChild(link);
+<div class="detail-value">
+${escapeHTML(item.date)}
+</div>
 
-  URL.revokeObjectURL(url);
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+Reference
+</div>
+
+<div class="detail-value">
+${escapeHTML(item.reference)}
+</div>
+
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+Status
+</div>
+
+<div class="detail-value">
+
+<span
+class="status ${item.status}">
+
+${capitalize(item.status)}
+
+</span>
+
+</div>
+
+</div>
+
+`;
+
+
+document
+.getElementById(
+"donationModal"
+)
+.classList.add(
+"show"
+);
 
 }
 
 
 
-/* ================= SETTINGS ================= */
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal(){
+
+document
+.getElementById(
+"donationModal"
+)
+.classList.remove(
+"show"
+);
+
+}
+
+
+document
+.getElementById(
+"donationModal"
+)
+.addEventListener(
+"click",
+function(event){
+
+if(event.target === this){
+
+closeModal();
+
+}
+
+});
+
+
+document.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Escape"){
+
+closeModal();
+
+}
+
+});
+
+
+
+/* =========================================================
+   EXPORT CSV
+========================================================= */
+
+function exportDonations(){
+
+if(donations.length === 0){
+
+alert(
+"There are no donation records to export."
+);
+
+return;
+
+}
+
+
+let csv =
+
+"Donor,Email,Amount,Type,Date,Status,Reference\n";
+
+
+donations.forEach(
+function(item){
+
+csv +=
+
+'"' +
+item.name +
+'",' +
+
+'"' +
+item.email +
+'",' +
+
+item.amount +
+',' +
+
+'"' +
+item.type +
+'",' +
+
+item.date +
+',' +
+
+item.status +
+',' +
+
+item.reference +
+
+"\n";
+
+}
+);
+
+
+const blob =
+new Blob(
+[csv],
+{
+type:
+"text/csv;charset=utf-8;"
+}
+);
+
+
+const url =
+URL.createObjectURL(
+blob
+);
+
+
+const link =
+document.createElement(
+"a"
+);
+
+
+link.href =
+url;
+
+link.download =
+"fisabilillahi-donations.csv";
+
+
+document.body.appendChild(
+link
+);
+
+link.click();
+
+document.body.removeChild(
+link
+);
+
+URL.revokeObjectURL(
+url
+);
+
+}
+
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
 
 function openSettings(event){
 
-  event.preventDefault();
+event.preventDefault();
 
-  alert(
-    "Settings will be connected when the admin backend is enabled."
-  );
+alert(
+"Settings will be added later."
+);
 
 }
 
 
 
-/* ================= LOGOUT ================= */
+/* =========================================================
+   LOGOUT
+========================================================= */
 
 function logoutAdmin(event){
 
-  event.preventDefault();
+event.preventDefault();
 
 
-  if(
-    confirm(
-      "Are you sure you want to logout?"
-    )
-  ){
+if(
+confirm(
+"Are you sure you want to logout?"
+)
+){
 
-    localStorage.removeItem(
-      "fisabilillahi_admin"
-    );
+localStorage.removeItem(
+"fisabilillahi_admin"
+);
 
-    sessionStorage.removeItem(
-      "fisabilillahi_admin"
-    );
+sessionStorage.removeItem(
+"fisabilillahi_admin"
+);
 
+window.location.href =
+"admin-login.html";
 
-    window.location.href =
-      "admin-login.html";
-
-  }
+}
 
 }
 
 
 
-/* ================= HELPERS ================= */
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function formatMoney(number){
+
+return Number(
+number
+).toLocaleString(
+"en-NG"
+);
+
+}
+
+
+function initials(name){
+
+return name
+.split(" ")
+.map(
+word =>
+word.charAt(0)
+)
+.slice(0,2)
+.join("")
+.toUpperCase();
+
+}
+
 
 function capitalize(value){
 
-  if(!value) return "";
-
-  return value.charAt(0).toUpperCase() +
-         value.slice(1);
+return value
+.charAt(0)
+.toUpperCase() +
+value.slice(1);
 
 }
 
 
 function escapeHTML(value){
 
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+return String(value)
+
+.replace(
+/&/g,
+"&amp;"
+)
+
+.replace(
+/</g,
+"&lt;"
+)
+
+.replace(
+/>/g,
+"&gt;"
+)
+
+.replace(
+/"/g,
+"&quot;"
+)
+
+.replace(
+/'/g,
+"&#039;"
+);
 
 }
 
 
 
-/* ================= INITIAL LOAD ================= */
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
 
-renderDonations(donations);
+renderDonations(
+donations
+);
 
 </script>
 

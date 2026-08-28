@@ -15,12 +15,13 @@
   --green2:#0d8053;
   --gold:#d6ae3d;
   --cream:#f7f6ef;
-  --white:#ffffff;
+  --white:#fff;
   --text:#26372f;
   --muted:#718078;
-  --border:#e2e9e5;
+  --border:#e1e9e4;
   --soft:#edf6f1;
   --red:#b93636;
+  --blue:#3867a8;
   --shadow:0 8px 30px rgba(0,0,0,.06);
 }
 
@@ -36,6 +37,11 @@ body{
   color:var(--text);
 }
 
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
 button,
 input,
 select,
@@ -45,17 +51,6 @@ textarea{
 
 button{
   cursor:pointer;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-.container{
-  width:94%;
-  max-width:1400px;
-  margin:auto;
 }
 
 
@@ -68,6 +63,12 @@ a{
   position:sticky;
   top:0;
   z-index:1000;
+}
+
+.container{
+  width:94%;
+  max-width:1400px;
+  margin:auto;
 }
 
 .header-inner{
@@ -118,12 +119,12 @@ a{
 }
 
 .view-site{
-  color:var(--green);
   border:1px solid var(--border);
+  color:var(--green);
   padding:9px 14px;
   border-radius:7px;
-  font-size:12px;
-  font-weight:800;
+  font-size:11px;
+  font-weight:900;
 }
 
 .avatar{
@@ -135,7 +136,7 @@ a{
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:12px;
+  font-size:11px;
   font-weight:900;
 }
 
@@ -198,8 +199,8 @@ a{
 
 .sidebar-bottom{
   margin-top:35px;
-  border-top:1px solid rgba(255,255,255,.1);
   padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.1);
 }
 
 .logout{
@@ -239,20 +240,20 @@ a{
   border-radius:7px;
   padding:9px 12px;
   color:var(--muted);
-  font-size:11px;
+  font-size:10px;
 }
 
 
-/* ================= SUMMARY ================= */
+/* ================= STATS ================= */
 
-.summary{
+.stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:16px;
   margin-bottom:22px;
 }
 
-.summary-card{
+.stat{
   background:#fff;
   border:1px solid var(--border);
   border-radius:12px;
@@ -260,29 +261,41 @@ a{
   box-shadow:var(--shadow);
 }
 
-.summary-label{
-  color:var(--muted);
-  text-transform:uppercase;
-  letter-spacing:1px;
-  font-size:9px;
-  font-weight:900;
+.stat-icon{
+  width:38px;
+  height:38px;
+  border-radius:9px;
+  background:var(--soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:17px;
+  margin-bottom:13px;
 }
 
-.summary-value{
+.stat-label{
+  color:var(--muted);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.stat-value{
   color:var(--dark);
   font-size:25px;
   font-weight:900;
-  margin-top:10px;
+  margin-top:7px;
 }
 
-.summary-note{
+.stat-note{
   color:var(--muted);
   font-size:9px;
-  margin-top:4px;
+  margin-top:5px;
 }
 
 
-/* ================= CARD ================= */
+/* ================= MESSAGE CARD ================= */
 
 .card{
   background:#fff;
@@ -303,7 +316,7 @@ a{
   align-items:center;
   justify-content:space-between;
 
-  gap:12px;
+  gap:10px;
   flex-wrap:wrap;
 }
 
@@ -313,24 +326,24 @@ a{
   min-width:220px;
 }
 
-.search span{
+.search-icon{
   position:absolute;
   left:13px;
   top:50%;
   transform:translateY(-50%);
-  font-size:14px;
   color:var(--muted);
+  font-size:14px;
 }
 
 .search input{
   width:100%;
   height:42px;
+  padding:0 12px 0 37px;
   border:1px solid var(--border);
   border-radius:8px;
-  padding:0 12px 0 37px;
   outline:none;
-  font-size:11px;
   background:#fbfdfb;
+  font-size:11px;
 }
 
 .search input:focus{
@@ -344,12 +357,13 @@ a{
 
 .filters select{
   height:42px;
+  min-width:125px;
+  padding:0 12px;
   border:1px solid var(--border);
   border-radius:8px;
-  padding:0 12px;
   background:#fff;
   color:var(--text);
-  font-size:11px;
+  font-size:10px;
   outline:none;
 }
 
@@ -360,117 +374,158 @@ a{
   width:100%;
 }
 
-.message-row{
-  display:grid;
-  grid-template-columns:42px minmax(150px,1fr) minmax(180px,2fr) 115px 80px;
-  gap:15px;
-  align-items:center;
-
-  padding:17px 20px;
-
+.message-item{
+  padding:18px 20px;
   border-bottom:1px solid var(--border);
-
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
   transition:.2s;
+  position:relative;
 }
 
-.message-row:hover{
+.message-item:hover{
   background:#fbfdfb;
 }
 
-.message-row.unread{
-  background:#f2f9f5;
+.message-item.unread{
+  background:#f5faf7;
 }
 
-.message-row.unread:hover{
-  background:#eaf5ef;
+.message-item.unread:before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:3px;
+  background:var(--green);
 }
 
 .message-avatar{
-  width:38px;
-  height:38px;
+  width:42px;
+  height:42px;
   border-radius:50%;
-
   background:var(--soft);
   color:var(--green);
-
   display:flex;
   align-items:center;
   justify-content:center;
-
-  font-size:13px;
+  font-size:10px;
   font-weight:900;
+  flex-shrink:0;
+}
+
+.message-content{
+  min-width:0;
+  flex:1;
+}
+
+.message-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
 }
 
 .sender{
-  min-width:0;
-}
-
-.sender-name{
   color:var(--dark);
   font-size:11px;
   font-weight:900;
-
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
 }
 
 .sender-email{
   color:var(--muted);
-  font-size:9px;
+  font-size:8px;
+  margin-top:3px;
+}
 
-  margin-top:4px;
-
+.message-date{
+  color:var(--muted);
+  font-size:8px;
   white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
 }
 
 .subject{
   color:var(--dark);
   font-size:11px;
-  font-weight:800;
-
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+  font-weight:900;
+  margin-top:11px;
 }
 
 .message-preview{
   color:var(--muted);
   font-size:9px;
+  line-height:1.6;
   margin-top:5px;
 
-  white-space:nowrap;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
   overflow:hidden;
-  text-overflow:ellipsis;
 }
 
-.message-date{
-  color:var(--muted);
-  font-size:9px;
+.message-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:12px;
+  gap:10px;
 }
 
-.status{
+.badges{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.badge{
   display:inline-block;
-  width:max-content;
-
   padding:5px 8px;
-
   border-radius:20px;
-
-  font-size:8px;
+  font-size:7px;
   font-weight:900;
 }
 
-.status.unread{
-  background:#fff3d5;
-  color:#8b6500;
+.badge.unread{
+  background:#e8f5ee;
+  color:var(--green);
 }
 
-.status.read{
-  background:var(--soft);
+.badge.read{
+  background:#f1f3f2;
+  color:var(--muted);
+}
+
+.badge.replied{
+  background:#edf3ff;
+  color:var(--blue);
+}
+
+.message-actions{
+  display:flex;
+  gap:6px;
+}
+
+.action-btn{
+  width:30px;
+  height:30px;
+  border:1px solid var(--border);
+  border-radius:7px;
+  background:#fff;
   color:var(--green);
+  font-size:12px;
+}
+
+.action-btn:hover{
+  background:var(--soft);
+}
+
+.action-btn.delete{
+  color:var(--red);
+}
+
+.action-btn.delete:hover{
+  background:#fff0f0;
 }
 
 
@@ -499,20 +554,34 @@ a{
 }
 
 
-/* ================= MESSAGE MODAL ================= */
+/* ================= NOTICE ================= */
+
+.notice{
+  margin-top:18px;
+  padding:15px 18px;
+  background:#fffaf0;
+  border:1px solid #eadcb1;
+  border-radius:10px;
+  color:#735d21;
+  font-size:9px;
+  line-height:1.6;
+}
+
+.notice strong{
+  color:#5e4a13;
+}
+
+
+/* ================= MODAL ================= */
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
-
   background:rgba(0,0,0,.58);
-
   z-index:3000;
-
   align-items:center;
   justify-content:center;
-
   padding:20px;
 }
 
@@ -523,78 +592,64 @@ a{
 .modal-box{
   width:100%;
   max-width:650px;
-
-  max-height:
-    calc(100vh - 40px);
-
-  overflow:auto;
-
+  max-height:90vh;
+  overflow-y:auto;
   background:#fff;
-
-  border-radius:15px;
-
-  box-shadow:
-    0 25px 80px
-    rgba(0,0,0,.25);
+  border-radius:14px;
+  box-shadow:0 25px 80px rgba(0,0,0,.25);
 }
 
 .modal-head{
-  padding:20px 22px;
-
+  padding:18px 20px;
   border-bottom:1px solid var(--border);
-
   display:flex;
   align-items:center;
   justify-content:space-between;
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:2;
 }
 
 .modal-head h2{
   color:var(--dark);
-  font-size:19px;
+  font-size:17px;
 }
 
 .close{
-  width:32px;
-  height:32px;
-
   border:0;
-
-  background:#f1f4f2;
-
+  width:31px;
+  height:31px;
   border-radius:50%;
-
-  font-size:18px;
+  background:#f1f4f2;
+  font-size:17px;
 }
 
-.message-detail{
-  padding:22px;
+
+/* ================= MESSAGE DETAIL ================= */
+
+.detail{
+  padding:24px;
 }
 
-.detail-top{
+.detail-sender{
   display:flex;
   align-items:center;
   gap:12px;
-
   padding-bottom:18px;
-
   border-bottom:1px solid var(--border);
 }
 
 .detail-avatar{
-  width:45px;
-  height:45px;
-
+  width:48px;
+  height:48px;
   border-radius:50%;
-
-  background:var(--green);
-
-  color:#fff;
-
+  background:var(--soft);
+  color:var(--green);
   display:flex;
   align-items:center;
   justify-content:center;
-
-  font-size:14px;
+  font-size:11px;
   font-weight:900;
 }
 
@@ -610,88 +665,85 @@ a{
   margin-top:4px;
 }
 
-.detail-date{
-  margin-left:auto;
+.detail-meta{
   color:var(--muted);
-  font-size:9px;
+  font-size:8px;
+  margin-top:4px;
 }
 
 .detail-subject{
   color:var(--dark);
-  font-size:17px;
+  font-size:18px;
   font-weight:900;
-  margin-top:20px;
+  margin-top:24px;
 }
 
 .detail-message{
   color:var(--text);
-  font-size:12px;
+  font-size:11px;
   line-height:1.8;
-  white-space:pre-wrap;
   margin-top:14px;
+  white-space:pre-wrap;
 }
 
-.detail-actions{
-  display:flex;
-  gap:8px;
-
-  margin-top:22px;
-
-  padding-top:18px;
-
+.reply-box{
+  margin-top:25px;
+  padding-top:20px;
   border-top:1px solid var(--border);
 }
 
-.detail-btn{
-  flex:1;
+.reply-box label{
+  display:block;
+  color:var(--dark);
+  font-size:9px;
+  font-weight:900;
+  margin-bottom:7px;
+}
 
-  height:42px;
-
-  border-radius:8px;
-
+.reply-box textarea{
+  width:100%;
+  min-height:110px;
   border:1px solid var(--border);
-
-  background:#fff;
-
-  color:var(--green);
-
+  border-radius:8px;
+  padding:12px;
+  outline:none;
+  resize:vertical;
   font-size:10px;
+  line-height:1.6;
+  background:#fbfdfb;
+}
 
+.reply-box textarea:focus{
+  border-color:var(--green);
+}
+
+.reply-actions{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:10px;
+}
+
+.reply-btn{
+  border:0;
+  background:var(--green);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:8px;
+  font-size:9px;
   font-weight:900;
 }
 
-.detail-btn:hover{
-  background:var(--soft);
-}
-
-.detail-btn.delete{
-  color:var(--red);
-}
-
-.detail-btn.delete:hover{
-  background:#fff1f1;
+.reply-btn:hover{
+  background:var(--dark);
 }
 
 
 /* ================= MOBILE ================= */
 
-@media(max-width:1100px){
+@media(max-width:1150px){
 
-  .message-row{
-    grid-template-columns:
-      42px
-      1fr
-      1fr
-      90px;
-  }
-
-  .message-row .status{
-    display:none;
-  }
-
-  .summary{
-    grid-template-columns:
-      repeat(2,1fr);
+  .stats{
+    grid-template-columns:repeat(2,1fr);
   }
 
 }
@@ -714,33 +766,9 @@ a{
 
 @media(max-width:700px){
 
-  .message-row{
-    grid-template-columns:
-      40px
-      1fr
-      75px;
-  }
-
-  .message-row .message-content{
-    grid-column:2;
-  }
-
-  .message-row .message-date{
-    grid-column:3;
-    grid-row:1;
-  }
-
-}
-
-@media(max-width:600px){
-
-  .summary{
-    grid-template-columns:1fr;
-  }
-
   .page-heading{
-    align-items:flex-start;
     flex-direction:column;
+    align-items:flex-start;
   }
 
   .toolbar{
@@ -756,24 +784,38 @@ a{
   }
 
   .filters select{
-    width:100%;
+    flex:1;
+    min-width:0;
   }
 
-  .detail-top{
-    align-items:flex-start;
+  .message-item{
+    padding:16px 14px;
   }
 
-  .detail-date{
-    display:none;
-  }
-
-  .detail-actions{
+  .message-top{
     flex-direction:column;
+    gap:4px;
+  }
+
+  .message-date{
+    white-space:normal;
   }
 
 }
 
-@media(max-width:450px){
+@media(max-width:600px){
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .main{
+    padding:20px 3%;
+  }
+
+  .page-heading h1{
+    font-size:26px;
+  }
 
   .header{
     height:65px;
@@ -788,8 +830,26 @@ a{
     display:none;
   }
 
-  .main{
-    padding:20px 3%;
+  .message-avatar{
+    width:37px;
+    height:37px;
+  }
+
+  .message-content{
+    min-width:0;
+  }
+
+  .message-bottom{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .message-actions{
+    width:100%;
+  }
+
+  .action-btn{
+    flex:1;
   }
 
 }
@@ -807,7 +867,6 @@ a{
 <header class="header">
 
 <div class="container header-inner">
-
 
 <a
 href="admin.html"
@@ -846,7 +905,6 @@ A
 
 </div>
 
-
 </div>
 
 </header>
@@ -861,7 +919,6 @@ A
 <!-- ================= SIDEBAR ================= -->
 
 <aside class="sidebar">
-
 
 <div class="sidebar-title">
 Main Menu
@@ -971,7 +1028,6 @@ Settings
 
 <div class="sidebar-bottom">
 
-
 <a
 href="index.html"
 class="side-link">
@@ -998,9 +1054,7 @@ Logout
 
 </a>
 
-
 </div>
-
 
 </aside>
 
@@ -1013,7 +1067,6 @@ Logout
 
 <div class="page-heading">
 
-
 <div>
 
 <h1>
@@ -1021,7 +1074,7 @@ Messages
 </h1>
 
 <p>
-Read and manage messages received from website visitors.
+Read and manage messages sent to the foundation.
 </p>
 
 </div>
@@ -1032,87 +1085,110 @@ class="date-box"
 id="currentDate">
 </div>
 
-
 </div>
 
 
 
-<!-- ================= SUMMARY ================= -->
+<!-- ================= STATS ================= -->
 
-<section class="summary">
+<section class="stats">
 
 
-<div class="summary-card">
+<div class="stat">
 
-<div class="summary-label">
+<div class="stat-icon">
+💬
+</div>
+
+<div class="stat-label">
 Total Messages
 </div>
 
 <div
-class="summary-value"
+class="stat-value"
 id="totalMessages">
-0
+
+4
+
 </div>
 
-<div class="summary-note">
+<div class="stat-note">
 All received messages
 </div>
 
 </div>
 
 
-<div class="summary-card">
+<div class="stat">
 
-<div class="summary-label">
+<div class="stat-icon">
+🟢
+</div>
+
+<div class="stat-label">
 Unread
 </div>
 
 <div
-class="summary-value"
+class="stat-value"
 id="unreadMessages">
-0
-</div>
 
-<div class="summary-note">
-Messages waiting for review
-</div>
+2
 
 </div>
 
+<div class="stat-note">
+Need your attention
+</div>
 
-<div class="summary-card">
+</div>
 
-<div class="summary-label">
-Read
+
+<div class="stat">
+
+<div class="stat-icon">
+↩️
+</div>
+
+<div class="stat-label">
+Replied
 </div>
 
 <div
-class="summary-value"
-id="readMessages">
-0
-</div>
+class="stat-value"
+id="repliedMessages">
 
-<div class="summary-note">
-Already reviewed
-</div>
+1
 
 </div>
 
+<div class="stat-note">
+Messages answered
+</div>
 
-<div class="summary-card">
+</div>
 
-<div class="summary-label">
+
+<div class="stat">
+
+<div class="stat-icon">
+📅
+</div>
+
+<div class="stat-label">
 Today
 </div>
 
 <div
-class="summary-value"
+class="stat-value"
 id="todayMessages">
-0
+
+1
+
 </div>
 
-<div class="summary-note">
-Messages received today
+<div class="stat-note">
+Received today
 </div>
 
 </div>
@@ -1132,14 +1208,14 @@ Messages received today
 
 <div class="search">
 
-<span>
+<span class="search-icon">
 🔎
 </span>
 
 <input
 type="search"
 id="searchInput"
-placeholder="Search name, email or message..."
+placeholder="Search messages..."
 oninput="filterMessages()">
 
 </div>
@@ -1163,6 +1239,10 @@ Unread
 Read
 </option>
 
+<option value="replied">
+Replied
+</option>
+
 </select>
 
 </div>
@@ -1183,7 +1263,7 @@ class="empty"
 id="emptyState">
 
 <div class="empty-icon">
-📭
+💬
 </div>
 
 <h3>
@@ -1191,7 +1271,7 @@ No messages found
 </h3>
 
 <p>
-There are no messages matching your search.
+No message matches your search or selected filter.
 </p>
 
 </div>
@@ -1201,25 +1281,15 @@ There are no messages matching your search.
 
 
 
-<div class="info"
-style="
-margin-top:18px;
-padding:14px 17px;
-background:#fff;
-border:1px solid var(--border);
-border-radius:10px;
-color:var(--muted);
-font-size:9px;
-line-height:1.6;
-">
+<div class="notice">
 
 <strong>
-Storage status:
+⚠️ Development Notice:
 </strong>
 
-Messages are currently stored temporarily in this browser.
-The next step will connect the Contact Us form to Supabase so
-new messages will appear here automatically.
+This message page currently uses frontend/demo data.
+Real website contact messages will be connected to the database
+when we resume the Supabase integration.
 
 </div>
 
@@ -1230,12 +1300,11 @@ new messages will appear here automatically.
 
 
 
-<!-- ================= MESSAGE MODAL ================= -->
+<!-- ================= VIEW MESSAGE MODAL ================= -->
 
 <div
 class="modal"
 id="messageModal">
-
 
 <div class="modal-box">
 
@@ -1248,7 +1317,7 @@ Message Details
 
 <button
 class="close"
-onclick="closeMessageModal()">
+onclick="closeMessage()">
 
 ×
 
@@ -1258,9 +1327,8 @@ onclick="closeMessageModal()">
 
 
 <div
-class="message-detail"
+class="detail"
 id="messageDetail">
-
 </div>
 
 
@@ -1307,14 +1375,11 @@ window.location.href =
    DATE
 ========================================================= */
 
-const now =
-new Date();
-
 document.getElementById(
 "currentDate"
 ).textContent =
 
-now.toLocaleDateString(
+new Date().toLocaleDateString(
 "en-NG",
 {
 weekday:"long",
@@ -1333,72 +1398,43 @@ day:"numeric"
 let messages = [
 
 {
-  name:
-  "Aisha Musa",
-
-  email:
-  "aisha@example.com",
-
-  subject:
-  "How can I support the foundation?",
-
+  name:"Aisha Ibrahim",
+  email:"aisha@example.com",
+  subject:"How can I support the foundation?",
   message:
-  "Assalamu Alaikum. I would like to know how I can support the foundation and participate in your monthly charity programme.",
-
-  date:
-  "2026-08-27",
-
-  time:
-  "09:35",
-
-  read:
-  false
+  "Assalamu Alaikum. I would like to support the foundation and help with the monthly charity contribution. Please let me know how I can contribute and if there are other projects I can support.",
+  date:"2026-08-27 09:30",
+  status:"unread"
 },
 
 {
-  name:
-  "Abdullahi Ibrahim",
-
-  email:
-  "abdullahi@example.com",
-
-  subject:
-  "Donation Information",
-
+  name:"Muhammad Sani",
+  email:"muhammad@example.com",
+  subject:"Education Support",
   message:
-  "Please send me more information about your donation programmes and the areas where the foundation currently needs support.",
-
-  date:
-  "2026-08-26",
-
-  time:
-  "14:20",
-
-  read:
-  true
+  "Hello Fisabilillahi Charity Foundation. I would like to know more about your education support programme for orphans and children from poor families. May Allah reward you for your work.",
+  date:"2026-08-26 17:45",
+  status:"unread"
 },
 
 {
-  name:
-  "Maryam Sani",
-
-  email:
-  "maryam@example.com",
-
-  subject:
-  "Education Project",
-
+  name:"Abdullahi Musa",
+  email:"abdullahi@example.com",
+  subject:"Volunteer Opportunity",
   message:
-  "I am interested in the education support project. Kindly let me know how I can sponsor a child or contribute educational materials.",
+  "I am interested in volunteering with the foundation. Please send me information about how I can register as a volunteer and the kind of activities volunteers participate in.",
+  date:"2026-08-25 14:20",
+  status:"replied"
+},
 
-  date:
-  "2026-08-25",
-
-  time:
-  "11:10",
-
-  read:
-  true
+{
+  name:"Fatima Yusuf",
+  email:"fatima@example.com",
+  subject:"Thank You",
+  message:
+  "Jazakallahu Khairan for the work you are doing in helping people in need. May Allah continue to bless the foundation and everyone supporting it.",
+  date:"2026-08-24 10:15",
+  status:"read"
 }
 
 ];
@@ -1406,12 +1442,12 @@ let messages = [
 
 
 /* =========================================================
-   RENDER
+   RENDER MESSAGES
 ========================================================= */
 
 function renderMessages(list){
 
-const container =
+const messageList =
 document.getElementById(
 "messageList"
 );
@@ -1422,7 +1458,7 @@ document.getElementById(
 );
 
 
-container.innerHTML = "";
+messageList.innerHTML = "";
 
 
 if(list.length === 0){
@@ -1430,12 +1466,13 @@ if(list.length === 0){
 empty.style.display =
 "block";
 
-}else{
+return;
+
+}
+
 
 empty.style.display =
 "none";
-
-}
 
 
 list.forEach(function(item){
@@ -1444,30 +1481,32 @@ const index =
 messages.indexOf(item);
 
 
-const row =
+const article =
 document.createElement(
-"div"
-);
-
-row.className =
-"message-row" +
-
-(
-item.read
-? ""
-: " unread"
+"article"
 );
 
 
-row.onclick =
-function(){
+article.className =
+"message-item " +
+(item.status === "unread"
+? "unread"
+: "");
 
-openMessage(index);
 
-};
+const badgeText =
+item.status === "unread"
+? "Unread"
+: item.status === "replied"
+? "Replied"
+: "Read";
 
 
-row.innerHTML = `
+const badgeClass =
+item.status;
+
+
+article.innerHTML = `
 
 <div class="message-avatar">
 
@@ -1476,9 +1515,14 @@ ${initials(item.name)}
 </div>
 
 
-<div class="sender">
+<div class="message-content">
 
-<div class="sender-name">
+
+<div class="message-top">
+
+<div>
+
+<div class="sender">
 
 ${escapeHTML(item.name)}
 
@@ -1493,7 +1537,14 @@ ${escapeHTML(item.email)}
 </div>
 
 
-<div class="message-content">
+<div class="message-date">
+
+${escapeHTML(item.date)}
+
+</div>
+
+</div>
+
 
 <div class="subject">
 
@@ -1501,60 +1552,78 @@ ${escapeHTML(item.subject)}
 
 </div>
 
+
 <div class="message-preview">
 
 ${escapeHTML(item.message)}
 
 </div>
 
-</div>
+
+<div class="message-bottom">
 
 
-<div class="message-date">
+<div class="badges">
 
-${escapeHTML(item.date)}
+<span class="badge ${badgeClass}">
 
-<br>
-
-<span style="font-size:8px;">
-
-${escapeHTML(item.time)}
+${badgeText}
 
 </span>
 
 </div>
 
 
-<div>
+<div class="message-actions">
 
-<span
-class="status ${
-item.read
-? "read"
-: "unread"
-}">
+<button
+class="action-btn"
+onclick="viewMessage(${index})"
+title="View message">
 
-${
-item.read
-? "READ"
-: "UNREAD"
-}
+👁
 
-</span>
+</button>
+
+
+<button
+class="action-btn"
+onclick="toggleRead(${index})"
+title="Mark read/unread">
+
+${item.status === "unread" ? "✓" : "●"}
+
+</button>
+
+
+<button
+class="action-btn delete"
+onclick="deleteMessage(${index})"
+title="Delete message">
+
+🗑
+
+</button>
+
+</div>
+
+
+</div>
+
 
 </div>
 
 `;
 
 
-container.appendChild(
-row
+messageList.appendChild(
+article
 );
 
 });
 
 
-updateSummary();
+updateStats();
 
 }
 
@@ -1604,82 +1673,75 @@ item.message
 ).toLowerCase();
 
 
-const matchesSearch =
+const searchMatch =
 searchable.includes(
 search
 );
 
 
-const matchesStatus =
+const statusMatch =
 
 status === "all"
 
 ||
 
-(
-status === "read"
-&&
-item.read
-)
-
-||
-
-(
-status === "unread"
-&&
-!item.read
-);
+item.status === status;
 
 
 return(
-matchesSearch &&
-matchesStatus
+searchMatch &&
+statusMatch
 );
 
 }
 );
 
 
-renderMessages(
-filtered
-);
+renderMessages(filtered);
 
 }
 
 
 
 /* =========================================================
-   SUMMARY
+   UPDATE STATS
 ========================================================= */
 
-function updateSummary(){
+function updateStats(){
 
 const total =
 messages.length;
 
 
 const unread =
+
 messages.filter(
-item => !item.read
+item =>
+item.status === "unread"
 ).length;
 
 
-const read =
+const replied =
+
 messages.filter(
-item => item.read
+item =>
+item.status === "replied"
 ).length;
 
 
 const todayString =
 new Date()
 .toISOString()
-.split("T")[0];
+.slice(0,10);
 
 
 const today =
+
 messages.filter(
 item =>
-item.date === todayString
+item.date.startsWith(
+todayString
+)
 ).length;
 
 
@@ -1696,9 +1758,9 @@ unread;
 
 
 document.getElementById(
-"readMessages"
+"repliedMessages"
 ).textContent =
-read;
+replied;
 
 
 document.getElementById(
@@ -1711,10 +1773,10 @@ today;
 
 
 /* =========================================================
-   OPEN MESSAGE
+   VIEW MESSAGE
 ========================================================= */
 
-function openMessage(index){
+function viewMessage(index){
 
 const item =
 messages[index];
@@ -1728,12 +1790,15 @@ return;
 
 
 /*
-  Automatically mark message as read
-  when admin opens it.
+  Automatically mark unread message
+  as read when administrator opens it.
 */
 
-item.read =
-true;
+if(item.status === "unread"){
+
+item.status = "read";
+
+}
 
 
 const detail =
@@ -1744,8 +1809,7 @@ document.getElementById(
 
 detail.innerHTML = `
 
-<div class="detail-top">
-
+<div class="detail-sender">
 
 <div class="detail-avatar">
 
@@ -1768,17 +1832,13 @@ ${escapeHTML(item.email)}
 
 </div>
 
-</div>
-
-
-<div class="detail-date">
+<div class="detail-meta">
 
 ${escapeHTML(item.date)}
-<br>
-${escapeHTML(item.time)}
 
 </div>
 
+</div>
 
 </div>
 
@@ -1797,52 +1857,45 @@ ${escapeHTML(item.message)}
 </div>
 
 
-<div class="detail-actions">
+<div class="reply-box">
 
+<label>
+REPLY MESSAGE
+</label>
+
+<textarea
+id="replyText"
+placeholder="Write a reply..."></textarea>
+
+
+<div class="reply-actions">
 
 <button
-class="detail-btn"
-onclick="replyToMessage(${index})">
+class="reply-btn"
+onclick="sendReply(${index})">
 
-✉️ Reply
+↩ Send Reply
 
 </button>
 
-
-<button
-class="detail-btn"
-onclick="toggleRead(${index})">
-
-${item.read
-? "Mark as Unread"
-: "Mark as Read"}
-
-</button>
-
-
-<button
-class="detail-btn delete"
-onclick="deleteMessage(${index})">
-
-🗑️ Delete
-
-</button>
-
+</div>
 
 </div>
 
 `;
 
 
-document.getElementById(
+document
+.getElementById(
 "messageModal"
-).classList.add(
+)
+.classList.add(
 "show"
 );
 
 
 renderMessages(
-getCurrentFilteredMessages()
+getFilteredMessages()
 );
 
 }
@@ -1853,13 +1906,68 @@ getCurrentFilteredMessages()
    CLOSE MESSAGE
 ========================================================= */
 
-function closeMessageModal(){
+function closeMessage(){
 
-document.getElementById(
+document
+.getElementById(
 "messageModal"
-).classList.remove(
+)
+.classList.remove(
 "show"
 );
+
+}
+
+
+
+/* =========================================================
+   SEND REPLY
+========================================================= */
+
+function sendReply(index){
+
+const item =
+messages[index];
+
+
+const reply =
+document
+.getElementById(
+"replyText"
+)
+.value
+.trim();
+
+
+if(!reply){
+
+alert(
+"Please write a reply before sending."
+);
+
+return;
+
+}
+
+
+/*
+  This is currently demo only.
+  It does not send a real email.
+*/
+
+item.status =
+"replied";
+
+
+alert(
+"Reply saved in the demo system. Real email sending will be connected later."
+);
+
+
+closeMessage();
+
+
+filterMessages();
 
 }
 
@@ -1871,25 +1979,38 @@ document.getElementById(
 
 function toggleRead(index){
 
-if(!messages[index]){
+const item =
+messages[index];
+
+
+if(!item){
 
 return;
 
 }
 
 
-messages[index].read =
-!messages[index].read;
+if(item.status === "unread"){
+
+item.status =
+"read";
+
+}else{
+
+item.status =
+"unread";
+
+}
 
 
-openMessage(index);
+filterMessages();
 
 }
 
 
 
 /* =========================================================
-   DELETE
+   DELETE MESSAGE
 ========================================================= */
 
 function deleteMessage(index){
@@ -1906,10 +2027,9 @@ return;
 
 
 const confirmed =
+
 confirm(
-
-"Delete this message from the temporary message list?"
-
+"Are you sure you want to delete this message?"
 );
 
 
@@ -1926,9 +2046,6 @@ index,
 );
 
 
-closeMessageModal();
-
-
 filterMessages();
 
 }
@@ -1936,110 +2053,10 @@ filterMessages();
 
 
 /* =========================================================
-   REPLY
+   GET CURRENT FILTERED LIST
 ========================================================= */
 
-function replyToMessage(index){
-
-const item =
-messages[index];
-
-
-if(!item){
-
-return;
-
-}
-
-
-/*
-  For now this opens the user's email
-  application.
-
-  Later this can be connected to a real
-  email service.
-*/
-
-window.location.href =
-
-"mailto:" +
-
-encodeURIComponent(
-item.email
-) +
-
-"?subject=" +
-
-encodeURIComponent(
-"Re: " + item.subject
-) +
-
-"&body=" +
-
-encodeURIComponent(
-"Assalamu Alaikum " +
-item.name +
-",\n\nThank you for contacting Fisabilillahi Charity Foundation.\n\n"
-);
-
-}
-
-
-
-/* =========================================================
-   SETTINGS
-========================================================= */
-
-function openSettings(event){
-
-event.preventDefault();
-
-alert(
-"Settings will be connected when the admin backend is enabled."
-);
-
-}
-
-
-
-/* =========================================================
-   LOGOUT
-========================================================= */
-
-function logoutAdmin(event){
-
-event.preventDefault();
-
-
-if(
-confirm(
-"Are you sure you want to logout?"
-)
-){
-
-localStorage.removeItem(
-"fisabilillahi_admin"
-);
-
-sessionStorage.removeItem(
-"fisabilillahi_admin"
-);
-
-
-window.location.href =
-"admin-login.html";
-
-}
-
-}
-
-
-
-/* =========================================================
-   FILTER STATE
-========================================================= */
-
-function getCurrentFilteredMessages(){
+function getFilteredMessages(){
 
 const search =
 
@@ -2077,40 +2094,112 @@ item.message
 ).toLowerCase();
 
 
-const matchesSearch =
-searchable.includes(
-search
-);
+return(
 
+searchable.includes(search)
 
-const matchesStatus =
+&&
 
+(
 status === "all"
 
 ||
 
-(
-status === "read"
-&&
-item.read
+item.status === status
 )
 
-||
-
-(
-status === "unread"
-&&
-!item.read
-);
-
-
-return(
-matchesSearch &&
-matchesStatus
 );
 
 }
 );
+
+}
+
+
+
+/* =========================================================
+   MODAL OUTSIDE CLICK
+========================================================= */
+
+document
+.getElementById(
+"messageModal"
+)
+.addEventListener(
+"click",
+function(event){
+
+if(event.target === this){
+
+closeMessage();
+
+}
+
+});
+
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Escape"){
+
+closeMessage();
+
+}
+
+});
+
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+function openSettings(event){
+
+event.preventDefault();
+
+alert(
+"Settings will be added later."
+);
+
+}
+
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+function logoutAdmin(event){
+
+event.preventDefault();
+
+
+if(
+confirm(
+"Are you sure you want to logout?"
+)
+){
+
+localStorage.removeItem(
+"fisabilillahi_admin"
+);
+
+sessionStorage.removeItem(
+"fisabilillahi_admin"
+);
+
+window.location.href =
+"admin-login.html";
+
+}
 
 }
 
@@ -2165,48 +2254,6 @@ return String(value)
 );
 
 }
-
-
-
-/* =========================================================
-   CLOSE MODAL OUTSIDE
-========================================================= */
-
-document
-.getElementById(
-"messageModal"
-)
-.addEventListener(
-"click",
-function(event){
-
-if(
-event.target === this
-){
-
-closeMessageModal();
-
-}
-
-});
-
-
-
-/* =========================================================
-   ESC KEY
-========================================================= */
-
-document.addEventListener(
-"keydown",
-function(event){
-
-if(event.key === "Escape"){
-
-closeMessageModal();
-
-}
-
-});
 
 
 

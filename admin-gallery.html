@@ -1,1 +1,899 @@
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Gallery | Fisabilillah Charity Foundation</title>
+
+<style>
+:root {
+  --green:#087a3d;
+  --dark:#04552b;
+  --gold:#d4af37;
+  --cream:#f5f8f6;
+  --white:#fff;
+  --text:#26332b;
+  --muted:#718078;
+  --border:#dfe7e2;
+  --red:#c62828;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--cream);
+  color:var(--text);
+}
+
+a { text-decoration:none; color:inherit; }
+button,input,select,textarea { font:inherit; }
+button { cursor:pointer; }
+
+.container { width:94%; max-width:1400px; margin:auto; }
+
+.header {
+  background:white;
+  border-bottom:3px solid var(--gold);
+  padding:15px 0;
+}
+
+.header-inner {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.brand {
+  color:var(--green);
+  font-size:18px;
+  font-weight:900;
+}
+
+.brand small {
+  display:block;
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:1px;
+}
+
+.header-links {
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.header-links a {
+  font-size:12px;
+  font-weight:bold;
+  padding:9px 12px;
+  border:1px solid var(--border);
+  border-radius:7px;
+}
+
+.layout {
+  display:grid;
+  grid-template-columns:230px 1fr;
+  min-height:calc(100vh - 65px);
+}
+
+.sidebar {
+  background:var(--dark);
+  color:white;
+  padding:25px 14px;
+}
+
+.sidebar-title {
+  color:#a6c5b4;
+  font-size:10px;
+  font-weight:bold;
+  letter-spacing:1px;
+  margin:12px 10px;
+}
+
+.side-link {
+  display:block;
+  padding:12px;
+  margin:4px 0;
+  border-radius:7px;
+  color:#d6e5dc;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.side-link:hover { background:rgba(255,255,255,.1); }
+
+.side-link.active {
+  background:var(--gold);
+  color:#17251c;
+}
+
+.logout { color:#ffbcbc; }
+
+.main {
+  padding:30px;
+  min-width:0;
+}
+
+.heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:22px;
+}
+
+.heading h1 {
+  color:var(--dark);
+  font-size:29px;
+}
+
+.heading p {
+  color:var(--muted);
+  font-size:12px;
+  margin-top:5px;
+}
+
+.date {
+  background:white;
+  border:1px solid var(--border);
+  padding:9px 12px;
+  border-radius:7px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.summary {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:22px;
+}
+
+.summary-card {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:20px;
+}
+
+.summary-card small {
+  color:var(--muted);
+  font-size:10px;
+  font-weight:bold;
+}
+
+.summary-card strong {
+  display:block;
+  color:var(--green);
+  font-size:27px;
+  margin-top:7px;
+}
+
+.card {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.toolbar {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  padding:17px;
+  border-bottom:1px solid var(--border);
+}
+
+.toolbar input,
+.toolbar select {
+  height:42px;
+  padding:0 12px;
+  border:1px solid var(--border);
+  border-radius:7px;
+  background:white;
+  font-size:12px;
+}
+
+.toolbar input { flex:1; min-width:180px; }
+
+.add-btn {
+  background:var(--green);
+  color:white;
+  border:0;
+  border-radius:7px;
+  padding:0 17px;
+  min-height:42px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.add-btn:hover { background:var(--dark); }
+
+.gallery-grid {
+  padding:18px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:17px;
+}
+
+.gallery-item {
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+  background:white;
+}
+
+.gallery-item img {
+  display:block;
+  width:100%;
+  height:185px;
+  object-fit:cover;
+  background:#e7eee8;
+  cursor:pointer;
+}
+
+.gallery-body { padding:13px; }
+
+.gallery-body h3 {
+  color:var(--dark);
+  font-size:13px;
+  margin-bottom:6px;
+}
+
+.gallery-body p {
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.5;
+  min-height:30px;
+}
+
+.tag {
+  display:inline-block;
+  background:#eaf5ed;
+  color:var(--green);
+  border-radius:20px;
+  padding:5px 9px;
+  font-size:9px;
+  font-weight:bold;
+  margin-top:8px;
+}
+
+.actions {
+  display:flex;
+  gap:7px;
+  margin-top:12px;
+}
+
+.action-btn {
+  flex:1;
+  border:1px solid var(--border);
+  background:white;
+  color:var(--green);
+  padding:8px 5px;
+  border-radius:6px;
+  font-size:10px;
+  font-weight:bold;
+}
+
+.action-btn.delete { color:var(--red); }
+
+.empty {
+  display:none;
+  padding:45px 15px;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.note {
+  margin-top:17px;
+  padding:13px;
+  background:#fff9e8;
+  border:1px solid #eadba9;
+  border-radius:8px;
+  color:#725c1c;
+  font-size:11px;
+  line-height:1.6;
+}
+
+/* MODAL */
+.modal {
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:1000;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+
+.modal.show { display:flex; }
+
+.modal-box {
+  width:100%;
+  max-width:550px;
+  max-height:90vh;
+  overflow:auto;
+  background:white;
+  border-radius:12px;
+}
+
+.modal-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:17px;
+  border-bottom:1px solid var(--border);
+}
+
+.modal-head h2 { color:var(--dark); font-size:18px; }
+
+.close {
+  border:0;
+  background:#eee;
+  border-radius:50%;
+  width:32px;
+  height:32px;
+  font-size:19px;
+}
+
+.modal-body { padding:18px; }
+
+.form-group { margin-bottom:14px; }
+
+.form-group label {
+  display:block;
+  color:var(--dark);
+  font-size:10px;
+  font-weight:bold;
+  margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width:100%;
+  padding:11px;
+  border:1px solid var(--border);
+  border-radius:7px;
+  background:#fbfdfb;
+  font-size:12px;
+}
+
+.form-group textarea {
+  min-height:85px;
+  resize:vertical;
+}
+
+.preview {
+  display:none;
+  width:100%;
+  height:160px;
+  margin-top:10px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.save-btn {
+  width:100%;
+  height:44px;
+  border:0;
+  border-radius:7px;
+  background:var(--green);
+  color:white;
+  font-weight:bold;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:rgba(0,0,0,.92);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.lightbox.show { display:flex; }
+
+.lightbox img {
+  max-width:95%;
+  max-height:85vh;
+  object-fit:contain;
+}
+
+.lightbox button {
+  position:absolute;
+  top:15px;
+  right:20px;
+  border:0;
+  background:transparent;
+  color:white;
+  font-size:35px;
+}
+
+@media(max-width:1000px) {
+  .layout { grid-template-columns:1fr; }
+  .sidebar { display:none; }
+  .main { padding:22px 3%; }
+}
+
+@media(max-width:750px) {
+  .gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+
+@media(max-width:550px) {
+  .summary { grid-template-columns:1fr; }
+  .gallery-grid { grid-template-columns:1fr; }
+  .heading h1 { font-size:24px; }
+  .header-inner { align-items:flex-start; flex-direction:column; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="admin.html" class="brand">
+      Fisabilillah Charity Foundation
+      <small>ADMINISTRATION PANEL</small>
+    </a>
+
+    <div class="header-links">
+      <a href="gallery.html">↗ Public Gallery</a>
+      <a href="index.html">Website</a>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-title">MAIN MENU</div>
+    <a href="admin.html" class="side-link">📊 Dashboard</a>
+    <a href="donations.html" class="side-link">💰 Donations</a>
+    <a href="members.html" class="side-link">👥 Members</a>
+    <a href="messages.html" class="side-link">💬 Messages</a>
+
+    <div class="sidebar-title">CONTENT</div>
+    <a href="projects.html" class="side-link">📁 Projects</a>
+    <a href="admin-gallery.html" class="side-link active">🖼️ Gallery</a>
+    <a href="settings.html" class="side-link">⚙️ Settings</a>
+
+    <div class="sidebar-title" style="margin-top:25px;">OTHER</div>
+    <a href="gallery.html" class="side-link">🌐 Public Gallery</a>
+    <a href="index.html" class="side-link">🏠 Visit Website</a>
+    <a href="#" class="side-link logout" onclick="logoutAdmin(event)">🚪 Logout</a>
+  </aside>
+
+  <main class="main">
+
+    <div class="heading">
+      <div>
+        <h1>Gallery Management</h1>
+        <p>Manage photographs and memories from foundation activities.</p>
+      </div>
+      <div class="date" id="currentDate"></div>
+    </div>
+
+    <section class="summary">
+      <div class="summary-card">
+        <small>TOTAL PHOTOS</small>
+        <strong id="totalPhotos">0</strong>
+      </div>
+      <div class="summary-card">
+        <small>CATEGORIES</small>
+        <strong id="totalCategories">0</strong>
+      </div>
+      <div class="summary-card">
+        <small>THIS MONTH</small>
+        <strong id="thisMonth">0</strong>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="toolbar">
+        <input type="search" id="searchInput" placeholder="Search photos...">
+
+        <select id="categoryFilter">
+          <option value="all">All Categories</option>
+          <option value="education">Education</option>
+          <option value="food">Food Support</option>
+          <option value="health">Healthcare</option>
+          <option value="business">Business Empowerment</option>
+          <option value="orphan">Orphan Support</option>
+          <option value="humanitarian">Humanitarian</option>
+          <option value="documentation">Documentation</option>
+        </select>
+
+        <button class="add-btn" onclick="openModal()">+ Add Photo</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid"></div>
+      <div class="empty" id="emptyState">No photos found.</div>
+    </section>
+
+    <div class="note">
+      <strong>Important:</strong> This version uses browser storage for changes.
+      Added, edited or deleted photos are not automatically published to the
+      public Gallery or shared across other devices. We will connect both
+      pages to permanent shared storage when the backend is ready.
+    </div>
+
+  </main>
+</div>
+
+<!-- ADD / EDIT MODAL -->
+<div class="modal" id="photoModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2 id="modalTitle">Add Photo</h2>
+      <button class="close" onclick="closeModal()">×</button>
+    </div>
+
+    <div class="modal-body">
+      <form id="photoForm">
+        <input type="hidden" id="editingId">
+
+        <div class="form-group">
+          <label for="photoTitle">Photo Title</label>
+          <input id="photoTitle" required placeholder="Enter photo title">
+        </div>
+
+        <div class="form-group">
+          <label for="photoCategory">Category</label>
+          <select id="photoCategory" required>
+            <option value="education">Education</option>
+            <option value="food">Food Support</option>
+            <option value="health">Healthcare</option>
+            <option value="business">Business Empowerment</option>
+            <option value="orphan">Orphan Support</option>
+            <option value="humanitarian">Humanitarian</option>
+            <option value="documentation">Documentation</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="photoDate">Photo Date</label>
+          <input type="date" id="photoDate" required>
+        </div>
+
+        <div class="form-group">
+          <label for="photoFile">Choose Photo</label>
+          <input type="file" id="photoFile" accept="image/*">
+          <img class="preview" id="previewImage" alt="Photo preview">
+          <small style="color:#718078;font-size:10px;">
+            Choose an image. Existing photos can be edited without selecting a new image.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="photoDescription">Description</label>
+          <textarea id="photoDescription" required placeholder="Write a short description"></textarea>
+        </div>
+
+        <button type="submit" class="save-btn">Save Photo</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button onclick="closeLightbox()">×</button>
+  <img id="lightboxImage" src="" alt="Gallery photograph">
+</div>
+
+<script>
+/* LOGIN CHECK */
+const adminLoggedIn =
+  localStorage.getItem("fisabilillahi_admin") ||
+  sessionStorage.getItem("fisabilillahi_admin");
+
+if (!adminLoggedIn) {
+  window.location.replace("admin-login.html");
+}
+
+/* ORIGINAL WEBSITE PHOTOS */
+const originalPhotos = [
+  ["IMG-20251225-WA0008.jpg","Foundation Activity","humanitarian","2025-12-25"],
+  ["IMG-20251227-WA0011(1).jpg","Foundation Activity","humanitarian","2025-12-27"],
+  ["IMG-20260125-WA0018(1).jpg","Foundation Activity","humanitarian","2026-01-25"],
+  ["IMG-20260304-WA0054(2).jpg","Foundation Activity","humanitarian","2026-03-04"],
+  ["IMG-20260304-WA0056(2).jpg","Foundation Activity","humanitarian","2026-03-04"],
+  ["IMG-20260304-WA0059(1).jpg","Foundation Activity","humanitarian","2026-03-04"],
+  ["IMG-20260304-WA0063(1).jpg","Foundation Activity","humanitarian","2026-03-04"],
+  ["IMG-20260722-WA0007.jpg","Foundation Activity","humanitarian","2026-07-22"],
+  ["Screenshot_2026-07-28-01-14-59-540_com.whatsapp.jpg","Foundation Documentation","documentation","2026-07-28"],
+  ["Screenshot_2026-07-28-01-15-18-028_com.whatsapp.jpg","Foundation Documentation","documentation","2026-07-28"],
+  ["Screenshot_2026-07-28-01-15-54-155_com.whatsapp.jpg","Foundation Documentation","documentation","2026-07-28"]
+];
+
+const STORAGE_KEY = "fisabilillah_admin_gallery_v1";
+const imageFolder = "assets/images/gallery/";
+
+function loadPhotos() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) return JSON.parse(saved);
+  } catch (error) {
+    console.error("Could not read saved gallery:", error);
+  }
+
+  return originalPhotos.map((item,index) => ({
+    id: "original-" + index,
+    title: item[1],
+    category: item[2],
+    date: item[3],
+    description: "A photograph from the foundation's records and activities.",
+    image: imageFolder + encodeURIComponent(item[0]),
+    original: true
+  }));
+}
+
+let photos = loadPhotos();
+
+function savePhotos() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(photos));
+    return true;
+  } catch (error) {
+    alert("Browser storage is full. Try using a smaller image.");
+    return false;
+  }
+}
+
+function categoryName(value) {
+  const names = {
+    education:"Education",
+    food:"Food Support",
+    health:"Healthcare",
+    business:"Business Empowerment",
+    orphan:"Orphan Support",
+    humanitarian:"Humanitarian",
+    documentation:"Documentation"
+  };
+  return names[value] || value;
+}
+
+function renderGallery() {
+  const search = document.getElementById("searchInput").value.toLowerCase();
+  const category = document.getElementById("categoryFilter").value;
+  const grid = document.getElementById("galleryGrid");
+
+  const filtered = photos.filter(photo => {
+    const matchesSearch =
+      photo.title.toLowerCase().includes(search) ||
+      photo.description.toLowerCase().includes(search);
+
+    const matchesCategory =
+      category === "all" || photo.category === category;
+
+    return matchesSearch && matchesCategory;
+  });
+
+  grid.innerHTML = "";
+
+  filtered.forEach(photo => {
+    const item = document.createElement("article");
+    item.className = "gallery-item";
+
+    const img = document.createElement("img");
+    img.src = photo.image;
+    img.alt = photo.title;
+    img.loading = "lazy";
+    img.onclick = () => openLightbox(photo.image);
+
+    const body = document.createElement("div");
+    body.className = "gallery-body";
+
+    const title = document.createElement("h3");
+    title.textContent = photo.title;
+
+    const description = document.createElement("p");
+    description.textContent = photo.description;
+
+    const tag = document.createElement("span");
+    tag.className = "tag";
+    tag.textContent = categoryName(photo.category);
+
+    const actions = document.createElement("div");
+    actions.className = "actions";
+
+    const edit = document.createElement("button");
+    edit.className = "action-btn";
+    edit.textContent = "Edit";
+    edit.onclick = () => editPhoto(photo.id);
+
+    const remove = document.createElement("button");
+    remove.className = "action-btn delete";
+    remove.textContent = "Delete";
+    remove.onclick = () => deletePhoto(photo.id);
+
+    actions.append(edit,remove);
+    body.append(title,description,tag,actions);
+    item.append(img,body);
+    grid.appendChild(item);
+  });
+
+  document.getElementById("emptyState").style.display =
+    filtered.length ? "none" : "block";
+
+  updateSummary();
+}
+
+function updateSummary() {
+  document.getElementById("totalPhotos").textContent = photos.length;
+
+  document.getElementById("totalCategories").textContent =
+    new Set(photos.map(photo => photo.category)).size;
+
+  const month = new Date().toISOString().slice(0,7);
+
+  document.getElementById("thisMonth").textContent =
+    photos.filter(photo => photo.date.startsWith(month)).length;
+}
+
+function openModal(photo = null) {
+  document.getElementById("photoForm").reset();
+  document.getElementById("editingId").value = "";
+  document.getElementById("previewImage").style.display = "none";
+
+  document.getElementById("modalTitle").textContent =
+    photo ? "Edit Photo" : "Add Photo";
+
+  if (photo) {
+    document.getElementById("editingId").value = photo.id;
+    document.getElementById("photoTitle").value = photo.title;
+    document.getElementById("photoCategory").value = photo.category;
+    document.getElementById("photoDate").value = photo.date;
+    document.getElementById("photoDescription").value = photo.description;
+
+    const preview = document.getElementById("previewImage");
+    preview.src = photo.image;
+    preview.style.display = "block";
+  } else {
+    document.getElementById("photoDate").value =
+      new Date().toISOString().slice(0,10);
+  }
+
+  document.getElementById("photoModal").classList.add("show");
+}
+
+function closeModal() {
+  document.getElementById("photoModal").classList.remove("show");
+}
+
+function editPhoto(id) {
+  const photo = photos.find(item => item.id === id);
+  if (photo) openModal(photo);
+}
+
+function deletePhoto(id) {
+  if (!confirm("Are you sure you want to delete this photo from this browser's gallery?")) return;
+
+  photos = photos.filter(photo => photo.id !== id);
+
+  if (savePhotos()) renderGallery();
+}
+
+document.getElementById("photoFile").addEventListener("change", function() {
+  const file = this.files[0];
+  if (!file) return;
+
+  const preview = document.getElementById("previewImage");
+  const reader = new FileReader();
+
+  reader.onload = event => {
+    preview.src = event.target.result;
+    preview.style.display = "block";
+  };
+
+  reader.readAsDataURL(file);
+});
+
+document.getElementById("photoForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const id = document.getElementById("editingId").value;
+  const file = document.getElementById("photoFile").files[0];
+
+  const existing = photos.find(photo => photo.id === id);
+
+  const title = document.getElementById("photoTitle").value.trim();
+  const category = document.getElementById("photoCategory").value;
+  const date = document.getElementById("photoDate").value;
+  const description = document.getElementById("photoDescription").value.trim();
+
+  function finishSave(image) {
+    const record = {
+      id: id || ("new-" + Date.now()),
+      title,
+      category,
+      date,
+      description,
+      image,
+      original: false
+    };
+
+    if (existing) {
+      photos = photos.map(photo => photo.id === id ? record : photo);
+    } else {
+      photos.unshift(record);
+    }
+
+    if (savePhotos()) {
+      closeModal();
+      renderGallery();
+      alert("Photo saved in this browser.");
+    }
+  }
+
+  if (file) {
+    if (!file.type.startsWith("image/")) {
+      alert("Please select an image file.");
+      return;
+    }
+
+    if (file.size > 1200000) {
+      alert("Please choose an image smaller than 1.2 MB to avoid filling browser storage.");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = event => finishSave(event.target.result);
+    reader.readAsDataURL(file);
+  } else if (existing) {
+    finishSave(existing.image);
+  } else {
+    alert("Please choose a photo.");
+  }
+});
+
+function openLightbox(image) {
+  document.getElementById("lightboxImage").src = image;
+  document.getElementById("lightbox").classList.add("show");
+}
+
+function closeLightbox(event) {
+  if (!event || event.target.id === "lightbox" || event.target.tagName === "BUTTON") {
+    document.getElementById("lightbox").classList.remove("show");
+    document.getElementById("lightboxImage").src = "";
+  }
+}
+
+function logoutAdmin(event) {
+  event.preventDefault();
+  localStorage.removeItem("fisabilillahi_admin");
+  sessionStorage.removeItem("fisabilillahi_admin");
+  window.location.href = "admin-login.html";
+}
+
+document.getElementById("searchInput").addEventListener("input",renderGallery);
+document.getElementById("categoryFilter").addEventListener("change",renderGallery);
+
+document.getElementById("currentDate").textContent =
+  new Date().toLocaleDateString("en-NG", {
+    day:"numeric",month:"long",year:"numeric"
+  });
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    document.getElementById("lightbox").classList.remove("show");
+  }
+});
+
+renderGallery();
+</script>
+
+</body>
+</html>
